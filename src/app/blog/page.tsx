@@ -98,7 +98,7 @@ export default async function BlogPage() {
                 Stay Tuned for Updates!
               </h2>
               <p className='text-gray-600 text-lg mb-8'>
-                We're working on bringing you the latest real estate insights
+                We&apos;re working on bringing you the latest real estate insights
                 from across Las Vegas.
               </p>
               <div className='bg-amber-50 border border-amber-200 rounded-lg p-6'>

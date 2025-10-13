@@ -140,7 +140,7 @@ export default function NorthLasVegasPage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
             your perfect home in North Las Vegas. With expertise in new construction 
-            and investment properties, I'll help you make the right choice.
+            and investment properties, I&apos;ll help you make the right choice.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

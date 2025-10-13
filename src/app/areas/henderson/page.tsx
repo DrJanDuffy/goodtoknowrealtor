@@ -24,7 +24,7 @@ export default function HendersonPage() {
               Henderson Real Estate
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Discover family-friendly living in Henderson, Nevada's second-largest city
+              Discover family-friendly living in Henderson, Nevada&apos;s second-largest city
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -54,7 +54,7 @@ export default function HendersonPage() {
               </h2>
               <p className="text-lg text-gray-600 mb-6">
                 Henderson offers the perfect blend of suburban tranquility and urban convenience. 
-                As Nevada's second-largest city, it provides excellent schools, beautiful parks, 
+                As Nevada&apos;s second-largest city, it provides excellent schools, beautiful parks, 
                 and a strong sense of community. As the Premier Good To Know REALTOR®, I help 
                 families and investors find their ideal properties in this thriving city.
               </p>

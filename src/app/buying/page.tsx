@@ -28,7 +28,7 @@ export default function BuyingPage() {
               Your Home Buying Journey
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              From first-time buyers to seasoned investors, I'll guide you
+              From first-time buyers to seasoned investors, I&apos;ll guide you
               through every step of the home buying process
             </p>
           </div>
@@ -44,7 +44,7 @@ export default function BuyingPage() {
               </h3>
               <p className='text-gray-600'>
                 Get pre-approved for a mortgage to understand your budget and
-                show sellers you're serious.
+                show sellers you&apos;re serious.
               </p>
             </div>
 
@@ -57,7 +57,7 @@ export default function BuyingPage() {
                 Property Search
               </h3>
               <p className='text-gray-600'>
-                I'll help you find homes that match your criteria, budget, and
+                I&apos;ll help you find homes that match your criteria, budget, and
                 lifestyle needs.
               </p>
             </div>
