@@ -54,7 +54,7 @@ export default function SellerGuidePage() {
 
                 {/* Step 2 */}
                 <div className="border-l-4 border-blue-600 pl-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">2. Determine Your Home's Value</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">2. Determine Your Home&apos;s Value</h3>
                   <p className="text-gray-600 mb-4">
                     Pricing your home correctly is crucial. Too high and it won&apos;t sell; 
                     too low and you&apos;ll lose money.
@@ -105,7 +105,7 @@ export default function SellerGuidePage() {
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Consider offer price, contingencies, and closing timeline</li>
-                    <li>Evaluate buyer's financial qualifications</li>
+                    <li>Evaluate buyer&apos;s financial qualifications</li>
                     <li>Negotiate terms that work for both parties</li>
                     <li>Don&apos;t just focus on price - consider all terms</li>
                   </ul>

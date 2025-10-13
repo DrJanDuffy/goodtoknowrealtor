@@ -140,7 +140,7 @@ export default function SummerlinPage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
             your perfect home in Summerlin. With 15+ years of experience and deep 
-            knowledge of the Las Vegas market, I'll guide you every step of the way.
+            knowledge of the Las Vegas market, I&apos;ll guide you every step of the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

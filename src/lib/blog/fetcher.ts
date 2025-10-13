@@ -854,12 +854,12 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
     // Try WordPress API first
     return await fetchWordPressPosts();
-  } catch (error) {
+  } catch {
     // WordPress API failed, falling back to scraping
     try {
       // Fall back to scraping
       return await fetchPostsViaScraping();
-    } catch (scrapingError) {
+    } catch {
       // Both WordPress API and scraping failed
       // Return sample blog posts for demonstration
       return generateSampleBlogPosts();
