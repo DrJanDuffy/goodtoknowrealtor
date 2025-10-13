@@ -62,7 +62,7 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
     
     const posts: BlogPost[] = [];
     
-    // Try multiple selectors to find blog posts
+    // Try multiple selectors to find blog posts (including BHHS-specific selectors)
     const selectors = [
       '.blog-post',
       '.post-item',
@@ -70,6 +70,13 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
       '[data-post-id]',
       '.entry',
       '.post',
+      '.cmp-text',
+      '.aem-GridColumn',
+      '.responsivegrid',
+      '.content',
+      '.blog-content',
+      '.post-content',
+      '.article-content',
     ];
 
     let foundPosts = false;
@@ -112,6 +119,8 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
             excerpt: title,
             date: new Date().toISOString(),
             author: 'BHHS California Properties',
+            image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
+            imageAlt: title,
             originalUrl: url.startsWith('http') ? url : new URL(url, BLOG_CONFIG.sourceUrl).toString(),
             categories: [],
             tags: [],
@@ -151,9 +160,21 @@ function parseScrapedPost($: cheerio.CheerioAPI, element: cheerio.Element): Blog
   // Extract excerpt
   const excerpt = $el.find('.excerpt, .post-excerpt, p').first().text().trim();
 
-  // Extract image
+  // Enhanced image extraction with multiple fallbacks
   const img = $el.find('img').first();
-  const image = img.attr('src') || img.attr('data-src');
+  let image = img.attr('src') || img.attr('data-src') || img.attr('data-lazy-src') || img.attr('data-original');
+  
+  // If no image found, try to find images in parent containers
+  if (!image) {
+    const parentImg = $el.parent().find('img').first();
+    image = parentImg.attr('src') || parentImg.attr('data-src') || parentImg.attr('data-lazy-src');
+  }
+  
+  // If still no image, use a default real estate image
+  if (!image) {
+    image = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80';
+  }
+  
   const imageAlt = img.attr('alt') || title;
 
   // Extract author
@@ -270,7 +291,7 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Las Vegas real estate market shows strong performance in January 2025 with balanced conditions favoring both buyers and sellers.',
       date: '2025-01-15T10:00:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
       imageAlt: 'Las Vegas skyline with modern homes',
       originalUrl: 'https://www.bhhscp.com/blog/las-vegas-real-estate-market-update-january-2025',
       categories: ['Market Updates', 'Las Vegas'],
@@ -319,7 +340,7 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Complete guide for first-time home buyers in Las Vegas, covering everything from financial preparation to available assistance programs.',
       date: '2025-01-12T14:30:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80',
+      image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       imageAlt: 'Happy couple holding house keys',
       originalUrl: 'https://www.bhhscp.com/blog/first-time-home-buyer-guide-everything-you-need-to-know',
       categories: ['Buying Tips', 'First-Time Buyers'],
@@ -371,7 +392,7 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Five essential tips for selling your Las Vegas home to achieve maximum value and a quick sale in today\'s competitive market.',
       date: '2025-01-10T09:15:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
       imageAlt: 'Beautiful Las Vegas home for sale',
       originalUrl: 'https://www.bhhscp.com/blog/selling-your-las-vegas-home-5-tips-for-maximum-value',
       categories: ['Selling Tips', 'Market Strategy'],
@@ -429,7 +450,7 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Explore Summerlin, Las Vegas\'s premier master-planned community, featuring top-rated amenities, excellent schools, and diverse housing options.',
       date: '2025-01-08T16:45:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80',
       imageAlt: 'Summerlin neighborhood with beautiful homes and mountain views',
       originalUrl: 'https://www.bhhscp.com/blog/las-vegas-neighborhood-spotlight-summerlin',
       categories: ['Neighborhoods', 'Las Vegas'],
@@ -498,7 +519,7 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Discover why Las Vegas is a prime market for real estate investment, featuring strong fundamentals, diverse opportunities, and growing potential.',
       date: '2025-01-05T11:20:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
       imageAlt: 'Las Vegas investment properties and skyline',
       originalUrl: 'https://www.bhhscp.com/blog/investment-opportunities-in-las-vegas-real-estate',
       categories: ['Investment', 'Market Analysis'],
