@@ -139,9 +139,11 @@ export default function BuyingPage() {
             {/* Finance Information */}
             <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <img
+                <Image
                   src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
                   alt='Money'
+                  width={32}
+                  height={32}
                   className='w-8 h-8'
                 />
               </div>
@@ -182,9 +184,11 @@ export default function BuyingPage() {
             {/* Real Estate Updates */}
             <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <img
+                <Image
                   src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
                   alt='Analytics'
+                  width={32}
+                  height={32}
                   className='w-8 h-8'
                 />
               </div>
@@ -303,9 +307,11 @@ export default function BuyingPage() {
             {/* First-Time Buyers */}
             <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <img
+                <Image
                   src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
                   alt='Home'
+                  width={32}
+                  height={32}
                   className='w-8 h-8'
                 />
               </div>
@@ -354,7 +360,7 @@ export default function BuyingPage() {
               Popular Las Vegas Neighborhoods
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              Discover the unique character and amenities of Las Vegas's most
+              Discover the unique character and amenities of Las Vegas&apos;s most
               desirable neighborhoods
             </p>
           </div>
@@ -471,9 +477,11 @@ export default function BuyingPage() {
               href='tel:702-222-1964'
               className='bg-white text-amber-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
             >
-              <img
+              <Image
                 src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
                 alt='Phone'
+                width={24}
+                height={24}
                 className='inline-block w-6 h-6 mr-2'
               />{' '}
               Call (702) 222-1964
