@@ -3,18 +3,6 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "build": {
-    "env": {
-      "BLOG_SOURCE_URL": "@blog_source_url",
-      "WORDPRESS_API_URL": "@wordpress_api_url",
-      "REVALIDATE_SECRET": "@revalidate_secret"
-    }
-  },
-  "env": {
-    "BLOG_SOURCE_URL": "@blog_source_url",
-    "WORDPRESS_API_URL": "@wordpress_api_url",
-    "REVALIDATE_SECRET": "@revalidate_secret"
-  },
   "crons": [
     {
       "path": "/api/blog/sync",
