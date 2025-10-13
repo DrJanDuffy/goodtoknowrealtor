@@ -41,8 +41,8 @@ export default function BuyerGuidePage() {
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">1. Get Pre-Approved for a Mortgage</h3>
                   <p className="text-gray-600 mb-4">
-                    Before you start looking at homes, it's crucial to get pre-approved for a mortgage. 
-                    This will help you understand your budget and show sellers that you're a serious buyer.
+                    Before you start looking at homes, it&apos;s crucial to get pre-approved for a mortgage. 
+                    This will help you understand your budget and show sellers that you&apos;re a serious buyer.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Check your credit score and improve if necessary</li>
@@ -62,7 +62,7 @@ export default function BuyerGuidePage() {
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Look for agents with local market expertise</li>
                     <li>Check reviews and testimonials from past clients</li>
-                    <li>Ensure they're licensed and experienced</li>
+                    <li>Ensure they&apos;re licensed and experienced</li>
                     <li>Choose someone who communicates well and understands your needs</li>
                   </ul>
                 </div>
@@ -71,14 +71,14 @@ export default function BuyerGuidePage() {
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">3. Start House Hunting</h3>
                   <p className="text-gray-600 mb-4">
-                    With your budget and agent in place, it's time to start looking at homes. 
+                    With your budget and agent in place, it&apos;s time to start looking at homes. 
                     Be prepared to view multiple properties before finding the right one.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Make a list of must-have features vs. nice-to-have features</li>
                     <li>Consider location, schools, commute times, and neighborhood amenities</li>
                     <li>Take notes and photos during home tours</li>
-                    <li>Don't rush the decision - this is a major investment</li>
+                    <li>Don&apos;t rush the decision - this is a major investment</li>
                   </ul>
                 </div>
 
@@ -90,7 +90,7 @@ export default function BuyerGuidePage() {
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Research comparable sales in the area</li>
-                    <li>Consider market conditions (buyer's vs. seller's market)</li>
+                    <li>Consider market conditions (buyer&apos;s vs. seller&apos;s market)</li>
                     <li>Include contingencies for inspection and financing</li>
                     <li>Be prepared for negotiations</li>
                   </ul>
@@ -129,13 +129,13 @@ export default function BuyerGuidePage() {
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">7. Closing Day</h3>
                   <p className="text-gray-600 mb-4">
-                    The final step is closing day, where you'll sign all the paperwork and 
+                    The final step is closing day, where you&apos;ll sign all the paperwork and 
                     officially become a homeowner.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Review all closing documents before signing</li>
                     <li>Bring a valid ID and any required documentation</li>
-                    <li>Bring a cashier's check for closing costs</li>
+                    <li>Bring a cashier&apos;s check for closing costs</li>
                     <li>Do a final walkthrough of the property</li>
                   </ul>
                 </div>
@@ -154,7 +154,7 @@ export default function BuyerGuidePage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, guide you through 
             your first home purchase. With 15+ years of experience helping first-time 
-            buyers, I'll make the process smooth and stress-free.
+            buyers, I&apos;ll make the process smooth and stress-free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

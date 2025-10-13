@@ -147,7 +147,7 @@ export default function SellingPage() {
                 Home Value Report
               </h3>
               <p className='text-gray-600 mb-6'>
-                Get a comprehensive analysis of your home's current market value
+                Get a comprehensive analysis of your home&apos;s current market value
                 and selling potential.
               </p>
               <ul className='space-y-2 text-gray-600 mb-6'>
@@ -225,7 +225,7 @@ export default function SellingPage() {
                 Professional Photography
               </h3>
               <p className='text-gray-600 mb-6'>
-                High-quality photos and virtual tours that showcase your home's
+                High-quality photos and virtual tours that showcase your home&apos;s
                 best features.
               </p>
               <ul className='space-y-2 text-gray-600 mb-6'>
@@ -371,7 +371,7 @@ export default function SellingPage() {
             <div className='text-center bg-gray-50 rounded-2xl p-8'>
               <div className='text-3xl font-bold text-amber-600 mb-2'>2.1</div>
               <p className='text-gray-600'>Months Supply</p>
-              <p className='text-sm text-orange-600 mt-2'>Seller's market</p>
+              <p className='text-sm text-orange-600 mt-2'>Seller&apos;s market</p>
             </div>
 
             <div className='text-center bg-gray-50 rounded-2xl p-8'>
@@ -393,7 +393,7 @@ export default function SellingPage() {
               Recent Sales Success Stories
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              See how I've helped Las Vegas homeowners achieve outstanding
+              See how I&apos;ve helped Las Vegas homeowners achieve outstanding
               results
             </p>
           </div>
@@ -415,9 +415,9 @@ export default function SellingPage() {
                 </div>
               </div>
               <p className='text-gray-600 mb-6'>
-                "Dr. Duffy sold our home in Summerlin for $25,000 above asking
+                &ldquo;Dr. Duffy sold our home in Summerlin for $25,000 above asking
                 price in just 12 days. Her marketing strategy and staging advice
-                were invaluable."
+                were invaluable.&rdquo;
               </p>
               <div className='flex items-center'>
                 <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4'>
@@ -448,9 +448,9 @@ export default function SellingPage() {
                 </div>
               </div>
               <p className='text-gray-600 mb-6'>
-                "Professional, responsive, and results-driven. Dr. Duffy helped
+                &ldquo;Professional, responsive, and results-driven. Dr. Duffy helped
                 us navigate a complex sale with multiple offers and achieved the
-                best possible outcome."
+                best possible outcome.&rdquo;
               </p>
               <div className='flex items-center'>
                 <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4'>
@@ -481,9 +481,9 @@ export default function SellingPage() {
                 </div>
               </div>
               <p className='text-gray-600 mb-6'>
-                "Dr. Duffy's market expertise and negotiation skills helped us
+                &ldquo;Dr. Duffy&apos;s market expertise and negotiation skills helped us
                 sell our investment property for maximum profit. Highly
-                recommend her services."
+                recommend her services.&rdquo;
               </p>
               <div className='flex items-center'>
                 <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4'>
@@ -507,7 +507,7 @@ export default function SellingPage() {
           </h2>
           <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
             Get a free home valuation and discover how much your Las Vegas home
-            is worth in today's market.
+            is worth in today&apos;s market.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <Link

@@ -56,8 +56,8 @@ export default function SellerGuidePage() {
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">2. Determine Your Home's Value</h3>
                   <p className="text-gray-600 mb-4">
-                    Pricing your home correctly is crucial. Too high and it won't sell; 
-                    too low and you'll lose money.
+                    Pricing your home correctly is crucial. Too high and it won&apos;t sell; 
+                    too low and you&apos;ll lose money.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Get a professional comparative market analysis (CMA)</li>
@@ -72,7 +72,7 @@ export default function SellerGuidePage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">3. Choose the Right Real Estate Agent</h3>
                   <p className="text-gray-600 mb-4">
                     A skilled real estate agent will help you navigate the selling process 
-                    and maximize your home's value.
+                    and maximize your home&apos;s value.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Look for agents with local market expertise</li>
@@ -107,7 +107,7 @@ export default function SellerGuidePage() {
                     <li>Consider offer price, contingencies, and closing timeline</li>
                     <li>Evaluate buyer's financial qualifications</li>
                     <li>Negotiate terms that work for both parties</li>
-                    <li>Don't just focus on price - consider all terms</li>
+                    <li>Don&apos;t just focus on price - consider all terms</li>
                   </ul>
                 </div>
 
@@ -130,7 +130,7 @@ export default function SellerGuidePage() {
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">7. Closing Day</h3>
                   <p className="text-gray-600 mb-4">
-                    The final step is closing day, where you'll transfer ownership to the buyer.
+                    The final step is closing day, where you&apos;ll transfer ownership to the buyer.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Review all closing documents carefully</li>
@@ -154,7 +154,7 @@ export default function SellerGuidePage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you sell your 
             home for top dollar. With 15+ years of experience and proven marketing strategies, 
-            I'll guide you through every step of the process.
+            I&apos;ll guide you through every step of the process.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
