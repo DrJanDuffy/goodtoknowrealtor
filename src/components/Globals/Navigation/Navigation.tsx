@@ -53,15 +53,6 @@ const menuItems = [
   },
 ];
 
-interface MenuItem {
-  label: string;
-  href: string;
-  hasDropdown: boolean;
-  children?: Array<{
-    label: string;
-    href: string;
-  }>;
-}
 
 interface DropdownMenuProps {
   children: React.ReactNode;

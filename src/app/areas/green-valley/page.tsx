@@ -24,7 +24,7 @@ export default function GreenValleyPage() {
               Green Valley Real Estate
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Discover luxury living in Green Valley, Henderson's premier master-planned community
+              Discover luxury living in Green Valley, Henderson&apos;s premier master-planned community
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -53,7 +53,7 @@ export default function GreenValleyPage() {
                 Why Choose Green Valley?
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Green Valley is Henderson's premier master-planned community, offering luxury 
+                Green Valley is Henderson&apos;s premier master-planned community, offering luxury 
                 living with world-class golf courses, upscale shopping, and beautiful homes. 
                 As the Premier Good To Know REALTOR®, I specialize in helping clients find 
                 their perfect home in this exclusive community.

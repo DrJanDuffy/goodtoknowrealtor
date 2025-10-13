@@ -51,16 +51,16 @@ export default function AboutPage() {
               <p className='text-lg leading-relaxed mb-6'>
                 With over 15 years of experience in the Las Vegas real estate
                 market, Dr. Janet Duffy has built a reputation as one of the
-                area's most trusted and successful real estate professionals.
+                area&apos;s most trusted and successful real estate professionals.
                 Her deep understanding of local market trends, neighborhood
                 dynamics, and investment opportunities has helped hundreds of
                 clients achieve their property goals.
               </p>
 
               <p className='text-lg leading-relaxed mb-6'>
-                Dr. Duffy's approach combines market expertise with personalized
+                Dr. Duffy&apos;s approach combines market expertise with personalized
                 service, ensuring each client receives the attention and
-                guidance they deserve. Whether you're a first-time homebuyer,
+                guidance they deserve. Whether you&apos;re a first-time homebuyer,
                 seasoned investor, or looking to sell your current property, she
                 provides the strategic insight and professional support needed
                 to make informed decisions.
@@ -101,7 +101,7 @@ export default function AboutPage() {
               <ul className='space-y-2 text-gray-600'>
                 <li>• Licensed Nevada Real Estate Broker</li>
                 <li>• Certified Residential Specialist (CRS)</li>
-                <li>• Accredited Buyer's Representative (ABR)</li>
+                <li>• Accredited Buyer&apos;s Representative (ABR)</li>
                 <li>• Graduate, Realtor Institute (GRI)</li>
                 <li>• Continuing education in market trends</li>
               </ul>
@@ -190,7 +190,7 @@ export default function AboutPage() {
                   </h3>
                   <p className='text-gray-600 leading-relaxed'>
                     Clear, honest communication is the foundation of every
-                    successful real estate transaction. You'll always know what
+                    successful real estate transaction. You&apos;ll always know what
                     to expect and be informed every step of the way.
                   </p>
                 </div>
@@ -201,7 +201,7 @@ export default function AboutPage() {
                   </h3>
                   <p className='text-gray-600 leading-relaxed'>
                     My goal is to exceed your expectations and deliver
-                    exceptional results. Whether buying or selling, I'm
+                    exceptional results. Whether buying or selling, I&apos;m
                     committed to achieving the best possible outcome for you.
                   </p>
                 </div>
@@ -230,7 +230,7 @@ export default function AboutPage() {
               Community Involvement
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              Giving back to the Las Vegas community that I'm proud to call home
+              Giving back to the Las Vegas community that I&apos;m proud to call home
             </p>
           </div>
 
@@ -298,7 +298,7 @@ export default function AboutPage() {
             Ready to Work Together?
           </h2>
           <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
-            Let's discuss your real estate goals and how I can help you achieve
+            Let&apos;s discuss your real estate goals and how I can help you achieve
             them in the Las Vegas market.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>

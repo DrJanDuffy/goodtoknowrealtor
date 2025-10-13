@@ -140,7 +140,7 @@ export default function DowntownPage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
             your perfect urban home in Downtown Las Vegas. With expertise in luxury 
-            condos and high-rise living, I'll help you discover the best the city has to offer.
+            condos and high-rise living, I&apos;ll help you discover the best the city has to offer.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
