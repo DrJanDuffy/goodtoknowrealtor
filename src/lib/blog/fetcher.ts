@@ -26,7 +26,7 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
     );
 
     if (!response.ok) {
-      throw new Error(`WordPress API returned ${response.status}`);
+      throw new Error(`WordPress API returned ${String(response.status)}`);
     }
 
     const posts: WordPressPost[] = await response.json();

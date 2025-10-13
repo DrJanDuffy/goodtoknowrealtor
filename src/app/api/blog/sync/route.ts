@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Pages revalidated successfully
-    } catch (revalidateError) {
+    } catch {
       // Failed to revalidate pages
     }
 
