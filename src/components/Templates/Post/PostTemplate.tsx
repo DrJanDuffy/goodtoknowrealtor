@@ -3,7 +3,6 @@ import { print } from "graphql/language/printer";
 import { ContentNode, Post } from "@/gql/graphql";
 import { fetchGraphQL } from "@/utils/fetchGraphQL";
 
-import styles from "./PostTemplate.module.css";
 import { PostQuery } from "./PostQuery";
 
 interface TemplateProps {
@@ -16,11 +15,14 @@ export default async function PostTemplate({ node }: TemplateProps) {
   });
 
   return (
-    <div className={styles.post}>
-      <h1 className={styles.title}>{post.title}</h1>
-      <div className={styles.author}>By {post.author?.node.name}</div>
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-gray-900 mb-6">{post.title}</h1>
+      <div className="text-gray-600 mb-8">By {post.author?.node.name}</div>
 
-      <div dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+      <div 
+        className="prose prose-lg max-w-none"
+        dangerouslySetInnerHTML={{ __html: post.content || "" }} 
+      />
     </div>
   );
 }

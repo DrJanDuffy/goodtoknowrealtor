@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 
 import Navigation from "@/components/Globals/Navigation/Navigation";
-import { PreviewNotice } from "@/components/Globals/PreviewNotice/PreviewNotice";
+import Footer from "@/components/Globals/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,14 +13,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isEnabled } = draftMode();
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {isEnabled && <PreviewNotice />}
+    <html lang="en" className="h-full">
+      <body className={`${inter.className} h-full flex flex-col`}>
         <Navigation />
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

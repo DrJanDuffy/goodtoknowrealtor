@@ -1,0 +1,24 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_WORDPRESS_API_URL": "@next_public_wordpress_api_url",
+      "WORDPRESS_PREVIEW_SECRET": "@wordpress_preview_secret",
+      "REVALIDATE_SECRET": "@revalidate_secret"
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_WORDPRESS_API_URL": "@next_public_wordpress_api_url",
+    "WORDPRESS_PREVIEW_SECRET": "@wordpress_preview_secret",
+    "REVALIDATE_SECRET": "@revalidate_secret"
+  },
+  "crons": [
+    {
+      "path": "/api/blog/sync",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+}
