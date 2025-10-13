@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function ServicesSection() {
   const services = [
@@ -83,10 +84,11 @@ export function ServicesSection() {
                 className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'
               >
                 <div className='relative h-64'>
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className='w-full h-full object-cover'
+                    fill
+                    className='object-cover'
                   />
                 </div>
                 <div className='p-6'>
@@ -145,10 +147,11 @@ export function ServicesSection() {
                 className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'
               >
                 <div className='relative h-64'>
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className='w-full h-full object-cover'
+                    fill
+                    className='object-cover'
                   />
                 </div>
                 <div className='p-6'>

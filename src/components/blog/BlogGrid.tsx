@@ -1,5 +1,6 @@
 import { BlogPost } from '@/types/blog';
 import { BlogCard } from './BlogCard';
+import Image from 'next/image';
 
 interface BlogGridProps {
   posts: BlogPost[];
@@ -73,9 +74,11 @@ export function BlogGrid({ posts }: BlogGridProps) {
                   href='tel:702-222-1964'
                   className='text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200'
                 >
-                  <img
+                  <Image
                     src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
                     alt='Phone'
+                    width={24}
+                    height={24}
                     className='inline-block w-6 h-6 mr-2'
                   />{' '}
                   (702) 222-1964
@@ -85,10 +88,11 @@ export function BlogGrid({ posts }: BlogGridProps) {
             {posts[0].image && (
               <div className='lg:w-1/2'>
                 <div className='relative h-64 lg:h-80 rounded-xl overflow-hidden'>
-                  <img
+                  <Image
                     src={posts[0].image}
                     alt={posts[0].imageAlt || posts[0].title}
-                    className='w-full h-full object-cover'
+                    fill
+                    className='object-cover'
                   />
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function ReportsSection() {
   const reports = [
@@ -51,10 +52,11 @@ export function ReportsSection() {
               className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'
             >
               <div className='relative h-64'>
-                <img
+                <Image
                   src={report.image}
                   alt={report.title}
-                  className='w-full h-full object-cover'
+                  fill
+                  className='object-cover'
                 />
                 <div className='absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold'>
                   {report.label}
