@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('Manual sync requested');
+    // Manual sync requested
     const syncResult: SyncStatus = await refreshCache();
 
     // Revalidate Next.js pages
@@ -59,9 +59,9 @@ export async function POST(request: NextRequest) {
         revalidatePath('/blog', 'page');
       }
 
-      console.log('Pages revalidated successfully');
+      // Pages revalidated successfully
     } catch (revalidateError) {
-      console.warn('Failed to revalidate pages:', revalidateError);
+      // Failed to revalidate pages
     }
 
     return NextResponse.json({
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error('Sync failed:', error);
+    // Sync failed
 
     return NextResponse.json(
       {
