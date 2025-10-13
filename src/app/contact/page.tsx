@@ -12,7 +12,7 @@ export default function ContactPage() {
               Contact Dr. Janet Duffy
             </h1>
             <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Ready to start your Las Vegas real estate journey? I'm here to
+              Ready to start your Las Vegas real estate journey? I&apos;m here to
               help you achieve your property goals with personalized service and
               expert guidance.
             </p>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 Send a Message
               </h2>
               <p className='text-xl text-gray-600'>
-                Fill out the form below and I'll get back to you within 24 hours
+                Fill out the form below and I&apos;ll get back to you within 24 hours
               </p>
             </div>
 
@@ -441,7 +441,7 @@ export default function ContactPage() {
             Need Immediate Assistance?
           </h2>
           <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
-            For urgent real estate matters or time-sensitive transactions, don't
+            For urgent real estate matters or time-sensitive transactions, don&apos;t
             hesitate to call me directly.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>

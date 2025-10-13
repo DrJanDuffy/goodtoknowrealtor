@@ -11,7 +11,6 @@ export function HeroSection() {
     e.preventDefault();
     if (searchQuery.trim()) {
       // Handle search logic here
-      console.log('Searching for:', searchQuery, 'in', activeTab);
     }
   };
 

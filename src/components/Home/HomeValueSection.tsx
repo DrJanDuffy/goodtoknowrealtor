@@ -11,7 +11,6 @@ export function HomeValueSection() {
     if (address.trim()) {
       setIsSubmitted(true);
       // Handle home value request logic here
-      console.log('Getting home value for:', address);
     }
   };
 
