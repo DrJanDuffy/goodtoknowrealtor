@@ -219,4 +219,4 @@ This project is for educational and business purposes. Please ensure compliance 
 
 ---
 
-**Built with ❤️ for Dr. Janet Duffy Real Estate**
+**Built with ❤️ for Dr. Janet Duffy Real Estate**# Environment variables configured
