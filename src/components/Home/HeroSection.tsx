@@ -1,14 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 
 export function HeroSection() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState('homes');
-  const [searchType, setSearchType] = useState('buy');
-  const [priceRange, setPriceRange] = useState('');
-  const [propertyType, setPropertyType] = useState('');
+  const [activeTab] = useState('homes');
+  const [searchType] = useState('buy');
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();

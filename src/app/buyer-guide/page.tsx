@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'First-Time Home Buyer Guide | Dr. Janet Duffy - Premier Good To Know REALTOR®',
