@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NotFound() {
   return (
@@ -42,9 +43,11 @@ export default function NotFound() {
             href='tel:702-222-1964'
             className='inline-flex items-center bg-amber-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
           >
-            <img
+            <Image
               src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
               alt='Phone'
+              width={24}
+              height={24}
               className='inline-block w-6 h-6 mr-2'
             />{' '}
             Call (702) 222-1964

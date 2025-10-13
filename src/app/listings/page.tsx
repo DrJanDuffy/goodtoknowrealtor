@@ -420,9 +420,11 @@ export default function ListingsPage() {
             <Link href='/listings/open-houses' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
-                  <img
+                  <Image
                     src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
                     alt='Home'
+                    width={32}
+                    height={32}
                     className='w-8 h-8'
                   />
                 </div>
@@ -534,9 +536,11 @@ export default function ListingsPage() {
               href='tel:702-222-1964'
               className='bg-white text-amber-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
             >
-              <img
+              <Image
                 src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
                 alt='Phone'
+                width={24}
+                height={24}
                 className='inline-block w-6 h-6 mr-2'
               />{' '}
               Call (702) 222-1964
