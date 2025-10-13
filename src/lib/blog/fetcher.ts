@@ -13,7 +13,7 @@ const BLOG_CONFIG: BlogConfig = {
  */
 async function fetchWordPressPosts(): Promise<BlogPost[]> {
   try {
-    console.log('Attempting to fetch posts via WordPress REST API...');
+    // Attempting to fetch posts via WordPress REST API
 
     const response = await fetch(
       `${BLOG_CONFIG.apiUrl}/posts?_embed&per_page=${BLOG_CONFIG.maxPosts}&orderby=date&order=desc`,
@@ -30,11 +30,11 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
     }
 
     const posts: WordPressPost[] = await response.json();
-    console.log(`Successfully fetched ${posts.length} posts via WordPress API`);
+    // Successfully fetched posts via WordPress API
 
     return posts.map(normalizeWordPressPost);
   } catch (error) {
-    console.log('WordPress API failed:', error);
+    // WordPress API failed
     throw error;
   }
 }
@@ -44,7 +44,7 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
  */
 async function fetchPostsViaScraping(): Promise<BlogPost[]> {
   try {
-    console.log('Attempting to fetch posts via web scraping...');
+    // Attempting to fetch posts via web scraping
 
     const response = await fetch(BLOG_CONFIG.sourceUrl, {
       next: { revalidate: BLOG_CONFIG.revalidateInterval },
@@ -94,9 +94,7 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
       const elements = $(selector);
 
       if (elements.length > 0) {
-        console.log(
-          `Found ${elements.length} posts using selector: ${selector}`
-        );
+        // Found posts using selector
 
         elements.each((i, element) => {
           if (posts.length >= BLOG_CONFIG.maxPosts) return false;
@@ -143,10 +141,10 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
       });
     }
 
-    console.log(`Successfully scraped ${posts.length} posts`);
+    // Successfully scraped posts
     return posts;
   } catch (error) {
-    console.error('Scraping failed:', error);
+    // Scraping failed
     throw error;
   }
 }
@@ -278,7 +276,7 @@ function parseDate(dateText: string): string | null {
       return date.toISOString();
     }
   } catch {
-    console.warn('Failed to parse date:', dateText);
+    // Failed to parse date
   }
 
   return null;
@@ -857,13 +855,12 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
     // Try WordPress API first
     return await fetchWordPressPosts();
   } catch (error) {
-    console.log('WordPress API failed, falling back to scraping...');
+    // WordPress API failed, falling back to scraping
     try {
       // Fall back to scraping
       return await fetchPostsViaScraping();
     } catch (scrapingError) {
-      console.error('Both WordPress API and scraping failed:', scrapingError);
-      console.log('Returning sample blog posts for demonstration...');
+      // Both WordPress API and scraping failed
       // Return sample blog posts for demonstration
       return generateSampleBlogPosts();
     }

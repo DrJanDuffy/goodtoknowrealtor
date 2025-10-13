@@ -50,25 +50,25 @@ export async function getPostsWithCache(): Promise<BlogPost[]> {
   // Return cached posts if available and not expired
   const cachedPosts = getCachedPosts();
   if (cachedPosts.length > 0) {
-    console.log(`Returning ${cachedPosts.length} cached posts`);
+    // Return cached posts if available and not expired
     return cachedPosts;
   }
 
   // If sync is already in progress, return cached data or empty array
   if (syncInProgress) {
-    console.log('Sync in progress, returning cached data');
+    // Sync in progress, returning cached data
     return postsCache;
   }
 
   // Fetch new posts
   try {
     syncInProgress = true;
-    console.log('Fetching fresh posts...');
+    // Fetching fresh posts
 
     const posts = await fetchBlogPosts();
     updateCache(posts);
 
-    console.log(`Successfully cached ${posts.length} posts`);
+    // Successfully cached posts
     return posts;
   } catch (error) {
     console.error('Failed to fetch posts:', error);
@@ -84,7 +84,7 @@ export async function getPostsWithCache(): Promise<BlogPost[]> {
  */
 export async function refreshCache(): Promise<SyncStatus> {
   try {
-    console.log('Force refreshing cache...');
+    // Force refreshing cache
 
     const oldPostCount = postsCache.length;
     const posts = await fetchBlogPosts();
@@ -101,7 +101,7 @@ export async function refreshCache(): Promise<SyncStatus> {
       lastSync: lastSync?.toISOString() || new Date().toISOString(),
     };
   } catch (error) {
-    console.error('Cache refresh failed:', error);
+    // Cache refresh failed
 
     return {
       success: false,
