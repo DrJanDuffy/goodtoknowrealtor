@@ -24,7 +24,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@rollup/rollup-win32-x64-msvc": "^4.52.4",
     "@types/cheerio": "^0.22.35",
     "@types/puppeteer": "^5.4.7",
     "cheerio": "^1.1.2",
