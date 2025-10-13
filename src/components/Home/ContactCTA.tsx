@@ -8,7 +8,7 @@ export function ContactCTA() {
           Ready to Make Your Move with the Premier Good To Know REALTOR®?
         </h2>
         <p className='text-xl text-blue-100 mb-8 max-w-3xl mx-auto'>
-          Whether you're buying your first home, selling your current property,
+          Whether you&apos;re buying your first home, selling your current property,
           or building an investment portfolio, Dr. Jan Duffy is here to guide
           you every step of the way. Nationally recognized for helping agents
           sell homes, she brings unmatched expertise and personalized service to

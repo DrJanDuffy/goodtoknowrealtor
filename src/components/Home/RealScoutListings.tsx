@@ -24,7 +24,7 @@ export function RealScoutListings() {
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
             Discover exceptional homes in Las Vegas's most desirable
-            neighborhoods with Dr. Jan Duffy, the Premier Good To Know REALTOR®
+            neighborhoods with Dr. Jan Duffy, the Premier Good To Know REALTOR&reg;
           </p>
         </div>
 

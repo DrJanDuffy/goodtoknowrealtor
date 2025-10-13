@@ -64,30 +64,16 @@ interface MenuItem {
 }
 
 interface DropdownMenuProps {
-  children: MenuItem['children'];
+  children: React.ReactNode;
   isOpen: boolean;
 }
 
 function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
-  if (!children) return null;
+  if (!isOpen) return null;
 
   return (
-    <div
-      className={`absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-200 ${
-        isOpen
-          ? 'opacity-100 visible translate-y-0'
-          : 'opacity-0 invisible -translate-y-2'
-      }`}
-    >
-      {children.map((child, index) => (
-        <Link
-          key={index}
-          href={child.href}
-          className='block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg'
-        >
-          {child.label}
-        </Link>
-      ))}
+    <div className='absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-200 opacity-100 visible translate-y-0'>
+      {children}
     </div>
   );
 }
@@ -204,9 +190,18 @@ export function Navigation() {
                   </Link>
                   {item.hasDropdown && (
                     <DropdownMenu
-                      children={item.children}
                       isOpen={activeDropdown === item.label}
-                    />
+                    >
+                      {item.children?.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors'
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </DropdownMenu>
                   )}
                 </div>
               ))}

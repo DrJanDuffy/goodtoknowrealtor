@@ -40,7 +40,7 @@ export function ReportsSection() {
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
             Stay informed about the Las Vegas real estate market with Dr. Janet
-            Duffy's expert analysis and insights
+            Duffy&apos;s expert analysis and insights
           </p>
         </div>
 

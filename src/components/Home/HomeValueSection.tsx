@@ -80,7 +80,7 @@ export function HomeValueSection() {
             {isSubmitted && (
               <div className='mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg'>
                 Thank you! Your home value report request has been submitted.
-                We'll contact you within 24 hours.
+                We&apos;ll contact you within 24 hours.
               </div>
             )}
           </form>

@@ -33,7 +33,7 @@ export default function ListingsPage() {
                   <label className='block text-sm font-medium text-gray-700 mb-2'>
                     Location
                   </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'>
+                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Location selection'>
                     <option>Any Neighborhood</option>
                     <option>Summerlin</option>
                     <option>Henderson</option>
@@ -46,7 +46,7 @@ export default function ListingsPage() {
                   <label className='block text-sm font-medium text-gray-700 mb-2'>
                     Price Range
                   </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'>
+                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Price range selection'>
                     <option>Any Price</option>
                     <option>Under $300K</option>
                     <option>$300K - $500K</option>
@@ -59,7 +59,7 @@ export default function ListingsPage() {
                   <label className='block text-sm font-medium text-gray-700 mb-2'>
                     Bedrooms
                   </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'>
+                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Number of bedrooms selection'>
                     <option>Any</option>
                     <option>1+</option>
                     <option>2+</option>
@@ -72,7 +72,7 @@ export default function ListingsPage() {
                   <label className='block text-sm font-medium text-gray-700 mb-2'>
                     Property Type
                   </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'>
+                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Property type selection'>
                     <option>Any Type</option>
                     <option>Single Family</option>
                     <option>Condo/Townhouse</option>

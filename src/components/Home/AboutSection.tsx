@@ -16,7 +16,7 @@ export function AboutSection() {
             </p>
             <p className="text-lg text-gray-600 mb-8">
               Known nationwide for helping agents sell homes, Dr. Duffy combines her local Las Vegas market expertise 
-              with national best practices to deliver exceptional results for her clients. Whether you're buying your 
+              with national best practices to deliver exceptional results for her clients. Whether you&apos;re buying your 
               first home, selling your current property, or building an investment portfolio, Dr. Duffy provides 
               personalized service and expert guidance every step of the way.
             </p>
