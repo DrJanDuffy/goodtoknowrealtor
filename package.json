@@ -21,7 +21,7 @@
     "codegen:check": "npm run codegen || echo 'Codegen failed, continuing with build...'",
     "analyze": "ANALYZE=true npm run build",
     "clean": "rm -rf .next dist coverage test-results playwright-report",
-    "prepare": "husky install"
+    "prepare": "echo 'Skipping husky install in production'"
   },
   "dependencies": {
     "@types/cheerio": "^0.22.35",
