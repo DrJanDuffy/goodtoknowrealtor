@@ -144,11 +144,13 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
               <div className="flex items-center">
                 <Link href="/" className="flex items-center space-x-4">
-                  {/* BHHS Logo Placeholder */}
+                  {/* BHHS Logo */}
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-lg flex items-center justify-center shadow-md">
-                      <span className="text-white font-bold text-lg">BH</span>
-                    </div>
+                    <img 
+                      src="https://www.bhhscp.com/etc/clientlibs/bhhs-pagelibs/images/brand/bhhs_seal_blk.svg" 
+                      alt="Berkshire Hathaway HomeServices" 
+                      className="w-12 h-12"
+                    />
                     <div className="flex flex-col">
                       <span className="text-2xl font-bold text-amber-600">Dr. Janet Duffy</span>
                       <span className="text-sm text-gray-600">Real Estate Expert</span>
@@ -170,12 +172,19 @@ export default function Navigation() {
                 onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.label)}
                 onMouseLeave={() => item.hasDropdown && handleMouseLeave()}
               >
-                <Link
-                  href={item.href}
-                  className="text-gray-700 hover:text-amber-600 font-semibold transition-colors duration-200"
-                >
-                  {item.label}
-                </Link>
+                    <Link
+                      href={item.href}
+                      className="text-gray-700 hover:text-amber-600 font-semibold transition-colors duration-200 flex items-center space-x-1"
+                    >
+                      <span>{item.label}</span>
+                      {item.hasDropdown && (
+                        <img 
+                          src="https://www.bhhscp.com/content/dam/bhhs/blog-images-icons/dropdown-icon.svg" 
+                          alt="Dropdown" 
+                          className="w-3 h-3"
+                        />
+                      )}
+                    </Link>
                 {item.hasDropdown && (
                   <DropdownMenu
                     children={item.children}

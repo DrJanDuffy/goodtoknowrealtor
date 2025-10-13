@@ -167,13 +167,18 @@ export default function Footer() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-6">
                   {/* BHHS Seal Logo */}
-                  <div className="w-20 h-20 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-full flex items-center justify-center shadow-lg">
-                    <div className="text-center text-white">
-                      <div className="text-xs font-bold leading-tight">BERKSHIRE</div>
-                      <div className="text-xs font-bold leading-tight">HATHAWAY</div>
-                      <div className="text-xs font-bold leading-tight">HOMESERVICES</div>
-                    </div>
-                  </div>
+                  <img 
+                    src="https://www.bhhscp.com/etc/clientlibs/bhhs-pagelibs/images/brand/bhhs_seal_blk.svg" 
+                    alt="Berkshire Hathaway HomeServices Seal" 
+                    className="w-20 h-20"
+                  />
+                  
+                  {/* BHHS Franchisee Logo */}
+                  <img 
+                    src="https://www.bhhscp.com/content/dam/bhhs/brand_identity/logos/franchisee/ca322/CA322_primary_blk.svg" 
+                    alt="BHHS California Properties" 
+                    className="h-16"
+                  />
                   
                   <div>
                     <h5 className="font-bold text-amber-800 text-lg mb-2">BERKSHIRE HATHAWAY HOMESERVICES</h5>

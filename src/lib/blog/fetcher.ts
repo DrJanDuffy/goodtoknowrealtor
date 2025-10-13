@@ -300,8 +300,8 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Las Vegas real estate market shows strong performance in January 2025 with balanced conditions favoring both buyers and sellers.',
       date: '2025-01-15T10:00:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
-      imageAlt: 'Las Vegas skyline with modern homes',
+      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/summer-2025-homebuyer-trends',
+      imageAlt: 'Summer 2025 Homebuyer Trends',
       originalUrl: 'https://www.bhhscp.com/blog/las-vegas-real-estate-market-update-january-2025',
       categories: ['Market Updates', 'Las Vegas'],
       tags: ['real estate', 'las vegas', 'market update', 'housing trends'],
@@ -349,8 +349,8 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Complete guide for first-time home buyers in Las Vegas, covering everything from financial preparation to available assistance programs.',
       date: '2025-01-12T14:30:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      imageAlt: 'Happy couple holding house keys',
+      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/Is-it-better-to-rent-or-buy-',
+      imageAlt: 'Is it Better to Rent or Buy?',
       originalUrl: 'https://www.bhhscp.com/blog/first-time-home-buyer-guide-everything-you-need-to-know',
       categories: ['Buying Tips', 'First-Time Buyers'],
       tags: ['first time buyer', 'home buying', 'mortgage', 'las vegas'],
@@ -401,8 +401,8 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Five essential tips for selling your Las Vegas home to achieve maximum value and a quick sale in today\'s competitive market.',
       date: '2025-01-10T09:15:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
-      imageAlt: 'Beautiful Las Vegas home for sale',
+      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
+      imageAlt: 'Should You Buy a Home During Market Changes?',
       originalUrl: 'https://www.bhhscp.com/blog/selling-your-las-vegas-home-5-tips-for-maximum-value',
       categories: ['Selling Tips', 'Market Strategy'],
       tags: ['home selling', 'real estate', 'las vegas', 'home value'],
@@ -459,8 +459,8 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt: 'Explore Summerlin, Las Vegas\'s premier master-planned community, featuring top-rated amenities, excellent schools, and diverse housing options.',
       date: '2025-01-08T16:45:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80',
-      imageAlt: 'Summerlin neighborhood with beautiful homes and mountain views',
+      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/best-places-to-buy-land-in-t',
+      imageAlt: 'Best Places to Buy Land and Homes',
       originalUrl: 'https://www.bhhscp.com/blog/las-vegas-neighborhood-spotlight-summerlin',
       categories: ['Neighborhoods', 'Las Vegas'],
       tags: ['summerlin', 'neighborhoods', 'las vegas', 'master planned community'],
@@ -528,8 +528,8 @@ function generateSampleBlogPosts(): BlogPost[] {
           excerpt: 'Discover why Las Vegas is a prime market for real estate investment, featuring strong fundamentals, diverse opportunities, and growing potential.',
           date: '2025-01-05T11:20:00Z',
           author: 'Dr. Janet Duffy',
-          image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
-          imageAlt: 'Las Vegas investment properties and skyline',
+      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/are-short-term-rentals-still',
+      imageAlt: 'Short-term Rental Investment Opportunities',
           originalUrl: 'https://www.bhhscp.com/blog/investment-opportunities-in-las-vegas-real-estate',
           categories: ['Investment', 'Market Analysis'],
           tags: ['real estate investment', 'las vegas', 'investment properties', 'market analysis'],
@@ -582,8 +582,8 @@ function generateSampleBlogPosts(): BlogPost[] {
           excerpt: 'Learn why Berkshire Hathaway HomeServices California Properties is the premier choice for Las Vegas real estate services.',
           date: '2025-01-03T14:15:00Z',
           author: 'Dr. Janet Duffy',
-          image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-          imageAlt: 'Professional real estate team and office',
+      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/the-state-of-housing-invento',
+      imageAlt: 'State of Housing Inventory',
           originalUrl: 'https://www.bhhscp.com/blog/berkshire-hathaway-homeservices-trusted-real-estate-partner',
           categories: ['Company News', 'Services'],
           tags: ['berkshire hathaway', 'real estate services', 'professional', 'las vegas'],
@@ -653,12 +653,127 @@ function generateSampleBlogPosts(): BlogPost[] {
           excerpt: 'Explore Las Vegas luxury real estate market featuring world-class amenities, exclusive neighborhoods, and exceptional investment potential.',
           date: '2025-01-01T10:30:00Z',
           author: 'Dr. Janet Duffy',
-          image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80',
-          imageAlt: 'Luxury Las Vegas home with modern architecture',
+      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/lifestyle/how-to-buy-a-home-in-sprin',
+      imageAlt: 'How to Buy a Home in Spring',
           originalUrl: 'https://www.bhhscp.com/blog/las-vegas-luxury-real-estate-world-class-market',
           categories: ['Luxury Properties', 'Market Analysis'],
           tags: ['luxury real estate', 'las vegas', 'high-end properties', 'exclusive communities'],
           readingTime: 6,
+        },
+        {
+          id: 'sample-8',
+          title: 'Should You Buy a Home During Market Changes?',
+          slug: 'should-you-buy-a-home-during-market-changes',
+          content: `
+            <h2>Navigating Market Changes as a Home Buyer</h2>
+            <p>Market changes can create both opportunities and challenges for home buyers. Understanding how to navigate these fluctuations is crucial for making informed decisions about your home purchase.</p>
+            
+            <h3>Understanding Market Cycles</h3>
+            <p>Real estate markets naturally cycle through different phases:</p>
+            <ul>
+              <li><strong>Buyer's Market</strong>: More inventory, lower prices, less competition</li>
+              <li><strong>Seller's Market</strong>: Limited inventory, higher prices, multiple offers</li>
+              <li><strong>Balanced Market</strong>: Equal supply and demand, stable pricing</li>
+              <li><strong>Transitional Market</strong>: Moving between buyer and seller markets</li>
+            </ul>
+            
+            <h3>Strategies for Different Market Conditions</h3>
+            <p><strong>In a Buyer's Market:</strong></p>
+            <ul>
+              <li>Take time to explore multiple options</li>
+              <li>Negotiate from a position of strength</li>
+              <li>Consider asking for closing cost assistance</li>
+              <li>Look for homes that have been on the market longer</li>
+            </ul>
+            
+            <p><strong>In a Seller's Market:</strong></p>
+            <ul>
+              <li>Be prepared to act quickly</li>
+              <li>Get pre-approved for financing</li>
+              <li>Consider offering above asking price</li>
+              <li>Minimize contingencies if possible</li>
+            </ul>
+            
+            <h3>Key Considerations</h3>
+            <p>Regardless of market conditions, focus on:</p>
+            <ul>
+              <li>Your long-term housing needs</li>
+              <li>Affordability within your budget</li>
+              <li>Location and neighborhood preferences</li>
+              <li>Future market potential</li>
+            </ul>
+            
+            <p>Ready to navigate the Las Vegas market? Contact Dr. Janet Duffy at (702) 222-1964 for expert guidance on timing your home purchase.</p>
+          `,
+          excerpt: 'Learn how to navigate different real estate market conditions and make informed decisions about when to buy your home.',
+          date: '2024-12-28T16:20:00Z',
+          author: 'Dr. Janet Duffy',
+          image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
+          imageAlt: 'Should You Buy a Home During Market Changes?',
+          originalUrl: 'https://www.bhhscp.com/blog/should-you-buy-a-home-during-market-changes',
+          categories: ['Buying Tips', 'Market Analysis'],
+          tags: ['home buying', 'market conditions', 'real estate', 'timing'],
+          readingTime: 4,
+        },
+        {
+          id: 'sample-9',
+          title: 'What Are Deed Restrictions?',
+          slug: 'what-are-deed-restrictions',
+          content: `
+            <h2>Understanding Deed Restrictions in Real Estate</h2>
+            <p>Deed restrictions, also known as restrictive covenants, are rules and limitations placed on a property that dictate how it can be used, maintained, or modified. These restrictions are legally binding and transfer with the property when sold.</p>
+            
+            <h3>Common Types of Deed Restrictions</h3>
+            <p>Deed restrictions can cover various aspects of property use:</p>
+            <ul>
+              <li><strong>Architectural Guidelines</strong>: Home style, materials, colors</li>
+              <li><strong>Land Use Restrictions</strong>: Prohibited activities or businesses</li>
+              <li><strong>Maintenance Requirements</strong>: Property upkeep standards</li>
+              <li><strong>Pet Restrictions</strong>: Limitations on animals or breeds</li>
+              <li><strong>Parking Regulations</strong>: Vehicle storage and parking rules</li>
+              <li><strong>Landscaping Requirements</strong>: Yard maintenance and design</li>
+            </ul>
+            
+            <h3>Where to Find Deed Restrictions</h3>
+            <p>Deed restrictions are typically found in:</p>
+            <ul>
+              <li>The property's deed or title documents</li>
+              <li>Homeowners Association (HOA) bylaws</li>
+              <li>Subdivision plat maps and covenants</li>
+              <li>County recorder's office records</li>
+              <li>Property disclosure documents</li>
+            </ul>
+            
+            <h3>Why Deed Restrictions Exist</h3>
+            <p>These restrictions serve several purposes:</p>
+            <ul>
+              <li>Maintain property values and neighborhood aesthetics</li>
+              <li>Ensure consistent community standards</li>
+              <li>Prevent incompatible land uses</li>
+              <li>Protect the character of established neighborhoods</li>
+            </ul>
+            
+            <h3>Important Considerations for Buyers</h3>
+            <p>Before purchasing a property with deed restrictions:</p>
+            <ul>
+              <li>Review all restrictions carefully</li>
+              <li>Understand enforcement mechanisms</li>
+              <li>Consider your lifestyle and future plans</li>
+              <li>Evaluate the impact on property value</li>
+              <li>Check for any pending violations</li>
+            </ul>
+            
+            <p>Need help understanding deed restrictions on a Las Vegas property? Contact Dr. Janet Duffy at (702) 222-1964 for expert guidance.</p>
+          `,
+          excerpt: 'Learn about deed restrictions, their purpose, and what they mean for property ownership and use.',
+          date: '2024-12-25T11:45:00Z',
+          author: 'Dr. Janet Duffy',
+          image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/what-are-deed-restrictions-9',
+          imageAlt: 'What Are Deed Restrictions?',
+          originalUrl: 'https://www.bhhscp.com/blog/what-are-deed-restrictions',
+          categories: ['Legal Information', 'Home Buying'],
+          tags: ['deed restrictions', 'property law', 'home buying', 'legal'],
+          readingTime: 5,
         }
       ];
     }
