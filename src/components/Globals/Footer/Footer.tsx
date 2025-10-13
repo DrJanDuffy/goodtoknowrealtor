@@ -93,13 +93,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Security Notice */}
-          <div className="mt-8 bg-red-900/20 border border-red-800 rounded-lg p-4">
-            <p className="font-semibold text-red-300 mb-2">⚠️ Important Security Notice</p>
-            <p className="text-red-200 text-sm leading-relaxed">
-              Never trust wiring instructions sent via email. Cyber criminals are hacking email accounts and sending emails with fake wiring instructions. These emails are convincing and sophisticated. Always independently confirm wiring instructions in person or via a telephone call to a trusted and verified phone number. Never wire money without double-checking that the wiring instructions are correct.
-            </p>
-          </div>
+            {/* BHHS Branding */}
+            <div className="mt-8 bg-amber-50 border border-amber-200 rounded-lg p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h5 className="font-bold text-amber-800 text-lg mb-2">BERKSHIRE HATHAWAY HOMESERVICES</h5>
+                  <p className="text-amber-700 text-sm">
+                    California Properties | Broker DRE#00411894
+                  </p>
+                  <p className="text-amber-700 text-sm">
+                    600 Deep Valley Dr., Rolling Hills Estates, CA, 90274
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-amber-700 text-sm font-semibold">© 2025 BHH Affiliates, LLC.</p>
+                  <p className="text-amber-600 text-xs mt-1">
+                    An independently owned and operated franchisee of BHH Affiliates, LLC.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Security Notice */}
+            <div className="mt-8 bg-red-900/20 border border-red-800 rounded-lg p-4">
+              <p className="font-semibold text-red-300 mb-2">⚠️ Important Security Notice</p>
+              <p className="text-red-200 text-sm leading-relaxed">
+                Never trust wiring instructions sent via email. Cyber criminals are hacking email accounts and sending emails with fake wiring instructions. These emails are convincing and sophisticated. Always independently confirm wiring instructions in person or via a telephone call to a trusted and verified phone number. Never wire money without double-checking that the wiring instructions are correct.
+              </p>
+            </div>
         </div>
       </div>
     </footer>

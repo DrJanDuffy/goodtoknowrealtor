@@ -76,11 +76,20 @@ const menuItems = [
       { label: "Our Offices", href: "/contact/offices" },
     ],
   },
-  {
-    label: "BLOG",
-    href: "/blog",
-    hasDropdown: false,
-  },
+    {
+      label: "BLOG",
+      href: "/blog",
+      hasDropdown: true,
+      children: [
+        { label: "Blog", href: "/blog" },
+        { label: "Market Updates", href: "/blog?category=market-updates" },
+        { label: "Buying Tips", href: "/blog?category=buying-tips" },
+        { label: "Selling Tips", href: "/blog?category=selling-tips" },
+        { label: "Neighborhoods", href: "/blog?category=neighborhoods" },
+        { label: "Investment", href: "/blog?category=investment" },
+        { label: "Luxury Properties", href: "/blog?category=luxury-properties" },
+      ],
+    },
 ];
 
 interface MenuItem {
@@ -133,12 +142,19 @@ export default function Navigation() {
     <nav className="bg-white shadow-md sticky top-0 z-50" role="navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center">
-            <Link href="/" className="flex flex-col">
-              <span className="text-2xl font-bold text-amber-600">Dr. Janet Duffy</span>
-              <span className="text-sm text-gray-600">Real Estate Expert</span>
-            </Link>
-          </div>
+              <div className="flex items-center">
+                <Link href="/" className="flex items-center space-x-3">
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-bold text-amber-600">Dr. Janet Duffy</span>
+                    <span className="text-sm text-gray-600">Real Estate Expert</span>
+                  </div>
+                  <div className="hidden lg:block text-xs text-gray-500 ml-4 pl-4 border-l border-gray-300">
+                    <div className="font-semibold text-amber-700">BERKSHIRE HATHAWAY</div>
+                    <div className="font-semibold text-amber-700">HOMESERVICES</div>
+                    <div className="text-gray-600">California Properties</div>
+                  </div>
+                </Link>
+              </div>
           
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item, index) => (

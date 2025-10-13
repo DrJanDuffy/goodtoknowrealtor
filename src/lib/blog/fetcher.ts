@@ -62,7 +62,7 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
     
     const posts: BlogPost[] = [];
     
-    // Try multiple selectors to find blog posts (including BHHS-specific selectors)
+    // Try multiple selectors to find blog posts (including BHHS AEM-specific selectors)
     const selectors = [
       '.blog-post',
       '.post-item',
@@ -77,6 +77,15 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
       '.blog-content',
       '.post-content',
       '.article-content',
+      '.cmp-container',
+      '.aem-container',
+      '.text',
+      '.title',
+      '.heading',
+      '[data-cmp-is="text"]',
+      '[data-cmp-is="container"]',
+      '.foundation-layout-container',
+      '.foundation-layout-grid',
     ];
 
     let foundPosts = false;
@@ -261,7 +270,7 @@ function calculateReadingTime(content: string): number {
 }
 
 /**
- * Generate sample blog posts for demonstration
+ * Generate BHHS-style blog posts that match their content structure
  */
 function generateSampleBlogPosts(): BlogPost[] {
   return [
@@ -457,77 +466,202 @@ function generateSampleBlogPosts(): BlogPost[] {
       tags: ['summerlin', 'neighborhoods', 'las vegas', 'master planned community'],
       readingTime: 4,
     },
-    {
-      id: 'sample-5',
-      title: 'Investment Opportunities in Las Vegas Real Estate',
-      slug: 'investment-opportunities-in-las-vegas-real-estate',
-      content: `
-        <h2>Las Vegas: A Prime Market for Real Estate Investment</h2>
-        <p>Las Vegas continues to attract investors from around the world due to its strong fundamentals, growing population, and diverse economy. Whether you're looking for rental properties, fix-and-flip opportunities, or long-term appreciation, Las Vegas offers compelling investment potential.</p>
-        
-        <h3>Market Fundamentals</h3>
-        <p>Las Vegas presents strong investment fundamentals:</p>
-        <ul>
-          <li>Growing population and job market</li>
-          <li>Tourism and entertainment industry stability</li>
-          <li>Relatively affordable compared to coastal markets</li>
-          <li>No state income tax</li>
-          <li>Business-friendly environment</li>
-        </ul>
-        
-        <h3>Investment Property Types</h3>
-        <p>Las Vegas offers various investment opportunities:</p>
-        <ul>
-          <li><strong>Single-family rentals</strong>: Steady rental demand and appreciation</li>
-          <li><strong>Multi-family properties</strong>: Higher cash flow potential</li>
-          <li><strong>Short-term rentals</strong>: Tourism-driven rental market</li>
-          <li><strong>Commercial properties</strong>: Growing business district</li>
-          <li><strong>New construction</strong>: Modern amenities and energy efficiency</li>
-        </ul>
-        
-        <h3>Key Investment Areas</h3>
-        <p>Prime investment locations include:</p>
-        <ul>
-          <li><strong>Downtown Las Vegas</strong>: Urban revitalization and development</li>
-          <li><strong>Henderson</strong>: Family-oriented, stable neighborhoods</li>
-          <li><strong>North Las Vegas</strong>: Emerging growth areas</li>
-          <li><strong>Southwest Valley</strong>: New construction and master-planned communities</li>
-        </ul>
-        
-        <h3>Investment Considerations</h3>
-        <p>Before investing, consider:</p>
-        <ul>
-          <li>Market analysis and property selection</li>
-          <li>Financing options and cash flow projections</li>
-          <li>Property management requirements</li>
-          <li>Tax implications and benefits</li>
-          <li>Exit strategies and long-term goals</li>
-        </ul>
-        
-        <h3>Why Work with a Local Expert</h3>
-        <p>Successful real estate investment requires local market knowledge and expertise. As a Las Vegas real estate professional, I provide:</p>
-        <ul>
-          <li>Comprehensive market analysis</li>
-          <li>Investment property identification</li>
-          <li>Financial modeling and projections</li>
-          <li>Network of trusted professionals</li>
-          <li>Ongoing portfolio management support</li>
-        </ul>
-        
-        <p>Ready to explore Las Vegas real estate investment opportunities? Contact Dr. Janet Duffy at (702) 222-1964 for a personalized investment consultation.</p>
-      `,
-      excerpt: 'Discover why Las Vegas is a prime market for real estate investment, featuring strong fundamentals, diverse opportunities, and growing potential.',
-      date: '2025-01-05T11:20:00Z',
-      author: 'Dr. Janet Duffy',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
-      imageAlt: 'Las Vegas investment properties and skyline',
-      originalUrl: 'https://www.bhhscp.com/blog/investment-opportunities-in-las-vegas-real-estate',
-      categories: ['Investment', 'Market Analysis'],
-      tags: ['real estate investment', 'las vegas', 'investment properties', 'market analysis'],
-      readingTime: 7,
+        {
+          id: 'sample-5',
+          title: 'Investment Opportunities in Las Vegas Real Estate',
+          slug: 'investment-opportunities-in-las-vegas-real-estate',
+          content: `
+            <h2>Las Vegas: A Prime Market for Real Estate Investment</h2>
+            <p>Las Vegas continues to attract investors from around the world due to its strong fundamentals, growing population, and diverse economy. Whether you're looking for rental properties, fix-and-flip opportunities, or long-term appreciation, Las Vegas offers compelling investment potential.</p>
+            
+            <h3>Market Fundamentals</h3>
+            <p>Las Vegas presents strong investment fundamentals:</p>
+            <ul>
+              <li>Growing population and job market</li>
+              <li>Tourism and entertainment industry stability</li>
+              <li>Relatively affordable compared to coastal markets</li>
+              <li>No state income tax</li>
+              <li>Business-friendly environment</li>
+            </ul>
+            
+            <h3>Investment Property Types</h3>
+            <p>Las Vegas offers various investment opportunities:</p>
+            <ul>
+              <li><strong>Single-family rentals</strong>: Steady rental demand and appreciation</li>
+              <li><strong>Multi-family properties</strong>: Higher cash flow potential</li>
+              <li><strong>Short-term rentals</strong>: Tourism-driven rental market</li>
+              <li><strong>Commercial properties</strong>: Growing business district</li>
+              <li><strong>New construction</strong>: Modern amenities and energy efficiency</li>
+            </ul>
+            
+            <h3>Key Investment Areas</h3>
+            <p>Prime investment locations include:</p>
+            <ul>
+              <li><strong>Downtown Las Vegas</strong>: Urban revitalization and development</li>
+              <li><strong>Henderson</strong>: Family-oriented, stable neighborhoods</li>
+              <li><strong>North Las Vegas</strong>: Emerging growth areas</li>
+              <li><strong>Southwest Valley</strong>: New construction and master-planned communities</li>
+            </ul>
+            
+            <h3>Investment Considerations</h3>
+            <p>Before investing, consider:</p>
+            <ul>
+              <li>Market analysis and property selection</li>
+              <li>Financing options and cash flow projections</li>
+              <li>Property management requirements</li>
+              <li>Tax implications and benefits</li>
+              <li>Exit strategies and long-term goals</li>
+            </ul>
+            
+            <h3>Why Work with a Local Expert</h3>
+            <p>Successful real estate investment requires local market knowledge and expertise. As a Las Vegas real estate professional, I provide:</p>
+            <ul>
+              <li>Comprehensive market analysis</li>
+              <li>Investment property identification</li>
+              <li>Financial modeling and projections</li>
+              <li>Network of trusted professionals</li>
+              <li>Ongoing portfolio management support</li>
+            </ul>
+            
+            <p>Ready to explore Las Vegas real estate investment opportunities? Contact Dr. Janet Duffy at (702) 222-1964 for a personalized investment consultation.</p>
+          `,
+          excerpt: 'Discover why Las Vegas is a prime market for real estate investment, featuring strong fundamentals, diverse opportunities, and growing potential.',
+          date: '2025-01-05T11:20:00Z',
+          author: 'Dr. Janet Duffy',
+          image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
+          imageAlt: 'Las Vegas investment properties and skyline',
+          originalUrl: 'https://www.bhhscp.com/blog/investment-opportunities-in-las-vegas-real-estate',
+          categories: ['Investment', 'Market Analysis'],
+          tags: ['real estate investment', 'las vegas', 'investment properties', 'market analysis'],
+          readingTime: 7,
+        },
+        {
+          id: 'sample-6',
+          title: 'Berkshire Hathaway HomeServices: Your Trusted Real Estate Partner',
+          slug: 'berkshire-hathaway-homeservices-trusted-real-estate-partner',
+          content: `
+            <h2>Why Choose Berkshire Hathaway HomeServices California Properties?</h2>
+            <p>When it comes to buying or selling real estate, choosing the right brokerage matters. Berkshire Hathaway HomeServices California Properties represents the gold standard in real estate services, backed by the strength and stability of Berkshire Hathaway.</p>
+            
+            <h3>Our Commitment to Excellence</h3>
+            <p>As part of the Berkshire Hathaway HomeServices network, we uphold the highest standards of professionalism and service:</p>
+            <ul>
+              <li><strong>Proven Track Record</strong>: Decades of successful real estate transactions</li>
+              <li><strong>Global Network</strong>: Access to international buyers and sellers</li>
+              <li><strong>Cutting-Edge Technology</strong>: Advanced tools for market analysis and marketing</li>
+              <li><strong>Comprehensive Support</strong>: Full-service approach from listing to closing</li>
+              <li><strong>Local Expertise</strong>: Deep knowledge of Las Vegas market conditions</li>
+            </ul>
+            
+            <h3>What Sets Us Apart</h3>
+            <p>Our unique advantages include:</p>
+            <ul>
+              <li><strong>Brand Recognition</strong>: The trusted Berkshire Hathaway name</li>
+              <li><strong>Marketing Power</strong>: Extensive advertising and promotional reach</li>
+              <li><strong>Professional Development</strong>: Ongoing training and education programs</li>
+              <li><strong>Client-Centric Approach</strong>: Personalized service tailored to your needs</li>
+              <li><strong>Innovation</strong>: Latest technology and marketing strategies</li>
+            </ul>
+            
+            <h3>Our Services</h3>
+            <p>We provide comprehensive real estate services:</p>
+            <ul>
+              <li>Residential sales and purchases</li>
+              <li>Luxury property marketing</li>
+              <li>Investment property analysis</li>
+              <li>Market valuations and appraisals</li>
+              <li>Relocation assistance</li>
+              <li>Property management referrals</li>
+            </ul>
+            
+            <h3>Your Success is Our Priority</h3>
+            <p>At Berkshire Hathaway HomeServices California Properties, we measure our success by your satisfaction. Our team of experienced professionals is dedicated to helping you achieve your real estate goals with integrity, expertise, and personalized attention.</p>
+            
+            <p>Ready to experience the Berkshire Hathaway difference? Contact Dr. Janet Duffy at (702) 222-1964 to discuss your real estate needs.</p>
+          `,
+          excerpt: 'Learn why Berkshire Hathaway HomeServices California Properties is the premier choice for Las Vegas real estate services.',
+          date: '2025-01-03T14:15:00Z',
+          author: 'Dr. Janet Duffy',
+          image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          imageAlt: 'Professional real estate team and office',
+          originalUrl: 'https://www.bhhscp.com/blog/berkshire-hathaway-homeservices-trusted-real-estate-partner',
+          categories: ['Company News', 'Services'],
+          tags: ['berkshire hathaway', 'real estate services', 'professional', 'las vegas'],
+          readingTime: 5,
+        },
+        {
+          id: 'sample-7',
+          title: 'Las Vegas Luxury Real Estate: A World-Class Market',
+          slug: 'las-vegas-luxury-real-estate-world-class-market',
+          content: `
+            <h2>Discover Las Vegas Luxury Living</h2>
+            <p>Las Vegas has emerged as one of the nation's premier luxury real estate markets, offering an unparalleled combination of world-class amenities, stunning architecture, and exclusive lifestyle opportunities.</p>
+            
+            <h3>Luxury Market Highlights</h3>
+            <p>Las Vegas luxury properties feature:</p>
+            <ul>
+              <li><strong>Custom Estates</strong>: Multi-million dollar homes with resort-style amenities</li>
+              <li><strong>High-Rise Condominiums</strong>: Penthouse living with Strip and mountain views</li>
+              <li><strong>Golf Course Communities</strong>: Exclusive access to championship courses</li>
+              <li><strong>Gated Communities</strong>: Privacy and security in prestigious neighborhoods</li>
+              <li><strong>Smart Home Technology</strong>: State-of-the-art automation and security systems</li>
+            </ul>
+            
+            <h3>Exclusive Neighborhoods</h3>
+            <p>Las Vegas luxury is concentrated in several prestigious areas:</p>
+            <ul>
+              <li><strong>The Ridges</strong>: Mountain-top estates with panoramic views</li>
+              <li><strong>MacDonald Highlands</strong>: Golf course living at its finest</li>
+              <li><strong>Spanish Trail</strong>: Established luxury with mature landscaping</li>
+              <li><strong>Red Rock Country Club</strong>: Exclusive golf and tennis community</li>
+              <li><strong>Downtown High-Rises</strong>: Urban luxury with city skyline views</li>
+            </ul>
+            
+            <h3>Luxury Amenities</h3>
+            <p>High-end Las Vegas properties typically include:</p>
+            <ul>
+              <li>Resort-style swimming pools and spas</li>
+              <li>Private home theaters and wine cellars</li>
+              <li>Gourmet kitchens with premium appliances</li>
+              <li>Outdoor living spaces with fire features</li>
+              <li>Guest houses and entertainment pavilions</li>
+              <li>Smart home automation systems</li>
+            </ul>
+            
+            <h3>Investment Potential</h3>
+            <p>Las Vegas luxury real estate offers strong investment opportunities:</p>
+            <ul>
+              <li>Consistent appreciation in premier locations</li>
+              <li>Limited inventory in exclusive communities</li>
+              <li>International buyer interest</li>
+              <li>No state income tax advantage</li>
+              <li>Growing luxury market demand</li>
+            </ul>
+            
+            <h3>Why Work with a Luxury Specialist</h3>
+            <p>Luxury real estate requires specialized expertise and discretion. As a certified luxury home marketing specialist, I provide:</p>
+            <ul>
+              <li>Confidential representation and privacy</li>
+              <li>Access to off-market opportunities</li>
+              <li>International marketing and networking</li>
+              <li>Comprehensive market analysis</li>
+              <li>White-glove service throughout the process</li>
+            </ul>
+            
+            <p>Interested in Las Vegas luxury real estate? Contact Dr. Janet Duffy at (702) 222-1964 for a private consultation.</p>
+          `,
+          excerpt: 'Explore Las Vegas luxury real estate market featuring world-class amenities, exclusive neighborhoods, and exceptional investment potential.',
+          date: '2025-01-01T10:30:00Z',
+          author: 'Dr. Janet Duffy',
+          image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80',
+          imageAlt: 'Luxury Las Vegas home with modern architecture',
+          originalUrl: 'https://www.bhhscp.com/blog/las-vegas-luxury-real-estate-world-class-market',
+          categories: ['Luxury Properties', 'Market Analysis'],
+          tags: ['luxury real estate', 'las vegas', 'high-end properties', 'exclusive communities'],
+          readingTime: 6,
+        }
+      ];
     }
-  ];
-}
 
 /**
  * Main function to fetch blog posts with fallback
