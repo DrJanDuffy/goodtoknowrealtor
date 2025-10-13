@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPostsWithCache } from '@/lib/blog/cache';
 import { BlogGrid } from '@/components/blog/BlogGrid';
 
@@ -54,9 +55,11 @@ export default async function BlogPage() {
                 href='tel:702-222-1964'
                 className='bg-white text-amber-800 px-8 py-3 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
               >
-                <img
+                <Image
                   src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
                   alt='Phone'
+                  width={24}
+                  height={24}
                   className='inline-block w-6 h-6 mr-2'
                 />{' '}
                 (702) 222-1964
@@ -150,9 +153,11 @@ export default async function BlogPage() {
                 href='tel:702-222-1964'
                 className='bg-white text-amber-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
               >
-                <img
+                <Image
                   src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
                   alt='Phone'
+                  width={24}
+                  height={24}
                   className='inline-block w-6 h-6 mr-2'
                 />{' '}
                 Call (702) 222-1964

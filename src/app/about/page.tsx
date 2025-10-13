@@ -125,9 +125,11 @@ export default function AboutPage() {
 
             <div className='bg-white rounded-2xl p-8 shadow-lg'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <img
+                <Image
                   src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
                   alt='Target'
+                  width={32}
+                  height={32}
                   className='w-8 h-8'
                 />
               </div>
@@ -237,9 +239,11 @@ export default function AboutPage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             <div className='text-center'>
               <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6'>
-                <img
+                <Image
                   src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
                   alt='Home'
+                  width={32}
+                  height={32}
                   className='w-8 h-8'
                 />
               </div>
@@ -306,9 +310,11 @@ export default function AboutPage() {
               href='tel:702-222-1964'
               className='bg-white text-amber-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
             >
-              <img
+              <Image
                 src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
                 alt='Phone'
+                width={24}
+                height={24}
                 className='inline-block w-6 h-6 mr-2'
               />{' '}
               Call (702) 222-1964
