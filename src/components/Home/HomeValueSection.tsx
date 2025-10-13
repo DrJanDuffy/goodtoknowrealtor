@@ -1,4 +1,4 @@
-'use client';
+import Image from 'next/image';
 
 import { useState } from 'react';
 
@@ -90,9 +90,11 @@ export function HomeValueSection() {
           {features.map((feature, index) => (
             <div key={index} className='text-center'>
               <div className='mb-4 flex justify-center'>
-                <img
+                <Image
                   src={feature.icon}
                   alt={feature.title}
+                  width={32}
+                  height={32}
                   className='w-8 h-8 rounded-lg'
                 />
               </div>

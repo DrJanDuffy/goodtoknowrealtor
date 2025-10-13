@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function ContactCTA() {
   return (
@@ -19,9 +20,11 @@ export function ContactCTA() {
             href='tel:702-222-1964'
             className='bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg'
           >
-            <img
+            <Image
               src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
               alt='Phone'
+              width={24}
+              height={24}
               className='inline-block w-6 h-6 mr-2'
             />{' '}
             Call (702) 222-1964

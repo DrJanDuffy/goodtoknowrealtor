@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 // Define menu structure for Dr. Janet Duffy
@@ -135,9 +136,11 @@ export function Navigation() {
             <div className='flex items-center'>
               <Link href='/' className='flex items-center space-x-4'>
                 <div className='flex flex-col'>
-                  <img
+                  <Image
                     src='/images/bhhs/logo.svg'
                     alt='Berkshire Hathaway HomeServices Premier Properties'
+                    width={120}
+                    height={48}
                     className='h-12 w-auto'
                   />
                   <span className='text-xs text-gray-600 mt-1'>

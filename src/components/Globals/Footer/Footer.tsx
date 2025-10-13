@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -9,10 +10,12 @@ export function Footer() {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             {/* Logo and Branding */}
             <div className='flex flex-col'>
-              <img
+              <Image
                 src='/images/bhhs/logo.svg'
                 alt='Berkshire Hathaway HomeServices Premier Properties'
-                className='w-48 h-12 mb-2'
+                width={192}
+                height={48}
+                className='mb-2'
               />
               <p className='text-sm text-gray-600'>
                 Dr. Jan Duffy, REALTOR®
