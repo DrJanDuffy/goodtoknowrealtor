@@ -12,7 +12,7 @@ export default function SellingPage() {
             </h1>
             <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
               Expert marketing, strategic pricing, and proven negotiation skills
-              to help you achieve the best possible outcome in today's market.
+              to help you achieve the best possible outcome in today&apos;s market.
             </p>
           </div>
         </div>
@@ -26,8 +26,8 @@ export default function SellingPage() {
               Your Home Selling Process
             </h2>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              From market analysis to closing, I'll guide you through every step
-              to maximize your home's value
+              From market analysis to closing, I&apos;ll guide you through every step
+              to maximize your home&apos;s value
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function SellingPage() {
                 Market Analysis
               </h3>
               <p className='text-gray-600'>
-                Comprehensive evaluation of your home's value and current market
+                Comprehensive evaluation of your home&apos;s value and current market
                 conditions.
               </p>
             </div>
@@ -56,7 +56,7 @@ export default function SellingPage() {
               </h3>
               <p className='text-gray-600'>
                 Strategic improvements and professional staging to showcase your
-                home's best features.
+                home&apos;s best features.
               </p>
             </div>
 

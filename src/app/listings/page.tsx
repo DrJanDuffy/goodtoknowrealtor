@@ -12,7 +12,7 @@ export default function ListingsPage() {
               Las Vegas Property Listings
             </h1>
             <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Discover exceptional homes in Las Vegas's most desirable
+              Discover exceptional homes in Las Vegas&apos;s most desirable
               neighborhoods. From luxury estates to first-time buyer homes, find
               your perfect property.
             </p>
@@ -394,7 +394,7 @@ export default function ListingsPage() {
                   Luxury Collection
                 </h3>
                 <p className='text-gray-600 mb-6'>
-                  Exclusive luxury properties in Las Vegas's most prestigious
+                  Exclusive luxury properties in Las Vegas&apos;s most prestigious
                   neighborhoods and communities.
                 </p>
                 <div className='flex items-center text-amber-600 font-semibold group-hover:text-amber-700 transition-colors'>
@@ -494,7 +494,7 @@ export default function ListingsPage() {
                   Our Communities
                 </h3>
                 <p className='text-gray-600 mb-6'>
-                  Explore Las Vegas's diverse neighborhoods and master-planned
+                  Explore Las Vegas&apos;s diverse neighborhoods and master-planned
                   communities to find your perfect location.
                 </p>
                 <div className='flex items-center text-amber-600 font-semibold group-hover:text-amber-700 transition-colors'>
@@ -523,7 +523,7 @@ export default function ListingsPage() {
       <section className='py-20 bg-gradient-to-r from-amber-600 to-yellow-600 text-white'>
         <div className='container text-center'>
           <h2 className='text-3xl lg:text-4xl font-bold mb-6'>
-            Can't Find What You're Looking For?
+            Can&apos;t Find What You&apos;re Looking For?
           </h2>
           <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
             Let Dr. Janet Duffy help you find the perfect property. I have
