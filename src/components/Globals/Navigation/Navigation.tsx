@@ -143,15 +143,21 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
               <div className="flex items-center">
-                <Link href="/" className="flex items-center space-x-3">
-                  <div className="flex flex-col">
-                    <span className="text-2xl font-bold text-amber-600">Dr. Janet Duffy</span>
-                    <span className="text-sm text-gray-600">Real Estate Expert</span>
+                <Link href="/" className="flex items-center space-x-4">
+                  {/* BHHS Logo Placeholder */}
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-lg flex items-center justify-center shadow-md">
+                      <span className="text-white font-bold text-lg">BH</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-2xl font-bold text-amber-600">Dr. Janet Duffy</span>
+                      <span className="text-sm text-gray-600">Real Estate Expert</span>
+                    </div>
                   </div>
                   <div className="hidden lg:block text-xs text-gray-500 ml-4 pl-4 border-l border-gray-300">
-                    <div className="font-semibold text-amber-700">BERKSHIRE HATHAWAY</div>
-                    <div className="font-semibold text-amber-700">HOMESERVICES</div>
-                    <div className="text-gray-600">California Properties</div>
+                    <div className="font-bold text-amber-700 tracking-wide">BERKSHIRE HATHAWAY</div>
+                    <div className="font-bold text-amber-700 tracking-wide">HOMESERVICES</div>
+                    <div className="text-gray-600 font-medium">California Properties</div>
                   </div>
                 </Link>
               </div>
@@ -180,14 +186,30 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="flex items-center space-x-4">
-            <Link href="/contact" className="text-gray-600 hover:text-amber-600 font-medium">
-              Sign In
-            </Link>
-            <Link href="/contact" className="bg-amber-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200">
-              Get Started
-            </Link>
-          </div>
+              <div className="flex items-center space-x-4">
+                {/* BHHS Navigation Icons */}
+                <div className="hidden lg:flex items-center space-x-4 text-gray-600">
+                  <Link href="/saved-properties" className="flex items-center space-x-1 hover:text-amber-600 transition-colors">
+                    <span className="text-lg">💾</span>
+                    <span className="text-sm font-medium">Saved Properties</span>
+                  </Link>
+                  <Link href="/saved-searches" className="flex items-center space-x-1 hover:text-amber-600 transition-colors">
+                    <span className="text-lg">🔍</span>
+                    <span className="text-sm font-medium">Saved Searches</span>
+                  </Link>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <Link href="/contact" className="text-gray-600 hover:text-amber-600 font-medium flex items-center space-x-1">
+                    <span className="text-lg">👤</span>
+                    <span className="hidden sm:inline">Sign In</span>
+                  </Link>
+                  <Link href="/contact" className="bg-amber-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200 flex items-center space-x-1">
+                    <span className="text-lg">🏠</span>
+                    <span>Get Started</span>
+                  </Link>
+                </div>
+              </div>
         </div>
       </div>
     </nav>
