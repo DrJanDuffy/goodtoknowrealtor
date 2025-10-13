@@ -8,11 +8,11 @@ import { SyncStatus } from '@/types/blog';
 export async function GET() {
   try {
     const status = getCacheStatus();
-    
+
     return NextResponse.json({
       success: true,
       ...status,
-      message: status.hasCache 
+      message: status.hasCache
         ? `Cache contains ${status.postCount} posts${status.isExpired ? ' (expired)' : ''}`
         : 'No cached posts available',
     });
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     // Check for authorization (optional)
     const authHeader = request.headers.get('authorization');
     const revalidateSecret = process.env.REVALIDATE_SECRET;
-    
+
     if (revalidateSecret && authHeader !== `Bearer ${revalidateSecret}`) {
       return NextResponse.json(
         { success: false, error: 'Unauthorized' },
@@ -51,14 +51,14 @@ export async function POST(request: NextRequest) {
       // Revalidate the blog listing page
       const { revalidatePath } = await import('next/cache');
       revalidatePath('/blog');
-      
+
       // Revalidate individual blog post pages
       if (syncResult.success && syncResult.postsFound > 0) {
         // In a real implementation, you'd revalidate specific post paths
         // For now, we'll revalidate the blog directory
         revalidatePath('/blog', 'page');
       }
-      
+
       console.log('Pages revalidated successfully');
     } catch (revalidateError) {
       console.warn('Failed to revalidate pages:', revalidateError);
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error('Sync failed:', error);
-    
+
     return NextResponse.json(
       {
         success: false,
@@ -94,7 +94,7 @@ export async function DELETE(request: NextRequest) {
     // Check for authorization
     const authHeader = request.headers.get('authorization');
     const revalidateSecret = process.env.REVALIDATE_SECRET;
-    
+
     if (revalidateSecret && authHeader !== `Bearer ${revalidateSecret}`) {
       return NextResponse.json(
         { success: false, error: 'Unauthorized' },

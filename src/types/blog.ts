@@ -33,10 +33,12 @@ export interface WordPressPost {
       source_url: string;
       alt_text: string;
     }>;
-    'wp:term'?: Array<Array<{
-      name: string;
-      slug: string;
-    }>>;
+    'wp:term'?: Array<
+      Array<{
+        name: string;
+        slug: string;
+      }>
+    >;
     author?: Array<{
       name: string;
     }>;

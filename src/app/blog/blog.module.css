@@ -155,20 +155,20 @@
   .heroTitle {
     font-size: 2.5rem;
   }
-  
+
   .heroSubtitle {
     font-size: 1.1rem;
   }
-  
+
   .blogGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .blogContent {
     padding: 2rem 1rem;
   }
-  
+
   .heroSection {
     padding: 3rem 1rem;
   }
@@ -178,11 +178,11 @@
   .heroTitle {
     font-size: 2rem;
   }
-  
+
   .postContent {
     padding: 1rem;
   }
-  
+
   .postMeta {
     flex-direction: column;
     align-items: flex-start;

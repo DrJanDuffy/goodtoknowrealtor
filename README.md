@@ -5,18 +5,21 @@ A Next.js 15 application that automatically fetches and displays blog posts from
 ## 🚀 Features
 
 ### Automatic Blog Sync
+
 - **Dual-Approach Fetcher**: Tries WordPress REST API first, falls back to web scraping
 - **Real-time Updates**: New posts appear within 6 hours via Vercel cron jobs
 - **Smart Caching**: ISR with 6-hour revalidation for optimal performance
 - **Error Handling**: Graceful fallbacks when source is unavailable
 
 ### Dr. Jan Duffy Branding
+
 - **Las Vegas Real Estate Focus**: Customized for local market insights
 - **Professional Design**: Gold/amber color scheme with real estate aesthetics
 - **Contact Integration**: Prominent phone number (702-222-1964) and consultation CTAs
 - **Attribution**: Proper credit to original BHHS source content
 
 ### Technical Excellence
+
 - **Next.js 15**: App Router with latest performance optimizations
 - **Custom CSS**: Responsive design with utility-first approach
 - **TypeScript**: Strict type safety throughout the application
@@ -25,7 +28,8 @@ A Next.js 15 application that automatically fetches and displays blog posts from
 ## 🛠️ Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 - Vercel account for deployment
 
@@ -50,6 +54,7 @@ npm run dev
 ### Environment Variables
 
 Create `.env.local` with:
+
 ```bash
 # Blog Source Configuration
 BLOG_SOURCE_URL=https://www.bhhscp.com/blog
@@ -62,6 +67,7 @@ REVALIDATE_SECRET=your-secure-secret-key-here
 ### Vercel Deployment
 
 1. **Connect to Vercel**:
+
    ```bash
    npx vercel
    ```
@@ -72,6 +78,7 @@ REVALIDATE_SECRET=your-secure-secret-key-here
    - `REVALIDATE_SECRET`: Generate a secure random string
 
 3. **Deploy**:
+
    ```bash
    vercel --prod
    ```
@@ -128,18 +135,22 @@ src/
 ## 🔧 Configuration
 
 ### Blog Sync Configuration
+
 The application uses a dual-approach system for fetching blog posts:
 
 1. **Primary**: WordPress REST API (`/wp-json/wp/v2/posts`)
 2. **Fallback**: Web scraping with Cheerio
 
 ### Caching Strategy
+
 - **ISR**: Incremental Static Regeneration with 6-hour revalidation
 - **In-Memory Cache**: For development and API responses
 - **Vercel Edge**: Automatic caching at the edge
 
 ### Cron Jobs
+
 Vercel cron jobs automatically sync blog posts every 6 hours:
+
 ```json
 {
   "crons": [
@@ -154,26 +165,32 @@ Vercel cron jobs automatically sync blog posts every 6 hours:
 ## 🎨 Customization
 
 ### Branding
+
 Update the Dr. Janet Duffy branding by modifying:
+
 - `src/app/blog/page.tsx` - Hero section and CTAs
 - `src/components/Globals/Navigation/Navigation.tsx` - Navigation
 - `src/components/Globals/Footer/Footer.tsx` - Footer
 - `src/app/globals.css` - Color scheme and styling
 
 ### Content Sources
+
 Change the blog source by updating:
+
 - `src/lib/blog/fetcher.ts` - BLOG_CONFIG object
 - Environment variables for different WordPress sites
 
 ## 📊 Performance
 
 ### Lighthouse Scores
+
 - **Performance**: Optimized for Core Web Vitals
 - **SEO**: Complete meta tags and structured data
 - **Accessibility**: WCAG compliant design
 - **Best Practices**: Security headers and optimizations
 
 ### Bundle Analysis
+
 ```bash
 npm run analyze
 ```
@@ -181,12 +198,15 @@ npm run analyze
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
+
 1. Connect your GitHub repository
 2. Add environment variables
 3. Deploy automatically on push
 
 ### Other Platforms
+
 The app can be deployed to any platform supporting Next.js:
+
 - Netlify
 - Railway
 - DigitalOcean App Platform
@@ -195,6 +215,7 @@ The app can be deployed to any platform supporting Next.js:
 ## 📝 Legal & Attribution
 
 This application properly attributes content to the original source:
+
 - **Source**: Berkshire Hathaway HomeServices California Properties
 - **Attribution**: Displayed on each blog post
 - **Licensing**: Respects original content rights
@@ -210,6 +231,7 @@ This application properly attributes content to the original source:
 ## 📞 Support
 
 For questions about this implementation:
+
 - **Real Estate Services**: Contact Dr. Janet Duffy at (702) 222-1964
 - **Technical Issues**: Create an issue in this repository
 

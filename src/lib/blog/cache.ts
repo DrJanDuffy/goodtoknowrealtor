@@ -64,10 +64,10 @@ export async function getPostsWithCache(): Promise<BlogPost[]> {
   try {
     syncInProgress = true;
     console.log('Fetching fresh posts...');
-    
+
     const posts = await fetchBlogPosts();
     updateCache(posts);
-    
+
     console.log(`Successfully cached ${posts.length} posts`);
     return posts;
   } catch (error) {
@@ -85,15 +85,15 @@ export async function getPostsWithCache(): Promise<BlogPost[]> {
 export async function refreshCache(): Promise<SyncStatus> {
   try {
     console.log('Force refreshing cache...');
-    
+
     const oldPostCount = postsCache.length;
     const posts = await fetchBlogPosts();
-    
+
     updateCache(posts);
-    
+
     const newPostCount = posts.length;
     const newPosts = newPostCount - oldPostCount;
-    
+
     return {
       success: true,
       postsFound: newPostCount,
@@ -102,7 +102,7 @@ export async function refreshCache(): Promise<SyncStatus> {
     };
   } catch (error) {
     console.error('Cache refresh failed:', error);
-    
+
     return {
       success: false,
       postsFound: postsCache.length,

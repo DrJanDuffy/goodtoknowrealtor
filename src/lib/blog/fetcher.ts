@@ -14,10 +14,10 @@ const BLOG_CONFIG: BlogConfig = {
 async function fetchWordPressPosts(): Promise<BlogPost[]> {
   try {
     console.log('Attempting to fetch posts via WordPress REST API...');
-    
+
     const response = await fetch(
       `${BLOG_CONFIG.apiUrl}/posts?_embed&per_page=${BLOG_CONFIG.maxPosts}&orderby=date&order=desc`,
-      { 
+      {
         next: { revalidate: BLOG_CONFIG.revalidateInterval },
         headers: {
           'User-Agent': 'BHHS-Blog-Sync/1.0',
@@ -31,7 +31,7 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
 
     const posts: WordPressPost[] = await response.json();
     console.log(`Successfully fetched ${posts.length} posts via WordPress API`);
-    
+
     return posts.map(normalizeWordPressPost);
   } catch (error) {
     console.log('WordPress API failed:', error);
@@ -45,7 +45,7 @@ async function fetchWordPressPosts(): Promise<BlogPost[]> {
 async function fetchPostsViaScraping(): Promise<BlogPost[]> {
   try {
     console.log('Attempting to fetch posts via web scraping...');
-    
+
     const response = await fetch(BLOG_CONFIG.sourceUrl, {
       next: { revalidate: BLOG_CONFIG.revalidateInterval },
       headers: {
@@ -59,9 +59,9 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
 
     const html = await response.text();
     const $ = cheerio.load(html);
-    
+
     const posts: BlogPost[] = [];
-    
+
     // Try multiple selectors to find blog posts (including BHHS AEM-specific selectors)
     const selectors = [
       '.blog-post',
@@ -92,19 +92,21 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
 
     for (const selector of selectors) {
       const elements = $(selector);
-      
+
       if (elements.length > 0) {
-        console.log(`Found ${elements.length} posts using selector: ${selector}`);
-        
+        console.log(
+          `Found ${elements.length} posts using selector: ${selector}`
+        );
+
         elements.each((i, element) => {
           if (posts.length >= BLOG_CONFIG.maxPosts) return false;
-          
+
           const post = parseScrapedPost($, element);
           if (post) {
             posts.push(post);
           }
         });
-        
+
         foundPosts = true;
         break;
       }
@@ -114,11 +116,11 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
       // Fallback: try to find any links that might be blog posts
       $('a[href*="/blog/"]').each((i, element) => {
         if (posts.length >= BLOG_CONFIG.maxPosts) return false;
-        
+
         const $link = $(element);
         const url = $link.attr('href');
         const title = $link.text().trim();
-        
+
         if (url && title && url !== BLOG_CONFIG.sourceUrl) {
           posts.push({
             id: `scraped-${i}`,
@@ -128,9 +130,12 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
             excerpt: title,
             date: new Date().toISOString(),
             author: 'BHHS California Properties',
-            image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
+            image:
+              'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80',
             imageAlt: title,
-            originalUrl: url.startsWith('http') ? url : new URL(url, BLOG_CONFIG.sourceUrl).toString(),
+            originalUrl: url.startsWith('http')
+              ? url
+              : new URL(url, BLOG_CONFIG.sourceUrl).toString(),
             categories: [],
             tags: [],
           });
@@ -149,13 +154,17 @@ async function fetchPostsViaScraping(): Promise<BlogPost[]> {
 /**
  * Parse a scraped post element
  */
-function parseScrapedPost($: cheerio.CheerioAPI, element: cheerio.Element): BlogPost | null {
+function parseScrapedPost(
+  $: cheerio.CheerioAPI,
+  element: cheerio.Element
+): BlogPost | null {
   const $el = $(element);
-  
+
   // Extract title
-  const title = $el.find('h1, h2, h3, .title, .post-title').first().text().trim() ||
-                $el.find('a').first().text().trim();
-  
+  const title =
+    $el.find('h1, h2, h3, .title, .post-title').first().text().trim() ||
+    $el.find('a').first().text().trim();
+
   if (!title) return null;
 
   // Extract URL
@@ -171,24 +180,33 @@ function parseScrapedPost($: cheerio.CheerioAPI, element: cheerio.Element): Blog
 
   // Enhanced image extraction with multiple fallbacks
   const img = $el.find('img').first();
-  let image = img.attr('src') || img.attr('data-src') || img.attr('data-lazy-src') || img.attr('data-original');
-  
+  let image =
+    img.attr('src') ||
+    img.attr('data-src') ||
+    img.attr('data-lazy-src') ||
+    img.attr('data-original');
+
   // If no image found, try to find images in parent containers
   if (!image) {
     const parentImg = $el.parent().find('img').first();
-    image = parentImg.attr('src') || parentImg.attr('data-src') || parentImg.attr('data-lazy-src');
+    image =
+      parentImg.attr('src') ||
+      parentImg.attr('data-src') ||
+      parentImg.attr('data-lazy-src');
   }
-  
+
   // If still no image, use a default real estate image
   if (!image) {
-    image = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80';
+    image =
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80';
   }
-  
+
   const imageAlt = img.attr('alt') || title;
 
   // Extract author
-  const author = $el.find('.author, .post-author').first().text().trim() ||
-                 'BHHS California Properties';
+  const author =
+    $el.find('.author, .post-author').first().text().trim() ||
+    'BHHS California Properties';
 
   return {
     id: `scraped-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -198,9 +216,15 @@ function parseScrapedPost($: cheerio.CheerioAPI, element: cheerio.Element): Blog
     excerpt: excerpt || title,
     date,
     author,
-    image: image ? (image.startsWith('http') ? image : new URL(image, BLOG_CONFIG.sourceUrl).toString()) : undefined,
+    image: image
+      ? image.startsWith('http')
+        ? image
+        : new URL(image, BLOG_CONFIG.sourceUrl).toString()
+      : undefined,
     imageAlt,
-    originalUrl: url.startsWith('http') ? url : new URL(url, BLOG_CONFIG.sourceUrl).toString(),
+    originalUrl: url.startsWith('http')
+      ? url
+      : new URL(url, BLOG_CONFIG.sourceUrl).toString(),
     categories: [],
     tags: [],
   };
@@ -246,17 +270,17 @@ function extractSlugFromUrl(url: string): string {
  */
 function parseDate(dateText: string): string | null {
   if (!dateText) return null;
-  
+
   try {
     // Try to parse common date formats
     const date = new Date(dateText);
     if (!isNaN(date.getTime())) {
       return date.toISOString();
     }
-    } catch {
-      console.warn('Failed to parse date:', dateText);
-    }
-  
+  } catch {
+    console.warn('Failed to parse date:', dateText);
+  }
+
   return null;
 }
 
@@ -297,12 +321,15 @@ function generateSampleBlogPosts(): BlogPost[] {
         
         <p>As your trusted Las Vegas real estate expert, I'm here to help you navigate this market successfully. Whether you're buying your first home, upgrading, or downsizing, I'll provide the guidance and expertise you need.</p>
       `,
-      excerpt: 'Las Vegas real estate market shows strong performance in January 2025 with balanced conditions favoring both buyers and sellers.',
+      excerpt:
+        'Las Vegas real estate market shows strong performance in January 2025 with balanced conditions favoring both buyers and sellers.',
       date: '2025-01-15T10:00:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/summer-2025-homebuyer-trends',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/summer-2025-homebuyer-trends',
       imageAlt: 'Summer 2025 Homebuyer Trends',
-      originalUrl: 'https://www.bhhscp.com/blog/las-vegas-real-estate-market-update-january-2025',
+      originalUrl:
+        'https://www.bhhscp.com/blog/las-vegas-real-estate-market-update-january-2025',
       categories: ['Market Updates', 'Las Vegas'],
       tags: ['real estate', 'las vegas', 'market update', 'housing trends'],
       readingTime: 4,
@@ -346,12 +373,15 @@ function generateSampleBlogPosts(): BlogPost[] {
         
         <p>Ready to start your home buying journey? Contact me at (702) 222-1964 for a personalized consultation.</p>
       `,
-      excerpt: 'Complete guide for first-time home buyers in Las Vegas, covering everything from financial preparation to available assistance programs.',
+      excerpt:
+        'Complete guide for first-time home buyers in Las Vegas, covering everything from financial preparation to available assistance programs.',
       date: '2025-01-12T14:30:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/Is-it-better-to-rent-or-buy-',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/Is-it-better-to-rent-or-buy-',
       imageAlt: 'Is it Better to Rent or Buy?',
-      originalUrl: 'https://www.bhhscp.com/blog/first-time-home-buyer-guide-everything-you-need-to-know',
+      originalUrl:
+        'https://www.bhhscp.com/blog/first-time-home-buyer-guide-everything-you-need-to-know',
       categories: ['Buying Tips', 'First-Time Buyers'],
       tags: ['first time buyer', 'home buying', 'mortgage', 'las vegas'],
       readingTime: 6,
@@ -398,12 +428,15 @@ function generateSampleBlogPosts(): BlogPost[] {
         
         <p>Ready to sell your Las Vegas home for maximum value? Contact Dr. Janet Duffy at (702) 222-1964 for a free home valuation and selling strategy consultation.</p>
       `,
-      excerpt: 'Five essential tips for selling your Las Vegas home to achieve maximum value and a quick sale in today\'s competitive market.',
+      excerpt:
+        "Five essential tips for selling your Las Vegas home to achieve maximum value and a quick sale in today's competitive market.",
       date: '2025-01-10T09:15:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
       imageAlt: 'Should You Buy a Home During Market Changes?',
-      originalUrl: 'https://www.bhhscp.com/blog/selling-your-las-vegas-home-5-tips-for-maximum-value',
+      originalUrl:
+        'https://www.bhhscp.com/blog/selling-your-las-vegas-home-5-tips-for-maximum-value',
       categories: ['Selling Tips', 'Market Strategy'],
       tags: ['home selling', 'real estate', 'las vegas', 'home value'],
       readingTime: 5,
@@ -456,21 +489,29 @@ function generateSampleBlogPosts(): BlogPost[] {
         
         <p>Interested in making Summerlin your home? Contact Dr. Janet Duffy at (702) 222-1964 to explore available properties and learn more about this exceptional community.</p>
       `,
-      excerpt: 'Explore Summerlin, Las Vegas\'s premier master-planned community, featuring top-rated amenities, excellent schools, and diverse housing options.',
+      excerpt:
+        "Explore Summerlin, Las Vegas's premier master-planned community, featuring top-rated amenities, excellent schools, and diverse housing options.",
       date: '2025-01-08T16:45:00Z',
       author: 'Dr. Janet Duffy',
-      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/best-places-to-buy-land-in-t',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/best-places-to-buy-land-in-t',
       imageAlt: 'Best Places to Buy Land and Homes',
-      originalUrl: 'https://www.bhhscp.com/blog/las-vegas-neighborhood-spotlight-summerlin',
+      originalUrl:
+        'https://www.bhhscp.com/blog/las-vegas-neighborhood-spotlight-summerlin',
       categories: ['Neighborhoods', 'Las Vegas'],
-      tags: ['summerlin', 'neighborhoods', 'las vegas', 'master planned community'],
+      tags: [
+        'summerlin',
+        'neighborhoods',
+        'las vegas',
+        'master planned community',
+      ],
       readingTime: 4,
     },
-        {
-          id: 'sample-5',
-          title: 'Investment Opportunities in Las Vegas Real Estate',
-          slug: 'investment-opportunities-in-las-vegas-real-estate',
-          content: `
+    {
+      id: 'sample-5',
+      title: 'Investment Opportunities in Las Vegas Real Estate',
+      slug: 'investment-opportunities-in-las-vegas-real-estate',
+      content: `
             <h2>Las Vegas: A Prime Market for Real Estate Investment</h2>
             <p>Las Vegas continues to attract investors from around the world due to its strong fundamentals, growing population, and diverse economy. Whether you're looking for rental properties, fix-and-flip opportunities, or long-term appreciation, Las Vegas offers compelling investment potential.</p>
             
@@ -525,21 +566,30 @@ function generateSampleBlogPosts(): BlogPost[] {
             
             <p>Ready to explore Las Vegas real estate investment opportunities? Contact Dr. Janet Duffy at (702) 222-1964 for a personalized investment consultation.</p>
           `,
-          excerpt: 'Discover why Las Vegas is a prime market for real estate investment, featuring strong fundamentals, diverse opportunities, and growing potential.',
-          date: '2025-01-05T11:20:00Z',
-          author: 'Dr. Janet Duffy',
-      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/are-short-term-rentals-still',
+      excerpt:
+        'Discover why Las Vegas is a prime market for real estate investment, featuring strong fundamentals, diverse opportunities, and growing potential.',
+      date: '2025-01-05T11:20:00Z',
+      author: 'Dr. Janet Duffy',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/are-short-term-rentals-still',
       imageAlt: 'Short-term Rental Investment Opportunities',
-          originalUrl: 'https://www.bhhscp.com/blog/investment-opportunities-in-las-vegas-real-estate',
-          categories: ['Investment', 'Market Analysis'],
-          tags: ['real estate investment', 'las vegas', 'investment properties', 'market analysis'],
-          readingTime: 7,
-        },
-        {
-          id: 'sample-6',
-          title: 'Berkshire Hathaway HomeServices: Your Trusted Real Estate Partner',
-          slug: 'berkshire-hathaway-homeservices-trusted-real-estate-partner',
-          content: `
+      originalUrl:
+        'https://www.bhhscp.com/blog/investment-opportunities-in-las-vegas-real-estate',
+      categories: ['Investment', 'Market Analysis'],
+      tags: [
+        'real estate investment',
+        'las vegas',
+        'investment properties',
+        'market analysis',
+      ],
+      readingTime: 7,
+    },
+    {
+      id: 'sample-6',
+      title:
+        'Berkshire Hathaway HomeServices: Your Trusted Real Estate Partner',
+      slug: 'berkshire-hathaway-homeservices-trusted-real-estate-partner',
+      content: `
             <h2>Why Choose Berkshire Hathaway HomeServices California Properties?</h2>
             <p>When it comes to buying or selling real estate, choosing the right brokerage matters. Berkshire Hathaway HomeServices California Properties represents the gold standard in real estate services, backed by the strength and stability of Berkshire Hathaway.</p>
             
@@ -579,21 +629,29 @@ function generateSampleBlogPosts(): BlogPost[] {
             
             <p>Ready to experience the Berkshire Hathaway difference? Contact Dr. Janet Duffy at (702) 222-1964 to discuss your real estate needs.</p>
           `,
-          excerpt: 'Learn why Berkshire Hathaway HomeServices California Properties is the premier choice for Las Vegas real estate services.',
-          date: '2025-01-03T14:15:00Z',
-          author: 'Dr. Janet Duffy',
-      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/the-state-of-housing-invento',
+      excerpt:
+        'Learn why Berkshire Hathaway HomeServices California Properties is the premier choice for Las Vegas real estate services.',
+      date: '2025-01-03T14:15:00Z',
+      author: 'Dr. Janet Duffy',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/the-state-of-housing-invento',
       imageAlt: 'State of Housing Inventory',
-          originalUrl: 'https://www.bhhscp.com/blog/berkshire-hathaway-homeservices-trusted-real-estate-partner',
-          categories: ['Company News', 'Services'],
-          tags: ['berkshire hathaway', 'real estate services', 'professional', 'las vegas'],
-          readingTime: 5,
-        },
-        {
-          id: 'sample-7',
-          title: 'Las Vegas Luxury Real Estate: A World-Class Market',
-          slug: 'las-vegas-luxury-real-estate-world-class-market',
-          content: `
+      originalUrl:
+        'https://www.bhhscp.com/blog/berkshire-hathaway-homeservices-trusted-real-estate-partner',
+      categories: ['Company News', 'Services'],
+      tags: [
+        'berkshire hathaway',
+        'real estate services',
+        'professional',
+        'las vegas',
+      ],
+      readingTime: 5,
+    },
+    {
+      id: 'sample-7',
+      title: 'Las Vegas Luxury Real Estate: A World-Class Market',
+      slug: 'las-vegas-luxury-real-estate-world-class-market',
+      content: `
             <h2>Discover Las Vegas Luxury Living</h2>
             <p>Las Vegas has emerged as one of the nation's premier luxury real estate markets, offering an unparalleled combination of world-class amenities, stunning architecture, and exclusive lifestyle opportunities.</p>
             
@@ -650,21 +708,29 @@ function generateSampleBlogPosts(): BlogPost[] {
             
             <p>Interested in Las Vegas luxury real estate? Contact Dr. Janet Duffy at (702) 222-1964 for a private consultation.</p>
           `,
-          excerpt: 'Explore Las Vegas luxury real estate market featuring world-class amenities, exclusive neighborhoods, and exceptional investment potential.',
-          date: '2025-01-01T10:30:00Z',
-          author: 'Dr. Janet Duffy',
-      image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/lifestyle/how-to-buy-a-home-in-sprin',
+      excerpt:
+        'Explore Las Vegas luxury real estate market featuring world-class amenities, exclusive neighborhoods, and exceptional investment potential.',
+      date: '2025-01-01T10:30:00Z',
+      author: 'Dr. Janet Duffy',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/lifestyle/how-to-buy-a-home-in-sprin',
       imageAlt: 'How to Buy a Home in Spring',
-          originalUrl: 'https://www.bhhscp.com/blog/las-vegas-luxury-real-estate-world-class-market',
-          categories: ['Luxury Properties', 'Market Analysis'],
-          tags: ['luxury real estate', 'las vegas', 'high-end properties', 'exclusive communities'],
-          readingTime: 6,
-        },
-        {
-          id: 'sample-8',
-          title: 'Should You Buy a Home During Market Changes?',
-          slug: 'should-you-buy-a-home-during-market-changes',
-          content: `
+      originalUrl:
+        'https://www.bhhscp.com/blog/las-vegas-luxury-real-estate-world-class-market',
+      categories: ['Luxury Properties', 'Market Analysis'],
+      tags: [
+        'luxury real estate',
+        'las vegas',
+        'high-end properties',
+        'exclusive communities',
+      ],
+      readingTime: 6,
+    },
+    {
+      id: 'sample-8',
+      title: 'Should You Buy a Home During Market Changes?',
+      slug: 'should-you-buy-a-home-during-market-changes',
+      content: `
             <h2>Navigating Market Changes as a Home Buyer</h2>
             <p>Market changes can create both opportunities and challenges for home buyers. Understanding how to navigate these fluctuations is crucial for making informed decisions about your home purchase.</p>
             
@@ -705,21 +771,24 @@ function generateSampleBlogPosts(): BlogPost[] {
             
             <p>Ready to navigate the Las Vegas market? Contact Dr. Janet Duffy at (702) 222-1964 for expert guidance on timing your home purchase.</p>
           `,
-          excerpt: 'Learn how to navigate different real estate market conditions and make informed decisions about when to buy your home.',
-          date: '2024-12-28T16:20:00Z',
-          author: 'Dr. Janet Duffy',
-          image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
-          imageAlt: 'Should You Buy a Home During Market Changes?',
-          originalUrl: 'https://www.bhhscp.com/blog/should-you-buy-a-home-during-market-changes',
-          categories: ['Buying Tips', 'Market Analysis'],
-          tags: ['home buying', 'market conditions', 'real estate', 'timing'],
-          readingTime: 4,
-        },
-        {
-          id: 'sample-9',
-          title: 'What Are Deed Restrictions?',
-          slug: 'what-are-deed-restrictions',
-          content: `
+      excerpt:
+        'Learn how to navigate different real estate market conditions and make informed decisions about when to buy your home.',
+      date: '2024-12-28T16:20:00Z',
+      author: 'Dr. Janet Duffy',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
+      imageAlt: 'Should You Buy a Home During Market Changes?',
+      originalUrl:
+        'https://www.bhhscp.com/blog/should-you-buy-a-home-during-market-changes',
+      categories: ['Buying Tips', 'Market Analysis'],
+      tags: ['home buying', 'market conditions', 'real estate', 'timing'],
+      readingTime: 4,
+    },
+    {
+      id: 'sample-9',
+      title: 'What Are Deed Restrictions?',
+      slug: 'what-are-deed-restrictions',
+      content: `
             <h2>Understanding Deed Restrictions in Real Estate</h2>
             <p>Deed restrictions, also known as restrictive covenants, are rules and limitations placed on a property that dictate how it can be used, maintained, or modified. These restrictions are legally binding and transfer with the property when sold.</p>
             
@@ -765,18 +834,20 @@ function generateSampleBlogPosts(): BlogPost[] {
             
             <p>Need help understanding deed restrictions on a Las Vegas property? Contact Dr. Janet Duffy at (702) 222-1964 for expert guidance.</p>
           `,
-          excerpt: 'Learn about deed restrictions, their purpose, and what they mean for property ownership and use.',
-          date: '2024-12-25T11:45:00Z',
-          author: 'Dr. Janet Duffy',
-          image: 'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/what-are-deed-restrictions-9',
-          imageAlt: 'What Are Deed Restrictions?',
-          originalUrl: 'https://www.bhhscp.com/blog/what-are-deed-restrictions',
-          categories: ['Legal Information', 'Home Buying'],
-          tags: ['deed restrictions', 'property law', 'home buying', 'legal'],
-          readingTime: 5,
-        }
-      ];
-    }
+      excerpt:
+        'Learn about deed restrictions, their purpose, and what they mean for property ownership and use.',
+      date: '2024-12-25T11:45:00Z',
+      author: 'Dr. Janet Duffy',
+      image:
+        'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/what-are-deed-restrictions-9',
+      imageAlt: 'What Are Deed Restrictions?',
+      originalUrl: 'https://www.bhhscp.com/blog/what-are-deed-restrictions',
+      categories: ['Legal Information', 'Home Buying'],
+      tags: ['deed restrictions', 'property law', 'home buying', 'legal'],
+      readingTime: 5,
+    },
+  ];
+}
 
 /**
  * Main function to fetch blog posts with fallback
