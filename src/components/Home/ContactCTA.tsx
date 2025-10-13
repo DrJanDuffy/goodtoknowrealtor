@@ -20,7 +20,7 @@ export function ContactCTA() {
             className='bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg'
           >
             <img
-              src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
+              src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
               alt='Phone'
               className='inline-block w-6 h-6 mr-2'
             />{' '}

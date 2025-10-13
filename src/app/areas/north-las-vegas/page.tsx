@@ -87,7 +87,7 @@ export default function NorthLasVegasPage() {
             </div>
             <div className="relative">
               <Image
-                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
                 alt="North Las Vegas new construction homes"
                 width={600}
                 height={400}

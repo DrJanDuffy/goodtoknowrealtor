@@ -93,7 +93,7 @@ export function AboutSection() {
           <div className="relative">
             <div className="relative w-full h-96 rounded-2xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
                 alt="Dr. Janet Duffy - Premier Good To Know REALTOR®"
                 fill
                 className="object-cover"

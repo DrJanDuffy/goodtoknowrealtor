@@ -17,24 +17,24 @@ export function HomeValueSection() {
 
   const features = [
     {
-      icon: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80',
+      icon: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&h=64&q=80',
       title: 'Our ProValue Estimate',
       description:
         'Get the most accurate estimate, powered by the same technology used by lenders.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80',
+      icon: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&h=64&q=80',
       title: 'Comparable Sales',
       description:
         'See what other homes are being sold for in and around your neighborhood.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80',
+      icon: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&h=64&q=80',
       title: 'Price History',
       description: 'See sale dates and prices from years past.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80',
+      icon: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&h=64&q=80',
       title: 'Local Market Snapshots',
       description: 'Get the scoop on sale prices within your ZIP code.',
     },
@@ -94,7 +94,7 @@ export function HomeValueSection() {
                 <img
                   src={feature.icon}
                   alt={feature.title}
-                  className='w-12 h-12 rounded-lg'
+                  className='w-8 h-8 rounded-lg'
                 />
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-3'>

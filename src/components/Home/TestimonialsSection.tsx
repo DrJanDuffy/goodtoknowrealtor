@@ -8,7 +8,7 @@ export function TestimonialsSection() {
       author: "Sarah & Mike Johnson",
       location: "First-Time Homebuyers",
       community: "Summerlin, Las Vegas",
-      image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ export function TestimonialsSection() {
       author: "Robert & Diane Chen",
       location: "Retirees",
       community: "Henderson, Las Vegas",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
     },
     {
       id: 3,
@@ -24,7 +24,7 @@ export function TestimonialsSection() {
       author: "Alex Martinez",
       location: "Real Estate Investor",
       community: "Multiple Las Vegas Properties",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
     },
     {
       id: 4,
@@ -32,7 +32,7 @@ export function TestimonialsSection() {
       author: "Jennifer & David Thompson",
       location: "Luxury Home Buyers",
       community: "Summerlin Luxury Community",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
     },
     {
       id: 5,
@@ -40,7 +40,7 @@ export function TestimonialsSection() {
       author: "Maria Rodriguez",
       location: "First-Time Seller",
       community: "North Las Vegas",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
     },
     {
       id: 6,
@@ -48,7 +48,7 @@ export function TestimonialsSection() {
       author: "James & Lisa Park",
       location: "Investment Property Buyers",
       community: "Las Vegas Investment Portfolio",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
     }
   ];
 
@@ -67,7 +67,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.author}
