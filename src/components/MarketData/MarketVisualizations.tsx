@@ -152,7 +152,7 @@ export function MarketVisualizations({ area = 'Las Vegas Valley', className = ''
   if (!marketData) {
     return (
       <div className={`bg-white rounded-lg shadow-lg p-6 text-center ${className}`}>
-        <div className="text-4xl mb-2">📊</div>
+        <div className="text-2xl mb-2">📊</div>
         <p className="text-gray-600">Market data not available for this area</p>
       </div>
     );

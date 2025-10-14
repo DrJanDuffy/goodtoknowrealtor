@@ -261,7 +261,7 @@ export function NeighborhoodMap({
               {/* Map Markers */}
               <div className="relative z-10">
                 <div className="text-center mb-8">
-                  <div className="text-6xl mb-2">🗺️</div>
+                  <div className="text-3xl mb-2">🗺️</div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Las Vegas Neighborhood Map</h3>
                   <p className="text-gray-600">
                     Interactive map showing {filteredMarkers.length} locations

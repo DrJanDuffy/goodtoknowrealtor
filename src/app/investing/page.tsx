@@ -68,7 +68,7 @@ export default function InvestingPage() {
           {investmentTypes.map((type, index) => (
             <div key={index} className='bg-white rounded-lg shadow-sm border border-gray-100 p-6'>
               <div className='flex items-center mb-4'>
-                <div className='text-3xl mr-4'>{type.icon}</div>
+                <div className='text-2xl mr-4'>{type.icon}</div>
                 <h3 className='text-xl font-semibold text-gray-900'>{type.title}</h3>
               </div>
               <p className='text-gray-600 mb-4'>{type.description}</p>

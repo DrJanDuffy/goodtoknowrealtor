@@ -229,7 +229,7 @@ export default function InteractiveFeaturesPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-4xl mb-4">🔍</div>
+              <div className="text-2xl mb-4">🔍</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced Search</h3>
               <p className="text-gray-600 text-sm">
                 Real-time filtering with comprehensive criteria and instant results
@@ -237,7 +237,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-4xl mb-4">⚖️</div>
+              <div className="text-2xl mb-4">⚖️</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Property Comparison</h3>
               <p className="text-gray-600 text-sm">
                 Side-by-side comparison of up to 4 properties with detailed analysis
@@ -245,7 +245,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-4xl mb-4">🏠</div>
+              <div className="text-2xl mb-4">🏠</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Virtual Tours</h3>
               <p className="text-gray-600 text-sm">
                 360° tours, video walkthroughs, and interactive property exploration
@@ -253,7 +253,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-4xl mb-4">💰</div>
+              <div className="text-2xl mb-4">💰</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Mortgage Tools</h3>
               <p className="text-gray-600 text-sm">
                 Calculate payments, explore financing options, and get pre-approved
@@ -261,7 +261,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-4xl mb-4">🗺️</div>
+              <div className="text-2xl mb-4">🗺️</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Interactive Maps</h3>
               <p className="text-gray-600 text-sm">
                 Explore neighborhoods, amenities, and property locations
@@ -269,7 +269,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-4xl mb-4">📊</div>
+              <div className="text-2xl mb-4">📊</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Market Data</h3>
               <p className="text-gray-600 text-sm">
                 Real-time market trends, pricing analysis, and neighborhood insights
@@ -277,7 +277,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-4xl mb-4">📧</div>
+              <div className="text-2xl mb-4">📧</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Smart Alerts</h3>
               <p className="text-gray-600 text-sm">
                 Personalized property alerts based on your specific criteria
@@ -285,7 +285,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-4xl mb-4">📅</div>
+              <div className="text-2xl mb-4">📅</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Quick Actions</h3>
               <p className="text-gray-600 text-sm">
                 Schedule showings, share properties, and connect with agents instantly

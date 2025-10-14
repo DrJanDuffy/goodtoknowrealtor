@@ -114,7 +114,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
             {/* 360° Tour Placeholder */}
             <div className="w-full h-full flex items-center justify-center">
               <div className="text-center text-white">
-                <div className="text-6xl mb-4">🌐</div>
+                <div className="text-3xl mb-4">🌐</div>
                 <h3 className="text-xl font-semibold mb-2">360° Virtual Tour</h3>
                 <p className="text-gray-300 mb-4">{tour.title}</p>
                 <button
@@ -163,7 +163,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
             {/* Matterport Tour Placeholder */}
             <div className="w-full h-full flex items-center justify-center">
               <div className="text-center text-white">
-                <div className="text-6xl mb-4">🏠</div>
+                <div className="text-3xl mb-4">🏠</div>
                 <h3 className="text-xl font-semibold mb-2">Matterport 3D Tour</h3>
                 <p className="text-gray-300 mb-4">{tour.title}</p>
                 <button
@@ -359,7 +359,7 @@ export function VirtualTourGallery({ tours, propertyTitle, className = '' }: Vir
   if (tours.length === 0) {
     return (
       <div className={`bg-gray-50 rounded-lg p-6 text-center ${className}`}>
-        <div className="text-4xl mb-2">🏠</div>
+        <div className="text-2xl mb-2">🏠</div>
         <p className="text-gray-600">Virtual tours coming soon for this property</p>
       </div>
     );

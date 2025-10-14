@@ -74,7 +74,7 @@ export default function HomeValuePage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {features.map((feature, index) => (
               <div key={index} className='text-center'>
-                <div className='text-4xl mb-4'>{feature.icon}</div>
+                <div className='text-2xl mb-4'>{feature.icon}</div>
                 <h3 className='text-xl font-semibold text-gray-900 mb-3'>
                   {feature.title}
                 </h3>

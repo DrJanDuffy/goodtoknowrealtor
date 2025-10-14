@@ -65,7 +65,7 @@ export default function ResourcesPage() {
               href={resource.href}
               className='group bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 p-6 border border-gray-100 hover:border-blue-200'
             >
-              <div className='text-4xl mb-4'>{resource.icon}</div>
+              <div className='text-2xl mb-4'>{resource.icon}</div>
               <h3 className='text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors'>
                 {resource.title}
               </h3>
