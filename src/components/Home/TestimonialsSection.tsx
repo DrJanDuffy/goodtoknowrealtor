@@ -58,7 +58,7 @@ export function TestimonialsSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Real Results from Real Clients</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See how Dr. Janet Duffy's expertise translates into measurable success stories. 
+            See how Dr. Janet Duffy&apos;s expertise translates into measurable success stories. 
             From luxury purchases to investment portfolios, our clients achieve exceptional outcomes.
           </p>
         </div>

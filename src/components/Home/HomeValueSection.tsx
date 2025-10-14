@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
 import { SecureForm } from '@/components/ui/SecureForm';
 
 export function HomeValueSection() {
@@ -57,8 +56,8 @@ export function HomeValueSection() {
             Discover Your Home's True Market Value
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Get a comprehensive market analysis that reveals your property's true worth. 
-            Dr. Jan Duffy's data-driven approach combines local market trends, comparable sales, 
+            Get a comprehensive market analysis that reveals your property&apos;s true worth.
+            Dr. Jan Duffy&apos;s data-driven approach combines local market trends, comparable sales,
             and neighborhood insights to give you the most accurate valuation available.
           </p>
           <h4 className='text-2xl font-semibold text-gray-900 mt-8 mb-6'>
