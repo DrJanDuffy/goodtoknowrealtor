@@ -1,11 +1,9 @@
 import { Metadata } from 'next';
 
 import { HeroSection } from '@/components/Home/HeroSection';
-import { AboutSection } from '@/components/Home/AboutSection';
-import { ServicesSection } from '@/components/Home/ServicesSection';
-import { RealScoutListings } from '@/components/Home/RealScoutListings';
-import { HomeValueSection } from '@/components/Home/HomeValueSection';
-import { ReportsSection } from '@/components/Home/ReportsSection';
+import { PropertyListingsSection } from '@/components/Home/PropertyListingsSection';
+import { NeighborhoodsSection } from '@/components/Home/NeighborhoodsSection';
+import { TeamSection } from '@/components/Home/TeamSection';
 import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
 import { ContactCTA } from '@/components/Home/ContactCTA';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema, generateFAQSchema, generateReviewSchema, generateServiceSchema } from '@/lib/seo';
@@ -103,11 +101,9 @@ export default function HomePage() {
         }}
       />
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <RealScoutListings />
-      <HomeValueSection />
-      <ReportsSection />
+      <PropertyListingsSection />
+      <NeighborhoodsSection />
+      <TeamSection />
       <TestimonialsSection />
       <ContactCTA />
     </>

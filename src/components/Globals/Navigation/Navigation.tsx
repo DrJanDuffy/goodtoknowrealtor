@@ -4,25 +4,30 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 
-// Define menu structure for Dr. Janet Duffy
+// Define menu structure matching Christopher DeWitt Group
 const menuItems = [
   {
-    label: 'Services',
-    href: '/services',
+    label: 'Buy',
+    href: '/buying',
+    hasDropdown: false,
+  },
+  {
+    label: 'Sell',
+    href: '/selling',
     hasDropdown: true,
     children: [
-      { label: 'Buying a Home', href: '/buying' },
-      { label: 'Selling Your Home', href: '/selling' },
-      { label: 'Luxury Properties', href: '/luxury' },
-      { label: 'Investment Properties', href: '/investing' },
+      { label: 'Cash Offer', href: '/cash-offer' },
       { label: 'Home Valuation', href: '/home-value' },
+      { label: 'Why List With Us', href: '/why-list-with-us' },
     ],
   },
   {
-    label: 'Las Vegas Areas',
-    href: '/areas',
+    label: 'Communities',
+    href: '/communities',
     hasDropdown: true,
     children: [
+      { label: 'All Communities', href: '/communities' },
+      { label: 'Las Vegas', href: '/areas/las-vegas' },
       { label: 'Summerlin', href: '/areas/summerlin' },
       { label: 'Henderson', href: '/areas/henderson' },
       { label: 'North Las Vegas', href: '/areas/north-las-vegas' },
@@ -31,25 +36,28 @@ const menuItems = [
     ],
   },
   {
-    label: 'About Dr. Duffy',
-    href: '/about',
+    label: 'Testimonials',
+    href: '/testimonials',
     hasDropdown: false,
   },
   {
-    label: 'Resources',
-    href: '/resources',
-    hasDropdown: true,
-    children: [
-      { label: 'Market Reports', href: '/reports' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Listings', href: '/listings' },
-      { label: 'Buyer Guide', href: '/buyer-guide' },
-      { label: 'Seller Guide', href: '/seller-guide' },
-    ],
+    label: 'Team',
+    href: '/team',
+    hasDropdown: false,
   },
   {
-    label: 'Contact',
+    label: 'Sold Listings',
+    href: '/sold-listings',
+    hasDropdown: false,
+  },
+  {
+    label: 'Contact Us',
     href: '/contact',
+    hasDropdown: false,
+  },
+  {
+    label: 'Blog',
+    href: '/blog',
     hasDropdown: false,
   },
 ];
@@ -131,15 +139,11 @@ export function Navigation() {
             <div className='flex items-center'>
               <Link href='/' className='flex items-center space-x-4'>
                 <div className='flex flex-col'>
-                  <Image
-                    src='/images/bhhs/logo.svg'
-                    alt='Berkshire Hathaway HomeServices Premier Properties'
-                    width={120}
-                    height={48}
-                    className='h-12 w-auto'
-                  />
+                  <div className='text-2xl font-bold text-blue-600'>
+                    Dr. Janet Duffy Group
+                  </div>
                   <span className='text-xs text-gray-600 mt-1'>
-                    Dr. Jan Duffy - Las Vegas Real Estate Expert
+                    Premier Good To Know REALTOR®
                   </span>
                 </div>
               </Link>
@@ -245,14 +249,14 @@ export function Navigation() {
             <div className='container mx-auto px-4 py-6 space-y-2'>
               {menuItems.map((item, index) => (
                 <div key={index}>
-                  <Link
-                    href={item.href}
+                <Link
+                  href={item.href}
                     className='block text-gray-700 hover:text-blue-600 font-medium py-4 px-2 transition-colors min-h-[44px] flex items-center'
-                    onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => setIsMobileMenuOpen(false)}
                     role='menuitem'
-                  >
-                    {item.label}
-                  </Link>
+                >
+                  {item.label}
+                </Link>
                   {item.hasDropdown && item.children && (
                     <div className='ml-4 space-y-1'>
                       {item.children.map((child, childIndex) => (
