@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className='bg-gray-100 text-gray-900'>
+    <footer className='bg-gray-50 text-gray-900'>
       <div className='container mx-auto px-4'>
         {/* Main Footer Content */}
-        <div className='border-t border-gray-300 py-8'>
+        <div className='border-t border-gray-200 py-8'>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             {/* Logo and Branding */}
             <div className='flex flex-col'>
@@ -18,12 +18,16 @@ export function Footer() {
                 className='mb-2'
               />
               <p className='text-sm text-gray-600'>
-                Dr. Jan Duffy, REALTOR®
+                Dr. Janet Duffy, REALTOR®
                 <br />
                 Premier Good To Know REALTOR®
                 <br />
                 Premier Properties Las Vegas
               </p>
+              <div className='mt-4'>
+                <p className='text-sm font-semibold text-gray-900 mb-1'>Contact</p>
+                <p className='text-sm text-gray-600'>(702) 222-1964</p>
+              </div>
             </div>
 
             {/* Navigation Links */}
@@ -175,7 +179,7 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className='border-t border-gray-300 py-8'>
+        <div className='border-t border-gray-200 py-6'>
           <div className='text-center'>
             <p className='text-gray-600 text-sm mb-2'>
               © 2025 BHH Affiliates, LLC.
@@ -202,7 +206,7 @@ export function Footer() {
         </div>
 
         {/* Company Info */}
-        <div className='border-t border-gray-300 py-6'>
+        <div className='border-t border-gray-200 py-4'>
           <div className='text-center'>
             <p className='text-gray-600 text-sm mb-2'>
               BHH Affiliates, LLC is a Delaware limited liability company. Its
@@ -221,7 +225,7 @@ export function Footer() {
         </div>
 
         {/* Security Notice */}
-        <div className='border-t border-gray-300 py-6'>
+        <div className='border-t border-gray-200 py-4'>
           <div className='bg-red-50 border border-red-200 rounded-lg p-4'>
             <p className='font-semibold text-red-800 mb-2'>
               IMPORTANT NOTICE: Never trust wiring instructions sent via email.

@@ -89,41 +89,23 @@ export function Navigation() {
         <div className='container mx-auto px-4'>
           <div className='flex justify-end items-center space-x-6 text-sm'>
             <Link
-              href='/saved-properties'
+              href='/listings'
               className='hover:text-blue-200 transition-colors'
             >
               💾 Saved Properties
             </Link>
             <Link
-              href='/saved-searches'
+              href='/listings'
               className='hover:text-blue-200 transition-colors'
             >
-              🔍 Saved Searches
+              🔍 Property Search
             </Link>
             <Link
-              href='/sign-in'
+              href='/contact'
               className='hover:text-blue-200 transition-colors'
             >
-              Sign In
+              📞 (702) 222-1964
             </Link>
-            <div className='flex items-center space-x-4'>
-              <select
-                className='bg-transparent text-white border-none outline-none'
-                aria-label='Currency selection'
-              >
-                <option value='USD'>USD</option>
-                <option value='EUR'>EUR</option>
-                <option value='GBP'>GBP</option>
-              </select>
-              <select
-                className='bg-transparent text-white border-none outline-none'
-                aria-label='Language selection'
-              >
-                <option value='en'>English</option>
-                <option value='es'>Español</option>
-                <option value='fr'>Français</option>
-              </select>
-            </div>
           </div>
         </div>
       </div>
@@ -201,24 +183,14 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Currency & Language (Desktop) */}
-            <div className='hidden lg:flex items-center space-x-6'>
-              <select
-                className='bg-transparent text-gray-700 border-none outline-none text-sm'
-                aria-label='Currency selection'
+            {/* CTA Button (Desktop) */}
+            <div className='hidden lg:flex items-center'>
+              <Link
+                href='/contact'
+                className='bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
               >
-                <option value='USD'>USD</option>
-                <option value='EUR'>EUR</option>
-                <option value='GBP'>GBP</option>
-              </select>
-              <select
-                className='bg-transparent text-gray-700 border-none outline-none text-sm'
-                aria-label='Language selection'
-              >
-                <option value='en'>English</option>
-                <option value='es'>Español</option>
-                <option value='fr'>Français</option>
-              </select>
+                Get Started
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -260,19 +232,22 @@ export function Navigation() {
               ))}
               <div className='pt-4 border-t border-gray-200 space-y-2'>
                 <Link
-                  href='/saved-properties'
+                  href='/listings'
                   className='block text-gray-600 py-2'
                 >
-                  💾 Saved Properties
+                  💾 Property Search
                 </Link>
                 <Link
-                  href='/saved-searches'
+                  href='/contact'
                   className='block text-gray-600 py-2'
                 >
-                  🔍 Saved Searches
+                  📞 (702) 222-1964
                 </Link>
-                <Link href='/sign-in' className='block text-gray-600 py-2'>
-                  Sign In
+                <Link 
+                  href='/contact' 
+                  className='block bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold text-center'
+                >
+                  Get Started
                 </Link>
               </div>
             </div>
