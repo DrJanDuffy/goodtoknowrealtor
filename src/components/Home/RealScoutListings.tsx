@@ -1,4 +1,4 @@
-// Declare RealScout custom element
+// Declare RealScout custom elements
 declare global {
   interface HTMLElementTagNameMap {
     'realscout-office-listings': HTMLElement & {
@@ -8,6 +8,9 @@ declare global {
       'property-types': string;
       'price-min': string;
       'price-max': string;
+    };
+    'realscout-advanced-search': HTMLElement & {
+      'agent-encoded-id': string;
     };
   }
 }

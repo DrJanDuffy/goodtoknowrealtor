@@ -2,120 +2,105 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
-interface Property {
-  id: string;
-  address: string;
-  price: string;
-  beds: number;
-  baths: number;
-  sqft: number;
-  image: string;
-  status: string;
-  mlsNumber: string;
+// Declare RealScout custom elements
+declare global {
+  interface HTMLElementTagNameMap {
+    'realscout-advanced-search': HTMLElement & {
+      'agent-encoded-id': string;
+    };
+    'realscout-office-listings': HTMLElement & {
+      'agent-encoded-id': string;
+      'sort-order': string;
+      'listing-status': string;
+      'property-types': string;
+      'price-min': string;
+      'price-max': string;
+    };
+  }
 }
 
 export function PropertyListingsSection() {
   const [activeTab, setActiveTab] = useState('las-vegas');
 
-  // Mock data - replace with real data from your API
-  const mockProperties: Property[] = [
-    {
-      id: '1',
-      address: '123 Summerlin Drive, Summerlin, NV',
-      price: '$850,000',
-      beds: 4,
-      baths: 3,
-      sqft: 3200,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      status: 'For Sale',
-      mlsNumber: 'LV123456'
-    },
-    {
-      id: '2',
-      address: '456 Henderson Blvd, Henderson, NV',
-      price: '$425,000',
-      beds: 2,
-      baths: 2,
-      sqft: 1450,
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      status: 'For Sale',
-      mlsNumber: 'LV789012'
-    },
-    {
-      id: '3',
-      address: '789 North Vegas Way, North Las Vegas, NV',
-      price: '$285,000',
-      beds: 3,
-      baths: 2,
-      sqft: 1850,
-      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      status: 'For Sale',
-      mlsNumber: 'LV345678'
-    },
-    {
-      id: '4',
-      address: '321 Downtown Ave, Las Vegas, NV',
-      price: '$650,000',
-      beds: 3,
-      baths: 2,
-      sqft: 2100,
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      status: 'For Sale',
-      mlsNumber: 'LV901234'
-    },
-    {
-      id: '5',
-      address: '654 Green Valley Rd, Henderson, NV',
-      price: '$525,000',
-      beds: 4,
-      baths: 3,
-      sqft: 2800,
-      image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      status: 'For Sale',
-      mlsNumber: 'LV567890'
-    },
-    {
-      id: '6',
-      address: '987 Paradise Pkwy, Las Vegas, NV',
-      price: '$375,000',
-      beds: 3,
-      baths: 2,
-      sqft: 1650,
-      image: 'https://images.unsplash.com/photo-1600566753190-17f63baa73a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      status: 'For Sale',
-      mlsNumber: 'LV234567'
-    }
-  ];
-
   const tabs = [
-    { id: 'las-vegas', label: 'Las Vegas', properties: mockProperties.slice(0, 3) },
-    { id: 'featured', label: 'Featured Listings', properties: mockProperties.slice(3, 6) }
+    { 
+      id: 'las-vegas', 
+      label: 'Las Vegas', 
+      widget: (
+        <realscout-office-listings 
+          agent-encoded-id="QWdlbnQtMjI1MDUw" 
+          sort-order="PRICE_LOW" 
+          listing-status="For Sale" 
+          property-types=",SFR" 
+          price-min="300000" 
+          price-max="800000"
+        ></realscout-office-listings>
+      )
+    },
+    { 
+      id: 'featured', 
+      label: 'Featured Listings', 
+      widget: (
+        <realscout-office-listings 
+          agent-encoded-id="QWdlbnQtMjI1MDUw" 
+          sort-order="PRICE_LOW" 
+          listing-status="For Sale" 
+          property-types=",SFR" 
+          price-min="500000" 
+          price-max="600000"
+        ></realscout-office-listings>
+      )
+    }
   ];
 
   const activeTabData = tabs.find(tab => tab.id === activeTab);
 
   return (
-    <section className='py-16 bg-white'>
+    <section className='py-16 bg-gradient-to-br from-gray-50 to-blue-50'>
       <div className='container mx-auto px-4'>
         <div className='text-center mb-12'>
-          <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+          <div className='inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
+            🔍 Advanced Property Search
+          </div>
+          <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
             HOME LISTINGS
           </h2>
+          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            Find your perfect Las Vegas home with our advanced search tools and expert guidance
+          </p>
+        </div>
+
+        {/* RealScout Advanced Search Widget */}
+        <div className='max-w-4xl mx-auto mb-16'>
+          <div className='bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100'>
+            <div className='text-center mb-8'>
+              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+                Search Properties
+              </h3>
+              <p className='text-gray-600'>
+                Use our advanced search to find properties that match your exact criteria
+              </p>
+            </div>
+            <div className='flex justify-center'>
+              <div className='w-full max-w-2xl'>
+                <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Tab Navigation */}
         <div className='flex justify-center mb-8'>
-          <div className='bg-gray-100 rounded-lg p-1'>
+          <div className='bg-white rounded-xl p-2 shadow-lg border border-gray-200'>
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 rounded-md font-semibold transition-colors ${
+                className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-white text-blue-600 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg transform scale-105'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 {tab.label}
@@ -124,59 +109,28 @@ export function PropertyListingsSection() {
           </div>
         </div>
 
-        {/* Properties Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {activeTabData?.properties.map((property) => (
-            <div key={property.id} className='bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow'>
-              <div className='relative h-48'>
-                <Image
-                  src={property.image}
-                  alt={property.address}
-                  fill
-                  className='object-cover'
-                />
-                <div className='absolute top-4 left-4'>
-                  <span className='bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold'>
-                    {property.status}
-                  </span>
-                </div>
-              </div>
-              
-              <div className='p-6'>
-                <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                  {property.price}
-                </h3>
-                <p className='text-gray-600 mb-4'>
-                  {property.address}
-                </p>
-                
-                <div className='flex items-center justify-between text-sm text-gray-500 mb-4'>
-                  <span>{property.beds} beds</span>
-                  <span>{property.baths} baths</span>
-                  <span>{property.sqft.toLocaleString()} sqft</span>
-                </div>
-                
-                <div className='flex items-center justify-between'>
-                  <span className='text-xs text-gray-400'>
-                    MLS: {property.mlsNumber}
-                  </span>
-                  <Link
-                    href={`/listings/${property.id}`}
-                    className='text-blue-600 hover:text-blue-800 font-semibold text-sm'
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
+        {/* RealScout Office Listings Widget */}
+        <div className='max-w-7xl mx-auto'>
+          <div className='bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100'>
+            <div className='text-center mb-8'>
+              <h3 className='text-2xl font-bold text-gray-900 mb-4'>
+                {activeTabData?.label} Properties
+              </h3>
+              <p className='text-gray-600'>
+                Browse our curated selection of {activeTabData?.label.toLowerCase()} properties
+              </p>
             </div>
-          ))}
+            <div className='overflow-x-hidden'>
+              {activeTabData?.widget}
+            </div>
+          </div>
         </div>
 
         {/* See More Properties Button */}
-        <div className='text-center mt-8'>
+        <div className='text-center mt-12'>
           <Link
             href='/listings'
-            className='inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
+            className='inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
           >
             See More Properties
             <svg className='w-5 h-5 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>

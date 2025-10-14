@@ -3,6 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
 
+// Declare RealScout custom elements
+declare global {
+  interface HTMLElementTagNameMap {
+    'realscout-advanced-search': HTMLElement & {
+      'agent-encoded-id': string;
+    };
+  }
+}
+
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Property Listings | Dr. Janet Duffy - Premier Good To Know REALTOR®',
   description: 'Browse exclusive Las Vegas property listings from Premier Good To Know REALTOR® Dr. Janet Duffy. Luxury homes, investment properties, and first-time buyer homes in Summerlin, Henderson, and more.',
@@ -100,87 +109,66 @@ export default function ListingsPage() {
         </div>
       </section>
 
-      {/* Search Section */}
-      <section className='py-20 bg-white'>
+      {/* RealScout Advanced Search Section */}
+      <section className='py-20 bg-gradient-to-br from-blue-50 to-indigo-50'>
         <div className='container'>
-          <div className='max-w-4xl mx-auto'>
-            <div className='bg-gray-50 rounded-2xl p-8 shadow-lg'>
-              <h2 className='text-2xl font-bold text-gray-900 mb-6 text-center'>
+          <div className='max-w-5xl mx-auto'>
+            <div className='text-center mb-12'>
+              <div className='inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
+                🔍 Advanced Property Search
+              </div>
+              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
                 Find Your Dream Home
               </h2>
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6'>
-                <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
-                    Location
-                  </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Location selection'>
-                    <option>Any Neighborhood</option>
-                    <option>Summerlin</option>
-                    <option>Henderson</option>
-                    <option>North Las Vegas</option>
-                    <option>Downtown Las Vegas</option>
-                    <option>Southwest Valley</option>
-                  </select>
-                </div>
-                <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
-                    Price Range
-                  </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Price range selection'>
-                    <option>Any Price</option>
-                    <option>Under $300K</option>
-                    <option>$300K - $500K</option>
-                    <option>$500K - $750K</option>
-                    <option>$750K - $1M</option>
-                    <option>Over $1M</option>
-                  </select>
-                </div>
-                <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
-                    Bedrooms
-                  </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Number of bedrooms selection'>
-                    <option>Any</option>
-                    <option>1+</option>
-                    <option>2+</option>
-                    <option>3+</option>
-                    <option>4+</option>
-                    <option>5+</option>
-                  </select>
-                </div>
-                <div>
-                  <label className='block text-sm font-medium text-gray-700 mb-2'>
-                    Property Type
-                  </label>
-                  <select className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500' aria-label='Property type selection'>
-                    <option>Any Type</option>
-                    <option>Single Family</option>
-                    <option>Condo/Townhouse</option>
-                    <option>Luxury Home</option>
-                    <option>Investment Property</option>
-                  </select>
+              <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+                Use our advanced search tools to find properties that match your exact criteria in Las Vegas&apos;s most desirable neighborhoods
+              </p>
+            </div>
+            
+            <div className='bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100'>
+              <div className='flex justify-center'>
+                <div className='w-full max-w-3xl'>
+                  <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
                 </div>
               </div>
-              <div className='text-center'>
-                <Link
-                  href='/listings/search'
-                  className='inline-flex items-center bg-amber-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-700 transition-colors duration-200 shadow-lg'
-                >
-                  🔍 Search Properties
-                  <svg
-                    className='w-5 h-5 ml-2'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
+              
+              {/* Quick Search Options */}
+              <div className='mt-8 pt-8 border-t border-gray-200'>
+                <h3 className='text-lg font-semibold text-gray-900 mb-4 text-center'>Quick Search Options</h3>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+                  <Link
+                    href='/areas/summerlin'
+                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
                   >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M17 8l4 4m0 0l-4 4m4-4H3'
-                    />
-                  </svg>
-                </Link>
+                    <div className='text-2xl mb-2'>🏔️</div>
+                    <div className='font-semibold text-gray-900'>Summerlin</div>
+                    <div className='text-sm text-gray-600'>Luxury Homes</div>
+                  </Link>
+                  <Link
+                    href='/areas/henderson'
+                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                  >
+                    <div className='text-2xl mb-2'>🏘️</div>
+                    <div className='font-semibold text-gray-900'>Henderson</div>
+                    <div className='text-sm text-gray-600'>Family Homes</div>
+                  </Link>
+                  <Link
+                    href='/areas/north-las-vegas'
+                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                  >
+                    <div className='text-2xl mb-2'>🏠</div>
+                    <div className='font-semibold text-gray-900'>North Las Vegas</div>
+                    <div className='text-sm text-gray-600'>New Construction</div>
+                  </Link>
+                  <Link
+                    href='/areas/downtown'
+                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                  >
+                    <div className='text-2xl mb-2'>🏙️</div>
+                    <div className='font-semibold text-gray-900'>Downtown</div>
+                    <div className='text-sm text-gray-600'>Urban Living</div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
