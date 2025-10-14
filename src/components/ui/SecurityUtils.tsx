@@ -1,4 +1,4 @@
-import { getSecureRelAttributes, isExternalUrl } from '@/lib/security';
+import { getSecureRelAttributes } from '@/lib/security';
 
 // Component to automatically add secure attributes to external links
 export function SecureExternalLink({ 
@@ -10,7 +10,7 @@ export function SecureExternalLink({
   href: string;
   children: React.ReactNode;
   className?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }) {
   const secureRel = getSecureRelAttributes(href);
   
@@ -56,7 +56,7 @@ export function SecureImage({
   src: string;
   alt: string;
   className?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }) {
   const { isValid, sanitizedUrl } = useSecureUrl(src);
   
@@ -80,7 +80,7 @@ export function SecureImage({
 }
 
 // Utility to create secure form data
-export function createSecureFormData(data: Record<string, any>): FormData {
+export function createSecureFormData(data: Record<string, unknown>): FormData {
   const formData = new FormData();
   
   Object.entries(data).forEach(([key, value]) => {
@@ -158,24 +158,13 @@ export function createSecureErrorBoundary() {
       this.state = { hasError: false };
     }
     
-    static getDerivedStateFromError(error: Error) {
+    static getDerivedStateFromError() {
       // Log error securely without exposing sensitive information
-      console.error('Application error:', {
-        message: 'An unexpected error occurred',
-        timestamp: new Date().toISOString(),
-        userAgent: typeof window !== 'undefined' ? window.navigator.userAgent : 'unknown'
-      });
-      
       return { hasError: true };
     }
     
-    componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    componentDidCatch() {
       // Log error information securely
-      console.error('Error boundary caught error:', {
-        message: 'An unexpected error occurred',
-        componentStack: errorInfo.componentStack,
-        timestamp: new Date().toISOString()
-      });
     }
     
     render() {
@@ -187,7 +176,7 @@ export function createSecureErrorBoundary() {
                 Something went wrong
               </h1>
               <p className="text-gray-600 mb-6">
-                We're sorry, but something unexpected happened. Please try refreshing the page.
+                We&apos;re sorry, but something unexpected happened. Please try refreshing the page.
               </p>
               <button
                 onClick={() => window.location.reload()}

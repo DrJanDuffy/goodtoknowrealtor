@@ -1,5 +1,15 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
+
+// Declare RealScout custom elements
+declare global {
+  interface HTMLElementTagNameMap {
+    'realscout-simple-search': HTMLElement & {
+      'agent-encoded-id': string;
+    };
+  }
+}
 
 export const metadata: Metadata = {
   title: 'Summerlin Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
@@ -39,6 +49,26 @@ export default function SummerlinPage() {
               >
                 Get Free Consultation
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Property Search */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Search Summerlin Properties
+              </h2>
+              <p className="text-xl text-gray-600">
+                Find your perfect home in Summerlin with our advanced search tools
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100">
+              <SimpleSearch />
             </div>
           </div>
         </div>

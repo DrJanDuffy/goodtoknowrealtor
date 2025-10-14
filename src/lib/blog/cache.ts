@@ -70,7 +70,7 @@ export async function getPostsWithCache(): Promise<BlogPost[]> {
 
     // Successfully cached posts
     return posts;
-  } catch (error) {
+  } catch {
     // Failed to fetch posts, return cached data as fallback
     // Return cached data even if expired as fallback
     return postsCache;

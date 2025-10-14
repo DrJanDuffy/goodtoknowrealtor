@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Cash Offer Program | Dr. Janet Duffy Group',

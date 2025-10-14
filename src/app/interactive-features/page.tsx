@@ -121,8 +121,8 @@ export default function InteractiveFeaturesPage() {
             </p>
           </div>
           <PropertySearchFilters 
-            onFiltersChange={(filters) => {
-              console.log('Filters changed:', filters);
+            onFiltersChange={() => {
+              // Handle filter changes
             }}
           />
         </section>

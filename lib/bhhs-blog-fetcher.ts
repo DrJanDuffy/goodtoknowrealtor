@@ -108,7 +108,7 @@ async function fetchViaScraping(options: BHHSBlogOptions = {}): Promise<BlogPost
  */
 async function fetchViaFallback(options: BHHSBlogOptions = {}): Promise<BlogPost[]> {
   const { getPosts } = await import('./wordpress');
-  const getPostsOptions: any = {
+  const getPostsOptions: { per_page: number; search?: string } = {
     per_page: options.maxPosts || BHHS_CONFIG.maxPosts,
   };
   
@@ -270,7 +270,7 @@ function calculateReadingTime(content: string): number {
 export async function fetchBHHSPosts(options: BHHSBlogOptions = {}): Promise<BlogPost[]> {
   const source = options.source || 'auto';
   
-  console.log(`🔄 Fetching BHHS blog posts via ${source} method...`);
+  // Fetching BHHS blog posts
 
   if (source === 'auto') {
     // Try methods in order of preference
@@ -283,12 +283,12 @@ export async function fetchBHHSPosts(options: BHHSBlogOptions = {}): Promise<Blo
 
     for (const method of methods) {
       try {
-        console.log(`   Trying ${method.name}...`);
+        // Trying method
         const posts = await method.fn();
-        console.log(`✅ Successfully fetched ${posts.length} posts via ${method.name}`);
+        // Successfully fetched posts
         return posts;
-      } catch (error) {
-        console.log(`❌ ${method.name} failed: ${error.message}`);
+      } catch {
+        // Method failed, trying next
         continue;
       }
     }
@@ -320,7 +320,7 @@ export async function testBHHSSources(): Promise<{
   scraping: boolean;
   fallback: boolean;
 }> {
-  console.log('🧪 Testing BHHS blog sources...');
+  // Testing BHHS blog sources
 
   const results = {
     api: false,
@@ -332,9 +332,9 @@ export async function testBHHSSources(): Promise<{
   // Test WordPress API
   try {
     results.api = await testWordPressAPI(BHHS_CONFIG.apiUrl);
-    console.log(`   WordPress API: ${results.api ? '✅ Available' : '❌ Not available'}`);
+    // WordPress API test result
   } catch {
-    console.log('   WordPress API: ❌ Not available');
+    // WordPress API not available
   }
 
   // Test RSS feed
@@ -344,9 +344,9 @@ export async function testBHHSSources(): Promise<{
       signal: AbortSignal.timeout(3000),
     });
     results.rss = response.ok;
-    console.log(`   RSS Feed: ${results.rss ? '✅ Available' : '❌ Not available'}`);
+    // RSS feed test result
   } catch {
-    console.log('   RSS Feed: ❌ Not available');
+    // RSS feed not available
   }
 
   // Test scraping
@@ -356,17 +356,17 @@ export async function testBHHSSources(): Promise<{
       signal: AbortSignal.timeout(3000),
     });
     results.scraping = response.ok;
-    console.log(`   Web Scraping: ${results.scraping ? '✅ Available' : '❌ Not available'}`);
+    // Web scraping test result
   } catch {
-    console.log('   Web Scraping: ❌ Not available');
+    // Web scraping not available
   }
 
   // Test fallback (your existing API)
   try {
     results.fallback = await testWordPressAPI(BHHS_CONFIG.fallbackUrl);
-    console.log(`   Fallback API: ${results.fallback ? '✅ Available' : '❌ Not available'}`);
+    // Fallback API test result
   } catch {
-    console.log('   Fallback API: ❌ Not available');
+    // Fallback API not available
   }
 
   return results;

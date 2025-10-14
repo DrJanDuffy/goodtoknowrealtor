@@ -23,13 +23,13 @@ interface NeighborhoodMapProps {
   center?: { lat: number; lng: number };
   zoom?: number;
   markers?: MapMarker[];
-  onMarkerClick?: (marker: MapMarker) => void;
+  onMarkerClick?: () => void;
   className?: string;
 }
 
 export function NeighborhoodMap({ 
-  center: _center = { lat: 36.1699, lng: -115.1398 }, // Las Vegas coordinates
-  zoom: _zoom = 12,
+  center = { lat: 36.1699, lng: -115.1398 }, // Las Vegas coordinates
+  zoom = 12,
   markers = [],
   onMarkerClick,
   className = ''
@@ -40,6 +40,10 @@ export function NeighborhoodMap({
   const [mapError, setMapError] = useState<string | null>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const { announce } = useScreenReaderAnnouncements();
+
+  // Use the center and zoom parameters
+  const mapCenter = center;
+  const mapZoom = zoom;
 
   // Sample data for demonstration
   const sampleMarkers: MapMarker[] = [
@@ -217,7 +221,7 @@ export function NeighborhoodMap({
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
-                aria-pressed={filterType === option.value}
+                aria-pressed={filterType === option.value ? 'true' : 'false'}
                 aria-label={`Filter by ${option.label}`}
               >
                 <span className="mr-1" aria-hidden="true">{option.icon}</span>
@@ -245,6 +249,9 @@ export function NeighborhoodMap({
               className="h-96 bg-gradient-to-br from-blue-100 to-green-100 flex items-center justify-center relative overflow-hidden"
               role="img"
               aria-label="Interactive neighborhood map showing properties and amenities"
+              data-center-lat={mapCenter.lat}
+              data-center-lng={mapCenter.lng}
+              data-zoom={mapZoom}
             >
               {/* Simulated Map Background */}
               <div className="absolute inset-0 opacity-20">

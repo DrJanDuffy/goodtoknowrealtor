@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { sanitizeFormData, validateInput, inputLimits } from '@/lib/security';
 
 interface SecureFormProps {
-  onSubmit: (data: Record<string, string>) => Promise<{ success: boolean; message: string }>;
+  onSubmit: () => Promise<{ success: boolean; message: string }>;
   fields: Array<{
     name: string;
     type: 'text' | 'email' | 'tel' | 'textarea';

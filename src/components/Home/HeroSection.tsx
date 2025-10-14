@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
+import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
 
 export function HeroSection() {
   const [searchType, setSearchType] = useState('buy');
@@ -77,12 +78,8 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* RealScout Widget Container */}
-            <div className='flex justify-center'>
-              <div className='w-full max-w-2xl'>
-                <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
-              </div>
-            </div>
+            {/* RealScout Simple Search Widget */}
+            <SimpleSearch />
 
             {/* Quick Stats */}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-gray-200'>

@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { HeroSection } from '@/components/Home/HeroSection';
 import { PropertyListingsSection } from '@/components/Home/PropertyListingsSection';
 import { NeighborhoodsSection } from '@/components/Home/NeighborhoodsSection';
+import { MarketInsightsSection } from '@/components/MarketInsights/MarketInsightsSection';
 import { TeamSection } from '@/components/Home/TeamSection';
 import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
 import { ContactCTA } from '@/components/Home/ContactCTA';
@@ -103,6 +104,7 @@ export default function HomePage() {
       <HeroSection />
       <PropertyListingsSection />
       <NeighborhoodsSection />
+      <MarketInsightsSection />
       <TeamSection />
       <TestimonialsSection />
       <ContactCTA />

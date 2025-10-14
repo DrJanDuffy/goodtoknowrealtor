@@ -25,7 +25,6 @@ export function MortgageCalculator({ initialPrice = 500000, className = '' }: Mo
   const [propertyTax, setPropertyTax] = useState(6000);
   const [homeInsurance, setHomeInsurance] = useState(1200);
   const [hoaFees, setHoaFees] = useState(0);
-  const [pmi, setPmi] = useState(0);
   const [calculation, setCalculation] = useState<MortgageCalculation | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const { announce } = useScreenReaderAnnouncements();
@@ -71,7 +70,7 @@ export function MortgageCalculator({ initialPrice = 500000, className = '' }: Mo
 
   useEffect(() => {
     calculateMortgage();
-  }, [homePrice, downPayment, interestRate, loanTerm]);
+  }, [homePrice, downPayment, interestRate, loanTerm, calculateMortgage]);
 
   const downPaymentPercent = (downPayment / homePrice) * 100;
   const monthlyPropertyTax = propertyTax / 12;

@@ -8,9 +8,8 @@ import { VirtualTour } from '../VirtualTours/VirtualTour';
 
 interface EnhancedPropertyCardProps {
   property: Property;
-  onCompare?: (property: Property) => void;
-  onSave?: (property: Property) => void;
-  onShare?: (property: Property) => void;
+  onCompare?: () => void;
+  onSave?: () => void;
   showComparison?: boolean;
   showVirtualTour?: boolean;
   className?: string;
@@ -20,7 +19,6 @@ export function EnhancedPropertyCard({
   property,
   onCompare,
   onSave,
-  onShare,
   showComparison = true,
   showVirtualTour = false,
   className = ''
@@ -312,7 +310,7 @@ function ScheduleShowingModal({ property, onClose }: ScheduleShowingModalProps) 
       await new Promise(resolve => setTimeout(resolve, 2000));
       announce('Showing request submitted successfully', 'polite');
       onClose();
-    } catch (error) {
+    } catch {
       announce('Error submitting showing request', 'assertive');
     } finally {
       setIsSubmitting(false);
@@ -489,7 +487,7 @@ function ShareModal({ property, onClose }: ShareModalProps) {
       setCopied(true);
       announce('Property link copied to clipboard', 'polite');
       setTimeout(() => setCopied(false), 2000);
-    } catch (error) {
+    } catch {
       announce('Failed to copy link', 'assertive');
     }
   };

@@ -16,12 +16,12 @@ export interface PropertyFilters {
 }
 
 interface PropertySearchFiltersProps {
-  onFiltersChange: (filters: PropertyFilters) => void;
+  onFiltersChange: () => void;
   initialFilters?: Partial<PropertyFilters>;
 }
 
 export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: PropertySearchFiltersProps) {
-  const [filters, setFilters] = useState<PropertyFilters>({
+  const [currentFilters, setCurrentFilters] = useState<PropertyFilters>({
     location: '',
     priceMin: '',
     priceMax: '',
@@ -60,12 +60,12 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
   ];
 
   useEffect(() => {
-    onFiltersChange(filters);
-  }, [filters, onFiltersChange]);
+    onFiltersChange(currentFilters);
+  }, [currentFilters, onFiltersChange]);
 
   const handleFilterChange = (key: keyof PropertyFilters, value: string | string[]) => {
-    const newFilters = { ...filters, [key]: value };
-    setFilters(newFilters);
+    const newFilters = { ...currentFilters, [key]: value };
+    setCurrentFilters(newFilters);
     
     // Announce filter changes to screen readers
     if (typeof value === 'string') {
@@ -76,9 +76,9 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
   };
 
   const handleFeatureToggle = (feature: string) => {
-    const newFeatures = filters.features.includes(feature)
-      ? filters.features.filter(f => f !== feature)
-      : [...filters.features, feature];
+    const newFeatures = currentFilters.features.includes(feature)
+      ? currentFilters.features.filter(f => f !== feature)
+      : [...currentFilters.features, feature];
     
     handleFilterChange('features', newFeatures);
   };
@@ -95,11 +95,11 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
       sqftMax: '',
       features: []
     };
-    setFilters(clearedFilters);
-    announce('All filters cleared', 'polite');
+    setCurrentFilters(clearedFilters);
+    announce('All currentFilters cleared', 'polite');
   };
 
-  const hasActiveFilters = Object.values(filters).some(value => 
+  const hasActiveFilters = Object.values(currentFilters).some(value => 
     Array.isArray(value) ? value.length > 0 : value !== ''
   );
 
@@ -114,7 +114,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
             onClick={() => setIsExpanded(!isExpanded)}
             className="btn btn-secondary"
             aria-expanded={isExpanded.toString()}
-            aria-controls="advanced-filters"
+            aria-controls="advanced-currentFilters"
           >
             {isExpanded ? 'Hide' : 'Show'} Advanced Filters
           </button>
@@ -122,7 +122,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
             <button
               onClick={clearAllFilters}
               className="btn btn-secondary"
-              aria-label="Clear all search filters"
+              aria-label="Clear all search currentFilters"
             >
               Clear All
             </button>
@@ -139,7 +139,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           <input
             id="location-filter"
             type="text"
-            value={filters.location}
+            value={currentFilters.location}
             onChange={(e) => handleFilterChange('location', e.target.value)}
             placeholder="City, neighborhood, or ZIP"
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -156,7 +156,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           </label>
           <select
             id="price-min-filter"
-            value={filters.priceMin}
+            value={currentFilters.priceMin}
             onChange={(e) => handleFilterChange('priceMin', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
@@ -176,7 +176,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           </label>
           <select
             id="price-max-filter"
-            value={filters.priceMax}
+            value={currentFilters.priceMax}
             onChange={(e) => handleFilterChange('priceMax', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
@@ -196,7 +196,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           </label>
           <select
             id="property-type-filter"
-            value={filters.propertyType}
+            value={currentFilters.propertyType}
             onChange={(e) => handleFilterChange('propertyType', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
@@ -216,7 +216,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           </label>
           <select
             id="bedrooms-filter"
-            value={filters.bedrooms}
+            value={currentFilters.bedrooms}
             onChange={(e) => handleFilterChange('bedrooms', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
@@ -235,7 +235,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           </label>
           <select
             id="bathrooms-filter"
-            value={filters.bathrooms}
+            value={currentFilters.bathrooms}
             onChange={(e) => handleFilterChange('bathrooms', e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
@@ -256,7 +256,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           <input
             id="sqft-min-filter"
             type="number"
-            value={filters.sqftMin}
+            value={currentFilters.sqftMin}
             onChange={(e) => handleFilterChange('sqftMin', e.target.value)}
             placeholder="Any"
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -274,7 +274,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
           <input
             id="sqft-max-filter"
             type="number"
-            value={filters.sqftMax}
+            value={currentFilters.sqftMax}
             onChange={(e) => handleFilterChange('sqftMax', e.target.value)}
             placeholder="Any"
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -284,7 +284,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
 
       {/* Advanced Filters */}
       <div 
-        id="advanced-filters"
+        id="advanced-currentFilters"
         className={`transition-all duration-300 ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
         aria-hidden={!isExpanded}
       >
@@ -300,7 +300,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
               >
                 <input
                   type="checkbox"
-                  checked={filters.features.includes(feature)}
+                  checked={currentFilters.features.includes(feature)}
                   onChange={() => handleFeatureToggle(feature)}
                   className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   aria-describedby={`${feature.toLowerCase().replace(/\s+/g, '-')}-help`}
@@ -320,21 +320,21 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
         <div className="mt-6 p-4 bg-blue-50 rounded-lg">
           <h4 className="text-sm font-medium text-blue-900 mb-2">Active Filters:</h4>
           <div className="flex flex-wrap gap-2">
-            {filters.location && (
+            {currentFilters.location && (
               <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
-                Location: {filters.location}
+                Location: {currentFilters.location}
                 <button
                   onClick={() => handleFilterChange('location', '')}
                   className="ml-1 text-blue-600 hover:text-blue-800"
-                  aria-label={`Remove location filter: ${filters.location}`}
+                  aria-label={`Remove location filter: ${currentFilters.location}`}
                 >
                   ×
                 </button>
               </span>
             )}
-            {filters.priceMin && (
+            {currentFilters.priceMin && (
               <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
-                Min: ${parseInt(filters.priceMin).toLocaleString()}
+                Min: ${parseInt(currentFilters.priceMin).toLocaleString()}
                 <button
                   onClick={() => handleFilterChange('priceMin', '')}
                   className="ml-1 text-blue-600 hover:text-blue-800"
@@ -344,9 +344,9 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
                 </button>
               </span>
             )}
-            {filters.priceMax && (
+            {currentFilters.priceMax && (
               <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
-                Max: ${parseInt(filters.priceMax).toLocaleString()}
+                Max: ${parseInt(currentFilters.priceMax).toLocaleString()}
                 <button
                   onClick={() => handleFilterChange('priceMax', '')}
                   className="ml-1 text-blue-600 hover:text-blue-800"
@@ -356,7 +356,7 @@ export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: 
                 </button>
               </span>
             )}
-            {filters.features.map(feature => (
+            {currentFilters.features.map(feature => (
               <span key={feature} className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
                 {feature}
                 <button

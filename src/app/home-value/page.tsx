@@ -1,19 +1,17 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 
+// Declare RealScout custom elements
+declare global {
+  interface HTMLElementTagNameMap {
+    'realscout-home-value': HTMLElement & {
+      'agent-encoded-id': string;
+    };
+  }
+}
+
 export default function HomeValuePage() {
-  const [address, setAddress] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (address.trim()) {
-      setIsSubmitted(true);
-    }
-  };
-
   const features = [
     {
       title: 'Accurate Valuation',
@@ -53,45 +51,16 @@ export default function HomeValuePage() {
         </div>
       </div>
 
-      {/* Home Value Form */}
+      {/* Home Value Widget */}
       <div className='container mx-auto px-4 py-16'>
-        <div className='max-w-2xl mx-auto'>
+        <div className='max-w-4xl mx-auto'>
           <div className='bg-white rounded-xl shadow-sm border border-gray-100 p-8'>
             <h2 className='text-2xl font-bold text-gray-900 mb-6 text-center'>
               Free Home Value Report
             </h2>
-            <form onSubmit={handleSubmit} className='space-y-6'>
-              <div>
-                <label htmlFor='address' className='block text-sm font-medium text-gray-700 mb-2'>
-                  Property Address
-                </label>
-                <input
-                  type='text'
-                  id='address'
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  placeholder='Enter your home address'
-                  className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg min-h-[44px]'
-                  required
-                />
-              </div>
-              
-              <button
-                type='submit'
-                className='w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors min-h-[44px]'
-              >
-                Get My Home Value
-              </button>
-            </form>
-
-            {isSubmitted && (
-              <div className='mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg'>
-                <p className='font-semibold'>Thank you for your request!</p>
-                <p className='text-sm mt-1'>
-                  We&apos;ll contact you within 24 hours with your personalized home value report.
-                </p>
-              </div>
-            )}
+            <div className='flex justify-center'>
+              <realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>
+            </div>
           </div>
         </div>
       </div>

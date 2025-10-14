@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPostsWithCache } from '@/lib/blog/cache';
 import { BlogGrid } from '@/components/blog/BlogGrid';
+import { MarketInsightsGrid } from '@/components/MarketInsights/MarketInsightsGrid';
+import { fetchMarketInsights } from '@/lib/rss-fetcher';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({
@@ -18,6 +20,7 @@ export const revalidate = 21600;
 
 export default async function BlogPage() {
   const posts = await getPostsWithCache();
+  const marketInsights = await fetchMarketInsights(6);
   
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -80,8 +83,26 @@ export default async function BlogPage() {
 
       {/* Blog Content */}
       <div className='container py-8 lg:py-12'>
+        {/* Market Insights Section */}
+        {marketInsights.length > 0 && (
+          <div className='mb-16'>
+            <MarketInsightsGrid insights={marketInsights} />
+          </div>
+        )}
+
+        {/* WordPress Blog Posts */}
         {posts.length > 0 ? (
-          <BlogGrid posts={posts} />
+          <div>
+            <div className='text-center mb-12'>
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+                Dr. Janet Duffy&apos;s Good To Know Real Estate Blog
+              </h2>
+              <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+                Expert insights, neighborhood guides, and valuable tips for Las Vegas real estate from your Premier Good To Know REALTOR®
+              </p>
+            </div>
+            <BlogGrid posts={posts} />
+          </div>
         ) : (
           <div className='text-center py-12'>
             <div className='max-w-md mx-auto'>

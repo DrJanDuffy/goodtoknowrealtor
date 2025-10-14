@@ -3,7 +3,7 @@
 import { createContext, useContext, useRef } from 'react';
 
 interface ScreenReaderAnnouncementsContextType {
-  announce: (message: string, priority?: 'polite' | 'assertive') => void;
+  announce: () => void;
 }
 
 const ScreenReaderAnnouncementsContext = createContext<ScreenReaderAnnouncementsContextType | null>(null);

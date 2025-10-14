@@ -1,28 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import { SecureForm } from '@/components/ui/SecureForm';
+
+// Declare RealScout custom elements
+declare global {
+  interface HTMLElementTagNameMap {
+    'realscout-home-value': HTMLElement & {
+      'agent-encoded-id': string;
+    };
+  }
+}
 
 export function HomeValueSection() {
-  const handleHomeValueSubmit = async (data: Record<string, string>) => {
-    const response = await fetch('/api/home-value', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': data._csrf
-      },
-      body: JSON.stringify(data)
-    });
-    
-    const result = await response.json();
-    
-    if (result.success) {
-      return { success: true, message: result.message };
-    } else {
-      return { success: false, message: result.message };
-    }
-  };
-
   const features = [
     {
       icon: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&h=64&q=80',
@@ -53,7 +42,7 @@ export function HomeValueSection() {
       <div className='container'>
         <div className='text-center mb-12'>
           <h2 className='text-4xl font-bold text-gray-900 mb-4'>
-            Discover Your Home's True Market Value
+            Discover Your Home&apos;s True Market Value
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
             Get a comprehensive market analysis that reveals your property&apos;s true worth.
@@ -65,48 +54,12 @@ export function HomeValueSection() {
           </h4>
         </div>
 
-        {/* Home Value Form */}
+        {/* Home Value Widget */}
         <div className='max-w-2xl mx-auto mb-16'>
           <div className='bg-gray-50 rounded-2xl p-8 shadow-lg'>
-            <SecureForm
-              onSubmit={handleHomeValueSubmit}
-              fields={[
-                {
-                  name: 'address',
-                  type: 'text',
-                  label: 'Property Address',
-                  required: true,
-                  placeholder: 'Enter your complete home address',
-                  maxLength: 200
-                },
-                {
-                  name: 'email',
-                  type: 'email',
-                  label: 'Email Address',
-                  required: true,
-                  placeholder: 'Enter your email address',
-                  maxLength: 254
-                },
-                {
-                  name: 'phone',
-                  type: 'tel',
-                  label: 'Phone Number',
-                  required: false,
-                  placeholder: '(702) 555-0123',
-                  maxLength: 20
-                },
-                {
-                  name: 'name',
-                  type: 'text',
-                  label: 'Your Name',
-                  required: true,
-                  placeholder: 'Enter your full name',
-                  maxLength: 50
-                }
-              ]}
-              submitText='Get Free Home Value Report'
-              className='text-left'
-            />
+            <div className='flex justify-center'>
+              <realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>
+            </div>
           </div>
         </div>
 

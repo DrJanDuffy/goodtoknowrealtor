@@ -94,7 +94,7 @@ export function MarketVisualizations({ area = 'Las Vegas Valley', className = ''
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, [area, announce]);
+  }, [area, announce, sampleMarketData, sampleTrendData]);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {

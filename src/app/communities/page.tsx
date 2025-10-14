@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Communities | Dr. Janet Duffy Group',

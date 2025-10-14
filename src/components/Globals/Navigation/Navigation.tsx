@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 
 // Define menu structure matching Christopher DeWitt Group
@@ -58,6 +57,11 @@ const menuItems = [
   {
     label: 'Blog',
     href: '/blog',
+    hasDropdown: false,
+  },
+  {
+    label: 'Market Insights',
+    href: '/market-insights',
     hasDropdown: false,
   },
 ];
@@ -165,7 +169,7 @@ export function Navigation() {
                     className='text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
-                    aria-expanded={item.hasDropdown ? (activeDropdown === item.label).toString() : undefined}
+                    aria-expanded={item.hasDropdown ? (activeDropdown === item.label ? 'true' : 'false') : undefined}
                   >
                     <span>{item.label}</span>
                     {item.hasDropdown && (
