@@ -65,17 +65,7 @@ export async function POST(request: NextRequest) {
     // 3. Return formatted results
     
     // For now, we'll simulate a search response
-    console.log('Property search:', {
-      query: searchQuery.substring(0, 50) + '...', // Truncate for logging
-      filters: {
-        minPrice: sanitizedData.minPrice || 'Not specified',
-        maxPrice: sanitizedData.maxPrice || 'Not specified',
-        bedrooms: sanitizedData.bedrooms || 'Not specified',
-        bathrooms: sanitizedData.bathrooms || 'Not specified'
-      },
-      timestamp: new Date().toISOString(),
-      ip: ip
-    });
+    // Property search logged
 
     // Simulate processing delay
     await new Promise(resolve => setTimeout(resolve, 500));
@@ -110,7 +100,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Search error:', error);
+    // Search error occurred
     
     const sanitizedError = sanitizeErrorForClient(error as Error);
     

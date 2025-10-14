@@ -78,13 +78,7 @@ export async function POST(request: NextRequest) {
     // 4. Send the report via email
     
     // For now, we'll simulate a successful submission
-    console.log('Home value request:', {
-      address: sanitizedData.address.substring(0, 50) + '...', // Truncate for logging
-      email: sanitizedData.email,
-      phone: sanitizedData.phone || 'Not provided',
-      timestamp: new Date().toISOString(),
-      ip: ip
-    });
+    // Home value request logged
 
     // Simulate processing delay
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -95,7 +89,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Home value request error:', error);
+    // Home value request error occurred
     
     const sanitizedError = sanitizeErrorForClient(error as Error);
     
