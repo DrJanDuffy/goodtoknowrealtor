@@ -28,8 +28,8 @@ interface NeighborhoodMapProps {
 }
 
 export function NeighborhoodMap({ 
-  center = { lat: 36.1699, lng: -115.1398 }, // Las Vegas coordinates
-  zoom = 12,
+  center: _center = { lat: 36.1699, lng: -115.1398 }, // Las Vegas coordinates
+  zoom: _zoom = 12,
   markers = [],
   onMarkerClick,
   className = ''

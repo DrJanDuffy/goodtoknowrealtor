@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
 
 export interface AlertPreferences {
@@ -87,7 +87,7 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
     'Las Vegas Valley'
   ];
 
-  const handleInputChange = (field: keyof AlertPreferences, value: any) => {
+  const handleInputChange = (field: keyof AlertPreferences, value: string | number) => {
     setPreferences(prev => ({
       ...prev,
       [field]: value
@@ -149,7 +149,7 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
           status: 'active'
         });
       }, 3000);
-    } catch (error) {
+    } catch {
       announce('Error creating property alerts subscription', 'assertive');
     } finally {
       setIsSubmitting(false);
