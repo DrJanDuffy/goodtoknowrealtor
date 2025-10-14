@@ -1,18 +1,26 @@
 'use client';
 
 import Image from 'next/image';
-
 import { useState } from 'react';
+import { SecureForm } from '@/components/ui/SecureForm';
 
 export function HomeValueSection() {
-  const [address, setAddress] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (address.trim()) {
-      setIsSubmitted(true);
-      // Handle home value request logic here
+  const handleHomeValueSubmit = async (data: Record<string, string>) => {
+    const response = await fetch('/api/home-value', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': data._csrf
+      },
+      body: JSON.stringify(data)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      return { success: true, message: result.message };
+    } else {
+      return { success: false, message: result.message };
     }
   };
 
@@ -60,30 +68,47 @@ export function HomeValueSection() {
 
         {/* Home Value Form */}
         <div className='max-w-2xl mx-auto mb-16'>
-          <form onSubmit={handleSubmit} className='bg-gray-50 rounded-2xl p-8'>
-            <div className='flex flex-col md:flex-row gap-4'>
-              <input
-                type='text'
-                value={address}
-                onChange={e => setAddress(e.target.value)}
-                placeholder='Enter your home address'
-                className='flex-1 px-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg min-h-[44px]'
-                required
-              />
-              <button
-                type='submit'
-                className='bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors whitespace-nowrap min-h-[44px] min-w-[44px]'
-              >
-                Get Report
-              </button>
-            </div>
-            {isSubmitted && (
-              <div className='mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg'>
-                Thank you! Your home value report request has been submitted.
-                We&apos;ll contact you within 24 hours.
-              </div>
-            )}
-          </form>
+          <div className='bg-gray-50 rounded-2xl p-8 shadow-lg'>
+            <SecureForm
+              onSubmit={handleHomeValueSubmit}
+              fields={[
+                {
+                  name: 'address',
+                  type: 'text',
+                  label: 'Property Address',
+                  required: true,
+                  placeholder: 'Enter your complete home address',
+                  maxLength: 200
+                },
+                {
+                  name: 'email',
+                  type: 'email',
+                  label: 'Email Address',
+                  required: true,
+                  placeholder: 'Enter your email address',
+                  maxLength: 254
+                },
+                {
+                  name: 'phone',
+                  type: 'tel',
+                  label: 'Phone Number',
+                  required: false,
+                  placeholder: '(702) 555-0123',
+                  maxLength: 20
+                },
+                {
+                  name: 'name',
+                  type: 'text',
+                  label: 'Your Name',
+                  required: true,
+                  placeholder: 'Enter your full name',
+                  maxLength: 50
+                }
+              ]}
+              submitText='Get Free Home Value Report'
+              className='text-left'
+            />
+          </div>
         </div>
 
         {/* Features Grid */}

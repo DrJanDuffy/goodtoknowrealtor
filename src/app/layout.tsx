@@ -5,6 +5,7 @@ import '@/app/globals.css';
 
 import { Navigation } from '@/components/Globals/Navigation/Navigation';
 import { Footer } from '@/components/Globals/Footer/Footer';
+import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
 import { ScreenReaderAnnouncementsProvider } from '@/components/ui/ScreenReaderAnnouncements';
 import { SEO_CONFIG, generateRealEstateAgentSchema, generateLocalBusinessSchema } from '@/lib/seo';
 
@@ -118,9 +119,10 @@ export default function RootLayout({
           >
             Skip to navigation
           </a>
-          <Navigation />
-          <main id="main-content" className='flex-1'>{children}</main>
-          <Footer />
+        <Navigation />
+        <main id="main-content" className='flex-1'>{children}</main>
+        <Footer />
+        <MobileStickyCTA />
         </ScreenReaderAnnouncementsProvider>
       </body>
     </html>

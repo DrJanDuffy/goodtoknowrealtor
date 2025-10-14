@@ -11,11 +11,41 @@ export function HeroSection() {
   const { announce } = useScreenReaderAnnouncements();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      announce(`Searching for ${searchType} properties in ${searchQuery}`, 'polite');
-      // Handle search logic here
+      try {
+        // Generate CSRF token for search
+        const array = new Uint8Array(32);
+        crypto.getRandomValues(array);
+        const csrfToken = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+        
+        const response = await fetch('/api/search', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken
+          },
+          body: JSON.stringify({
+            query: searchQuery,
+            searchType,
+            _csrf: csrfToken
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          announce(`Found ${result.totalResults} properties matching "${searchQuery}"`, 'polite');
+          // Handle successful search results
+          console.log('Search results:', result.results);
+        } else {
+          announce(`Search failed: ${result.message}`, 'assertive');
+        }
+      } catch (error) {
+        announce('Search request failed. Please try again.', 'assertive');
+        console.error('Search error:', error);
+      }
     } else {
       announce('Please enter a location to search', 'assertive');
       searchInputRef.current?.focus();
@@ -92,7 +122,7 @@ export function HeroSection() {
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                     role='radio'
-                    aria-checked={searchType === tab.id}
+                    aria-checked={(searchType === tab.id).toString()}
                     aria-describedby={`search-type-${tab.id}-desc`}
                   >
                     {tab.label}
@@ -107,16 +137,17 @@ export function HeroSection() {
                 <label htmlFor='property-search' className='sr-only'>
                   Search for properties
                 </label>
-                <input
-                  ref={searchInputRef}
-                  id='property-search'
-                  type='text'
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  placeholder='Enter city, neighborhood, or address'
-                  className='w-full px-4 py-4 pr-20 md:pr-24 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base md:text-lg min-h-[44px]'
-                  aria-describedby='search-help'
-                />
+                  <input
+                    ref={searchInputRef}
+                    id='property-search'
+                    type='text'
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    placeholder='Enter city, neighborhood, or address'
+                    className='w-full px-4 py-4 pr-20 md:pr-24 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base md:text-lg min-h-[44px]'
+                    aria-describedby='search-help'
+                    maxLength={100}
+                  />
                 <button
                   type='submit'
                   className='absolute right-1 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-4 md:px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[40px] text-sm md:text-base'
@@ -170,38 +201,6 @@ export function HeroSection() {
                     <option value='1'>1+</option>
                     <option value='2'>2+</option>
                     <option value='3'>3+</option>
-                    <option value='4'>4+</option>
-                  </select>
-                </div>
-              )}
-            </form>
-
-            {/* Quick Stats */}
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-gray-200'>
-              <div className='text-center'>
-                <div className='text-2xl font-bold text-blue-600'>$127M+</div>
-                <div className='text-sm text-gray-600'>Total Sales Volume</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-2xl font-bold text-blue-600'>15+</div>
-                <div className='text-sm text-gray-600'>Years Experience</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-2xl font-bold text-blue-600'>22 Days</div>
-                <div className='text-sm text-gray-600'>Avg. Days to Sell</div>
-              </div>
-              <div className='text-center'>
-                <div className='text-2xl font-bold text-blue-600'>Top 1%</div>
-                <div className='text-sm text-gray-600'>Las Vegas Agents</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
                     <option value='4'>4+</option>
                   </select>
                 </div>

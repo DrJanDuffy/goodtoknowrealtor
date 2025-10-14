@@ -123,19 +123,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Legal Pages
     {
-      url: `${baseUrl}/privacy`,
+      url: `${baseUrl}/privacy-policy`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms`,
+      url: `${baseUrl}/terms-of-use`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/disclaimer`,
+      url: `${baseUrl}/do-not-sell`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,

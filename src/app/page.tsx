@@ -8,7 +8,7 @@ import { HomeValueSection } from '@/components/Home/HomeValueSection';
 import { ReportsSection } from '@/components/Home/ReportsSection';
 import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
 import { ContactCTA } from '@/components/Home/ContactCTA';
-import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema, generateFAQSchema } from '@/lib/seo';
+import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema, generateFAQSchema, generateReviewSchema, generateServiceSchema } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.home.title,
@@ -27,7 +27,7 @@ export default function HomePage() {
   const faqs = generateFAQSchema([
     {
       question: 'Who is Dr. Janet Duffy?',
-      answer: 'Dr. Janet Duffy is a Premier Good To Know REALTOR® with over 15 years of experience helping clients buy and sell real estate in Las Vegas. She specializes in luxury properties, investment properties, and first-time home buyers.',
+      answer: 'Dr. Janet Duffy is a Top 1% Las Vegas real estate agent with over 15 years of experience and $127M+ in sales volume. She specializes in luxury properties, investment properties, and first-time home buyers.',
     },
     {
       question: 'What areas does Dr. Janet Duffy serve?',
@@ -43,6 +43,35 @@ export default function HomePage() {
     },
   ]);
 
+  const reviews = generateReviewSchema([
+    {
+      author: 'Sarah & Michael Chen',
+      rating: 5,
+      reviewBody: 'Dr. Duffy\'s expertise and attention to detail made our home buying process seamless. She found us the perfect home in Summerlin and negotiated an incredible deal.',
+      datePublished: '2024-01-15',
+      location: 'Summerlin, Las Vegas',
+      community: 'Summerlin',
+    },
+    {
+      author: 'Jennifer & Luis Rodriguez',
+      rating: 5,
+      reviewBody: 'Professional, responsive, and results-driven. Dr. Duffy helped us navigate a complex sale with multiple offers and achieved the best possible outcome.',
+      datePublished: '2024-02-20',
+      location: 'Henderson, Nevada',
+      community: 'Henderson',
+    },
+    {
+      author: 'David Thompson',
+      rating: 5,
+      reviewBody: 'As a first-time home buyer, I was nervous about the process. Dr. Duffy guided me through every step and found me an amazing investment property in North Las Vegas.',
+      datePublished: '2024-03-10',
+      location: 'North Las Vegas, Nevada',
+      community: 'North Las Vegas',
+    },
+  ]);
+
+  const services = generateServiceSchema();
+
   return (
     <>
       {/* JSON-LD Structured Data */}
@@ -56,6 +85,21 @@ export default function HomePage() {
         type='application/ld+json'
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqs),
+        }}
+      />
+      {reviews.map((review, index) => (
+        <script
+          key={index}
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(review),
+          }}
+        />
+      ))}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(services),
         }}
       />
       <HeroSection />

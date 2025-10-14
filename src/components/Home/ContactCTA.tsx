@@ -1,7 +1,27 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { SecureForm } from '@/components/ui/SecureForm';
 
 export function ContactCTA() {
+  const handleContactSubmit = async (data: Record<string, string>) => {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': data._csrf
+      },
+      body: JSON.stringify(data)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      return { success: true, message: result.message };
+    } else {
+      return { success: false, message: result.message };
+    }
+  };
+
   return (
     <section className='py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white'>
       <div className='container text-center'>
@@ -13,26 +33,51 @@ export function ContactCTA() {
           Get a personalized strategy session where we'll analyze your situation, 
           identify opportunities, and create an action plan to exceed your expectations.
         </p>
-        <div className='flex flex-col sm:flex-row gap-6 justify-center items-center'>
-          <Link
-            href='tel:702-222-1964'
-            className='bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg'
-          >
-            <Image
-              src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
-              alt='Phone icon for calling Dr. Janet Duffy'
-              width={24}
-              height={24}
-              className='inline-block w-6 h-6 mr-2'
-            />{' '}
-            Get Free Market Analysis
-          </Link>
-          <Link
-            href='/contact'
-            className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors'
-          >
-            Book Strategy Session
-          </Link>
+        
+        {/* Contact Form */}
+        <div className='max-w-2xl mx-auto mb-12'>
+          <div className='bg-white rounded-2xl p-8 shadow-xl'>
+            <h3 className='text-2xl font-bold text-gray-900 mb-6'>Get Your Free Consultation</h3>
+            <SecureForm
+              onSubmit={handleContactSubmit}
+              fields={[
+                {
+                  name: 'name',
+                  type: 'text',
+                  label: 'Full Name',
+                  required: true,
+                  placeholder: 'Enter your full name',
+                  maxLength: 50
+                },
+                {
+                  name: 'email',
+                  type: 'email',
+                  label: 'Email Address',
+                  required: true,
+                  placeholder: 'Enter your email address',
+                  maxLength: 254
+                },
+                {
+                  name: 'phone',
+                  type: 'tel',
+                  label: 'Phone Number',
+                  required: false,
+                  placeholder: '(702) 555-0123',
+                  maxLength: 20
+                },
+                {
+                  name: 'message',
+                  type: 'textarea',
+                  label: 'How can we help you?',
+                  required: true,
+                  placeholder: 'Tell us about your real estate goals...',
+                  maxLength: 1000
+                }
+              ]}
+              submitText='Get Free Consultation'
+              className='text-left'
+            />
+          </div>
         </div>
 
         {/* Trust Indicators */}

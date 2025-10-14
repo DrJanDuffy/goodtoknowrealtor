@@ -94,6 +94,14 @@ body {
   }
 }
 
+/* Mobile sticky CTA styles */
+@media (max-width: 1023px) {
+  /* Ensure content doesn't get hidden behind sticky CTA */
+  main {
+    padding-bottom: 6rem;
+  }
+}
+
 /* Additional mobile optimizations */
 @media (max-width: 768px) {
   /* Prevent horizontal scroll */
@@ -686,6 +694,14 @@ textarea,
   }
 }
 
+/* Mobile sticky CTA styles */
+@media (max-width: 1023px) {
+  /* Ensure content doesn't get hidden behind sticky CTA */
+  main {
+    padding-bottom: 6rem;
+  }
+}
+
 /* Additional mobile optimizations */
 @media (max-width: 768px) {
   /* Prevent horizontal scroll */
@@ -722,21 +738,6 @@ textarea,
   a:active {
     transform: scale(0.98);
     transition: transform 0.1s ease;
-  }
-}
-
-  .mobile\\:min-w-11 {
-    min-width: 2.75rem;
-  }
-  
-  /* Better spacing on mobile */
-  .mobile\\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .mobile\\:py-3 {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
   }
 }
 
@@ -919,6 +920,14 @@ textarea,
 @media (min-width: 1024px) {
   .container {
     padding: 0 2rem;
+  }
+}
+
+/* Mobile sticky CTA styles */
+@media (max-width: 1023px) {
+  /* Ensure content doesn't get hidden behind sticky CTA */
+  main {
+    padding-bottom: 6rem;
   }
 }
 

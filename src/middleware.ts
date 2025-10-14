@@ -1,48 +1,64 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { securityHeaders, checkRateLimit, rateLimitConfig } from '@/lib/security';
 
-export async function middleware(request: NextRequest) {
-  if (!process.env['WP_USER'] || !process.env['WP_APP_PASS']) {
-    return NextResponse.next();
-  }
-
-  const basicAuth = `${process.env['WP_USER']}:${process.env['WP_APP_PASS']}`;
-
-  const pathnameWithoutTrailingSlash = request.nextUrl.pathname.replace(
-    /\/$/,
-    ''
-  );
-
-  const response = await fetch(
-    `${process.env['NEXT_PUBLIC_WORDPRESS_API_URL']}/wp-json/redirection/v1/redirect/?filterBy%5Burl-match%5D=plain&filterBy%5Burl%5D=${pathnameWithoutTrailingSlash}`,
-    {
-      headers: {
-        Authorization: `Basic ${Buffer.from(basicAuth).toString('base64')}`,
-        'Content-Type': 'application/json',
-      },
+export function middleware(request: NextRequest) {
+  const response = NextResponse.next();
+  
+  // Add security headers
+  Object.entries(securityHeaders).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+  
+  // Rate limiting for API routes
+  if (request.nextUrl.pathname.startsWith('/api/')) {
+    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+    
+    // Apply different rate limits based on endpoint
+    let config = rateLimitConfig.contactForm; // default
+    
+    if (request.nextUrl.pathname.includes('/search')) {
+      config = rateLimitConfig.search;
+    } else if (request.nextUrl.pathname.includes('/home-value')) {
+      config = rateLimitConfig.homeValue;
     }
-  );
-
-  const data = await response.json();
-
-  if (data?.items?.length > 0) {
-    const redirect = data.items.find(
-      (item: any) => item.url === pathnameWithoutTrailingSlash
+    
+    if (!checkRateLimit(ip, config)) {
+      return new NextResponse(
+        JSON.stringify({ 
+          error: 'Rate limit exceeded. Please try again later.',
+          code: 'RATE_LIMIT_EXCEEDED'
+        }),
+        { 
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            'Retry-After': '60'
+          }
+        }
+      );
+    }
+  }
+  
+  // Add HSTS header for HTTPS
+  if (request.nextUrl.protocol === 'https:') {
+    response.headers.set(
+      'Strict-Transport-Security',
+      'max-age=31536000; includeSubDomains; preload'
     );
-
-    if (!redirect) {
-      return NextResponse.next();
-    }
-
-    const newUrl = new URL(
-      redirect.action_data.url,
-      process.env['NEXT_PUBLIC_BASE_URL']
-    ).toString();
-
-    return NextResponse.redirect(newUrl, {
-      status: redirect.action_code === 301 ? 308 : 307,
-    });
   }
-
-  return NextResponse.next();
+  
+  return response;
 }
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - public folder
+     */
+    '/((?!_next/static|_next/image|favicon.ico|public).*)',
+  ],
+};
