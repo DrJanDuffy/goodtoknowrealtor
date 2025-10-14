@@ -7,7 +7,7 @@ interface SecureLinkProps {
   className?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
   rel?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export function SecureLink({ 

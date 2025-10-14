@@ -1,6 +1,3 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { headers } from 'next/headers';
-
 // Input validation and sanitization
 export const validateInput = {
   // Email validation
@@ -143,7 +140,7 @@ export const inputLimits = {
 // Error handling without exposing sensitive information
 export const createSecureError = (message: string, code: string = 'GENERIC_ERROR'): Error => {
   const error = new Error(message);
-  (error as any).code = code;
+  (error as Record<string, unknown>).code = code;
   return error;
 };
 
@@ -156,7 +153,7 @@ export const sanitizeErrorForClient = (error: Error): { message: string; code: s
     'GENERIC_ERROR': 'An error occurred. Please try again later.'
   };
   
-  const code = (error as any).code || 'GENERIC_ERROR';
+  const code = (error as Record<string, unknown>).code || 'GENERIC_ERROR';
   return {
     message: safeMessages[code] || safeMessages['GENERIC_ERROR'],
     code
@@ -182,7 +179,7 @@ export const getSecureRelAttributes = (url: string): string => {
 };
 
 // Input sanitization for forms
-export const sanitizeFormData = (data: Record<string, any>): Record<string, string> => {
+export const sanitizeFormData = (data: Record<string, unknown>): Record<string, string> => {
   const sanitized: Record<string, string> = {};
   
   for (const [key, value] of Object.entries(data)) {
