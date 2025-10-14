@@ -1,0 +1,27 @@
+# Cloudflare Workers configuration for WordPress API client
+name = "wordpress-api-client"
+main = "src/index.js"
+compatibility_date = "2023-12-01"
+
+# Environment variables for Cloudflare Workers
+[vars]
+WORDPRESS_API_URL = "https://www.bhhscp.com/wp-json/wp/v2"
+
+# Secrets (use `wrangler secret put` to set these)
+# WORDPRESS_USER = "your_wordpress_username"
+# WORDPRESS_APP_PASSWORD = "your_app_password"
+
+# Routes (optional - if you want to proxy WordPress API)
+# [[routes]]
+# pattern = "api.wordpress.yourdomain.com/*"
+# zone_name = "yourdomain.com"
+
+# KV Namespace for caching (optional)
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "your-kv-namespace-id"
+
+# Durable Objects for stateful caching (optional)
+# [[durable_objects.bindings]]
+# name = "CACHE_DO"
+# class_name = "CacheDurableObject"
