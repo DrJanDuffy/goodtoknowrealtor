@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { fetchBlogPost, getPostsWithCache } from '@/lib/blog/cache';
+import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -25,32 +26,25 @@ export async function generateMetadata({
   const title = `${post.title} | Dr. Janet Duffy Real Estate Blog`;
   const description =
     post.excerpt ||
-    `Read ${post.title} by Dr. Janet Duffy, your trusted Las Vegas real estate expert.`;
+    `Read ${post.title} by Premier Good To Know REALTOR® Dr. Janet Duffy, your trusted Las Vegas real estate expert.`;
 
-  return {
+  const keywords = [
+    'Las Vegas real estate',
+    'Dr. Janet Duffy',
+    'Premier Good To Know REALTOR',
+    'Las Vegas real estate blog',
+    ...(post.categories || []),
+    ...(post.tags || [])
+  ];
+
+  return generatePageMetadata({
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      images: post.image
-        ? [
-            {
-              url: post.image,
-              width: 1200,
-              height: 630,
-              alt: post.imageAlt || post.title,
-            },
-          ]
-        : undefined,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: post.image ? [post.image] : undefined,
-    },
-  };
+    keywords,
+    url: `/blog/${slug}`,
+    image: post.image,
+    type: 'article',
+  });
 }
 
 // Enable ISR with 6-hour revalidation
@@ -72,7 +66,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     });
   };
 
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog' },
+    { name: post.title, url: `/blog/${slug}` },
+  ]);
+
   return (
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbs),
+        }}
+      />
     <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Breadcrumb */}
       <nav className='bg-white border-b border-gray-200'>
@@ -245,7 +253,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
       </article>
-    </div>
+      </div>
+    </>
   );
 }
 

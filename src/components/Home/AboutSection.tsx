@@ -11,14 +11,14 @@ export function AboutSection() {
               About Dr. Janet Duffy
             </h2>
             <p className="text-xl text-gray-600 mb-6">
-              As the nationally recognized Premier Good To Know REALTOR® at Berkshire Hathaway HomeServices Premier Properties, 
-              Dr. Janet Duffy brings over 15 years of experience helping clients buy and sell properties in the Las Vegas area.
+              As a top-performing agent at Berkshire Hathaway HomeServices Premier Properties, 
+              Dr. Janet Duffy has facilitated over $127 million in real estate transactions across Las Vegas.
             </p>
             <p className="text-lg text-gray-600 mb-8">
-              Known nationwide for helping agents sell homes, Dr. Duffy combines her local Las Vegas market expertise 
-              with national best practices to deliver exceptional results for her clients. Whether you&apos;re buying your 
-              first home, selling your current property, or building an investment portfolio, Dr. Duffy provides 
-              personalized service and expert guidance every step of the way.
+              With deep expertise in luxury properties, investment real estate, and first-time home buying, 
+              Dr. Duffy delivers results that consistently exceed expectations. Her data-driven approach, 
+              combined with personalized service, has helped hundreds of families achieve their real estate goals 
+              while building wealth through strategic property investments.
             </p>
             
             {/* Key Highlights */}
@@ -30,8 +30,8 @@ export function AboutSection() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Nationally Recognized</h4>
-                  <p className="text-sm text-gray-600">Premier Good To Know REALTOR®</p>
+                  <h4 className="font-semibold text-gray-900">Top 1% Producer</h4>
+                  <p className="text-sm text-gray-600">$127M+ Sales Volume</p>
                 </div>
               </div>
               
@@ -101,8 +101,8 @@ export function AboutSection() {
             </div>
             <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-2xl shadow-xl">
               <div className="text-center">
-                <div className="text-3xl font-bold">500+</div>
-                <div className="text-sm">Happy Clients</div>
+                <div className="text-3xl font-bold">22 Days</div>
+                <div className="text-sm">Avg. Days to Sell</div>
               </div>
             </div>
           </div>

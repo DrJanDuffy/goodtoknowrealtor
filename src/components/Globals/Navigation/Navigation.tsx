@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 // Define menu structure for Dr. Janet Duffy
 const menuItems = [
@@ -73,6 +73,7 @@ function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
 export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label);
@@ -81,6 +82,18 @@ export function Navigation() {
   const handleMouseLeave = () => {
     setActiveDropdown(null);
   };
+
+  // Handle escape key to close mobile menu
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -101,7 +114,7 @@ export function Navigation() {
               🔍 Property Search
             </Link>
             <Link
-              href='/contact'
+              href='tel:702-222-1964'
               className='hover:text-blue-200 transition-colors'
             >
               📞 (702) 222-1964
@@ -111,7 +124,7 @@ export function Navigation() {
       </div>
 
       {/* Main Navigation */}
-      <nav className='bg-white shadow-lg sticky top-0 z-50' role='navigation'>
+      <nav id="navigation" className='bg-white shadow-lg sticky top-0 z-50' role='navigation' aria-label='Main navigation'>
         <div className='container mx-auto px-4'>
           <div className='flex items-center justify-between h-20'>
             {/* Logo */}
@@ -126,7 +139,7 @@ export function Navigation() {
                     className='h-12 w-auto'
                   />
                   <span className='text-xs text-gray-600 mt-1'>
-                    Dr. Jan Duffy - Premier Good To Know REALTOR®
+                    Dr. Jan Duffy - Las Vegas Real Estate Expert
                   </span>
                 </div>
               </Link>
@@ -146,6 +159,9 @@ export function Navigation() {
                   <Link
                     href={item.href}
                     className='text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1'
+                    role='menuitem'
+                    aria-haspopup={item.hasDropdown}
+                    aria-expanded={item.hasDropdown ? activeDropdown === item.label : undefined}
                   >
                     <span>{item.label}</span>
                     {item.hasDropdown && (
@@ -154,6 +170,7 @@ export function Navigation() {
                         fill='none'
                         stroke='currentColor'
                         viewBox='0 0 24 24'
+                        aria-hidden='true'
                       >
                         <path
                           strokeLinecap='round'
@@ -168,15 +185,18 @@ export function Navigation() {
                     <DropdownMenu
                       isOpen={activeDropdown === item.label}
                     >
-                      {item.children?.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors'
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      <div aria-label={`${item.label} submenu`}>
+                        {item.children?.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors'
+                            role='menuitem'
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </DropdownMenu>
                   )}
                 </div>
@@ -196,20 +216,23 @@ export function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className='lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors'
+              className='lg:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500'
               aria-label='Toggle mobile menu'
+              aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
+              aria-controls='mobile-menu'
             >
               <svg
                 className='w-6 h-6'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
+                aria-hidden='true'
               >
                 <path
                   strokeLinecap='round'
                   strokeLinejoin='round'
                   strokeWidth={2}
-                  d='M4 6h16M4 12h16M4 18h16'
+                  d={isMobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
                 />
               </svg>
             </button>
@@ -218,34 +241,61 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className='lg:hidden bg-white border-t border-gray-200'>
-            <div className='container mx-auto px-4 py-4 space-y-4'>
+          <div ref={mobileMenuRef} id="mobile-menu" className='lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-80px)] overflow-y-auto' aria-label='Mobile navigation menu'>
+            <div className='container mx-auto px-4 py-6 space-y-2'>
               {menuItems.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className='block text-gray-700 hover:text-blue-600 font-medium py-2 transition-colors'
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                <div key={index}>
+                  <Link
+                    href={item.href}
+                    className='block text-gray-700 hover:text-blue-600 font-medium py-4 px-2 transition-colors min-h-[44px] flex items-center'
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    role='menuitem'
+                  >
+                    {item.label}
+                  </Link>
+                  {item.hasDropdown && item.children && (
+                    <div className='ml-4 space-y-1'>
+                      {item.children.map((child, childIndex) => (
+                        <Link
+                          key={childIndex}
+                          href={child.href}
+                          className='block text-gray-600 hover:text-blue-600 py-3 px-2 transition-colors min-h-[44px] flex items-center text-sm'
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
-              <div className='pt-4 border-t border-gray-200 space-y-2'>
+              
+              {/* Mobile-specific CTAs */}
+              <div className='pt-6 border-t border-gray-200 space-y-3'>
                 <Link
                   href='/listings'
-                  className='block text-gray-600 py-2'
+                  className='block text-gray-600 py-4 px-2 min-h-[44px] flex items-center'
                 >
-                  💾 Property Search
+                  <span className='mr-3'>💾</span>
+                  Property Search
                 </Link>
                 <Link
-                  href='/contact'
-                  className='block text-gray-600 py-2'
+                  href='tel:702-222-1964'
+                  className='block text-gray-600 py-4 px-2 min-h-[44px] flex items-center'
                 >
-                  📞 (702) 222-1964
+                  <span className='mr-3'>📞</span>
+                  (702) 222-1964
+                </Link>
+                <Link
+                  href='sms:702-222-1964'
+                  className='block text-gray-600 py-4 px-2 min-h-[44px] flex items-center'
+                >
+                  <span className='mr-3'>💬</span>
+                  Send Text
                 </Link>
                 <Link 
                   href='/contact' 
-                  className='block bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold text-center'
+                  className='block bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold text-center min-h-[44px] flex items-center justify-center mt-4'
                 >
                   Get Started
                 </Link>

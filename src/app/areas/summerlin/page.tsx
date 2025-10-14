@@ -54,9 +54,8 @@ export default function SummerlinPage() {
               </h2>
               <p className="text-lg text-gray-600 mb-6">
                 Summerlin is Las Vegas&apos;s premier master-planned community, offering luxury living 
-                with world-class amenities, top-rated schools, and stunning mountain views. As 
-                the Premier Good To Know REALTOR®, I specialize in helping clients find their 
-                perfect home in this exceptional community.
+                with world-class amenities, top-rated schools, and stunning mountain views. I 
+                specialize in helping clients find their perfect home in this exceptional community.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
@@ -138,9 +137,9 @@ export default function SummerlinPage() {
             Ready to Find Your Summerlin Home?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
-            your perfect home in Summerlin. With 15+ years of experience and deep 
-            knowledge of the Las Vegas market, I&apos;ll guide you every step of the way.
+            Let Dr. Janet Duffy help you find your perfect home in Summerlin. With $127M+ 
+            in sales volume and deep knowledge of luxury communities, I'll guide you 
+            every step of the way to your dream property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

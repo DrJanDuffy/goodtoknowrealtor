@@ -3,33 +3,36 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPostsWithCache } from '@/lib/blog/cache';
 import { BlogGrid } from '@/components/blog/BlogGrid';
+import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Real Estate Blog | Dr. Janet Duffy',
-  description:
-    'Stay updated with the latest real estate insights, market trends, and home buying tips from Dr. Janet Duffy, your trusted Las Vegas real estate expert.',
-  openGraph: {
-    title: 'Real Estate Blog | Dr. Janet Duffy',
-    description:
-      'Stay updated with the latest real estate insights, market trends, and home buying tips.',
-    images: [
-      {
-        url: '/images/dr-jan-duffy-blog-og.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Dr. Janet Duffy Real Estate Blog',
-      },
-    ],
-  },
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: PAGE_SEO.blog.title,
+  description: PAGE_SEO.blog.description,
+  keywords: PAGE_SEO.blog.keywords,
+  url: '/blog',
+  image: '/images/dr-janet-duffy-blog-og.jpg',
+});
 
 // Enable ISR with 6-hour revalidation
 export const revalidate = 21600;
 
 export default async function BlogPage() {
   const posts = await getPostsWithCache();
+  
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Las Vegas Real Estate Blog', url: '/blog' },
+  ]);
 
   return (
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbs),
+        }}
+      />
     <div className='min-h-screen bg-gray-50'>
       {/* Hero Section - Dr. Jan Duffy Branding */}
       <div className='bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white py-12 lg:py-16 relative overflow-hidden'>
@@ -172,6 +175,7 @@ export default async function BlogPage() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }

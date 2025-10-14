@@ -27,7 +27,7 @@ export function RealScoutListings() {
         </div>
 
         {/* RealScout Widget */}
-        <div className='max-w-7xl mx-auto'>
+        <div className='max-w-7xl mx-auto overflow-x-hidden'>
           <realscout-office-listings
             agent-encoded-id='QWdlbnQtMjI1MDUw'
             sort-order='PRICE_LOW'
@@ -35,6 +35,7 @@ export function RealScoutListings() {
             property-types=',SFR'
             price-min='500000'
             price-max='600000'
+            className='w-full'
           ></realscout-office-listings>
         </div>
 

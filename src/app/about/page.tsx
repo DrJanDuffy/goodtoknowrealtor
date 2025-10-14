@@ -1,9 +1,32 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+
+export const metadata: Metadata = generatePageMetadata({
+  title: PAGE_SEO.about.title,
+  description: PAGE_SEO.about.description,
+  keywords: PAGE_SEO.about.keywords,
+  url: '/about',
+  image: '/images/dr-janet-duffy-about-og.jpg',
+});
 
 export default function AboutPage() {
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'About Dr. Janet Duffy', url: '/about' },
+  ]);
+
   return (
-    <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbs),
+        }}
+      />
+      <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
       <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
         <div className='container'>
@@ -115,11 +138,11 @@ export default function AboutPage() {
                 Recognition & Awards
               </h3>
               <ul className='space-y-2 text-gray-600'>
-                <li>• Top 1% of Las Vegas Realtors</li>
-                <li>• Multi-Million Dollar Producer</li>
-                <li>• Client Satisfaction Excellence Award</li>
-                <li>• Luxury Home Specialist</li>
-                <li>• Investment Property Expert</li>
+                <li>• Top 1% of Las Vegas Realtors (2023, 2024)</li>
+                <li>• $127M+ in Total Sales Volume</li>
+                <li>• Berkshire Hathaway Circle of Excellence</li>
+                <li>• Luxury Property Specialist (LPS)</li>
+                <li>• 5-Star Client Rating Average</li>
               </ul>
             </div>
 
@@ -328,6 +351,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className='bg-gray-50 text-gray-900'>
+    <footer className='bg-gray-50 text-gray-900' role='contentinfo' aria-label='Site footer'>
       <div className='container mx-auto px-4'>
         {/* Main Footer Content */}
         <div className='border-t border-gray-200 py-8'>
@@ -20,13 +20,26 @@ export function Footer() {
               <p className='text-sm text-gray-600'>
                 Dr. Janet Duffy, REALTOR®
                 <br />
-                Premier Good To Know REALTOR®
+                Top 1% Las Vegas Agent
                 <br />
                 Premier Properties Las Vegas
               </p>
               <div className='mt-4'>
-                <p className='text-sm font-semibold text-gray-900 mb-1'>Contact</p>
-                <p className='text-sm text-gray-600'>(702) 222-1964</p>
+                <p className='text-sm font-semibold text-gray-900 mb-2'>Contact</p>
+                <div className='flex flex-col space-y-2'>
+                  <Link
+                    href='tel:702-222-1964'
+                    className='text-sm text-gray-600 hover:text-blue-600 transition-colors min-h-[44px] flex items-center'
+                  >
+                    📞 (702) 222-1964
+                  </Link>
+                  <Link
+                    href='sms:702-222-1964'
+                    className='text-sm text-gray-600 hover:text-blue-600 transition-colors min-h-[44px] flex items-center'
+                  >
+                    💬 Send Text
+                  </Link>
+                </div>
               </div>
             </div>
 

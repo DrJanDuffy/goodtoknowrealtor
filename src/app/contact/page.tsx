@@ -1,17 +1,40 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+
+export const metadata: Metadata = generatePageMetadata({
+  title: PAGE_SEO.contact.title,
+  description: PAGE_SEO.contact.description,
+  keywords: PAGE_SEO.contact.keywords,
+  url: '/contact',
+  image: '/images/dr-janet-duffy-contact-og.jpg',
+});
 
 export default function ContactPage() {
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Contact Dr. Janet Duffy', url: '/contact' },
+  ]);
+
   return (
-    <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbs),
+        }}
+      />
+      <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
       <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
         <div className='container'>
           <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
+            <h1 className='text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 px-4'>
               Contact Dr. Janet Duffy
             </h1>
-            <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
+            <p className='text-lg sm:text-xl lg:text-2xl text-amber-100 leading-relaxed px-4'>
               Ready to start your Las Vegas real estate journey? I&apos;m here to
               help you achieve your property goals with personalized service and
               expert guidance.
@@ -38,7 +61,7 @@ export default function ContactPage() {
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=48&h=48&q=80'
-                  alt='Phone'
+                  alt='Phone icon for direct contact with Dr. Janet Duffy'
                   width={48}
                   height={48}
                   className='w-12 h-12'
@@ -113,7 +136,7 @@ export default function ContactPage() {
             </div>
 
             <div className='bg-gray-50 rounded-2xl p-8 shadow-lg'>
-              <form className='space-y-6'>
+              <form className='space-y-6' role='form' aria-label='Contact form'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <div>
                     <label
@@ -127,8 +150,11 @@ export default function ContactPage() {
                       id='firstName'
                       name='firstName'
                       required
-                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                      aria-required='true'
+                      aria-describedby='firstName-error'
+                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-h-[44px] text-base'
                     />
+                    <div id='firstName-error' className='sr-only' role='alert'></div>
                   </div>
                   <div>
                     <label
@@ -142,8 +168,11 @@ export default function ContactPage() {
                       id='lastName'
                       name='lastName'
                       required
-                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                      aria-required='true'
+                      aria-describedby='lastName-error'
+                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-h-[44px] text-base'
                     />
+                    <div id='lastName-error' className='sr-only' role='alert'></div>
                   </div>
                 </div>
 
@@ -160,8 +189,11 @@ export default function ContactPage() {
                       id='email'
                       name='email'
                       required
-                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                      aria-required='true'
+                      aria-describedby='email-error'
+                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-h-[44px] text-base'
                     />
+                    <div id='email-error' className='sr-only' role='alert'></div>
                   </div>
                   <div>
                     <label
@@ -174,8 +206,10 @@ export default function ContactPage() {
                       type='tel'
                       id='phone'
                       name='phone'
-                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                      aria-describedby='phone-help'
+                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-h-[44px] text-base'
                     />
+                    <div id='phone-help' className='text-sm text-gray-500 mt-1'>Optional - Include for faster response</div>
                   </div>
                 </div>
 
@@ -190,6 +224,8 @@ export default function ContactPage() {
                     id='service'
                     name='service'
                     required
+                    aria-required='true'
+                    aria-describedby='service-error'
                     className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
                   >
                     <option value=''>Select a service</option>
@@ -200,6 +236,7 @@ export default function ContactPage() {
                     <option value='consultation'>General Consultation</option>
                     <option value='other'>Other</option>
                   </select>
+                  <div id='service-error' className='sr-only' role='alert'></div>
                 </div>
 
                 <div>
@@ -212,6 +249,7 @@ export default function ContactPage() {
                   <select
                     id='budget'
                     name='budget'
+                    aria-describedby='budget-help'
                     className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
                   >
                     <option value=''>Select budget range</option>
@@ -235,18 +273,24 @@ export default function ContactPage() {
                     name='message'
                     rows={6}
                     required
+                    aria-required='true'
+                    aria-describedby='message-error message-help'
                     placeholder='Tell me about your real estate goals and how I can help...'
                     className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
                   ></textarea>
+                  <div id='message-error' className='sr-only' role='alert'></div>
+                  <div id='message-help' className='text-sm text-gray-500 mt-1'>Please provide details about your real estate needs</div>
                 </div>
 
                 <div className='text-center'>
                   <button
                     type='submit'
-                    className='bg-amber-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-700 transition-colors duration-200 shadow-lg'
+                    className='bg-amber-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-700 transition-colors duration-200 shadow-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 min-h-[44px] w-full sm:w-auto'
+                    aria-describedby='submit-help'
                   >
                     Send Message
                   </button>
+                  <div id='submit-help' className='text-sm text-gray-500 mt-2'>Form will be submitted securely</div>
                 </div>
               </form>
             </div>
@@ -303,13 +347,13 @@ export default function ContactPage() {
                   </div>
 
                   <div className='flex items-start'>
-                    <Image
-                      src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
-                      alt='Phone'
-                      width={24}
-                      height={24}
-                      className='w-6 h-6 mr-4 mt-1'
-                    />
+                  <Image
+                    src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
+                    alt='Phone icon for office contact information'
+                    width={24}
+                    height={24}
+                    className='w-6 h-6 mr-4 mt-1'
+                  />
                     <div>
                       <p className='font-semibold text-gray-900'>Contact</p>
                       <p className='text-gray-600'>Phone: (702) 222-1964</p>
@@ -348,7 +392,7 @@ export default function ContactPage() {
               <div className='relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
                   src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80'
-                  alt='Las Vegas office location'
+                  alt='Modern Las Vegas office building where Dr. Janet Duffy provides real estate services'
                   fill
                   style={{ objectFit: 'cover' }}
                 />
@@ -385,7 +429,7 @@ export default function ContactPage() {
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
                 <Image
                   src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
-                  alt='Home'
+                  alt='Family home in Henderson neighborhood'
                   width={32}
                   height={32}
                   className='w-8 h-8'
@@ -457,7 +501,7 @@ export default function ContactPage() {
             >
               <Image
                 src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
-                alt='Phone'
+                alt='Phone icon for emergency real estate assistance'
                 width={24}
                 height={24}
                 className='inline-block w-6 h-6 mr-2'
@@ -473,6 +517,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

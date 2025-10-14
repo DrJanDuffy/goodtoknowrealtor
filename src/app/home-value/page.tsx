@@ -72,14 +72,14 @@ export default function HomeValuePage() {
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder='Enter your home address'
-                  className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg'
+                  className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg min-h-[44px]'
                   required
                 />
               </div>
               
               <button
                 type='submit'
-                className='w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors'
+                className='w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors min-h-[44px]'
               >
                 Get My Home Value
               </button>

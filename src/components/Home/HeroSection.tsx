@@ -1,17 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
+import Link from 'next/link';
 
 export function HeroSection() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab] = useState('homes');
-  const [searchType] = useState('buy');
+  const [searchType, setSearchType] = useState('buy');
+  const { announce } = useScreenReaderAnnouncements();
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
+      announce(`Searching for ${searchType} properties in ${searchQuery}`, 'polite');
       // Handle search logic here
+    } else {
+      announce('Please enter a location to search', 'assertive');
+      searchInputRef.current?.focus();
     }
+  };
+
+  const handleSearchTypeChange = (type: string) => {
+    setSearchType(type);
+    announce(`Search type changed to ${type}`, 'polite');
   };
 
   return (
@@ -24,71 +37,103 @@ export function HeroSection() {
 
       <div className='container relative z-10 py-20'>
         <div className='max-w-4xl mx-auto text-center mb-12'>
-          <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight'>
+          <h1 className='text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight px-4'>
             Dr. Jan Duffy
-            <span className='block text-blue-200 text-3xl md:text-5xl lg:text-6xl mt-4'>
-              Premier Good To Know REALTOR®
+            <span className='block text-blue-200 text-2xl sm:text-3xl md:text-5xl lg:text-6xl mt-4'>
+              Las Vegas Real Estate Expert
             </span>
-            <span className='block text-blue-100 text-2xl md:text-4xl lg:text-5xl mt-2'>
+            <span className='block text-blue-100 text-xl sm:text-2xl md:text-4xl lg:text-5xl mt-2'>
               Berkshire Hathaway HomeServices
             </span>
           </h1>
           <p className='text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto'>
-            Nationally recognized real estate expert who helps agents across the
-            country sell homes. Premier Properties Las Vegas. Your trusted real
-            estate expert with over 15 years of experience helping clients buy
-            and sell properties with personalized service and expert guidance.
+            Transform your Las Vegas real estate experience with data-driven insights, 
+            proven negotiation strategies, and personalized service. Whether buying, 
+            selling, or investing, get results that exceed expectations with a 
+            nationally recognized expert who's helped 500+ families achieve their goals.
           </p>
+        </div>
+
+        {/* Mobile CTA Buttons */}
+        <div className='lg:hidden max-w-md mx-auto mb-8 space-y-4'>
+          <Link
+            href='tel:702-222-1964'
+            className='block w-full bg-white text-blue-600 px-6 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg text-center min-h-[44px] flex items-center justify-center'
+          >
+            📞 Call (702) 222-1964
+          </Link>
+          <Link
+            href='sms:702-222-1964'
+            className='block w-full border-2 border-white text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors text-center min-h-[44px] flex items-center justify-center'
+          >
+            💬 Send Text
+          </Link>
         </div>
 
         {/* Search Component */}
         <div className='max-w-4xl mx-auto'>
-          <div className='bg-white rounded-2xl shadow-2xl p-6 md:p-8'>
+          <div className='bg-white rounded-2xl shadow-2xl p-4 md:p-6 lg:p-8'>
             {/* Search Type Tabs */}
-            <div className='flex flex-wrap gap-2 mb-6'>
-              {[
-                { id: 'buy', label: 'Buy a Home' },
-                { id: 'sell', label: 'Sell Your Home' },
-                { id: 'rent', label: 'Rent' },
-                { id: 'invest', label: 'Investment' },
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setSearchType(tab.id)}
-                  className={`px-6 py-3 rounded-lg font-semibold transition-colors ${
-                    searchType === tab.id
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+            <fieldset className='mb-6'>
+              <legend className='sr-only'>Select search type</legend>
+              <div className='flex flex-wrap gap-2' role='radiogroup' aria-labelledby='search-type-legend'>
+                {[
+                  { id: 'buy', label: 'Buy a Home' },
+                  { id: 'sell', label: 'Sell Your Home' },
+                  { id: 'rent', label: 'Rent' },
+                  { id: 'invest', label: 'Investment' },
+                ].map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => handleSearchTypeChange(tab.id)}
+                    className={`px-4 md:px-6 py-3 rounded-lg font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px] text-sm md:text-base ${
+                      searchType === tab.id
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                    role='radio'
+                    aria-checked={searchType === tab.id}
+                    aria-describedby={`search-type-${tab.id}-desc`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
 
             {/* Search Form */}
-            <form onSubmit={handleSearch} className='space-y-4'>
+            <form onSubmit={handleSearch} className='space-y-4' role='search'>
               <div className='relative'>
+                <label htmlFor='property-search' className='sr-only'>
+                  Search for properties
+                </label>
                 <input
+                  ref={searchInputRef}
+                  id='property-search'
                   type='text'
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder='Enter city, neighborhood, or address'
-                  className='w-full px-4 py-4 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg'
+                  className='w-full px-4 py-4 pr-20 md:pr-24 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base md:text-lg min-h-[44px]'
+                  aria-describedby='search-help'
                 />
                 <button
                   type='submit'
-                  className='absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors'
+                  className='absolute right-1 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-4 md:px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[40px] text-sm md:text-base'
+                  aria-label='Search for properties'
                 >
                   Search
                 </button>
               </div>
+              <div id='search-help' className='sr-only'>
+                Enter a city, neighborhood, or address to search for properties
+              </div>
 
               {/* Advanced Filters */}
               {activeTab === 'homes' && (
-                <div className='grid grid-cols-1 md:grid-cols-4 gap-4'>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4'>
                   <select
-                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500'
+                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 min-h-[44px] text-base'
                     aria-label='Minimum price'
                   >
                     <option value=''>Min Price</option>
@@ -98,7 +143,7 @@ export function HeroSection() {
                     <option value='500000'>$500,000+</option>
                   </select>
                   <select
-                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500'
+                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 min-h-[44px] text-base'
                     aria-label='Maximum price'
                   >
                     <option value=''>Max Price</option>
@@ -108,7 +153,7 @@ export function HeroSection() {
                     <option value='1000000'>Up to $1,000,000</option>
                   </select>
                   <select
-                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500'
+                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 min-h-[44px] text-base'
                     aria-label='Number of bedrooms'
                   >
                     <option value=''>Bedrooms</option>
@@ -118,7 +163,7 @@ export function HeroSection() {
                     <option value='4'>4+</option>
                   </select>
                   <select
-                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500'
+                    className='px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 min-h-[44px] text-base'
                     aria-label='Number of bathrooms'
                   >
                     <option value=''>Bathrooms</option>
@@ -134,20 +179,52 @@ export function HeroSection() {
             {/* Quick Stats */}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-gray-200'>
               <div className='text-center'>
-                <div className='text-2xl font-bold text-blue-600'>500+</div>
-                <div className='text-sm text-gray-600'>Happy Clients</div>
+                <div className='text-2xl font-bold text-blue-600'>$127M+</div>
+                <div className='text-sm text-gray-600'>Total Sales Volume</div>
               </div>
               <div className='text-center'>
                 <div className='text-2xl font-bold text-blue-600'>15+</div>
                 <div className='text-sm text-gray-600'>Years Experience</div>
               </div>
               <div className='text-center'>
-                <div className='text-2xl font-bold text-blue-600'>98%</div>
-                <div className='text-sm text-gray-600'>Client Satisfaction</div>
+                <div className='text-2xl font-bold text-blue-600'>22 Days</div>
+                <div className='text-sm text-gray-600'>Avg. Days to Sell</div>
               </div>
               <div className='text-center'>
-                <div className='text-2xl font-bold text-blue-600'>Premier</div>
-                <div className='text-sm text-gray-600'>Good To Know REALTOR®</div>
+                <div className='text-2xl font-bold text-blue-600'>Top 1%</div>
+                <div className='text-sm text-gray-600'>Las Vegas Agents</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+                    <option value='4'>4+</option>
+                  </select>
+                </div>
+              )}
+            </form>
+
+            {/* Quick Stats */}
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-gray-200'>
+              <div className='text-center'>
+                <div className='text-2xl font-bold text-blue-600'>$127M+</div>
+                <div className='text-sm text-gray-600'>Total Sales Volume</div>
+              </div>
+              <div className='text-center'>
+                <div className='text-2xl font-bold text-blue-600'>15+</div>
+                <div className='text-sm text-gray-600'>Years Experience</div>
+              </div>
+              <div className='text-center'>
+                <div className='text-2xl font-bold text-blue-600'>22 Days</div>
+                <div className='text-sm text-gray-600'>Avg. Days to Sell</div>
+              </div>
+              <div className='text-center'>
+                <div className='text-2xl font-bold text-blue-600'>Top 1%</div>
+                <div className='text-sm text-gray-600'>Las Vegas Agents</div>
               </div>
             </div>
           </div>

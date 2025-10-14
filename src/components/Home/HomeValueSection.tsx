@@ -46,13 +46,12 @@ export function HomeValueSection() {
       <div className='container'>
         <div className='text-center mb-12'>
           <h2 className='text-4xl font-bold text-gray-900 mb-4'>
-            Sell Smarter with the Premier Good To Know REALTOR®
+            Discover Your Home's True Market Value
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Sell your Las Vegas home smarter with expert guidance from Dr. Jan
-            Duffy, nationally recognized for helping agents sell homes. Get your
-            free home value report from your trusted Berkshire Hathaway
-            HomeServices Premier Properties agent.
+            Get a comprehensive market analysis that reveals your property's true worth. 
+            Dr. Jan Duffy's data-driven approach combines local market trends, comparable sales, 
+            and neighborhood insights to give you the most accurate valuation available.
           </p>
           <h4 className='text-2xl font-semibold text-gray-900 mt-8 mb-6'>
             Get Your Free Las Vegas Home Value Report
@@ -68,12 +67,12 @@ export function HomeValueSection() {
                 value={address}
                 onChange={e => setAddress(e.target.value)}
                 placeholder='Enter your home address'
-                className='flex-1 px-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg'
+                className='flex-1 px-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg min-h-[44px]'
                 required
               />
               <button
                 type='submit'
-                className='bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors whitespace-nowrap'
+                className='bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors whitespace-nowrap min-h-[44px] min-w-[44px]'
               >
                 Get Report
               </button>

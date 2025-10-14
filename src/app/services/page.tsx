@@ -1,13 +1,22 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Real Estate Services | Dr. Janet Duffy',
-  description: 'Comprehensive real estate services including buying, selling, luxury properties, and investment properties in Las Vegas.',
-};
+export const metadata: Metadata = generatePageMetadata({
+  title: PAGE_SEO.services.title,
+  description: PAGE_SEO.services.description,
+  keywords: PAGE_SEO.services.keywords,
+  url: '/services',
+  image: '/images/dr-janet-duffy-services-og.jpg',
+});
 
 export default function ServicesPage() {
+  const breadcrumbs = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Real Estate Services', url: '/services' },
+  ]);
+
   const services = [
     {
       title: 'Buying a Home',
@@ -42,7 +51,15 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbs),
+        }}
+      />
+      <div className='min-h-screen bg-gray-50'>
       {/* Hero Section */}
       <div className='bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white py-16'>
         <div className='container mx-auto px-4'>
@@ -103,6 +120,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
