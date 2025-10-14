@@ -16,9 +16,9 @@ export function BlogCard({ post }: BlogCardProps) {
   };
 
   return (
-    <article className='group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-1'>
+    <article className='group bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-gray-200'>
       {post.image && (
-        <div className='relative h-64 overflow-hidden'>
+        <div className='relative h-48 overflow-hidden'>
           <Image
             src={post.image}
             alt={post.imageAlt || post.title}
@@ -27,8 +27,8 @@ export function BlogCard({ post }: BlogCardProps) {
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
           />
           {post.categories.length > 0 && (
-            <div className='absolute top-4 left-4'>
-              <span className='bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide'>
+            <div className='absolute top-3 left-3'>
+              <span className='bg-blue-600 text-white px-2 py-1 rounded-md text-xs font-medium'>
                 {post.categories[0]}
               </span>
             </div>
@@ -36,8 +36,8 @@ export function BlogCard({ post }: BlogCardProps) {
         </div>
       )}
 
-      <div className='p-6'>
-        <div className='flex justify-between items-center mb-4 text-sm'>
+      <div className='p-4'>
+        <div className='flex justify-between items-center mb-3 text-xs'>
           <time className='text-gray-500 font-medium'>
             {formatDate(post.date)}
           </time>
@@ -46,25 +46,25 @@ export function BlogCard({ post }: BlogCardProps) {
           )}
         </div>
 
-        <h2 className='text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-amber-600 transition-colors duration-200'>
+        <h2 className='text-lg font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-200'>
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
         </h2>
 
-        <p className='text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3'>
+        <p className='text-gray-600 text-sm leading-relaxed mb-3 line-clamp-3'>
           {post.excerpt}
         </p>
 
-        <div className='flex items-center justify-between pt-4 border-t border-gray-100'>
-          <span className='text-sm text-gray-500 font-medium'>
+        <div className='flex items-center justify-between pt-3 border-t border-gray-50'>
+          <span className='text-xs text-gray-500 font-medium'>
             By {post.author}
           </span>
           <Link
             href={`/blog/${post.slug}`}
-            className='text-amber-600 hover:text-amber-700 font-semibold text-sm flex items-center gap-1 transition-colors duration-200'
+            className='text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 transition-colors duration-200'
           >
             Read More
             <svg
-              className='w-4 h-4'
+              className='w-3 h-3'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'

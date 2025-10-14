@@ -39,14 +39,14 @@ export function BlogGrid({ posts }: BlogGridProps) {
   }
 
   return (
-    <div className='space-y-8'>
+    <div className='space-y-6'>
       {/* Featured Post (First Post) */}
       {posts.length > 0 && (
-        <div className='bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl p-8 border border-amber-200'>
-          <div className='flex flex-col lg:flex-row gap-8 items-center'>
+        <div className='bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100'>
+          <div className='flex flex-col lg:flex-row gap-6 items-center'>
             <div className='lg:w-1/2'>
-              <div className='flex items-center gap-2 mb-4'>
-                <span className='bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-semibold uppercase tracking-wide'>
+              <div className='flex items-center gap-2 mb-3'>
+                <span className='bg-blue-600 text-white px-2 py-1 rounded-md text-xs font-semibold uppercase tracking-wide'>
                   Featured
                 </span>
                 <time className='text-gray-600 text-sm'>
@@ -57,29 +57,29 @@ export function BlogGrid({ posts }: BlogGridProps) {
                   })}
                 </time>
               </div>
-              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+              <h2 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3'>
                 {posts[0].title}
               </h2>
-              <p className='text-gray-600 text-lg leading-relaxed mb-6'>
+              <p className='text-gray-600 text-base leading-relaxed mb-4'>
                 {posts[0].excerpt}
               </p>
-              <div className='flex items-center gap-4'>
+              <div className='flex items-center gap-3'>
                 <a
                   href={`/blog/${posts[0].slug}`}
-                  className='bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
+                  className='bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 text-sm'
                 >
                   Read Full Article
                 </a>
                 <a
                   href='tel:702-222-1964'
-                  className='text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200'
+                  className='text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 text-sm'
                 >
                   <Image
-                    src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
+                    src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=20&h=20&q=80'
                     alt='Phone'
-                    width={24}
-                    height={24}
-                    className='inline-block w-6 h-6 mr-2'
+                    width={20}
+                    height={20}
+                    className='inline-block w-5 h-5 mr-1'
                   />{' '}
                   (702) 222-1964
                 </a>
@@ -87,7 +87,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
             </div>
             {posts[0].image && (
               <div className='lg:w-1/2'>
-                <div className='relative h-64 lg:h-80 rounded-xl overflow-hidden'>
+                <div className='relative h-48 lg:h-64 rounded-lg overflow-hidden'>
                   <Image
                     src={posts[0].image}
                     alt={posts[0].imageAlt || posts[0].title}
@@ -104,10 +104,10 @@ export function BlogGrid({ posts }: BlogGridProps) {
       {/* Blog Posts Grid */}
       {posts.length > 1 && (
         <div>
-          <h3 className='text-2xl font-bold text-gray-900 mb-8 text-center'>
+          <h3 className='text-xl font-bold text-gray-900 mb-6 text-center'>
             More Real Estate Insights
           </h3>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {posts.slice(1).map(post => (
               <BlogCard key={post.id} post={post} />
             ))}
@@ -116,14 +116,14 @@ export function BlogGrid({ posts }: BlogGridProps) {
       )}
 
       {/* Attribution Notice */}
-      <div className='mt-12 bg-gray-50 rounded-lg p-6 text-center'>
-        <p className='text-gray-600 text-sm'>
+      <div className='mt-8 bg-gray-50 rounded-lg p-4 text-center'>
+        <p className='text-gray-600 text-xs'>
           Content sourced from{' '}
           <a
             href='https://www.bhhscp.com/blog'
             target='_blank'
             rel='noopener noreferrer'
-            className='text-amber-600 hover:text-amber-700 font-semibold'
+            className='text-blue-600 hover:text-blue-700 font-semibold'
           >
             Berkshire Hathaway HomeServices California Properties
           </a>{' '}
