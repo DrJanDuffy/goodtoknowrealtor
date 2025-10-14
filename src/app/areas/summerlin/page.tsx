@@ -138,7 +138,7 @@ export default function SummerlinPage() {
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Let Dr. Janet Duffy help you find your perfect home in Summerlin. With $127M+ 
-            in sales volume and deep knowledge of luxury communities, I'll guide you 
+            in sales volume and deep knowledge of luxury communities, I&apos;ll guide you 
             every step of the way to your dream property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

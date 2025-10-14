@@ -119,7 +119,22 @@ async function fetchViaFallback(options: BHHSBlogOptions = {}): Promise<BlogPost
 /**
  * Convert WordPress post to BlogPost format
  */
-function convertWordPressPost(wpPost: any): BlogPost {
+interface WordPressPost {
+  id: number;
+  title: { rendered: string };
+  slug: string;
+  content: { rendered: string };
+  excerpt: { rendered: string };
+  date: string;
+  link: string;
+  _embedded?: {
+    'wp:featuredmedia'?: Array<{ source_url: string; alt_text: string }>;
+    'wp:term'?: Array<Array<{ name: string }>>;
+    author?: Array<{ name: string }>;
+  };
+}
+
+function convertWordPressPost(wpPost: WordPressPost): BlogPost {
   const featuredMedia = wpPost._embedded?.['wp:featuredmedia']?.[0];
   const categories = wpPost._embedded?.['wp:term']?.[0] || [];
   const tags = wpPost._embedded?.['wp:term']?.[1] || [];
@@ -135,8 +150,8 @@ function convertWordPressPost(wpPost: any): BlogPost {
     author: author?.name || 'Berkshire Hathaway HomeServices',
     image: featuredMedia?.source_url,
     imageAlt: featuredMedia?.alt_text || wpPost.title.rendered,
-    categories: categories.map((cat: any) => cat.name),
-    tags: tags.map((tag: any) => tag.name),
+    categories: categories.map((cat: { name: string }) => cat.name),
+    tags: tags.map((tag: { name: string }) => tag.name),
     originalUrl: wpPost.link,
     readingTime: calculateReadingTime(wpPost.content.rendered),
   };
@@ -263,7 +278,7 @@ function calculateReadingTime(content: string): number {
 export async function fetchBHHSPosts(options: BHHSBlogOptions = {}): Promise<BlogPost[]> {
   const source = options.source || 'auto';
   
-  console.log(`🔄 Fetching BHHS blog posts via ${source} method...`);
+  // Debug: Fetching BHHS blog posts (logging removed for production)
 
   if (source === 'auto') {
     // Try methods in order of preference
@@ -276,12 +291,12 @@ export async function fetchBHHSPosts(options: BHHSBlogOptions = {}): Promise<Blo
 
     for (const method of methods) {
       try {
-        console.log(`   Trying ${method.name}...`);
+        // Debug: Trying method (logging removed for production)
         const posts = await method.fn();
-        console.log(`✅ Successfully fetched ${posts.length} posts via ${method.name}`);
+        // Debug: Successfully fetched posts (logging removed for production)
         return posts;
       } catch (error) {
-        console.log(`❌ ${method.name} failed: ${error.message}`);
+        // Debug: Method failed (logging removed for production)
         continue;
       }
     }
@@ -313,7 +328,7 @@ export async function testBHHSSources(): Promise<{
   scraping: boolean;
   fallback: boolean;
 }> {
-  console.log('🧪 Testing BHHS blog sources...');
+  // Debug: Testing BHHS blog sources (logging removed for production)
 
   const results = {
     api: false,
@@ -325,9 +340,9 @@ export async function testBHHSSources(): Promise<{
   // Test WordPress API
   try {
     results.api = await testWordPressAPI(BHHS_CONFIG.apiUrl);
-    console.log(`   WordPress API: ${results.api ? '✅ Available' : '❌ Not available'}`);
+    // Debug: WordPress API test result (logging removed for production)
   } catch {
-    console.log('   WordPress API: ❌ Not available');
+    // Debug: WordPress API not available (logging removed for production)
   }
 
   // Test RSS feed
@@ -337,9 +352,9 @@ export async function testBHHSSources(): Promise<{
       signal: AbortSignal.timeout(3000),
     });
     results.rss = response.ok;
-    console.log(`   RSS Feed: ${results.rss ? '✅ Available' : '❌ Not available'}`);
+    // Debug: RSS Feed test result (logging removed for production)
   } catch {
-    console.log('   RSS Feed: ❌ Not available');
+    // Debug: RSS Feed not available (logging removed for production)
   }
 
   // Test scraping
@@ -349,17 +364,17 @@ export async function testBHHSSources(): Promise<{
       signal: AbortSignal.timeout(3000),
     });
     results.scraping = response.ok;
-    console.log(`   Web Scraping: ${results.scraping ? '✅ Available' : '❌ Not available'}`);
+    // Debug: Web Scraping test result (logging removed for production)
   } catch {
-    console.log('   Web Scraping: ❌ Not available');
+    // Debug: Web Scraping not available (logging removed for production)
   }
 
   // Test fallback (your existing API)
   try {
     results.fallback = await testWordPressAPI(BHHS_CONFIG.fallbackUrl);
-    console.log(`   Fallback API: ${results.fallback ? '✅ Available' : '❌ Not available'}`);
+    // Debug: Fallback API test result (logging removed for production)
   } catch {
-    console.log('   Fallback API: ❌ Not available');
+    // Debug: Fallback API not available (logging removed for production)
   }
 
   return results;

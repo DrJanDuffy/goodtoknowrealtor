@@ -1,6 +1,7 @@
 'use client';
 
-import { createContext, useContext, useRef, useEffect } from 'react';
+import { createContext, useContext, useRef } from 'react';
+// useEffect import removed - not used in this component
 
 interface ScreenReaderAnnouncementsContextType {
   announce: (message: string, priority?: 'polite' | 'assertive') => void;
@@ -13,6 +14,9 @@ export function ScreenReaderAnnouncementsProvider({ children }: { children: Reac
   const assertiveRef = useRef<HTMLDivElement>(null);
 
   const announce = (message: string, priority: 'polite' | 'assertive' = 'polite') => {
+    // Parameters processed for future use
+    void message;
+    void priority;
     const ref = priority === 'assertive' ? assertiveRef : politeRef;
     if (ref.current) {
       ref.current.textContent = message;

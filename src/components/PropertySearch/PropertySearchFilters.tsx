@@ -21,7 +21,7 @@ interface PropertySearchFiltersProps {
 }
 
 export function PropertySearchFilters({ onFiltersChange, initialFilters = {} }: PropertySearchFiltersProps) {
-  const [filters, setFilters] = useState<PropertyFilters>({
+  const [filters] = useState<PropertyFilters>({
     location: '',
     priceMin: '',
     priceMax: '',

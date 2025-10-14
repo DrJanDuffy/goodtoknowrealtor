@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+// Image import removed - not used in this component
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({

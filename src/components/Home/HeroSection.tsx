@@ -38,13 +38,13 @@ export function HeroSection() {
         if (result.success) {
           announce(`Found ${result.totalResults} properties matching "${searchQuery}"`, 'polite');
           // Handle successful search results
-          console.log('Search results:', result.results);
+          // Search results logging removed for production build
         } else {
           announce(`Search failed: ${result.message}`, 'assertive');
         }
       } catch (error) {
         announce('Search request failed. Please try again.', 'assertive');
-        console.error('Search error:', error);
+        // Search error logging removed for production build
       }
     } else {
       announce('Please enter a location to search', 'assertive');
@@ -80,7 +80,7 @@ export function HeroSection() {
             Transform your Las Vegas real estate experience with data-driven insights, 
             proven negotiation strategies, and personalized service. Whether buying, 
             selling, or investing, get results that exceed expectations with a 
-            nationally recognized expert who's helped 500+ families achieve their goals.
+            nationally recognized expert who&apos;s helped 500+ families achieve their goals.
           </p>
         </div>
 

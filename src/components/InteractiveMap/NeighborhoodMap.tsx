@@ -28,12 +28,13 @@ interface NeighborhoodMapProps {
 }
 
 export function NeighborhoodMap({ 
-  center = { lat: 36.1699, lng: -115.1398 }, // Las Vegas coordinates
-  zoom = 12,
   markers = [],
   onMarkerClick,
   className = ''
 }: NeighborhoodMapProps) {
+  // center and zoom constants (currently unused but kept for future use)
+  const center = { lat: 36.1699, lng: -115.1398 }; // Las Vegas coordinates
+  const zoom = 12;
   const [selectedMarker, setSelectedMarker] = useState<MapMarker | null>(null);
   const [filterType, setFilterType] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(true);

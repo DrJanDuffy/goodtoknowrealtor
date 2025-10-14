@@ -1,6 +1,6 @@
 'use client';
 
-import { Metadata } from 'next';
+// Metadata import removed - not used in client component
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -89,7 +89,7 @@ export default function HomeValuePage() {
               <div className='mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg'>
                 <p className='font-semibold'>Thank you for your request!</p>
                 <p className='text-sm mt-1'>
-                  We'll contact you within 24 hours with your personalized home value report.
+                  We&apos;ll contact you within 24 hours with your personalized home value report.
                 </p>
               </div>
             )}
@@ -126,7 +126,7 @@ export default function HomeValuePage() {
             Ready to Sell Your Home?
           </h2>
           <p className='text-xl text-gray-600 mb-8 max-w-2xl mx-auto'>
-            Get expert guidance from Dr. Janet Duffy to maximize your home's value and achieve a successful sale.
+            Get expert guidance from Dr. Janet Duffy to maximize your home&apos;s value and achieve a successful sale.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Link

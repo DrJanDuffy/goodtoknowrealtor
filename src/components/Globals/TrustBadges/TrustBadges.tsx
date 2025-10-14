@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+// Image import removed - not used in this component
 
 interface TrustBadge {
   id: string;

@@ -101,7 +101,7 @@ export function PropertyComparison({ properties, onClose }: PropertyComparisonPr
             <thead>
               <tr className="border-b border-gray-200">
                 <th className="text-left p-4 font-medium text-gray-900 min-w-[200px]">Property</th>
-                {selectedProperties.map((property, index) => (
+                {selectedProperties.map((property) => (
                   <th key={property.id} className="text-center p-4 font-medium text-gray-900 min-w-[250px] relative">
                     <button
                       onClick={() => removeProperty(property.id)}
@@ -143,7 +143,7 @@ export function PropertyComparison({ properties, onClose }: PropertyComparisonPr
                   <td className="p-4 font-medium text-gray-700">{field.label}</td>
                   {selectedProperties.map(property => (
                     <td key={property.id} className="p-4 text-center text-gray-900">
-                      {field.formatter((property as any)[field.key])}
+                      {field.formatter(property[field.key as keyof typeof property] as string | number)}
                     </td>
                   ))}
                 </tr>

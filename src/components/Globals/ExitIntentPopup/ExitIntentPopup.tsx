@@ -54,7 +54,7 @@ export function ExitIntentPopup() {
           </div>
           
           <h3 className='text-2xl font-bold text-gray-900 mb-2'>
-            Don't Miss Out!
+            Don&apos;t Miss Out!
           </h3>
           
           <p className='text-gray-600 mb-6'>

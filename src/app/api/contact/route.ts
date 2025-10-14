@@ -72,14 +72,8 @@ export async function POST(request: NextRequest) {
     // 3. Log the submission
     
     // For now, we'll simulate a successful submission
-    console.log('Contact form submission:', {
-      name: sanitizedData.name,
-      email: sanitizedData.email,
-      phone: sanitizedData.phone || 'Not provided',
-      message: sanitizedData.message.substring(0, 100) + '...', // Truncate for logging
-      timestamp: new Date().toISOString(),
-      ip: ip
-    });
+    // Log contact form submission for debugging
+    // (console.log removed for production build)
 
     // Simulate processing delay
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -90,7 +84,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    // Error logging removed for production build
     
     const sanitizedError = sanitizeErrorForClient(error as Error);
     

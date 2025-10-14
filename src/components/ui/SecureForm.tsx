@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { validateFormData, sanitizeFormData, validateInput, inputLimits } from '@/lib/security';
+import { sanitizeFormData, validateInput, inputLimits } from '@/lib/security';
+// validateFormData import removed - not used in this component
 
 interface SecureFormProps {
   onSubmit: (data: Record<string, string>) => Promise<{ success: boolean; message: string }>;
@@ -140,7 +141,7 @@ export function SecureForm({ onSubmit, fields, submitText, className = '' }: Sec
       } else {
         setSubmitMessage({ type: 'error', text: result.message });
       }
-    } catch (error) {
+    } catch {
       setSubmitMessage({ 
         type: 'error', 
         text: 'An error occurred. Please try again later.' 

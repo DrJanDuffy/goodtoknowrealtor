@@ -46,7 +46,7 @@ function calculateReadingTime(content: string): number {
  */
 export async function fetchWordPressPostsEnhanced(): Promise<BlogPost[]> {
   try {
-    console.log('🚀 Using enhanced WordPress API client...');
+    // Debug: Using enhanced WordPress API client
     
     const wpPosts = await getPosts({
       per_page: 50, // Match your existing maxPosts
@@ -54,11 +54,11 @@ export async function fetchWordPressPostsEnhanced(): Promise<BlogPost[]> {
       order: 'desc',
     });
 
-    console.log(`✅ Fetched ${wpPosts.length} posts via WordPress API`);
+    // Debug: Fetched posts via WordPress API
     
     return wpPosts.map(convertWordPressToBlogPost);
   } catch (error) {
-    console.error('❌ Enhanced WordPress API failed:', error);
+    // Error: Enhanced WordPress API failed
     throw error; // Let your existing fallback system handle this
   }
 }
@@ -73,7 +73,7 @@ export async function fetchWordPressPostEnhanced(slug: string): Promise<BlogPost
     
     return convertWordPressToBlogPost(wpPost);
   } catch (error) {
-    console.error('❌ Enhanced single post fetch failed:', error);
+    // Enhanced single post fetch failed (logging removed for production)
     throw error;
   }
 }
@@ -92,7 +92,7 @@ export async function fetchWordPressCategoriesEnhanced() {
       count: cat.count,
     }));
   } catch (error) {
-    console.error('❌ Enhanced categories fetch failed:', error);
+    // Enhanced categories fetch failed (logging removed for production)
     throw error;
   }
 }
@@ -105,8 +105,8 @@ export async function fetchBlogPostsEnhanced(): Promise<BlogPost[]> {
   try {
     // Try enhanced WordPress API first
     return await fetchWordPressPostsEnhanced();
-  } catch (error) {
-    console.log('🔄 Enhanced API failed, falling back to existing system...');
+  } catch {
+    // Info: Enhanced API failed, falling back to existing system
     
     // Import and use your existing fallback system
     const { fetchBlogPosts } = await import('@/lib/blog/fetcher');

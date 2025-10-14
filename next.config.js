@@ -63,10 +63,8 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // Experimental features for security
-  experimental: {
-    serverComponentsExternalPackages: [],
-  },
+  // Server external packages (moved from experimental)
+  serverExternalPackages: [],
 
   // Webpack configuration for security
   webpack: (config, { isServer }) => {
@@ -110,4 +108,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

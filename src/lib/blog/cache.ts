@@ -71,7 +71,7 @@ export async function getPostsWithCache(): Promise<BlogPost[]> {
     // Successfully cached posts
     return posts;
   } catch (error) {
-    console.error('Failed to fetch posts:', error);
+    // Error logging removed for production build
     // Return cached data even if expired as fallback
     return postsCache;
   } finally {
@@ -136,5 +136,5 @@ export function getCacheStatus(): {
 export function clearCache(): void {
   postsCache = [];
   lastSync = null;
-  console.log('Cache cleared');
+  // Cache cleared logging removed for production build
 }
