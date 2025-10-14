@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 interface TrustBadge {
   id: string;
   title: string;

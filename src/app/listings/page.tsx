@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
+import { generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Property Listings | Dr. Janet Duffy - Premier Good To Know REALTOR®',

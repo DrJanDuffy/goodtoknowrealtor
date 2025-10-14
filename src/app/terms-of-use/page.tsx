@@ -30,7 +30,7 @@ export default function TermsOfUsePage() {
 
               <h2 className='text-2xl font-semibold text-gray-900 mb-4'>Disclaimer</h2>
               <p className='text-gray-600 mb-6'>
-                The materials on this website are provided on an 'as is' basis. Dr. Janet Duffy makes 
+                The materials on this website are provided on an &apos;as is&apos; basis. Dr. Janet Duffy makes 
                 no warranties, expressed or implied, and hereby disclaims and negates all other warranties.
               </p>
 

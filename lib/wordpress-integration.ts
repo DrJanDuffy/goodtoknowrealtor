@@ -105,7 +105,7 @@ export async function fetchBlogPostsEnhanced(): Promise<BlogPost[]> {
   try {
     // Try enhanced WordPress API first
     return await fetchWordPressPostsEnhanced();
-  } catch (error) {
+  } catch {
     console.log('🔄 Enhanced API failed, falling back to existing system...');
     
     // Import and use your existing fallback system

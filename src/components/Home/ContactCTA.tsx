@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import Image from 'next/image';
+'use client';
+
 import { SecureForm } from '@/components/ui/SecureForm';
 
 export function ContactCTA() {
@@ -30,7 +30,7 @@ export function ContactCTA() {
         </h2>
         <p className='text-xl text-blue-100 mb-8 max-w-3xl mx-auto'>
           Stop dreaming about your ideal Las Vegas property and start making it happen. 
-          Get a personalized strategy session where we'll analyze your situation, 
+          Get a personalized strategy session where we&apos;ll analyze your situation, 
           identify opportunities, and create an action plan to exceed your expectations.
         </p>
         

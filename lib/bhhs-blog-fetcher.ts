@@ -32,7 +32,7 @@ async function testWordPressAPI(url: string): Promise<boolean> {
       headers: { 'User-Agent': 'BHHS-Blog-Fetcher/1.0' },
       signal: AbortSignal.timeout(5000),
     });
-    return response.ok && response.headers.get('content-type')?.includes('application/json');
+    return response.ok && (response.headers.get('content-type')?.includes('application/json') ?? false);
   } catch {
     return false;
   }
@@ -108,10 +108,15 @@ async function fetchViaScraping(options: BHHSBlogOptions = {}): Promise<BlogPost
  */
 async function fetchViaFallback(options: BHHSBlogOptions = {}): Promise<BlogPost[]> {
   const { getPosts } = await import('./wordpress');
-  const wpPosts = await getPosts({
+  const getPostsOptions: any = {
     per_page: options.maxPosts || BHHS_CONFIG.maxPosts,
-    search: options.search,
-  });
+  };
+  
+  if (options.search) {
+    getPostsOptions.search = options.search;
+  }
+  
+  const wpPosts = await getPosts(getPostsOptions);
   
   return wpPosts.map(convertWordPressPost);
 }
@@ -119,7 +124,7 @@ async function fetchViaFallback(options: BHHSBlogOptions = {}): Promise<BlogPost
 /**
  * Convert WordPress post to BlogPost format
  */
-function convertWordPressPost(wpPost: any): BlogPost {
+function convertWordPressPost(wpPost: Record<string, unknown>): BlogPost {
   const featuredMedia = wpPost._embedded?.['wp:featuredmedia']?.[0];
   const categories = wpPost._embedded?.['wp:term']?.[0] || [];
   const tags = wpPost._embedded?.['wp:term']?.[1] || [];
@@ -135,8 +140,8 @@ function convertWordPressPost(wpPost: any): BlogPost {
     author: author?.name || 'Berkshire Hathaway HomeServices',
     image: featuredMedia?.source_url,
     imageAlt: featuredMedia?.alt_text || wpPost.title.rendered,
-    categories: categories.map((cat: any) => cat.name),
-    tags: tags.map((tag: any) => tag.name),
+    categories: categories.map((cat: Record<string, unknown>) => cat.name as string),
+    tags: tags.map((tag: Record<string, unknown>) => tag.name as string),
     originalUrl: wpPost.link,
     readingTime: calculateReadingTime(wpPost.content.rendered),
   };
@@ -150,7 +155,9 @@ function parseRSSFeed(rssText: string, options: BHHSBlogOptions = {}): BlogPost[
   const posts: BlogPost[] = [];
 
   $('item').each((index, element) => {
-    if (posts.length >= (options.maxPosts || BHHS_CONFIG.maxPosts)) return false;
+    if (posts.length >= (options.maxPosts || BHHS_CONFIG.maxPosts)) {
+      return false;
+    }
 
     const $item = $(element);
     const title = $item.find('title').text().trim();
