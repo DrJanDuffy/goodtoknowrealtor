@@ -110,44 +110,18 @@ export function Navigation() {
 
   return (
     <>
-      {/* Utility Header */}
-      <div className='bg-blue-900 text-white py-2 hidden lg:block'>
-        <div className='container mx-auto px-4'>
-          <div className='flex justify-end items-center space-x-6 text-sm'>
-            <Link
-              href='/listings'
-              className='hover:text-blue-200 transition-colors'
-            >
-              💾 Saved Properties
-            </Link>
-            <Link
-              href='/listings'
-              className='hover:text-blue-200 transition-colors'
-            >
-              🔍 Property Search
-            </Link>
-            <Link
-              href='tel:702-222-1964'
-              className='hover:text-blue-200 transition-colors'
-            >
-              📞 (702) 222-1964
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation */}
-      <nav id="navigation" className='bg-white shadow-lg sticky top-0 z-50' role='navigation' aria-label='Main navigation'>
+      <nav id="navigation" className='bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100' role='navigation' aria-label='Main navigation'>
         <div className='container mx-auto px-4'>
-          <div className='flex items-center justify-between h-20 w-full'>
+          <div className='flex items-center justify-between h-16 w-full'>
             {/* Logo */}
             <div className='flex items-center'>
-              <Link href='/' className='flex items-center space-x-4'>
+              <Link href='/' className='flex items-center space-x-3'>
                 <div className='flex flex-col'>
-                  <div className='text-2xl font-bold text-blue-600'>
+                  <div className='text-xl font-bold text-blue-600 leading-tight'>
                     Dr. Janet Duffy Group
                   </div>
-                  <span className='text-xs text-gray-600 mt-1'>
+                  <span className='text-xs text-gray-500 font-medium'>
                     Premier Good To Know REALTOR®
                   </span>
                 </div>
@@ -167,7 +141,7 @@ export function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className='text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1 px-3 py-2 rounded-md hover:bg-gray-50'
+                    className='text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1 px-4 py-2 rounded-lg hover:bg-blue-50'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
                   >
@@ -215,7 +189,7 @@ export function Navigation() {
             <div className='hidden lg:flex items-center'>
               <Link
                 href='/contact'
-                className='bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
+                className='bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm'
               >
                 Get Started
               </Link>

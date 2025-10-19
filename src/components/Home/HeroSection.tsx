@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
 import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
 
@@ -31,29 +32,29 @@ export function HeroSection() {
           </p>
           
           {/* Trust Indicators */}
-          <div className='flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500 mb-8'>
-            <div className='flex items-center gap-2'>
+          <div className='flex flex-wrap justify-center items-center gap-6 text-sm text-gray-600 mb-8'>
+            <div className='flex items-center gap-2 bg-white/60 px-4 py-2 rounded-full'>
               <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-              <span>500+ Happy Clients</span>
+              <span className='font-medium'>500+ Happy Clients</span>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 bg-white/60 px-4 py-2 rounded-full'>
               <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-              <span>$127M+ Sales Volume</span>
+              <span className='font-medium'>$127M+ Sales Volume</span>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 bg-white/60 px-4 py-2 rounded-full'>
               <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-              <span>15+ Years Experience</span>
+              <span className='font-medium'>15+ Years Experience</span>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 bg-white/60 px-4 py-2 rounded-full'>
               <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-              <span>98% Client Satisfaction</span>
+              <span className='font-medium'>98% Client Satisfaction</span>
             </div>
           </div>
         </div>
 
         {/* RealScout Advanced Search Widget */}
         <div className='max-w-4xl mx-auto'>
-          <div className='bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 lg:p-12'>
+          <div className='bg-white rounded-2xl shadow-lg border border-gray-200 p-8 lg:p-10'>
             {/* Search Type Tabs */}
             <div className='mb-8'>
               <div className='flex flex-wrap gap-3 justify-center'>
@@ -65,10 +66,10 @@ export function HeroSection() {
                   <button
                     key={tab.id}
                     onClick={() => handleSearchTypeChange(tab.id)}
-                    className={`px-6 py-4 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[56px] flex items-center gap-3 ${
+                    className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[48px] flex items-center gap-2 ${
                       searchType === tab.id
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg transform scale-105'
-                        : 'bg-white text-gray-700 hover:bg-gray-50 hover:shadow-md border border-gray-200'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
                     <span className='text-xl'>{tab.icon}</span>
@@ -82,21 +83,21 @@ export function HeroSection() {
             <SimpleSearch />
 
             {/* Quick Stats */}
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-gray-200'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-8 border-t border-gray-200'>
               <div className='text-center group'>
-                <div className='text-3xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>22</div>
+                <div className='text-2xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>22</div>
                 <div className='text-sm text-gray-600 font-medium'>Avg Days to Sell</div>
               </div>
               <div className='text-center group'>
-                <div className='text-3xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>102%</div>
+                <div className='text-2xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>102%</div>
                 <div className='text-sm text-gray-600 font-medium'>List to Sale Price</div>
               </div>
               <div className='text-center group'>
-                <div className='text-3xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>500+</div>
+                <div className='text-2xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>500+</div>
                 <div className='text-sm text-gray-600 font-medium'>Properties Sold</div>
               </div>
               <div className='text-center group'>
-                <div className='text-3xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>Top 1%</div>
+                <div className='text-2xl font-bold text-blue-600 group-hover:text-indigo-600 transition-colors'>Top 1%</div>
                 <div className='text-sm text-gray-600 font-medium'>Las Vegas Agents</div>
               </div>
             </div>
@@ -105,6 +106,27 @@ export function HeroSection() {
 
         {/* Call to Action */}
         <div className='max-w-4xl mx-auto text-center mt-12'>
+          <div className='bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white mb-8'>
+            <h2 className='text-2xl font-bold mb-4'>Ready to Make Your Move?</h2>
+            <p className='text-blue-100 mb-6 max-w-2xl mx-auto'>
+              Take our free 3-minute assessment to discover if you're ready to buy or sell in Las Vegas
+            </p>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+              <Link
+                href='/assessments/buyer-readiness'
+                className='bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors'
+              >
+                Buyer Assessment
+              </Link>
+              <Link
+                href='/assessments/seller-readiness'
+                className='bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors'
+              >
+                Seller Assessment
+              </Link>
+            </div>
+          </div>
+          
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <a
               href='tel:702-222-1964'
