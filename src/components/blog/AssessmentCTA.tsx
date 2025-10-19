@@ -20,28 +20,28 @@ export function AssessmentCTA({
       title: title || 'Are You Ready to Buy in Las Vegas?',
       description: description || 'Take our free 3-minute assessment to discover your readiness score and get personalized next steps.',
       link: '/assessments/buyer-readiness',
-      icon: '🏠',
+      icon: 'Home',
       color: 'blue'
     },
     'seller-readiness': {
       title: title || 'Is Now the Right Time to Sell?',
       description: description || 'Find out if you\'re ready to sell your Vegas home and maximize your profit.',
       link: '/assessments/seller-readiness',
-      icon: '💰',
+      icon: 'Sell',
       color: 'green'
     },
     'neighborhood-match': {
       title: title || 'Find Your Perfect Vegas Neighborhood',
       description: description || 'Discover which Las Vegas community matches your lifestyle and budget.',
       link: '/assessments/neighborhood-match',
-      icon: '🗺️',
+      icon: 'Location',
       color: 'purple'
     },
     'investment-roi': {
       title: title || 'Is Vegas Real Estate Investing Right for You?',
       description: description || 'Calculate your investment potential and get personalized strategies.',
       link: '/assessments/investment-roi',
-      icon: '📈',
+      icon: 'Chart',
       color: 'orange'
     }
   };
@@ -57,7 +57,7 @@ export function AssessmentCTA({
   return (
     <div className={`bg-gradient-to-r ${colorClasses[config.color as keyof typeof colorClasses]} text-white rounded-xl p-6 shadow-lg ${className}`}>
       <div className="flex items-start space-x-4">
-        <div className="text-3xl">{config.icon}</div>
+        <div className="text-2xl mb-4 font-bold">{config.icon}</div>
         <div className="flex-1">
           <h3 className="text-xl font-bold mb-2">{config.title}</h3>
           <p className="text-white/90 mb-4">{config.description}</p>
@@ -82,22 +82,22 @@ export function AssessmentCTASmall({ type }: { type: AssessmentCTAProps['type'] 
     'buyer-readiness': {
       title: 'Ready to Buy?',
       link: '/assessments/buyer-readiness',
-      icon: '🏠'
+      icon: 'Home'
     },
     'seller-readiness': {
       title: 'Ready to Sell?',
       link: '/assessments/seller-readiness',
-      icon: '💰'
+      icon: 'Sell'
     },
     'neighborhood-match': {
       title: 'Find Your Neighborhood',
       link: '/assessments/neighborhood-match',
-      icon: '🗺️'
+      icon: 'Location'
     },
     'investment-roi': {
       title: 'Investment Ready?',
       link: '/assessments/investment-roi',
-      icon: '📈'
+      icon: 'Chart'
     }
   };
 

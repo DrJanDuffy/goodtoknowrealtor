@@ -175,7 +175,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       <section className={`bg-gradient-to-r ${getCategoryColorClass(category.color)} text-white py-16 lg:py-20`}>
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-6xl mb-6">{category.icon}</div>
+            <div className="text-2xl mb-6 font-bold">{category.icon}</div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               {category.name}
             </h1>

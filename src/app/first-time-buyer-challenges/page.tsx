@@ -79,7 +79,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 2 - Down Payment */}
               <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">💰</span>
+                  <span className="text-lg mr-3">💰</span>
                   <h3 className="text-xl font-bold text-gray-900">2. Down Payment Mountain</h3>
                 </div>
                 <div className="space-y-3">
@@ -113,7 +113,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 4 - Rising Costs */}
               <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">📈</span>
+                  <span className="text-lg mr-3">📈</span>
                   <h3 className="text-xl font-bold text-gray-900">4. Rising Faster Than Wages</h3>
                 </div>
                 <div className="space-y-3">
@@ -130,7 +130,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 5 - Interest Rates */}
               <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">📊</span>
+                  <span className="text-lg mr-3">📊</span>
                   <h3 className="text-xl font-bold text-gray-900">5. Interest Rate Squeeze</h3>
                 </div>
                 <div className="space-y-3">
@@ -149,7 +149,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 6 - California Competition */}
               <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🌴</span>
+                  <span className="text-lg mr-3">🌴</span>
                   <h3 className="text-xl font-bold text-gray-900">6. California Competition</h3>
                 </div>
                 <div className="space-y-3">
@@ -165,7 +165,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 7 - Limited Inventory */}
               <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🏠</span>
+                  <span className="text-lg mr-3">🏠</span>
                   <h3 className="text-xl font-bold text-gray-900">7. Limited Starter Home Inventory</h3>
                 </div>
                 <div className="space-y-3">
@@ -249,7 +249,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Down Payment Help */}
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <div className="flex items-center mb-6">
-                  <span className="text-3xl mr-4">💰</span>
+                  <span className="text-lg mr-4">💰</span>
                   <h3 className="text-2xl font-bold text-gray-900">Down Payment Assistance</h3>
                 </div>
                 <div className="space-y-4">
@@ -274,7 +274,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Monthly Payment Relief */}
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <div className="flex items-center mb-6">
-                  <span className="text-3xl mr-4">📊</span>
+                  <span className="text-lg mr-4">📊</span>
                   <h3 className="text-2xl font-bold text-gray-900">Monthly Payment Relief</h3>
                 </div>
                 <div className="space-y-4">
@@ -374,7 +374,7 @@ export default function FirstTimeBuyerChallengesPage() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8">
               <div className="text-left space-y-4">
                 <div className="flex items-center mb-4">
-                  <span className="text-3xl mr-4">🏠</span>
+                  <span className="text-lg mr-4">🏠</span>
                   <h3 className="text-2xl font-bold">Rhodes Ranch Success</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
