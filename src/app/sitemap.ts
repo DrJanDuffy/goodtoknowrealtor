@@ -150,6 +150,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
           changeFrequency: 'weekly',
           priority: 0.9,
         },
+        {
+          url: `${baseUrl}/assessments/seller-readiness`,
+          lastModified: currentDate,
+          changeFrequency: 'weekly',
+          priority: 0.9,
+        },
         // Blog Categories
         {
           url: `${baseUrl}/blog/category/buyer-advice`,

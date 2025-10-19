@@ -25,6 +25,7 @@ const menuItems = [
       { label: 'Cash Offer', href: '/cash-offer' },
       { label: 'Home Valuation', href: '/home-value' },
       { label: 'Why List With Us', href: '/why-list-with-us' },
+      { label: 'Seller Readiness Assessment', href: '/assessments/seller-readiness' },
     ],
   },
   {
