@@ -680,3 +680,84 @@ export const PAGE_SEO = {
     keywords: ['Las Vegas real estate blog', 'Las Vegas market trends', 'real estate news Las Vegas', 'Las Vegas property insights'],
   },
 };
+
+// Generate HowTo schema for process pages
+export function generateHowToSchema({
+  name,
+  description,
+  steps
+}: {
+  name: string;
+  description: string;
+  steps: Array<{ name: string; text: string; url?: string }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      url: step.url ? `https://www.goodtoknowrealtor.com${step.url}` : undefined
+    }))
+  };
+}
+
+// Generate ItemList schema for hub pages
+export function generateItemListSchema({
+  name,
+  description,
+  items
+}: {
+  name: string;
+  description: string;
+  items: Array<{ name: string; url: string; description?: string }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    description,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: `https://www.goodtoknowrealtor.com${item.url}`,
+      description: item.description
+    }))
+  };
+}
+
+// Generate WebPage schema with breadcrumbs
+export function generateWebPageSchema({
+  name,
+  description,
+  url,
+  breadcrumbs
+}: {
+  name: string;
+  description: string;
+  url: string;
+  breadcrumbs: Array<{ name: string; url: string }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name,
+    description,
+    url: `https://www.goodtoknowrealtor.com${url}`,
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.name,
+        item: `https://www.goodtoknowrealtor.com${crumb.url}`
+      }))
+    }
+  };
+}

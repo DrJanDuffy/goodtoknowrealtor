@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'First-Time Home Buyer Guide | Dr. Janet Duffy - Premier Good To Know REALTOR®',
@@ -14,6 +15,13 @@ export const metadata: Metadata = {
 export default function BuyerGuidePage() {
   return (
     <div className="min-h-screen">
+      {/* Breadcrumbs */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="container py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80')] bg-cover bg-center opacity-20"></div>

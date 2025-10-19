@@ -1,9 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 export default function BuyingPage() {
   return (
     <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
+      {/* Breadcrumbs */}
+      <div className='bg-white border-b border-gray-200'>
+        <div className='container py-4'>
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
         <div className='container'>
@@ -328,25 +336,39 @@ export default function BuyingPage() {
                 <li>• Educational resources</li>
                 <li>• Step-by-step guidance</li>
               </ul>
-              <Link
-                href='/contact'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
-              >
-                Get Started
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
+              <div className='space-y-2'>
+                <Link
+                  href='/buyer-guide'
+                  className='block text-amber-600 font-semibold hover:text-amber-700 transition-colors text-sm'
                 >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
-              </Link>
+                  📖 Complete Buyer Guide →
+                </Link>
+                <Link
+                  href='/first-time-buyer-challenges'
+                  className='block text-amber-600 font-semibold hover:text-amber-700 transition-colors text-sm'
+                >
+                  ⚠️ Common Challenges & Solutions →
+                </Link>
+                <Link
+                  href='/contact'
+                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                >
+                  Get Started
+                  <svg
+                    className='w-4 h-4 ml-2'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M9 5l7 7-7 7'
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -8,7 +8,13 @@ const menuItems = [
   {
     label: 'Buy',
     href: '/buying',
-    hasDropdown: false,
+    hasDropdown: true,
+    children: [
+      { label: 'Buying Process', href: '/buying' },
+      { label: 'First-Time Buyer Guide', href: '/buyer-guide' },
+      { label: 'First-Time Buyer Challenges', href: '/first-time-buyer-challenges' },
+      { label: 'Property Search', href: '/listings' },
+    ],
   },
   {
     label: 'Sell',
@@ -169,7 +175,6 @@ export function Navigation() {
                     className='text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
-                    aria-expanded={item.hasDropdown ? (activeDropdown === item.label ? 'true' : 'false') : undefined}
                   >
                     <span>{item.label}</span>
                     {item.hasDropdown && (
@@ -226,7 +231,6 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className='lg:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500'
               aria-label='Toggle mobile menu'
-              aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
               aria-controls='mobile-menu'
             >
               <svg

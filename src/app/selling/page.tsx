@@ -1,9 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 export default function SellingPage() {
   return (
     <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
+      {/* Breadcrumbs */}
+      <div className='bg-white border-b border-gray-200'>
+        <div className='container py-4'>
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
         <div className='container'>

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Communities | Dr. Janet Duffy Group',
@@ -90,6 +91,13 @@ export default function CommunitiesPage() {
         }}
       />
       <div className='min-h-screen bg-white'>
+        {/* Breadcrumbs */}
+        <div className="bg-white border-b border-gray-200">
+          <div className="container py-4">
+            <Breadcrumbs />
+          </div>
+        </div>
+
         {/* Hero Section */}
         <section className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 lg:py-20'>
           <div className='container mx-auto px-4'>
