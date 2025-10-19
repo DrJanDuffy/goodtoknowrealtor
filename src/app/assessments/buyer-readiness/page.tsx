@@ -14,11 +14,6 @@ export const metadata: Metadata = {
 };
 
 export default function BuyerReadinessPage() {
-  const handleQuizComplete = (score: number, answers: Record<string, string | string[]>, contact: { name: string; email: string; phone?: string }) => {
-    console.log('Quiz Completed!', { score, answers, contact });
-    // Here you might trigger further actions, e.g., send data to CRM, show a different component, etc.
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumbs */}
@@ -48,7 +43,9 @@ export default function BuyerReadinessPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                 <div className="flex items-start space-x-3">
                   <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">💰</span>
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/>
+                    </svg>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Financial Readiness</h3>
@@ -57,7 +54,9 @@ export default function BuyerReadinessPage() {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">📊</span>
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                    </svg>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Market Knowledge</h3>
@@ -66,7 +65,9 @@ export default function BuyerReadinessPage() {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">🏠</span>
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
+                    </svg>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Lifestyle Fit</h3>
@@ -118,7 +119,7 @@ export default function BuyerReadinessPage() {
       <section className="py-16 bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <BuyerReadinessQuiz onQuizComplete={handleQuizComplete} />
+            <BuyerReadinessQuiz />
           </div>
         </div>
       </section>

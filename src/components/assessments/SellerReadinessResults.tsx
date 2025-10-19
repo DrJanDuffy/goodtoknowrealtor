@@ -90,7 +90,7 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4">{resultsData.emoji}</div>
+            <div className="text-2xl mb-4">{resultsData.emoji}</div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               {resultsData.title}
             </h1>

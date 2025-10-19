@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { QuizQuestion } from './QuizQuestion';
 import { SellerReadinessResults } from './SellerReadinessResults';
-import { saveLead } from '@/lib/lead-storage';
+import { storeLead } from '@/lib/lead-storage';
 
 interface SellerReadinessQuizProps {
   onQuizComplete: (score: number, answers: Record<string, string | string[]>, contact: { name: string; email: string; phone?: string }) => void;
@@ -222,14 +222,20 @@ export const SellerReadinessQuiz: React.FC<SellerReadinessQuizProps> = ({ onQuiz
     setQuizCompleted(true);
 
     // Save lead
-    await saveLead({
-      name: contactInfo.name,
-      email: contactInfo.email,
-      phone: contactInfo.phone || undefined,
-      assessmentId: 'seller-readiness',
-      score,
+    storeLead({
+      assessmentType: 'seller-readiness',
+      contactInfo: {
+        name: contactInfo.name,
+        email: contactInfo.email,
+        phone: contactInfo.phone || undefined,
+      },
       answers,
-      timestamp: new Date().toISOString(),
+      score,
+      results: {
+        level: score >= 71 ? 'ready' : score >= 41 ? 'getting-there' : 'building-foundation',
+        insights: [],
+        nextStep: score >= 71 ? 'Schedule Listing Consultation' : 'Get Preparation Plan',
+      },
     });
 
     onQuizComplete(score, answers, contactInfo);

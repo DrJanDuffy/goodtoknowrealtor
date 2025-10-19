@@ -98,7 +98,7 @@ export default async function BlogPage() {
                   href={`/blog/category/${category.slug}`}
                   className={`group text-center p-6 rounded-xl bg-gradient-to-br ${getCategoryColorClass(category.color)} text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
                 >
-                  <div className='text-4xl mb-3 group-hover:scale-110 transition-transform'>
+                  <div className='text-lg mb-3 group-hover:scale-110 transition-transform font-bold'>
                     {category.icon}
                   </div>
                   <h3 className='font-bold text-lg group-hover:text-white transition-colors'>
