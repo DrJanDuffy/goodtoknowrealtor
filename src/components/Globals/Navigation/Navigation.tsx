@@ -9,12 +9,13 @@ const menuItems = [
     label: 'Buy',
     href: '/buying',
     hasDropdown: true,
-    children: [
-      { label: 'Buying Process', href: '/buying' },
-      { label: 'First-Time Buyer Guide', href: '/buyer-guide' },
-      { label: 'First-Time Buyer Challenges', href: '/first-time-buyer-challenges' },
-      { label: 'Property Search', href: '/listings' },
-    ],
+        children: [
+          { label: 'Buying Process', href: '/buying' },
+          { label: 'First-Time Buyer Guide', href: '/buyer-guide' },
+          { label: 'First-Time Buyer Challenges', href: '/first-time-buyer-challenges' },
+          { label: 'Property Search', href: '/listings' },
+          { label: 'Buyer Readiness Assessment', href: '/assessments/buyer-readiness' },
+        ],
   },
   {
     label: 'Sell',

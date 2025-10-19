@@ -138,12 +138,55 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/first-time-buyer-challenges`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+        {
+          url: `${baseUrl}/first-time-buyer-challenges`,
+          lastModified: currentDate,
+          changeFrequency: 'monthly',
+          priority: 0.8,
+        },
+        {
+          url: `${baseUrl}/assessments/buyer-readiness`,
+          lastModified: currentDate,
+          changeFrequency: 'weekly',
+          priority: 0.9,
+        },
+        // Blog Categories
+        {
+          url: `${baseUrl}/blog/category/buyer-advice`,
+          lastModified: currentDate,
+          changeFrequency: 'weekly',
+          priority: 0.8,
+        },
+        {
+          url: `${baseUrl}/blog/category/seller-advice`,
+          lastModified: currentDate,
+          changeFrequency: 'weekly',
+          priority: 0.8,
+        },
+        {
+          url: `${baseUrl}/blog/category/home-improvement`,
+          lastModified: currentDate,
+          changeFrequency: 'weekly',
+          priority: 0.7,
+        },
+        {
+          url: `${baseUrl}/blog/category/finance`,
+          lastModified: currentDate,
+          changeFrequency: 'weekly',
+          priority: 0.8,
+        },
+        {
+          url: `${baseUrl}/blog/category/lifestyle`,
+          lastModified: currentDate,
+          changeFrequency: 'weekly',
+          priority: 0.7,
+        },
+        {
+          url: `${baseUrl}/blog/category/market-updates`,
+          lastModified: currentDate,
+          changeFrequency: 'daily',
+          priority: 0.9,
+        },
     {
       url: `${baseUrl}/communities`,
       lastModified: currentDate,

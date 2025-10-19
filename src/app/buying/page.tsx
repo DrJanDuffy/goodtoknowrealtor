@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 
 export default function BuyingPage() {
   return (
@@ -97,6 +98,15 @@ export default function BuyingPage() {
                 smooth transition.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Assessment CTA Section */}
+      <section className='py-16 bg-white'>
+        <div className='container'>
+          <div className='max-w-4xl mx-auto'>
+            <AssessmentCTA type="buyer-readiness" />
           </div>
         </div>
       </section>

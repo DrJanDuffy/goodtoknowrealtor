@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BlogPost } from '@/types/blog';
+import { AssessmentCTASmall } from './AssessmentCTA';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -53,6 +54,24 @@ export function BlogCard({ post }: BlogCardProps) {
         <p className='text-gray-600 text-sm leading-relaxed mb-3 line-clamp-3'>
           {post.excerpt}
         </p>
+
+        {/* Assessment CTA based on category */}
+        {post.categories.length > 0 && (
+          <div className='mb-3'>
+            {post.categories[0].toLowerCase().includes('buyer') && (
+              <AssessmentCTASmall type="buyer-readiness" />
+            )}
+            {post.categories[0].toLowerCase().includes('seller') && (
+              <AssessmentCTASmall type="seller-readiness" />
+            )}
+            {post.categories[0].toLowerCase().includes('neighborhood') && (
+              <AssessmentCTASmall type="neighborhood-match" />
+            )}
+            {post.categories[0].toLowerCase().includes('investment') && (
+              <AssessmentCTASmall type="investment-roi" />
+            )}
+          </div>
+        )}
 
         <div className='flex items-center justify-between pt-3 border-t border-gray-50'>
           <span className='text-xs text-gray-500 font-medium'>

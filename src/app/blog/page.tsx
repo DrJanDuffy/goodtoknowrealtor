@@ -6,6 +6,8 @@ import { BlogGrid } from '@/components/blog/BlogGrid';
 import { MarketInsightsGrid } from '@/components/MarketInsights/MarketInsightsGrid';
 import { fetchMarketInsights } from '@/lib/rss-fetcher';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { getFeaturedCategories, getCategoryColorClass } from '@/lib/blog-categories';
+import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.blog.title,
@@ -21,6 +23,7 @@ export const revalidate = 21600;
 export default async function BlogPage() {
   const posts = await getPostsWithCache();
   const marketInsights = await fetchMarketInsights(6);
+  const categories = getFeaturedCategories();
   
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -80,6 +83,36 @@ export default async function BlogPage() {
           </div>
         </div>
       </div>
+
+      {/* Category Navigation */}
+      <section className='py-12 bg-white border-b border-gray-200'>
+        <div className='container'>
+          <div className='max-w-6xl mx-auto'>
+            <h2 className='text-2xl font-bold text-gray-900 text-center mb-8'>
+              Explore by Category
+            </h2>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6'>
+              {categories.map((category) => (
+                <Link
+                  key={category.id}
+                  href={`/blog/category/${category.slug}`}
+                  className={`group text-center p-6 rounded-xl bg-gradient-to-br ${getCategoryColorClass(category.color)} text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
+                >
+                  <div className='text-4xl mb-3 group-hover:scale-110 transition-transform'>
+                    {category.icon}
+                  </div>
+                  <h3 className='font-bold text-lg group-hover:text-white transition-colors'>
+                    {category.name}
+                  </h3>
+                  <p className='text-sm text-white/80 mt-2 line-clamp-2'>
+                    {category.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Blog Content */}
       <div className='container py-8 lg:py-12'>
