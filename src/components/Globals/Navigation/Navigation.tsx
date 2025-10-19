@@ -9,13 +9,13 @@ const menuItems = [
     label: 'Buy',
     href: '/buying',
     hasDropdown: true,
-        children: [
-          { label: 'Buying Process', href: '/buying' },
-          { label: 'First-Time Buyer Guide', href: '/buyer-guide' },
-          { label: 'First-Time Buyer Challenges', href: '/first-time-buyer-challenges' },
-          { label: 'Property Search', href: '/listings' },
-          { label: 'Buyer Readiness Assessment', href: '/assessments/buyer-readiness' },
-        ],
+    children: [
+      { label: 'Buying Process', href: '/buying' },
+      { label: 'First-Time Buyer Guide', href: '/buyer-guide' },
+      { label: 'First-Time Buyer Challenges', href: '/first-time-buyer-challenges' },
+      { label: 'Property Search', href: '/listings' },
+      { label: 'Buyer Readiness Assessment', href: '/assessments/buyer-readiness' },
+    ],
   },
   {
     label: 'Sell',
@@ -43,34 +43,27 @@ const menuItems = [
     ],
   },
   {
-    label: 'Testimonials',
-    href: '/testimonials',
-    hasDropdown: false,
-  },
-  {
-    label: 'Team',
-    href: '/team',
-    hasDropdown: false,
-  },
-  {
-    label: 'Sold Listings',
-    href: '/sold-listings',
-    hasDropdown: false,
-  },
-  {
-    label: 'Contact Us',
-    href: '/contact',
-    hasDropdown: false,
-  },
-  {
     label: 'Blog',
     href: '/blog',
     hasDropdown: false,
   },
   {
-    label: 'Market Insights',
-    href: '/market-insights',
+    label: 'Contact',
+    href: '/contact',
     hasDropdown: false,
+  },
+  {
+    label: 'More',
+    href: '#',
+    hasDropdown: true,
+    children: [
+      { label: 'Testimonials', href: '/testimonials' },
+      { label: 'Team', href: '/team' },
+      { label: 'Sold Listings', href: '/sold-listings' },
+      { label: 'Market Insights', href: '/market-insights' },
+      { label: 'Services', href: '/services' },
+      { label: 'Resources', href: '/resources' },
+    ],
   },
 ];
 
@@ -146,7 +139,7 @@ export function Navigation() {
       {/* Main Navigation */}
       <nav id="navigation" className='bg-white shadow-lg sticky top-0 z-50' role='navigation' aria-label='Main navigation'>
         <div className='container mx-auto px-4'>
-          <div className='flex items-center justify-between h-20'>
+          <div className='flex items-center justify-between h-20 w-full'>
             {/* Logo */}
             <div className='flex items-center'>
               <Link href='/' className='flex items-center space-x-4'>
@@ -161,8 +154,8 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Desktop Navigation */}
-            <div className='hidden lg:flex items-center space-x-8'>
+            {/* Desktop Navigation - Horizontal */}
+            <div className='hidden lg:flex items-center space-x-6 flex-1 justify-center'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -174,7 +167,7 @@ export function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className='text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1'
+                    className='text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1 px-3 py-2 rounded-md hover:bg-gray-50'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
                   >
