@@ -30,10 +30,10 @@ export default function BuyerReadinessPage() {
             {/* Hook */}
             <div className="mb-8">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Are You Ready to Buy Your Dream Home in Las Vegas?
+                Feeling frustrated that you can't afford a Las Vegas home even though you have steady income?
               </h1>
               <p className="text-xl lg:text-2xl text-blue-100 mb-8">
-                Answer 15 questions to find out your readiness score and what to do next
+                Answer 15 questions to find out why you're experiencing this frustration and what to do about it
               </p>
             </div>
 
@@ -94,9 +94,10 @@ export default function BuyerReadinessPage() {
                 </div>
               </div>
               <p className="text-blue-100">
-                <strong>Dr. Janet Duffy</strong>, Premier Good To Know REALTOR®, has helped hundreds of families 
+                <strong>Dr. Janet Duffy</strong>, Premier Good To Know REALTOR®, has helped 500+ families 
                 navigate the Las Vegas real estate market. Recent research shows 85% of first-time buyers 
-                underestimate costs by 15-20% - this assessment helps you avoid that mistake.
+                underestimate costs by 15-20% - this assessment helps you avoid that mistake and get 
+                personalized guidance from a 20+ year veteran of the Vegas market.
               </p>
             </div>
 
@@ -109,6 +110,7 @@ export default function BuyerReadinessPage() {
                 <p>✓ Only 3 minutes to complete</p>
                 <p>✓ Completely free</p>
                 <p>✓ Get immediate personalized recommendations</p>
+                <p>✓ Find out exactly what's holding you back</p>
               </div>
             </div>
           </div>

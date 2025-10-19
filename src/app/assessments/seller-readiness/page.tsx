@@ -30,10 +30,10 @@ export default function SellerReadinessPage() {
             {/* Hook */}
             <div className="mb-8">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Is Now the Right Time to Sell Your Vegas Home?
+                Feeling frustrated that your Vegas home isn't selling even though the market is hot?
               </h1>
               <p className="text-xl lg:text-2xl text-green-100 mb-8">
-                Answer 15 questions to find out your selling readiness score and maximize your profit
+                Answer 15 questions to find out why you're experiencing this frustration and what to do about it
               </p>
             </div>
 
