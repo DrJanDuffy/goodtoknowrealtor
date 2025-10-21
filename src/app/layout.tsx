@@ -84,8 +84,6 @@ export default function RootLayout({
           src='https://em.realscout.com/widgets/realscout-web-components.umd.js'
           type='module'
           async
-          onLoad={() => console.log('RealScout script loaded successfully')}
-          onError={() => console.error('RealScout script failed to load')}
         ></script>
         <style
           dangerouslySetInnerHTML={{
