@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackMenuClick } from '@/lib/analytics';
@@ -113,12 +114,19 @@ export function Navigation() {
             {/* Logo */}
             <div className='flex items-center'>
               <Link href='/' className='flex items-center space-x-3'>
+                <Image
+                  src='/images/bhhs/logo.svg'
+                  alt='Berkshire Hathaway HomeServices Premier Properties'
+                  width={120}
+                  height={30}
+                  className='h-8 w-auto'
+                />
                 <div className='flex flex-col'>
-                  <div className='text-xl font-bold text-blue-600 leading-tight'>
-                    Vegas Home Expert
+                  <div className='text-lg font-bold text-blue-600 leading-tight'>
+                    Dr. Jan Duffy
                   </div>
                   <span className='text-xs text-gray-500 font-medium'>
-                    Dr. Jan Duffy • Top 1% Agent
+                    Top 1% Las Vegas Agent
                   </span>
                 </div>
               </Link>

@@ -13,7 +13,7 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
-    dangerouslyAllowSVG: false,
+    dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
@@ -137,19 +137,6 @@ const nextConfig = {
   // Environment variables validation
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
-  },
-
-  // Image optimization security
-  images: {
-    domains: [
-      'images.unsplash.com',
-      'via.placeholder.com',
-      'www.simplifyingthemarket.com',
-      'em.realscout.com',
-      'embed.homebotapp.com'
-    ],
-    dangerouslyAllowSVG: false,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // External packages configuration
