@@ -144,7 +144,7 @@ export function Navigation() {
             </div>
 
             {/* Desktop Navigation - Horizontal */}
-            <div className='hidden lg:flex items-center space-x-8 flex-1 justify-center max-w-6xl'>
+            <div className='hidden md:flex items-center space-x-6 flex-1 justify-center max-w-5xl'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -156,7 +156,7 @@ export function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className='text-gray-700 hover:text-gray-900 font-semibold transition-colors duration-300 px-3 py-3 rounded-lg hover:bg-gray-50 whitespace-nowrap text-sm tracking-wide uppercase'
+                    className='text-gray-700 hover:text-gray-900 font-semibold transition-colors duration-300 px-3 py-3 rounded-lg hover:bg-gray-50 whitespace-nowrap text-sm tracking-wide'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
                     onClick={() => trackMenuClick(item.label, item.href)}
@@ -187,17 +187,17 @@ export function Navigation() {
             </div>
 
             {/* Desktop CTA Button */}
-            <div className='hidden lg:flex items-center ml-6'>
+            <div className='hidden md:flex items-center ml-4'>
               <Link
                 href='/contact'
-                className='bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm whitespace-nowrap tracking-wide uppercase'
+                className='bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm whitespace-nowrap tracking-wide'
               >
                 Contact Us
               </Link>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className='lg:hidden flex items-center'>
+            <div className='md:hidden flex items-center'>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className='p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors'
@@ -227,7 +227,7 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className='lg:hidden bg-white border-t border-gray-200'
+              className='md:hidden bg-white border-t border-gray-200'
             >
               <div className='px-4 py-4 space-y-2'>
                 {menuItems.map((item, index) => (
@@ -264,7 +264,7 @@ export function Navigation() {
                 <div className='pt-4 border-t border-gray-200'>
                   <Link
                     href='/contact'
-                    className='block w-full bg-gray-900 text-white px-4 py-3 rounded-lg font-semibold text-center hover:bg-gray-800 transition-colors tracking-wide uppercase'
+                    className='block w-full bg-gray-900 text-white px-4 py-3 rounded-lg font-semibold text-center hover:bg-gray-800 transition-colors tracking-wide'
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Contact Us
