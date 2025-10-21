@@ -25,18 +25,11 @@ export function StickyHeader() {
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
           <div className='flex items-center space-x-2'>
-            <Image
-              src='/images/bhhs/logo.svg'
-              alt='Berkshire Hathaway HomeServices Premier Properties'
-              width={80}
-              height={20}
-              className='h-5 w-auto'
-            />
+            <div className='flex items-center justify-center w-6 h-6 bg-blue-600 rounded text-white text-xs font-bold'>
+              BHHS
+            </div>
             <div className='text-blue-600 font-bold text-sm'>
               Dr. Jan Duffy
-            </div>
-            <div className='text-xs text-gray-500 hidden sm:block'>
-              Top 1% Las Vegas Agent
             </div>
           </div>
 

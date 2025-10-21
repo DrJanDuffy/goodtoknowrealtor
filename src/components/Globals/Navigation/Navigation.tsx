@@ -114,18 +114,13 @@ export function Navigation() {
           <div className='flex items-center justify-between h-16 w-full'>
             {/* Logo */}
             <div className='flex items-center'>
-              <Link href='/' className='flex items-center space-x-3 hover:opacity-80 transition-opacity'>
-                <div className='flex items-center space-x-2'>
-                  <div className='flex items-center justify-center w-24 h-6 bg-blue-600 rounded text-white text-xs font-bold'>
+              <Link href='/' className='flex items-center hover:opacity-80 transition-opacity'>
+                <div className='flex items-center space-x-3'>
+                  <div className='flex items-center justify-center w-8 h-8 bg-blue-600 rounded text-white text-sm font-bold'>
                     BHHS
                   </div>
-                  <div className='flex flex-col'>
-                    <div className='text-sm font-bold text-blue-600 leading-tight'>
-                      Dr. Jan Duffy
-                    </div>
-                    <span className='text-xs text-gray-500 font-medium'>
-                      Top 1% Las Vegas Agent
-                    </span>
+                  <div className='text-lg font-bold text-blue-600'>
+                    Dr. Jan Duffy
                   </div>
                 </div>
               </Link>
