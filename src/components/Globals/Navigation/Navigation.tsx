@@ -96,6 +96,7 @@ function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
 
 export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label);
@@ -113,27 +114,25 @@ export function Navigation() {
           <div className='flex items-center justify-between h-16 w-full'>
             {/* Logo */}
             <div className='flex items-center'>
-              <Link href='/' className='flex items-center space-x-3'>
-                <Image
-                  src='/images/bhhs/logo.svg'
-                  alt='Berkshire Hathaway HomeServices Premier Properties'
-                  width={120}
-                  height={30}
-                  className='h-8 w-auto'
-                />
-                <div className='flex flex-col'>
-                  <div className='text-lg font-bold text-blue-600 leading-tight'>
-                    Dr. Jan Duffy
+              <Link href='/' className='flex items-center space-x-3 hover:opacity-80 transition-opacity'>
+                <div className='flex items-center space-x-2'>
+                  <div className='flex items-center justify-center w-24 h-6 bg-blue-600 rounded text-white text-xs font-bold'>
+                    BHHS
                   </div>
-                  <span className='text-xs text-gray-500 font-medium'>
-                    Top 1% Las Vegas Agent
-                  </span>
+                  <div className='flex flex-col'>
+                    <div className='text-sm font-bold text-blue-600 leading-tight'>
+                      Dr. Jan Duffy
+                    </div>
+                    <span className='text-xs text-gray-500 font-medium'>
+                      Top 1% Las Vegas Agent
+                    </span>
+                  </div>
                 </div>
               </Link>
             </div>
 
             {/* Desktop Navigation - Horizontal */}
-            <div className='flex items-center space-x-3 flex-1 justify-center max-w-4xl'>
+            <div className='hidden md:flex items-center space-x-3 flex-1 justify-center max-w-4xl'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -175,8 +174,8 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <div className='flex items-center ml-4'>
+            {/* Desktop CTA Button */}
+            <div className='hidden md:flex items-center ml-4'>
               <Link
                 href='/contact'
                 className='bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm whitespace-nowrap'
@@ -184,8 +183,85 @@ export function Navigation() {
                 Get Started
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <div className='md:hidden flex items-center'>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className='p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors'
+                aria-label='Toggle mobile menu'
+              >
+                <svg
+                  className='w-6 h-6'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
+                  ) : (
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className='md:hidden bg-white border-t border-gray-200'
+            >
+              <div className='px-4 py-4 space-y-2'>
+                {menuItems.map((item, index) => (
+                  <div key={index}>
+                    <Link
+                      href={item.href}
+                      className='block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md font-medium'
+                      onClick={() => {
+                        trackMenuClick(item.label, item.href);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                    {item.hasDropdown && item.children && (
+                      <div className='ml-4 mt-1 space-y-1'>
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className='block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md'
+                            onClick={() => {
+                              trackMenuClick(child.label, child.href);
+                              setIsMobileMenuOpen(false);
+                            }}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div className='pt-4 border-t border-gray-200'>
+                  <Link
+                    href='/contact'
+                    className='block w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-3 rounded-lg font-semibold text-center hover:from-green-600 hover:to-emerald-700 transition-all duration-300'
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Get Started
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </nav>
     </>
