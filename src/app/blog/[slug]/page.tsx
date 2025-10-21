@@ -240,7 +240,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
-              >
+               width="24" height="24">
                 <path
                   strokeLinecap='round'
                   strokeLinejoin='round'

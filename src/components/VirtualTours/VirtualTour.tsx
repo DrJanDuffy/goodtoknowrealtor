@@ -99,9 +99,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
                   className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all"
                   aria-label="Play virtual tour video"
                 >
-                  <svg className="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
+                  <span className="text-white text-2xl">🎥</span>
                 </button>
               </div>
             )}
@@ -286,7 +284,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
-                aria-pressed={currentRoom === index}
+                aria-pressed={currentRoom === index ? 'true' : 'false'}
                 aria-label={`View ${room} room`}
               >
                 {room}

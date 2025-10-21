@@ -1,67 +1,69 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { trackMenuClick } from '@/lib/analytics';
 
-// Define menu structure matching Christopher DeWitt Group
+// Define menu structure with engaging, action-oriented labels (no emojis for better formatting)
 const menuItems = [
   {
-    label: 'Buy',
+    label: 'Find My Home',
     href: '/buying',
     hasDropdown: true,
     children: [
-      { label: 'Buying Process', href: '/buying' },
+      { label: 'Am I Ready to Buy?', href: '/assessments/buyer-readiness' },
+      { label: 'Search Vegas Homes', href: '/listings' },
       { label: 'First-Time Buyer Guide', href: '/buyer-guide' },
-      { label: 'First-Time Buyer Challenges', href: '/first-time-buyer-challenges' },
-      { label: 'Property Search', href: '/listings' },
-      { label: 'Buyer Readiness Assessment', href: '/assessments/buyer-readiness' },
+      { label: 'Common Buyer Mistakes', href: '/first-time-buyer-challenges' },
+      { label: 'Complete Buying Process', href: '/buying' },
     ],
   },
   {
-    label: 'Sell',
+    label: 'Sell My Home',
     href: '/selling',
     hasDropdown: true,
     children: [
-      { label: 'Cash Offer', href: '/cash-offer' },
-      { label: 'Home Valuation', href: '/home-value' },
-      { label: 'Why List With Us', href: '/why-list-with-us' },
-      { label: 'Seller Readiness Assessment', href: '/assessments/seller-readiness' },
+      { label: 'Get Cash Offer', href: '/cash-offer' },
+      { label: 'What\'s My Home Worth?', href: '/home-value' },
+      { label: 'Am I Ready to Sell?', href: '/assessments/seller-readiness' },
+      { label: 'Why Choose Dr. Duffy?', href: '/why-list-with-us' },
+      { label: 'Complete Selling Process', href: '/selling' },
     ],
   },
   {
-    label: 'Communities',
+    label: 'Vegas Areas',
     href: '/communities',
     hasDropdown: true,
     children: [
-      { label: 'All Communities', href: '/communities' },
-      { label: 'Las Vegas', href: '/areas/las-vegas' },
+      { label: 'Downtown Las Vegas', href: '/areas/downtown' },
       { label: 'Summerlin', href: '/areas/summerlin' },
       { label: 'Henderson', href: '/areas/henderson' },
       { label: 'North Las Vegas', href: '/areas/north-las-vegas' },
-      { label: 'Downtown Las Vegas', href: '/areas/downtown' },
       { label: 'Green Valley', href: '/areas/green-valley' },
+      { label: 'All Vegas Areas', href: '/communities' },
     ],
   },
   {
-    label: 'Blog',
+    label: 'Market News',
     href: '/blog',
     hasDropdown: false,
   },
   {
-    label: 'Contact',
+    label: 'Get Started',
     href: '/contact',
     hasDropdown: false,
   },
   {
-    label: 'More',
+    label: 'About',
     href: '#',
     hasDropdown: true,
     children: [
-      { label: 'Testimonials', href: '/testimonials' },
-      { label: 'Team', href: '/team' },
-      { label: 'Sold Listings', href: '/sold-listings' },
+      { label: 'Client Success Stories', href: '/testimonials' },
+      { label: 'Meet Dr. Jan Duffy', href: '/team' },
+      { label: 'Recent Sales', href: '/sold-listings' },
       { label: 'Market Insights', href: '/market-insights' },
-      { label: 'Services', href: '/services' },
+      { label: 'Our Services', href: '/services' },
       { label: 'Resources', href: '/resources' },
     ],
   },
@@ -74,19 +76,25 @@ interface DropdownMenuProps {
 }
 
 function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
-  if (!isOpen) return null;
-
   return (
-    <div className='absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-200 opacity-100 visible translate-y-0'>
-      {children}
-    </div>
+    <AnimatePresence mode="wait">
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className='absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-200 transition-all duration-200 opacity-100 visible translate-y-0 z-50'
+        >
+          {children}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
 export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label);
@@ -95,18 +103,6 @@ export function Navigation() {
   const handleMouseLeave = () => {
     setActiveDropdown(null);
   };
-
-  // Handle escape key to close mobile menu
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -119,17 +115,17 @@ export function Navigation() {
               <Link href='/' className='flex items-center space-x-3'>
                 <div className='flex flex-col'>
                   <div className='text-xl font-bold text-blue-600 leading-tight'>
-                    Dr. Janet Duffy Group
+                    Vegas Home Expert
                   </div>
                   <span className='text-xs text-gray-500 font-medium'>
-                    Premier Good To Know REALTOR®
+                    Dr. Jan Duffy • Top 1% Agent
                   </span>
                 </div>
               </Link>
             </div>
 
             {/* Desktop Navigation - Horizontal */}
-            <div className='hidden lg:flex items-center space-x-6 flex-1 justify-center'>
+            <div className='flex items-center space-x-3 flex-1 justify-center max-w-4xl'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -141,39 +137,25 @@ export function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className='text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-1 px-4 py-2 rounded-lg hover:bg-blue-50'
+                    className='text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200 px-2 py-2 rounded-lg hover:bg-blue-50 whitespace-nowrap text-sm'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
+                    onClick={() => trackMenuClick(item.label, item.href)}
                   >
-                    <span>{item.label}</span>
-                    {item.hasDropdown && (
-                      <svg
-                        className='w-4 h-4'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        aria-hidden='true'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </svg>
-                    )}
+                    {item.label}
                   </Link>
                   {item.hasDropdown && (
                     <DropdownMenu
                       isOpen={activeDropdown === item.label}
                     >
-                      <div aria-label={`${item.label} submenu`}>
+                      <div aria-label={`${item.label} submenu`} className='py-2'>
                         {item.children?.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors'
+                            className='block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 whitespace-nowrap font-medium'
                             role='menuitem'
+                            onClick={() => trackMenuClick(child.label, child.href)}
                           >
                             {child.label}
                           </Link>
@@ -185,105 +167,18 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* CTA Button (Desktop) */}
-            <div className='hidden lg:flex items-center'>
+            {/* CTA Button */}
+            <div className='flex items-center ml-4'>
               <Link
                 href='/contact'
-                className='bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-sm'
+                className='bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm whitespace-nowrap'
               >
                 Get Started
               </Link>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className='lg:hidden p-3 rounded-lg hover:bg-gray-100 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500'
-              aria-label='Toggle mobile menu'
-              aria-controls='mobile-menu'
-            >
-              <svg
-                className='w-6 h-6'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                aria-hidden='true'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d={isMobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-                />
-              </svg>
-            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div ref={mobileMenuRef} id="mobile-menu" className='lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-80px)] overflow-y-auto' aria-label='Mobile navigation menu'>
-            <div className='container mx-auto px-4 py-6 space-y-2'>
-              {menuItems.map((item, index) => (
-                <div key={index}>
-                <Link
-                  href={item.href}
-                    className='block text-gray-700 hover:text-blue-600 font-medium py-4 px-2 transition-colors min-h-[44px] flex items-center'
-                  onClick={() => setIsMobileMenuOpen(false)}
-                    role='menuitem'
-                >
-                  {item.label}
-                </Link>
-                  {item.hasDropdown && item.children && (
-                    <div className='ml-4 space-y-1'>
-                      {item.children.map((child, childIndex) => (
-                        <Link
-                          key={childIndex}
-                          href={child.href}
-                          className='block text-gray-600 hover:text-blue-600 py-3 px-2 transition-colors min-h-[44px] flex items-center text-sm'
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              
-              {/* Mobile-specific CTAs */}
-              <div className='pt-6 border-t border-gray-200 space-y-3'>
-                <Link
-                  href='/listings'
-                  className='block text-gray-600 py-4 px-2 min-h-[44px] flex items-center'
-                >
-                  <span className='mr-3'>💾</span>
-                  Property Search
-                </Link>
-                <Link
-                  href='tel:702-222-1964'
-                  className='block text-gray-600 py-4 px-2 min-h-[44px] flex items-center'
-                >
-                  <span className='mr-3'>📞</span>
-                  (702) 222-1964
-                </Link>
-                <Link
-                  href='sms:702-222-1964'
-                  className='block text-gray-600 py-4 px-2 min-h-[44px] flex items-center'
-                >
-                  <span className='mr-3'>💬</span>
-                  Send Text
-                </Link>
-                <Link 
-                  href='/contact' 
-                  className='block bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold text-center min-h-[44px] flex items-center justify-center mt-4'
-                >
-                  Get Started
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </nav>
     </>
   );

@@ -1,5 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Image optimization configuration
+  images: {
+    domains: [
+      'images.unsplash.com',
+      'via.placeholder.com',
+      'www.simplifyingthemarket.com',
+      'em.realscout.com',
+      'embed.homebotapp.com'
+    ],
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
   // Security headers
   async headers() {
     return [
@@ -30,12 +47,81 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://vercel.com https://em.realscout.com https://embed.homebotapp.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: https: blob: https://images.unsplash.com https://via.placeholder.com https://www.simplifyingthemarket.com",
+              "connect-src 'self' https://api.realscout.com https://*.vercel.app https://embed.homebotapp.com https://www.simplifyingthemarket.com",
+              "frame-src 'self' https://www.simplifyingthemarket.com",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests"
+            ].join('; ')
+          }
+        ]
+      },
+      // More permissive headers for widget-heavy pages
+      {
+        source: '/(home-value|listings|buying|selling|luxury|investing|areas)/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://vercel.com https://em.realscout.com https://embed.homebotapp.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: https: blob: https://images.unsplash.com https://via.placeholder.com https://www.simplifyingthemarket.com https://em.realscout.com https://embed.homebotapp.com",
+              "connect-src 'self' https://api.realscout.com https://*.vercel.app https://embed.homebotapp.com https://www.simplifyingthemarket.com",
+              "frame-src 'self' https://www.simplifyingthemarket.com",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests"
+            ].join('; ')
+          }
+        ]
+      },
+      // Homepage with multiple widgets
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://vercel.com https://em.realscout.com https://embed.homebotapp.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: https: blob: https://images.unsplash.com https://via.placeholder.com https://www.simplifyingthemarket.com https://em.realscout.com https://embed.homebotapp.com",
+              "connect-src 'self' https://api.realscout.com https://*.vercel.app https://embed.homebotapp.com https://www.simplifyingthemarket.com",
+              "frame-src 'self' https://www.simplifyingthemarket.com",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests"
+            ].join('; ')
+          }
+        ]
+      },
+      // Blog page with RSS feed images
+      {
+        source: '/blog',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://vercel.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: https: blob:",
-              "connect-src 'self' https://api.realscout.com https://*.vercel.app",
-              "frame-src 'none'",
+              "img-src 'self' data: https: blob: https://images.unsplash.com https://via.placeholder.com https://www.simplifyingthemarket.com",
+              "connect-src 'self' https://*.vercel.app https://www.simplifyingthemarket.com",
+              "frame-src 'self' https://www.simplifyingthemarket.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
@@ -57,7 +143,10 @@ const nextConfig = {
   images: {
     domains: [
       'images.unsplash.com',
-      'via.placeholder.com'
+      'via.placeholder.com',
+      'www.simplifyingthemarket.com',
+      'em.realscout.com',
+      'embed.homebotapp.com'
     ],
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -90,7 +179,7 @@ const nextConfig = {
       // Redirect HTTP to HTTPS in production
       ...(process.env.NODE_ENV === 'production' ? [
         {
-          source: '/(.*)',
+          source: '/((?!$).*)',
           has: [
             {
               type: 'header',
@@ -98,7 +187,7 @@ const nextConfig = {
               value: 'http',
             },
           ],
-          destination: 'https://goodtoknowrealtor.com/:path*',
+          destination: 'https://www.goodtoknowrealtor.com/:path*',
           permanent: true,
         },
       ] : []),

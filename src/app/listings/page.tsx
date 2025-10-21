@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
+import { RealScoutListings } from '@/components/Home/RealScoutListings';
 import { generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
 
 // Declare RealScout custom elements
@@ -128,7 +130,7 @@ export default function ListingsPage() {
             <div className='bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100'>
               <div className='flex justify-center'>
                 <div className='w-full max-w-3xl'>
-                  <realscout-advanced-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-advanced-search>
+                  <RealScoutSearch />
                 </div>
               </div>
               
@@ -174,6 +176,9 @@ export default function ListingsPage() {
           </div>
         </div>
       </section>
+
+      {/* Live MLS Listings */}
+      <RealScoutListings />
 
       {/* Featured Properties */}
       <section className='py-20'>
@@ -230,7 +235,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -284,7 +289,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -338,7 +343,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -362,7 +367,7 @@ export default function ListingsPage() {
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
-              >
+               width="24" height="24">
                 <path
                   strokeLinecap='round'
                   strokeLinejoin='round'
@@ -408,7 +413,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -440,7 +445,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -472,7 +477,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -510,7 +515,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -542,7 +547,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'
@@ -574,7 +579,7 @@ export default function ListingsPage() {
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
-                  >
+                   width="24" height="24">
                     <path
                       strokeLinecap='round'
                       strokeLinejoin='round'

@@ -8,11 +8,11 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              About Dr. Janet Duffy
+              About Dr. Jan Duffy
             </h2>
             <p className="text-xl text-gray-600 mb-6">
               As a top-performing agent at Berkshire Hathaway HomeServices Premier Properties, 
-              Dr. Janet Duffy has facilitated over $127 million in real estate transactions across Las Vegas.
+              Dr. Jan Duffy has facilitated over $127 million in real estate transactions across Las Vegas.
             </p>
             <p className="text-lg text-gray-600 mb-8">
               With deep expertise in luxury properties, investment real estate, and first-time home buying, 
@@ -25,9 +25,7 @@ export function AboutSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <span className="text-blue-600 text-xl">✓</span>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Top 1% Producer</h4>
@@ -37,7 +35,7 @@ export function AboutSection() {
               
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -50,7 +48,7 @@ export function AboutSection() {
               
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                   </svg>
                 </div>
@@ -62,7 +60,7 @@ export function AboutSection() {
               
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                   </svg>
                 </div>
@@ -94,7 +92,7 @@ export function AboutSection() {
             <div className="relative w-full h-96 rounded-2xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
-                alt="Dr. Janet Duffy - Premier Good To Know REALTOR®"
+                alt="Dr. Jan Duffy - Premier Good To Know REALTOR®"
                 fill
                 className="object-cover"
               />

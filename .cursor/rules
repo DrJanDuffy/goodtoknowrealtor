@@ -1,0 +1,177 @@
+# Image Format Optimization Rules for Cursor AI
+
+## Core Image Format Decision Logic
+
+When working with images, ALWAYS follow this decision tree:
+1. Is it a logo, icon, or simple graphic? → Use SVG
+2. Is it a photograph or complex image? → Use WebP
+3. Is it text-heavy and needs to scale? → Use SVG
+4. Does it need transparency with photos? → Use WebP
+5. Never use PNG/JPG for new images - always convert to WebP
+
+## SVG Implementation Rules
+
+When creating or fixing SVG files:
+- ALWAYS include viewBox, width, and height attributes
+- NEVER use SVG for photographs or complex textures
+- ALWAYS minify SVG code and remove unnecessary metadata
+- Include preserveAspectRatio="xMidYMid meet" for responsive scaling
+- For inline SVGs, add class names for CSS control
+- For external SVGs, use loading="lazy" unless above fold
+
+### SVG Template:
+```svg
+<svg viewBox="0 0 100 100" width="100" height="100" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- content -->
+</svg>
+```
+
+### SVG Container Fix Pattern:
+```css
+/* Always add to parent containers */
+.svg-container {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* For inline SVGs */
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+```
+
+## WebP Implementation Rules
+
+When working with WebP images:
+- ALWAYS provide fallback images for older browsers
+- Use picture element with source sets
+- Set quality to 80 for photos, 90 for graphics with text
+- Include loading="lazy" for below-fold images
+- Add width and height attributes to prevent layout shift
+
+### WebP HTML Template:
+```html
+<picture>
+  <source srcset="image.webp" type="image/webp">
+  <source srcset="image.jpg" type="image/jpeg">
+  <img src="image.jpg" alt="Descriptive text" width="800" height="600" loading="lazy">
+</picture>
+```
+
+## Automated Fixes for Common Issues
+
+### When SVGs break layouts:
+1. Check for missing viewBox attribute - add if missing
+2. Verify width/height attributes exist
+3. Ensure parent container has defined dimensions
+4. Add CSS display:block to SVG element
+5. Remove any percentage-based dimensions in the SVG
+
+### When images cause performance issues:
+1. Convert all PNG/JPG to WebP immediately
+2. Implement lazy loading for images below fold
+3. Add explicit width/height to prevent reflow
+4. Compress SVGs with SVGO
+5. Use CSS aspect-ratio for responsive containers
+
+### File size limits to enforce:
+- SVG icons: max 5KB
+- SVG logos: max 20KB  
+- WebP thumbnails: max 50KB
+- WebP heroes: max 300KB
+- If larger, optimize or reconsider format
+
+## CSS Rules to Always Include
+
+```css
+/* Prevent SVG overflow issues */
+svg {
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure WebP images are responsive */
+picture img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fix for SVG sizing in flex/grid containers */
+.flex-container svg,
+.grid-container svg {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+```
+
+## Conversion Commands
+
+When asked to optimize images, automatically:
+1. Convert JPG/PNG to WebP using cwebp with quality 80
+2. Optimize SVGs using svgo with default plugins
+3. Generate fallback images for WebP files
+4. Add proper loading strategies based on position
+
+## Performance Monitoring
+
+Always check and report:
+- Total image weight per page (target: <2MB)
+- Number of images without dimensions (target: 0)
+- Images missing alt text (target: 0)
+- Non-optimized formats still in use (target: 0)
+
+## File Naming Convention
+
+Enforce this pattern:
+- Icons: `icon_[name]_[size].svg` (icon_menu_24.svg)
+- Logos: `logo_[brand]_[variant].svg` (logo_company_white.svg)
+- Photos: `img_[description]_[size].webp` (img_hero_1920.webp)
+- Graphics: `graphic_[name]_[version].svg` (graphic_chart_v2.svg)
+
+## Quick Fix Templates
+
+### For "SVG not showing" issues:
+```html
+<!-- Replace broken SVG with this structure -->
+<div class="svg-wrapper">
+  <svg viewBox="0 0 100 100" width="100" height="100">
+    <!-- content -->
+  </svg>
+</div>
+```
+
+### For "Image too large" issues:
+```html
+<!-- Convert to WebP with fallback -->
+<picture>
+  <source media="(max-width: 768px)" srcset="image-mobile.webp">
+  <source srcset="image-desktop.webp" type="image/webp">
+  <img src="image-fallback.jpg" alt="" loading="lazy">
+</picture>
+```
+
+## NEVER DO:
+- Use SVG for photographs
+- Omit viewBox from SVG elements
+- Use PNG for new web graphics
+- Forget WebP fallbacks
+- Include SVGs larger than 100KB
+- Use percentage widths without viewBox
+- Implement images without alt text
+- Load all images eagerly
+
+## ALWAYS DO:
+- Convert photos to WebP
+- Include viewBox in every SVG
+- Provide fallback images
+- Lazy load below-fold content
+- Specify dimensions
+- Optimize before deployment
+- Use semantic alt text
+- Test in multiple browsers

@@ -3,11 +3,11 @@ import { SellerReadinessQuiz } from '@/components/assessments/SellerReadinessQui
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Vegas Home Seller Readiness Assessment | Dr. Janet Duffy',
-  description: 'Take our free 3-minute assessment to discover if you\'re ready to sell your Las Vegas home. Get personalized insights and next steps from Premier Good To Know REALTOR® Dr. Janet Duffy.',
-  keywords: 'Las Vegas home seller assessment, am I ready to sell my home, Vegas real estate selling quiz, home selling Las Vegas, Dr. Janet Duffy',
+  title: 'Vegas Home Seller Readiness Assessment | Dr. Jan Duffy',
+  description: 'Take our free 3-minute assessment to discover if you\'re ready to sell your Las Vegas home. Get personalized insights and next steps from Premier Good To Know REALTOR® Dr. Jan Duffy.',
+  keywords: 'Las Vegas home seller assessment, am I ready to sell my home, Vegas real estate selling quiz, home selling Las Vegas, Dr. Jan Duffy',
   openGraph: {
-    title: 'Vegas Home Seller Readiness Assessment | Dr. Janet Duffy',
+    title: 'Vegas Home Seller Readiness Assessment | Dr. Jan Duffy',
     description: 'Take our free 3-minute assessment to discover if you\'re ready to sell your Las Vegas home. Get personalized insights and next steps.',
     images: ['/images/seller-assessment-og.jpg'],
   },
@@ -43,9 +43,7 @@ export default function SellerReadinessPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                 <div className="flex items-start space-x-3">
                   <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
-                    </svg>
+                    <span className="text-white text-xl">⏰</span>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Market Timing</h3>
@@ -54,9 +52,7 @@ export default function SellerReadinessPage() {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"/>
-                    </svg>
+                    <span className="text-white text-xl">🏠</span>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Home Preparation</h3>
@@ -65,9 +61,7 @@ export default function SellerReadinessPage() {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/>
-                    </svg>
+                    <span className="text-white text-xl">💰</span>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-2">Financial Readiness</h3>
@@ -94,7 +88,7 @@ export default function SellerReadinessPage() {
                 </div>
               </div>
               <p className="text-green-100">
-                <strong>Dr. Janet Duffy</strong>, Premier Good To Know REALTOR®, has helped hundreds of families 
+                <strong>Dr. Jan Duffy</strong>, Premier Good To Know REALTOR®, has helped hundreds of families 
                 maximize their home's value in Las Vegas. Her strategic approach helps sellers achieve 
                 98% of list price on average.
               </p>
@@ -132,39 +126,31 @@ export default function SellerReadinessPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clipRule="evenodd"/>
-                  </svg>
+                  <span className="text-green-600 text-2xl">🎯</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Personalized</h3>
                 <p className="text-gray-600 text-sm">Results tailored to your specific situation</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
-                  </svg>
+                  <span className="text-green-600 text-2xl">⚡</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Instant</h3>
                 <p className="text-gray-600 text-sm">Get your results immediately</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
-                  </svg>
+                  <span className="text-green-600 text-2xl">🔒</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Secure</h3>
                 <p className="text-gray-600 text-sm">Your information is safe and private</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                  </svg>
+                  <span className="text-green-600 text-2xl">📞</span>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Expert Support</h3>
-                <p className="text-gray-600 text-sm">Dr. Janet Duffy is here to help</p>
+                <p className="text-gray-600 text-sm">Dr. Jan Duffy is here to help</p>
               </div>
             </div>
           </div>

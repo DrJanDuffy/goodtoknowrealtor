@@ -81,20 +81,7 @@ export function BlogCard({ post }: BlogCardProps) {
             href={`/blog/${post.slug}`}
             className='text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 transition-colors duration-200'
           >
-            Read More
-            <svg
-              className='w-3 h-3'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
-            </svg>
+            Read More →
           </Link>
         </div>
       </div>

@@ -12,12 +12,12 @@ declare global {
 }
 
 export const metadata: Metadata = {
-  title: 'Henderson Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-  description: 'Find your dream home in Henderson, Nevada. Premier Good To Know REALTOR® Dr. Janet Duffy specializes in Henderson luxury homes, family communities, and investment properties.',
-  keywords: 'Henderson real estate, Henderson homes for sale, Henderson luxury homes, Nevada real estate, Dr. Janet Duffy',
+  title: 'Henderson Real Estate | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+  description: 'Find your dream home in Henderson, Nevada. Premier Good To Know REALTOR® Dr. Jan Duffy specializes in Henderson luxury homes, family communities, and investment properties.',
+  keywords: 'Henderson real estate, Henderson homes for sale, Henderson luxury homes, Nevada real estate, Dr. Jan Duffy',
   openGraph: {
-    title: 'Henderson Real Estate | Dr. Janet Duffy',
-    description: 'Find your dream home in Henderson, Nevada with Premier Good To Know REALTOR® Dr. Janet Duffy.',
+    title: 'Henderson Real Estate | Dr. Jan Duffy',
+    description: 'Find your dream home in Henderson, Nevada with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/henderson-real-estate-og.jpg'],
   },
 };
@@ -39,7 +39,7 @@ export default function HendersonPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/listings?area=henderson" 
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 View Henderson Listings
               </a>
@@ -90,27 +90,19 @@ export default function HendersonPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Top-rated schools and family-friendly neighborhoods</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Beautiful parks and recreational facilities</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Growing business district and job opportunities</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Diverse housing options from starter homes to luxury estates</span>
                 </li>
               </ul>
@@ -175,7 +167,7 @@ export default function HendersonPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="tel:702-222-1964" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               Call (702) 222-1964
             </a>

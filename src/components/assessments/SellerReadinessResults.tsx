@@ -104,42 +104,20 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
             <div className="text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Selling Readiness Score</h2>
               
-              {/* Speedometer */}
-              <div className="relative w-48 h-24 mx-auto mb-6">
-                <svg className="w-full h-full" viewBox="0 0 200 100">
-                  {/* Background arc */}
-                  <path
-                    d="M 20 80 A 80 80 0 0 1 180 80"
-                    fill="none"
-                    stroke="#e5e7eb"
-                    strokeWidth="20"
-                    strokeLinecap="round"
+              {/* Progress Bar */}
+              <div className="w-full max-w-md mx-auto mb-6">
+                <div className="bg-gray-200 rounded-full h-8 overflow-hidden">
+                  <div 
+                    className={`h-full transition-all duration-1000 ${
+                      score >= 71 ? 'bg-green-500' : 
+                      score >= 41 ? 'bg-yellow-500' : 'bg-red-500'
+                    }`}
+                    style={{ width: `${score}%` }}
                   />
-                  
-                  {/* Progress arc */}
-                  <path
-                    d="M 20 80 A 80 80 0 0 1 180 80"
-                    fill="none"
-                    stroke={
-                      score >= 71 ? '#10b981' : 
-                      score >= 41 ? '#f59e0b' : '#ef4444'
-                    }
-                    strokeWidth="20"
-                    strokeLinecap="round"
-                    strokeDasharray={`${(score / 100) * 251.2} 251.2`}
-                    className="transition-all duration-1000"
-                  />
-                  
-                  {/* Score text */}
-                  <text
-                    x="100"
-                    y="70"
-                    textAnchor="middle"
-                    className={`text-4xl font-bold ${getScoreColor()}`}
-                  >
-                    {score}%
-                  </text>
-                </svg>
+                </div>
+                <div className="text-center mt-2">
+                  <span className={`text-4xl font-bold ${getScoreColor()}`}>{score}%</span>
+                </div>
               </div>
 
               <div className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${getScoreBgColor()} ${getScoreColor()}`}>
@@ -224,7 +202,7 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
           <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">Questions About Your Results?</h2>
             <p className="text-green-100 mb-6">
-              Dr. Janet Duffy is here to help you maximize your home's value in Las Vegas
+              Dr. Jan Duffy is here to help you maximize your home's value in Las Vegas
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

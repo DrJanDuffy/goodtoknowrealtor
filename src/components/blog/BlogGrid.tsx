@@ -17,7 +17,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
-            >
+             width="24" height="24">
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'

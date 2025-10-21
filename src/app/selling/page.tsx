@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
+import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
 
 export default function SellingPage() {
   return (
@@ -24,6 +25,25 @@ export default function SellingPage() {
               Expert marketing, strategic pricing, and proven negotiation skills
               to help you achieve the best possible outcome in today&apos;s market.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Home Value Widget */}
+      <section className='py-16 bg-white'>
+        <div className='container'>
+          <div className='max-w-4xl mx-auto'>
+            <div className='text-center mb-12'>
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+                Get Your Home's Current Value
+              </h2>
+              <p className='text-xl text-gray-600'>
+                Find out what your Las Vegas home is worth in today's market
+              </p>
+            </div>
+            <div className='bg-gray-50 rounded-2xl p-8'>
+              <HomeValueWidget />
+            </div>
           </div>
         </div>
       </section>
@@ -136,20 +156,7 @@ export default function SellingPage() {
                 href='/selling/tips'
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
-                Learn More
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+                Learn More →
               </Link>
             </div>
 
@@ -182,19 +189,7 @@ export default function SellingPage() {
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
                 Get Your Report
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+ →
               </Link>
             </div>
 
@@ -221,19 +216,7 @@ export default function SellingPage() {
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
                 View Market Data
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+ →
               </Link>
             </div>
 
@@ -260,19 +243,7 @@ export default function SellingPage() {
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
                 Schedule Photography
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+ →
               </Link>
             </div>
 
@@ -298,20 +269,7 @@ export default function SellingPage() {
                 href='/contact'
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
-                Learn More
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+                Learn More →
               </Link>
             </div>
 
@@ -338,19 +296,7 @@ export default function SellingPage() {
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
                 Get Started
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+ →
               </Link>
             </div>
           </div>
@@ -424,14 +370,7 @@ export default function SellingPage() {
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
                   {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className='w-5 h-5'
-                      fill='currentColor'
-                      viewBox='0 0 20 20'
-                    >
-                      <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                    </svg>
+                    <span key={i} className='text-lg'>★</span>
                   ))}
                 </div>
               </div>
@@ -457,14 +396,7 @@ export default function SellingPage() {
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
                   {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className='w-5 h-5'
-                      fill='currentColor'
-                      viewBox='0 0 20 20'
-                    >
-                      <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                    </svg>
+                    <span key={i} className='text-lg'>★</span>
                   ))}
                 </div>
               </div>
@@ -490,14 +422,7 @@ export default function SellingPage() {
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
                   {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className='w-5 h-5'
-                      fill='currentColor'
-                      viewBox='0 0 20 20'
-                    >
-                      <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                    </svg>
+                    <span key={i} className='text-lg'>★</span>
                   ))}
                 </div>
               </div>

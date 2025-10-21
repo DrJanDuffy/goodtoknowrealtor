@@ -98,15 +98,54 @@ export default function InteractiveFeaturesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 lg:py-20">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Interactive Real Estate Features
+              Interactive Real Estate Features & Tools
             </h1>
             <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed">
-              Experience the future of real estate with our advanced interactive tools and features
+              Experience the future of real estate with Dr. Jan Duffy's advanced interactive tools and features designed to make your Las Vegas property search effortless and successful.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Overview */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Why Choose Interactive Real Estate Tools?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Dr. Jan Duffy leverages cutting-edge technology to provide you with powerful tools that simplify the home buying and selling process. Our interactive features give you unprecedented control and insight into the Las Vegas real estate market.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center bg-blue-50 rounded-xl p-6">
+                <div className="text-4xl mb-4">⚡</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Instant Results</h3>
+                <p className="text-gray-600">Get immediate feedback and results with our real-time interactive tools.</p>
+              </div>
+              <div className="text-center bg-green-50 rounded-xl p-6">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Precision Search</h3>
+                <p className="text-gray-600">Find exactly what you're looking for with advanced filtering and search capabilities.</p>
+              </div>
+              <div className="text-center bg-purple-50 rounded-xl p-6">
+                <div className="text-4xl mb-4">📊</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Data-Driven</h3>
+                <p className="text-gray-600">Make informed decisions with comprehensive market data and analytics.</p>
+              </div>
+              <div className="text-center bg-orange-50 rounded-xl p-6">
+                <div className="text-4xl mb-4">📱</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Mobile Optimized</h3>
+                <p className="text-gray-600">Access all features seamlessly on any device, anywhere, anytime.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -115,24 +154,26 @@ export default function InteractiveFeaturesPage() {
         {/* Property Search with Filters */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Advanced Property Search</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Find your perfect property with our comprehensive search filters and real-time filtering capabilities
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Advanced Property Search Engine</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Find your perfect property with our comprehensive search filters and real-time filtering capabilities. Our advanced search engine analyzes thousands of Las Vegas properties to match your exact criteria.
             </p>
           </div>
-          <PropertySearchFilters 
-            onFiltersChange={() => {
-              // Handle filter changes
-            }}
-          />
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <PropertySearchFilters 
+              onFiltersChange={() => {
+                // Handle filter changes
+              }}
+            />
+          </div>
         </section>
 
         {/* Property Cards with Enhanced Features */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Properties</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Browse our curated selection with interactive features including virtual tours, comparison tools, and quick actions
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Properties with Interactive Features</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Browse our curated selection with interactive features including virtual tours, comparison tools, and quick actions. Each property card provides comprehensive information and instant access to key features.
             </p>
           </div>
           
@@ -164,67 +205,77 @@ export default function InteractiveFeaturesPage() {
         {/* Mortgage Calculator */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Mortgage Calculator</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Calculate your monthly payments and understand your financing options
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Interactive Mortgage Calculator</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Calculate your monthly payments and understand your financing options with our comprehensive mortgage calculator. Get instant estimates for different loan scenarios and down payment amounts.
             </p>
           </div>
-          <MortgageCalculator initialPrice={500000} />
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <MortgageCalculator initialPrice={500000} />
+          </div>
         </section>
 
         {/* Interactive Map */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Neighborhood Explorer</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore properties and local amenities with our interactive neighborhood map
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Interactive Neighborhood Explorer</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Explore properties and local amenities with our interactive neighborhood map. Discover schools, shopping centers, parks, and transportation options to find the perfect location for your Las Vegas home.
             </p>
           </div>
-          <NeighborhoodMap />
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <NeighborhoodMap />
+          </div>
         </section>
 
         {/* Market Data Visualizations */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Market Insights</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Stay informed with real-time market data and trends
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Real-Time Market Insights</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Stay informed with real-time market data and trends. Our interactive charts and graphs provide valuable insights into Las Vegas real estate market conditions, pricing trends, and neighborhood performance.
             </p>
           </div>
-          <MarketVisualizations area="Las Vegas Valley" />
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <MarketVisualizations area="Las Vegas Valley" />
+          </div>
         </section>
 
         {/* Virtual Tours */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Virtual Tours</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Experience properties from anywhere with our immersive virtual tour technology
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Immersive Virtual Tours</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Experience properties from anywhere with our immersive virtual tour technology. Take 360° tours, watch video walkthroughs, and explore every room without leaving your current location.
             </p>
           </div>
-          <VirtualTourGallery 
-            tours={sampleVirtualTours} 
-            propertyTitle="Luxury Home in Summerlin"
-          />
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <VirtualTourGallery 
+              tours={sampleVirtualTours} 
+              propertyTitle="Luxury Home in Summerlin"
+            />
+          </div>
         </section>
 
         {/* Property Alerts */}
         <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Stay Informed</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Never miss a property that matches your criteria with our smart alert system
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Smart Property Alerts</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Never miss a property that matches your criteria with our smart alert system. Get instant notifications when new listings appear that meet your specific requirements and preferences.
             </p>
           </div>
-          <div className="flex justify-center">
-            <PropertyAlerts />
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="flex justify-center">
+              <PropertyAlerts />
+            </div>
           </div>
         </section>
 
         {/* Features Summary */}
         <section className="bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Interactive Features Summary
+            Complete Interactive Features Summary
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -29,7 +29,7 @@ export default function DowntownPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/listings?area=downtown" 
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 View Downtown Listings
               </a>
@@ -60,25 +60,25 @@ export default function DowntownPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-700">Luxury high-rise condos and modern lofts</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-700">Walking distance to Fremont Street and entertainment</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-700">Premium amenities and concierge services</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-700">Stunning city and mountain views</span>
@@ -145,7 +145,7 @@ export default function DowntownPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="tel:702-222-1964" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               Call (702) 222-1964
             </a>

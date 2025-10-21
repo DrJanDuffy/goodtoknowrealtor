@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 
-// Base configuration for Dr. Janet Duffy's Las Vegas real estate business
+// Base configuration for Dr. Jan Duffy's Las Vegas real estate business
 export const SEO_CONFIG = {
-  siteName: 'Dr. Janet Duffy - Las Vegas Real Estate Expert',
+  siteName: 'Dr. Jan Duffy - Las Vegas Real Estate Expert',
   siteUrl: 'https://www.goodtoknowrealtor.com',
-  defaultTitle: 'Dr. Janet Duffy - Las Vegas Real Estate Expert | Top 1% Agent',
-  defaultDescription: 'Top-performing Las Vegas real estate agent Dr. Janet Duffy delivers exceptional results with $127M+ in sales volume. Expert guidance for buying, selling, and investing in Las Vegas properties.',
+  defaultTitle: 'Dr. Jan Duffy - Las Vegas Real Estate Expert | Top 1% Agent',
+  defaultDescription: 'Top-performing Las Vegas real estate agent Dr. Jan Duffy delivers exceptional results with $127M+ in sales volume. Expert guidance for buying, selling, and investing in Las Vegas properties.',
   keywords: [
     'Las Vegas real estate',
-    'Dr. Janet Duffy',
+    'Dr. Jan Duffy',
     'Las Vegas realtor',
     'Las Vegas homes for sale',
     'Las Vegas real estate agent',
@@ -20,9 +20,16 @@ export const SEO_CONFIG = {
     'Las Vegas home selling',
     'Berkshire Hathaway HomeServices',
     'Las Vegas property values',
-    'Las Vegas market trends'
+    'Las Vegas market trends',
+    'Las Vegas MLS search',
+    'home value calculator',
+    'property search tool',
+    'Las Vegas market insights',
+    'real estate market updates',
+    'home equity tracking',
+    'property valuation tool'
   ],
-  author: 'Dr. Janet Duffy',
+  author: 'Dr. Jan Duffy',
   phone: '(702) 222-1964',
   email: 'info@drjanduffy.com',
   address: {
@@ -125,9 +132,9 @@ export function generateRealEstateAgentSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
-    name: 'Dr. Janet Duffy',
+    name: 'Dr. Jan Duffy',
     alternateName: 'Las Vegas Real Estate Expert',
-    description: 'Top 1% Las Vegas real estate agent Dr. Janet Duffy delivers exceptional results with $127M+ in sales volume. Expert guidance for buying, selling, and investing in Las Vegas properties.',
+    description: 'Top 1% Las Vegas real estate agent Dr. Jan Duffy delivers exceptional results with $127M+ in sales volume. Expert guidance for buying, selling, and investing in Las Vegas properties.',
     url: SEO_CONFIG.siteUrl,
     telephone: SEO_CONFIG.phone,
     email: SEO_CONFIG.email,
@@ -759,5 +766,59 @@ export function generateWebPageSchema({
         item: `https://www.goodtoknowrealtor.com${crumb.url}`
       }))
     }
+  };
+}
+
+export function generateWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SEO_CONFIG.siteName,
+    url: SEO_CONFIG.siteUrl,
+    description: SEO_CONFIG.defaultDescription,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SEO_CONFIG.siteUrl}/listings?q={search_term_string}`
+      },
+      'query-input': 'required name=search_term_string'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SEO_CONFIG.siteName,
+      url: SEO_CONFIG.siteUrl
+    }
+  };
+}
+
+export function generateSiteNavigationElementSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SiteNavigationElement',
+    name: 'Main Navigation',
+    url: SEO_CONFIG.siteUrl,
+    hasPart: [
+      {
+        '@type': 'WebPage',
+        name: 'Find My Home',
+        url: `${SEO_CONFIG.siteUrl}/buying`
+      },
+      {
+        '@type': 'WebPage',
+        name: 'Sell My Home',
+        url: `${SEO_CONFIG.siteUrl}/selling`
+      },
+      {
+        '@type': 'WebPage',
+        name: 'Vegas Areas',
+        url: `${SEO_CONFIG.siteUrl}/communities`
+      },
+      {
+        '@type': 'WebPage',
+        name: 'Market News',
+        url: `${SEO_CONFIG.siteUrl}/blog`
+      }
+    ]
   };
 }

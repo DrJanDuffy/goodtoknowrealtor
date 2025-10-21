@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
+import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 
 export default function BuyingPage() {
   return (
@@ -21,10 +22,29 @@ export default function BuyingPage() {
               Buying Your Dream Home in Las Vegas
             </h1>
             <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Expert guidance from pre-approval to closing. Dr. Janet Duffy
+              Expert guidance from pre-approval to closing. Dr. Jan Duffy
               helps you navigate the Las Vegas real estate market with
               confidence.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Property Search Widget */}
+      <section className='py-16 bg-white'>
+        <div className='container'>
+          <div className='max-w-4xl mx-auto'>
+            <div className='text-center mb-12'>
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+                Search Las Vegas Properties
+              </h2>
+              <p className='text-xl text-gray-600'>
+                Use our advanced search tool to find your perfect home
+              </p>
+            </div>
+            <div className='bg-gray-50 rounded-2xl p-8'>
+              <RealScoutSearch />
+            </div>
           </div>
         </div>
       </section>
@@ -137,20 +157,7 @@ export default function BuyingPage() {
                 href='/buying/tips'
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
-                Learn More
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+                Learn More →
               </Link>
             </div>
 
@@ -182,20 +189,7 @@ export default function BuyingPage() {
                 href='/buying/finance'
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
-                Learn More
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+                Learn More →
               </Link>
             </div>
 
@@ -227,20 +221,7 @@ export default function BuyingPage() {
                 href='/buying/updates'
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
-                Learn More
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+                Learn More →
               </Link>
             </div>
 
@@ -266,20 +247,7 @@ export default function BuyingPage() {
                 href='/buying/guide'
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
-                Learn More
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+                Learn More →
               </Link>
             </div>
 
@@ -305,20 +273,7 @@ export default function BuyingPage() {
                 href='/listings/search'
                 className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
               >
-                Search Properties
-                <svg
-                  className='w-4 h-4 ml-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M9 5l7 7-7 7'
-                  />
-                </svg>
+                Search Properties →
               </Link>
             </div>
 
@@ -363,20 +318,7 @@ export default function BuyingPage() {
                   href='/contact'
                   className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
                 >
-                  Get Started
-                  <svg
-                    className='w-4 h-4 ml-2'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M9 5l7 7-7 7'
-                    />
-                  </svg>
+                  Get Started →
                 </Link>
               </div>
             </div>
@@ -501,7 +443,7 @@ export default function BuyingPage() {
             Ready to Find Your Dream Home?
           </h2>
           <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
-            Let Dr. Janet Duffy guide you through the home buying process with
+            Let Dr. Jan Duffy guide you through the home buying process with
             personalized service and expert market knowledge.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>

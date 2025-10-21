@@ -1,0 +1,42 @@
+'use client';
+
+export function SummerlinListings() {
+  return (
+    <section className='py-20 bg-white'>
+      <div className='container'>
+        <div className='text-center mb-16'>
+          <h2 className='text-4xl font-bold text-gray-900 mb-4'>
+            Summerlin Properties for Sale
+          </h2>
+          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            Discover exceptional homes in Summerlin with Dr. Jan Duffy, the Premier Good To Know REALTOR&reg;
+          </p>
+        </div>
+
+        {/* RealScout Widget - Summerlin Filtered */}
+        <div className='max-w-7xl mx-auto overflow-x-hidden'>
+          <realscout-office-listings
+            agent-encoded-id='QWdlbnQtMjI1MDUw'
+            sort-order='PRICE_LOW'
+            listing-status='For Sale'
+            property-types=',SFR'
+            price-min='400000'
+            price-max=''
+            className='w-full'
+          ></realscout-office-listings>
+        </div>
+
+        {/* Additional CTA */}
+        <div className='text-center mt-12'>
+          <a
+            href='/contact'
+            className='inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg'
+          >
+            Schedule Summerlin Tour
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+

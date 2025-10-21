@@ -1,5 +1,7 @@
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@/app/globals.css';
 
@@ -7,7 +9,8 @@ import { Navigation } from '@/components/Globals/Navigation/Navigation';
 import { Footer } from '@/components/Globals/Footer/Footer';
 import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
 import { ScreenReaderAnnouncementsProvider } from '@/components/ui/ScreenReaderAnnouncements';
-import { SEO_CONFIG, generateRealEstateAgentSchema, generateLocalBusinessSchema } from '@/lib/seo';
+import { WebVitalsMonitor } from '@/components/WebVitalsMonitor';
+import { SEO_CONFIG, generateRealEstateAgentSchema, generateLocalBusinessSchema, generateWebSiteSchema, generateSiteNavigationElementSchema } from '@/lib/seo';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -60,7 +63,10 @@ export const metadata: Metadata = {
     canonical: SEO_CONFIG.siteUrl,
   },
   verification: {
-    google: 'your-google-verification-code', // Add your actual Google verification code
+    google: process.env.GOOGLE_SITE_VERIFICATION || 'your-google-verification-code',
+    other: {
+      'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION || 'your-google-verification-code',
+    },
   },
 };
 
@@ -71,6 +77,8 @@ export default function RootLayout({
 }) {
   const realEstateAgentSchema = generateRealEstateAgentSchema();
   const localBusinessSchema = generateLocalBusinessSchema();
+  const webSiteSchema = generateWebSiteSchema();
+  const siteNavigationSchema = generateSiteNavigationElementSchema();
 
   return (
     <html lang='en' className='h-full'>
@@ -125,8 +133,85 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessSchema),
           }}
         />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webSiteSchema),
+          }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteNavigationSchema),
+          }}
+        />
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                    page_title: document.title,
+                    page_location: window.location.href,
+                    custom_map: {
+                      'custom_parameter_1': 'real_estate_agent',
+                      'custom_parameter_2': 'las_vegas'
+                    }
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
+
+        {/* Google Tag Manager */}
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
+              `,
+            }}
+          />
+        )}
+
+        {/* SVG Loading Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('svg').forEach(svg => {
+                  svg.classList.add('loaded');
+                });
+              });
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.className} h-full flex flex-col`}>
+        {/* Google Tag Manager (noscript) */}
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
         <ScreenReaderAnnouncementsProvider>
           {/* Skip Navigation Links */}
           <a 
@@ -145,6 +230,9 @@ export default function RootLayout({
         <main id="main-content" className='flex-1'>{children}</main>
         <Footer />
         <MobileStickyCTA />
+        <WebVitalsMonitor />
+        <Analytics />
+        <SpeedInsights />
         </ScreenReaderAnnouncementsProvider>
       </body>
     </html>

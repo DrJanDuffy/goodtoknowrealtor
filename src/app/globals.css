@@ -6,6 +6,49 @@
   box-sizing: border-box;
 }
 
+/* SVG Optimization and FOUC Prevention */
+svg {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+svg.loaded {
+  opacity: 1;
+}
+
+/* External SVG files optimization */
+img[src$=".svg"] {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Inline SVG container fixes */
+.svg-container {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Ensure WebP images are responsive */
+picture img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fix for SVG sizing in flex/grid containers */
+.flex-container svg,
+.grid-container svg {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
 html {
   font-family: system-ui, sans-serif;
   line-height: 1.6;

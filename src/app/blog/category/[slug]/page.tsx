@@ -239,7 +239,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                         className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
                       >
                         Read More
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </Link>
@@ -317,7 +317,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="tel:702-222-1964"
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               📞 Call (702) 222-1964
             </Link>

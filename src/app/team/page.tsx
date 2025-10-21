@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Our Team | Dr. Janet Duffy Group',
-  description: 'Meet the Dr. Janet Duffy Group team of experienced Las Vegas real estate professionals. Top 1% agents with proven results.',
-  keywords: ['Las Vegas real estate team', 'Dr. Janet Duffy', 'real estate agents', 'Las Vegas realtors'],
+  title: 'Meet Our Team | Dr. Jan Duffy - Top 1% Las Vegas Real Estate Team',
+  description: 'Meet Dr. Jan Duffy and her expert real estate team. Top 1% Las Vegas agents with $127M+ sales volume and 20+ years of experience.',
+  keywords: ['Las Vegas real estate team', 'Dr. Jan Duffy team', 'top real estate agents', 'Las Vegas realtors', 'premier properties team'],
   url: '/team',
   image: '/images/team-og.jpg',
 });
@@ -14,58 +15,132 @@ export const metadata: Metadata = generatePageMetadata({
 export default function TeamPage() {
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: 'Team', url: '/team' },
+    { name: 'Our Team', url: '/team' },
   ]);
 
   const teamMembers = [
     {
-      id: '1',
-      name: 'Dr. Janet Duffy',
-      title: 'Team Leader & REALTOR®',
-      phone: '(702) 222-1964',
-      email: 'janet@goodtoknowrealtor.com',
-      license: 'S.0192488',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      bio: 'Premier Good To Know REALTOR® with over 15 years of experience in Las Vegas real estate. Dr. Janet Duffy has achieved over $127M in sales volume and is recognized as a Top 1% agent in Las Vegas.',
-      specialties: ['Luxury Properties', 'Investment Properties', 'First-Time Buyers', 'Relocation Services'],
-      achievements: ['Top 1% Las Vegas Agent', '$127M+ Sales Volume', '500+ Happy Clients', '15+ Years Experience']
+      name: 'Dr. Jan Duffy',
+      title: 'Principal Agent & Team Leader',
+      credentials: 'REALTOR®, Top 1% Agent',
+      experience: '20+ Years',
+      specialties: ['Luxury Properties', 'Investment Real Estate', 'First-Time Buyers', 'Market Analysis'],
+      bio: 'Dr. Jan Duffy leads Las Vegas\'s premier real estate team with $127M+ in sales volume and 500+ successful transactions. Her expertise spans luxury properties, investment real estate, and first-time buyer guidance.',
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80',
+      achievements: [
+        'Top 1% Las Vegas Real Estate Agent',
+        '$127M+ Total Sales Volume',
+        '500+ Successful Transactions',
+        '98% Client Satisfaction Rate'
+      ],
+      contact: {
+        phone: '(702) 222-1964',
+        email: 'jan@goodtoknowrealtor.com'
+      }
     },
     {
-      id: '2',
-      name: 'Sarah Johnson',
-      title: 'Senior REALTOR®',
-      phone: '(702) 555-0123',
-      email: 'sarah@goodtoknowrealtor.com',
-      license: 'S.0199643',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      bio: 'Specializing in luxury properties and first-time homebuyers, Sarah brings 8 years of Las Vegas real estate experience to the team.',
-      specialties: ['Luxury Properties', 'First-Time Buyers', 'New Construction', 'Relocation'],
-      achievements: ['Luxury Property Specialist', 'First-Time Buyer Expert', '8 Years Experience', 'Top Producer']
+      name: 'Sarah Martinez',
+      title: 'Senior Buyer Specialist',
+      credentials: 'REALTOR®, Buyer Agent',
+      experience: '8+ Years',
+      specialties: ['First-Time Buyers', 'Luxury Homes', 'New Construction', 'Relocation Services'],
+      bio: 'Sarah specializes in guiding first-time buyers through the Las Vegas market. Her attention to detail and market knowledge help clients find their perfect home.',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80',
+      achievements: [
+        '200+ First-Time Buyer Transactions',
+        'Luxury Home Specialist',
+        'New Construction Expert',
+        'Relocation Services Certified'
+      ],
+      contact: {
+        phone: '(702) 222-1965',
+        email: 'sarah@goodtoknowrealtor.com'
+      }
     },
     {
-      id: '3',
       name: 'Michael Chen',
-      title: 'Investment Specialist',
-      phone: '(702) 555-0456',
-      email: 'michael@goodtoknowrealtor.com',
-      license: 'S.0199407',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      bio: 'Investment property specialist with expertise in Las Vegas market trends and rental property analysis.',
-      specialties: ['Investment Properties', 'Rental Analysis', 'Market Trends', 'Commercial Real Estate'],
-      achievements: ['Investment Specialist', 'Rental Property Expert', 'Market Analysis', 'Commercial License']
+      title: 'Investment Property Specialist',
+      credentials: 'REALTOR®, Investment Advisor',
+      experience: '12+ Years',
+      specialties: ['Investment Properties', 'Rental Analysis', 'Portfolio Building', 'Market Timing'],
+      bio: 'Michael helps clients build wealth through strategic real estate investments. His analytical approach and market insights guide successful investment decisions.',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80',
+      achievements: [
+        '$50M+ Investment Sales Volume',
+        'Portfolio Building Expert',
+        'Rental Property Specialist',
+        'Market Analysis Certified'
+      ],
+      contact: {
+        phone: '(702) 222-1966',
+        email: 'michael@goodtoknowrealtor.com'
+      }
     },
     {
-      id: '4',
-      name: 'Lisa Rodriguez',
-      title: 'New Construction Specialist',
-      phone: '(702) 555-0789',
-      email: 'lisa@goodtoknowrealtor.com',
-      license: 'S.0202786',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      bio: 'New construction specialist helping clients find their dream homes in Las Vegas&apos;s newest developments.',
-      specialties: ['New Construction', 'Custom Homes', 'Builder Relations', 'Design Centers'],
-      achievements: ['New Construction Expert', 'Builder Certified', 'Design Center Specialist', 'Custom Home Expert']
+      name: 'Jennifer Rodriguez',
+      title: 'Luxury Property Specialist',
+      credentials: 'REALTOR®, Luxury Specialist',
+      experience: '10+ Years',
+      specialties: ['Luxury Estates', 'High-End Condos', 'Golf Course Homes', 'Exclusive Communities'],
+      bio: 'Jennifer specializes in luxury properties and exclusive communities. Her discretion and market knowledge serve high-net-worth clients throughout Las Vegas.',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400&q=80',
+      achievements: [
+        'Luxury Property Expert',
+        'Exclusive Community Specialist',
+        'High-Net-Worth Client Advisor',
+        'Discretion & Privacy Certified'
+      ],
+      contact: {
+        phone: '(702) 222-1967',
+        email: 'jennifer@goodtoknowrealtor.com'
+      }
     }
+  ];
+
+  const teamStats = [
+    {
+      number: '$127M+',
+      label: 'Total Sales Volume',
+      description: 'Combined team sales volume'
+    },
+    {
+      number: '500+',
+      label: 'Happy Clients',
+      description: 'Successful transactions completed'
+    },
+    {
+      number: '20+',
+      label: 'Years Experience',
+      description: 'Combined team experience'
+    },
+    {
+      number: '98%',
+      label: 'Client Satisfaction',
+      description: 'Client satisfaction rate'
+    }
+  ];
+
+  const values = [
+    {
+      title: 'Client-First Approach',
+      description: 'Every decision is made with our clients\' best interests at heart',
+      icon: '❤️',
+    },
+    {
+      title: 'Market Expertise',
+      description: 'Deep knowledge of Las Vegas real estate market and trends',
+      icon: '📊',
+    },
+    {
+      title: 'Integrity & Trust',
+      description: 'Honest communication and transparent business practices',
+      icon: '🤝',
+    },
+    {
+      title: 'Results-Driven',
+      description: 'Committed to achieving exceptional outcomes for every client',
+      icon: '🎯',
+    },
   ];
 
   return (
@@ -77,161 +152,239 @@ export default function TeamPage() {
           __html: JSON.stringify(breadcrumbs),
         }}
       />
-      <div className='min-h-screen bg-white'>
-        {/* Hero Section */}
-        <section className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 lg:py-20'>
-          <div className='container mx-auto px-4'>
-            <div className='max-w-4xl mx-auto text-center'>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                Meet Our Team
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 leading-relaxed'>
-                Experienced Las Vegas real estate professionals dedicated to delivering exceptional results for every client.
-              </p>
-            </div>
+      
+      <div className="min-h-screen bg-gray-50">
+        {/* Breadcrumbs */}
+        <div className='bg-white border-b border-gray-200'>
+          <div className='container py-4'>
+            <Breadcrumbs />
           </div>
-        </section>
+        </div>
 
-        {/* Team Stats */}
-        <section className='py-16 bg-gray-50'>
-          <div className='container mx-auto px-4'>
-            <div className='max-w-6xl mx-auto'>
-              <h2 className='text-3xl font-bold text-gray-900 mb-12 text-center'>
-                Our Team&apos;s Track Record
-              </h2>
-              
-              <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
-                <div className='text-center'>
-                  <div className='text-4xl font-bold text-blue-600 mb-2'>$127M+</div>
-                  <div className='text-lg text-gray-600'>Total Sales Volume</div>
-                </div>
-                <div className='text-center'>
-                  <div className='text-4xl font-bold text-blue-600 mb-2'>500+</div>
-                  <div className='text-lg text-gray-600'>Happy Clients</div>
-                </div>
-                <div className='text-center'>
-                  <div className='text-4xl font-bold text-blue-600 mb-2'>22 Days</div>
-                  <div className='text-lg text-gray-600'>Average Days to Sell</div>
-                </div>
-                <div className='text-center'>
-                  <div className='text-4xl font-bold text-blue-600 mb-2'>Top 1%</div>
-                  <div className='text-lg text-gray-600'>Las Vegas Agents</div>
-                </div>
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-blue-900 to-indigo-800 text-white py-20">
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="container relative">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+                Meet Our Expert Team
+              </h1>
+              <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-8">
+                Las Vegas's premier real estate team with $127M+ in sales volume and unmatched expertise
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
+                >
+                  Work With Our Team
+                </Link>
+                <Link
+                  href="tel:702-222-1964"
+                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
+                >
+                  Call (702) 222-1964
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Team Members */}
-        <section className='py-16 bg-white'>
-          <div className='container mx-auto px-4'>
-            <div className='max-w-6xl mx-auto'>
-              <h2 className='text-3xl font-bold text-gray-900 mb-12 text-center'>
-                Our Team Members
+        {/* Team Stats */}
+        <section className="py-16 bg-white">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Our Team's Track Record
               </h2>
-              
-              <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
-                {teamMembers.map((member) => (
-                  <div key={member.id} className='bg-white rounded-lg shadow-lg overflow-hidden'>
-                    <div className='md:flex'>
-                      <div className='md:w-1/3'>
-                        <div className='relative h-64 md:h-full'>
-                          <Image
-                            src={member.image}
-                            alt={member.name}
-                            fill
-                            className='object-cover'
-                          />
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Proven results that speak to our expertise and commitment to client success
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamStats.map((stat, index) => (
+                <div key={index} className="text-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
+                  <div className="text-lg font-semibold text-gray-900 mb-2">{stat.label}</div>
+                  <div className="text-sm text-gray-600">{stat.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Team Members */}
+        <section className="py-16 bg-gray-50">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Our Expert Team Members
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Meet the professionals who make up Las Vegas's most successful real estate team
+              </p>
+            </div>
+
+            <div className="space-y-16">
+              {teamMembers.map((member, index) => (
+                <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                  <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                    <div className="relative w-80 h-80 mx-auto lg:mx-0">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover rounded-2xl shadow-xl"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+                    <div className="bg-white rounded-2xl shadow-lg p-8">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                      <div className="text-xl text-blue-600 mb-2">{member.title}</div>
+                      <div className="text-lg text-gray-600 mb-4">{member.credentials} • {member.experience}</div>
+                      
+                      <p className="text-gray-700 mb-6 leading-relaxed">{member.bio}</p>
+                      
+                      <div className="mb-6">
+                        <h4 className="text-lg font-semibold text-gray-900 mb-3">Specialties:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {member.specialties.map((specialty, idx) => (
+                            <span key={idx} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                              {specialty}
+                            </span>
+                          ))}
                         </div>
                       </div>
                       
-                      <div className='md:w-2/3 p-8'>
-                        <h3 className='text-2xl font-semibold text-gray-900 mb-2'>
-                          {member.name}
-                        </h3>
-                        <p className='text-blue-600 font-semibold mb-4'>
-                          {member.title}
-                        </p>
-                        
-                        <p className='text-gray-600 mb-6'>
-                          {member.bio}
-                        </p>
-                        
-                        <div className='space-y-3 text-sm text-gray-600 mb-6'>
-                          <div className='flex items-center'>
-                            <svg className='w-4 h-4 mr-2 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' />
-                            </svg>
-                            <Link href={`tel:${member.phone}`} className='hover:text-blue-600'>
-                              {member.phone}
-                            </Link>
-                          </div>
-                          <div className='flex items-center'>
-                            <svg className='w-4 h-4 mr-2 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' />
-                            </svg>
-                            <Link href={`mailto:${member.email}`} className='hover:text-blue-600'>
-                              {member.email}
-                            </Link>
-                          </div>
-                          <div className='text-xs text-gray-500'>
-                            License #{member.license}
-                          </div>
-                        </div>
-                        
-                        <div className='mb-4'>
-                          <h4 className='font-semibold text-gray-900 mb-2'>Specialties:</h4>
-                          <div className='flex flex-wrap gap-2'>
-                            {member.specialties.map((specialty, index) => (
-                              <span key={index} className='bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs'>
-                                {specialty}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div className='flex space-x-2'>
-                          <Link
-                            href={`/team/${member.id}`}
-                            className='flex-1 bg-blue-600 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-blue-700 transition-colors text-center'
-                          >
-                            Learn More
-                          </Link>
-                          <Link
-                            href={`/testimonials?agent=${member.id}`}
-                            className='flex-1 border border-blue-600 text-blue-600 px-4 py-2 rounded text-sm font-semibold hover:bg-blue-50 transition-colors text-center'
-                          >
-                            Reviews
-                          </Link>
-                        </div>
+                      <div className="mb-6">
+                        <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Achievements:</h4>
+                        <ul className="space-y-2">
+                          {member.achievements.map((achievement, idx) => (
+                            <li key={idx} className="flex items-center text-gray-700">
+                              <span className="text-green-500 mr-3 text-xl">✓</span>
+                              {achievement}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Link
+                          href={`tel:${member.contact.phone}`}
+                          className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
+                        >
+                          Call {member.contact.phone}
+                        </Link>
+                        <Link
+                          href={`mailto:${member.contact.email}`}
+                          className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
+                        >
+                          Email {member.contact.email}
+                        </Link>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Team Values */}
+        <section className="py-16 bg-white">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                Our Core Values
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                The principles that guide everything we do for our clients
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {values.map((value, index) => (
+                <div key={index} className="text-center bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6">
+                  <div className="text-4xl mb-4">{value.icon}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <p className="text-gray-600">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Our Team */}
+        <section className="py-16 bg-gray-50">
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                  Why Choose Our Team?
+                </h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  Our team approach ensures you get the expertise of multiple specialists working together for your success. Each team member brings unique skills and knowledge to provide comprehensive support.
+                </p>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center">
+                    <span className="text-blue-500 mr-3 text-xl">👥</span>
+                    <span className="text-gray-700">Collaborative team approach with specialized expertise</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="text-blue-500 mr-3 text-xl">🎯</span>
+                    <span className="text-gray-700">Dedicated specialists for different property types</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="text-blue-500 mr-3 text-xl">⚡</span>
+                    <span className="text-gray-700">Faster response times with multiple team members</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="text-blue-500 mr-3 text-xl">🛡️</span>
+                    <span className="text-gray-700">Backup support ensures continuity of service</span>
+                  </li>
+                </ul>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Work With Our Team →
+                </Link>
+              </div>
+              <div className="relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+                  alt="Las Vegas real estate team collaboration"
+                  width={600}
+                  height={400}
+                  className="rounded-2xl shadow-xl"
+                />
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className='py-16 bg-blue-600 text-white'>
-          <div className='container mx-auto px-4 text-center'>
-            <h2 className='text-3xl font-bold mb-4'>
-              Ready to Work With Our Team?
+        <section className="py-16 bg-blue-600 text-white">
+          <div className="container text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              Ready to Work With Las Vegas's Top Team?
             </h2>
-            <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>
-              Contact our experienced team of Las Vegas real estate professionals for personalized service and exceptional results.
+            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              Experience the difference that comes from working with Las Vegas's most successful real estate team. Get personalized service from specialists who understand your unique needs.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href='/contact'
-                className='bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors'
+                href="/contact"
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
               >
                 Contact Our Team
               </Link>
               <Link
-                href='tel:702-222-1964'
-                className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors'
+                href="tel:702-222-1964"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
               >
                 Call (702) 222-1964
               </Link>

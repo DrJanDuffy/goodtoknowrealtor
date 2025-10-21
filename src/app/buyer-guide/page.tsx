@@ -167,7 +167,7 @@ export default function BuyerGuidePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="tel:702-222-1964" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               Call (702) 222-1964
             </a>

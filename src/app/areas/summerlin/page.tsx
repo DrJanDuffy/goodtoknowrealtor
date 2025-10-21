@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
+import { SummerlinListings } from '@/components/Home/SummerlinListings';
 
 // Declare RealScout custom elements
 declare global {
@@ -12,12 +13,12 @@ declare global {
 }
 
 export const metadata: Metadata = {
-  title: 'Summerlin Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-  description: 'Find your dream home in Summerlin, Las Vegas. Premier Good To Know REALTOR® Dr. Janet Duffy specializes in Summerlin luxury homes, condos, and investment properties.',
-  keywords: 'Summerlin real estate, Summerlin homes for sale, Summerlin luxury homes, Las Vegas real estate, Dr. Janet Duffy',
+  title: 'Summerlin Real Estate | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+  description: 'Find your dream home in Summerlin, Las Vegas. Premier Good To Know REALTOR® Dr. Jan Duffy specializes in Summerlin luxury homes, condos, and investment properties.',
+  keywords: 'Summerlin real estate, Summerlin homes for sale, Summerlin luxury homes, Las Vegas real estate, Dr. Jan Duffy',
   openGraph: {
-    title: 'Summerlin Real Estate | Dr. Janet Duffy',
-    description: 'Find your dream home in Summerlin, Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy.',
+    title: 'Summerlin Real Estate | Dr. Jan Duffy',
+    description: 'Find your dream home in Summerlin, Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/summerlin-real-estate-og.jpg'],
   },
 };
@@ -39,7 +40,7 @@ export default function SummerlinPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/listings?area=summerlin" 
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 View Summerlin Listings
               </a>
@@ -89,27 +90,19 @@ export default function SummerlinPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Master-planned community with 22,000+ acres</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Top-rated schools and family-friendly amenities</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Golf courses, parks, and recreational facilities</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <span className="text-green-500 mr-3 text-xl">✓</span>
                   <span className="text-gray-700">Luxury homes with mountain and city views</span>
                 </li>
               </ul>
@@ -160,6 +153,9 @@ export default function SummerlinPage() {
         </div>
       </section>
 
+      {/* Summerlin Listings */}
+      <SummerlinListings />
+
       {/* CTA Section */}
       <section className="py-20 bg-blue-600 text-white">
         <div className="container text-center">
@@ -167,14 +163,14 @@ export default function SummerlinPage() {
             Ready to Find Your Summerlin Home?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let Dr. Janet Duffy help you find your perfect home in Summerlin. With $127M+ 
+            Let Dr. Jan Duffy help you find your perfect home in Summerlin. With $127M+ 
             in sales volume and deep knowledge of luxury communities, I&apos;ll guide you 
             every step of the way to your dream property.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="tel:702-222-1964" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               Call (702) 222-1964
             </a>

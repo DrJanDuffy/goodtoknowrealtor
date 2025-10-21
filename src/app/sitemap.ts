@@ -1,16 +1,37 @@
 import { MetadataRoute } from 'next';
+import { getPostsWithCache } from '@/lib/blog/cache';
+import { blogCategories } from '@/lib/blog-categories';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.goodtoknowrealtor.com';
   const currentDate = new Date().toISOString();
+  
+  // Get blog posts for dynamic sitemap generation
+  const posts = await getPostsWithCache();
+  
+  // Generate blog post URLs with proper lastModified dates
+  const blogPostUrls = posts.map(post => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.dateModified || post.date || currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }));
+
+  // Generate blog category URLs
+  const blogCategoryUrls = blogCategories.map(category => ({
+    url: `${baseUrl}/blog/category/${category.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
 
   return [
-    // Main Pages
+    // Main Pages - Core Business Pages
     {
       url: baseUrl,
       lastModified: currentDate,
       changeFrequency: 'daily',
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
@@ -24,8 +45,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/team`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
 
-    // Services Pages
+    // Core Service Pages - High Priority
     {
       url: `${baseUrl}/buying`,
       lastModified: currentDate,
@@ -44,6 +71,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+
+    // Specialized Services
     {
       url: `${baseUrl}/luxury`,
       lastModified: currentDate,
@@ -60,13 +89,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/home-value`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/cash-offer`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/why-list-with-us`,
@@ -75,18 +104,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
 
-    // Las Vegas Area Pages
+    // Property Listings
+    {
+      url: `${baseUrl}/listings`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/sold-listings`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.7,
+    },
+
+    // Las Vegas Area Pages - Geographic Targeting
     {
       url: `${baseUrl}/areas/summerlin`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/areas/henderson`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/areas/north-las-vegas`,
@@ -106,95 +149,68 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
-
-    // Resource Pages
     {
-      url: `${baseUrl}/reports`,
+      url: `${baseUrl}/communities`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/listings`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
       priority: 0.8,
     },
+
+    // Educational Content & Guides
     {
       url: `${baseUrl}/buyer-guide`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/seller-guide`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/first-time-buyer-challenges`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
-        {
-          url: `${baseUrl}/first-time-buyer-challenges`,
-          lastModified: currentDate,
-          changeFrequency: 'monthly',
-          priority: 0.8,
-        },
-        {
-          url: `${baseUrl}/assessments/buyer-readiness`,
-          lastModified: currentDate,
-          changeFrequency: 'weekly',
-          priority: 0.9,
-        },
-        {
-          url: `${baseUrl}/assessments/seller-readiness`,
-          lastModified: currentDate,
-          changeFrequency: 'weekly',
-          priority: 0.9,
-        },
-        // Blog Categories
-        {
-          url: `${baseUrl}/blog/category/buyer-advice`,
-          lastModified: currentDate,
-          changeFrequency: 'weekly',
-          priority: 0.8,
-        },
-        {
-          url: `${baseUrl}/blog/category/seller-advice`,
-          lastModified: currentDate,
-          changeFrequency: 'weekly',
-          priority: 0.8,
-        },
-        {
-          url: `${baseUrl}/blog/category/home-improvement`,
-          lastModified: currentDate,
-          changeFrequency: 'weekly',
-          priority: 0.7,
-        },
-        {
-          url: `${baseUrl}/blog/category/finance`,
-          lastModified: currentDate,
-          changeFrequency: 'weekly',
-          priority: 0.8,
-        },
-        {
-          url: `${baseUrl}/blog/category/lifestyle`,
-          lastModified: currentDate,
-          changeFrequency: 'weekly',
-          priority: 0.7,
-        },
-        {
-          url: `${baseUrl}/blog/category/market-updates`,
-          lastModified: currentDate,
-          changeFrequency: 'daily',
-          priority: 0.9,
-        },
+
+    // Assessment Tools - High Conversion Pages
     {
-      url: `${baseUrl}/communities`,
+      url: `${baseUrl}/assessments/buyer-readiness`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/assessments/seller-readiness`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+
+    // Content & Resources
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/market-insights`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/market-insights/full`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/reports`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.7,
@@ -206,37 +222,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/market-insights`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/interactive-features`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
       url: `${baseUrl}/testimonials`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/team`,
+      url: `${baseUrl}/interactive-features`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/sold-listings`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
 
-    // Legal Pages
+    // Blog Categories - Dynamic from blogCategories
+    ...blogCategoryUrls,
+
+    // Blog Posts - Dynamic from CMS
+    ...blogPostUrls,
+
+    // Legal & Compliance Pages
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: currentDate,
