@@ -6,67 +6,68 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackMenuClick } from '@/lib/analytics';
 
-// Define menu structure with engaging, action-oriented labels (no emojis for better formatting)
+// Define menu structure with traditional real estate navigation
 const menuItems = [
   {
-    label: 'Find My Home',
+    label: 'Buy',
     href: '/buying',
     hasDropdown: true,
     children: [
-      { label: 'Am I Ready to Buy?', href: '/assessments/buyer-readiness' },
-      { label: 'Search Vegas Homes', href: '/listings' },
-      { label: 'First-Time Buyer Guide', href: '/buyer-guide' },
-      { label: 'Common Buyer Mistakes', href: '/first-time-buyer-challenges' },
-      { label: 'Complete Buying Process', href: '/buying' },
+      { label: 'Search Homes', href: '/listings' },
+      { label: 'Buyer Guide', href: '/buyer-guide' },
+      { label: 'Areas', href: '/communities' },
+      { label: 'Financing', href: '/contact' },
     ],
   },
   {
-    label: 'Sell My Home',
+    label: 'Sell',
     href: '/selling',
     hasDropdown: true,
     children: [
-      { label: 'Get Cash Offer', href: '/cash-offer' },
-      { label: 'What\'s My Home Worth?', href: '/home-value' },
-      { label: 'Am I Ready to Sell?', href: '/assessments/seller-readiness' },
-      { label: 'Why Choose Dr. Duffy?', href: '/why-list-with-us' },
-      { label: 'Complete Selling Process', href: '/selling' },
+      { label: 'Home Value', href: '/home-value' },
+      { label: 'Seller Guide', href: '/seller-guide' },
+      { label: 'Why List With Us', href: '/why-list-with-us' },
+      { label: 'Cash Offer', href: '/cash-offer' },
     ],
   },
   {
-    label: 'Vegas Areas',
+    label: 'Areas',
     href: '/communities',
     hasDropdown: true,
     children: [
-      { label: 'Downtown Las Vegas', href: '/areas/downtown' },
       { label: 'Summerlin', href: '/areas/summerlin' },
       { label: 'Henderson', href: '/areas/henderson' },
       { label: 'North Las Vegas', href: '/areas/north-las-vegas' },
+      { label: 'Downtown', href: '/areas/downtown' },
       { label: 'Green Valley', href: '/areas/green-valley' },
-      { label: 'All Vegas Areas', href: '/communities' },
     ],
   },
   {
-    label: 'Market News',
-    href: '/blog',
-    hasDropdown: false,
-  },
-  {
-    label: 'Get Started',
-    href: '/contact',
-    hasDropdown: false,
+    label: 'Services',
+    href: '/services',
+    hasDropdown: true,
+    children: [
+      { label: 'Luxury Homes', href: '/luxury' },
+      { label: 'Investment Properties', href: '/investing' },
+      { label: 'Market Reports', href: '/reports' },
+      { label: 'Testimonials', href: '/testimonials' },
+    ],
   },
   {
     label: 'About',
-    href: '#',
+    href: '/about',
     hasDropdown: true,
     children: [
-      { label: 'Client Success Stories', href: '/testimonials' },
-      { label: 'Meet Dr. Jan Duffy', href: '/team' },
+      { label: 'Meet Dr. Jan Duffy', href: '/about' },
       { label: 'Recent Sales', href: '/sold-listings' },
-      { label: 'Market Insights', href: '/market-insights' },
-      { label: 'Our Services', href: '/services' },
-      { label: 'Resources', href: '/resources' },
+      { label: 'Client Reviews', href: '/testimonials' },
+      { label: 'Contact', href: '/contact' },
     ],
+  },
+  {
+    label: 'Blog',
+    href: '/blog',
+    hasDropdown: false,
   },
 ];
 
@@ -173,9 +174,9 @@ export function Navigation() {
             <div className='hidden md:flex items-center ml-4'>
               <Link
                 href='/contact'
-                className='bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm whitespace-nowrap'
+                className='bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 transition-colors text-sm whitespace-nowrap'
               >
-                Get Started
+                Contact Us
               </Link>
             </div>
 
@@ -247,10 +248,10 @@ export function Navigation() {
                 <div className='pt-4 border-t border-gray-200'>
                   <Link
                     href='/contact'
-                    className='block w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-3 rounded-lg font-semibold text-center hover:from-green-600 hover:to-emerald-700 transition-all duration-300'
+                    className='block w-full bg-blue-600 text-white px-4 py-3 rounded font-semibold text-center hover:bg-blue-700 transition-colors'
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Get Started
+                    Contact Us
                   </Link>
                 </div>
               </div>
