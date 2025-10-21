@@ -1,10 +1,18 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { FallbackSearch } from './FallbackSearch';
 
 export function RealScoutSimpleSearch() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const retryLoad = () => {
+    setHasError(false);
+    setRetryCount(prev => prev + 1);
+    setIsLoaded(false);
+  };
 
   useEffect(() => {
     // Check if RealScout script is loaded
@@ -30,32 +38,46 @@ export function RealScoutSimpleSearch() {
       }
     }, 100);
 
-    // Timeout after 10 seconds
+    // Timeout after 15 seconds (increased from 10)
     const timeout = setTimeout(() => {
       clearInterval(interval);
       if (!checkRealScoutLoaded()) {
+        console.warn('RealScout script failed to load within timeout');
         setHasError(true);
       }
-    }, 10000);
+    }, 15000);
 
     return () => {
       clearInterval(interval);
       clearTimeout(timeout);
     };
-  }, []);
+  }, [retryCount]);
 
   if (hasError) {
+    // After 2 retries, show fallback search
+    if (retryCount >= 2) {
+      return <FallbackSearch />;
+    }
+    
     return (
       <div className="w-full max-w-2xl mx-auto">
         <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
           <h3 className="text-lg font-semibold text-red-800 mb-2">Search Temporarily Unavailable</h3>
           <p className="text-red-600 mb-4">We're experiencing technical difficulties with our search tool.</p>
-          <a 
-            href="/listings" 
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
-            Browse All Properties
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button 
+              onClick={retryLoad}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Try Again ({retryCount}/2)
+            </button>
+            <a 
+              href="/listings" 
+              className="bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
+            >
+              Browse All Properties
+            </a>
+          </div>
         </div>
       </div>
     );
