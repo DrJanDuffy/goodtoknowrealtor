@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 
 import '@/app/globals.css';
@@ -8,8 +7,6 @@ import { Footer } from '@/components/Globals/Footer/Footer';
 import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
 import { ScreenReaderAnnouncementsProvider } from '@/components/ui/ScreenReaderAnnouncements';
 import { SEO_CONFIG, generateRealEstateAgentSchema, generateLocalBusinessSchema } from '@/lib/seo';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SEO_CONFIG.siteUrl),
@@ -126,7 +123,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} h-full flex flex-col`}>
+      <body className="h-full flex flex-col" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
         <ScreenReaderAnnouncementsProvider>
           {/* Skip Navigation Links */}
           <a 
