@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 import { RealScoutListings } from '@/components/Home/RealScoutListings';
+import { PageHero } from '@/components/ui/PageHero';
 import { generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
 
 // Declare RealScout custom elements
@@ -96,20 +97,23 @@ export default function ListingsPage() {
       ))}
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-              Las Vegas Property Listings
-            </h1>
-            <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Discover exceptional homes in Las Vegas&apos;s most desirable
-              neighborhoods. From luxury estates to first-time buyer homes, find
-              your perfect property.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Las Vegas Property Listings'
+        subtitle={'Discover exceptional homes in Las Vegas\'s most desirable neighborhoods. From luxury estates to first-time buyer homes, find your perfect property.'}
+      >
+        <Link
+          href='/listings/search'
+          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+        >
+          Start Advanced Search
+        </Link>
+        <Link
+          href='/contact'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+        >
+          Get Help Finding Homes
+        </Link>
+      </PageHero>
 
       {/* RealScout Advanced Search Section */}
       <section className='py-20 bg-gradient-to-br from-blue-50 to-indigo-50'>

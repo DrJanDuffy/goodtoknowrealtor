@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Meet Our Team | Dr. Jan Duffy - Top 1% Las Vegas Real Estate Team',
@@ -162,33 +163,25 @@ export default function TeamPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-blue-900 to-indigo-800 text-white py-20">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Meet Our Expert Team
-              </h1>
-              <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-8">
-                Las Vegas's premier real estate team with $127M+ in sales volume and unmatched expertise
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
-                >
-                  Work With Our Team
-                </Link>
-                <Link
-                  href="tel:702-222-1964"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
-                >
-                  Call (702) 222-1964
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title="Meet Our Expert Team"
+          subtitle="Las Vegas's premier real estate team with $127M+ in sales volume and unmatched expertise"
+          gradientFromClassName='from-blue-900'
+          gradientToClassName='to-indigo-800'
+        >
+          <Link
+            href='/contact'
+            className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors'
+          >
+            Work With Our Team
+          </Link>
+          <Link
+            href='tel:702-222-1964'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors'
+          >
+            Call (702) 222-1964
+          </Link>
+        </PageHero>
 
         {/* Team Stats */}
         <section className="py-16 bg-white">

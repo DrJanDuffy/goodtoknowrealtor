@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
+import { PageHero } from '@/components/ui/PageHero';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 
 export default function BuyingPage() {
@@ -15,20 +16,23 @@ export default function BuyingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-              Buying Your Dream Home in Las Vegas
-            </h1>
-            <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Expert guidance from pre-approval to closing. Dr. Jan Duffy
-              helps you navigate the Las Vegas real estate market with
-              confidence.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Buying Your Dream Home in Las Vegas'
+        subtitle='Expert guidance from pre-approval to closing. Dr. Jan Duffy helps you navigate the Las Vegas real estate market with confidence.'
+      >
+        <Link
+          href='/listings'
+          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+        >
+          Start Your Home Search
+        </Link>
+        <Link
+          href='/buyer-guide'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+        >
+          View Buyer Guide
+        </Link>
+      </PageHero>
 
       {/* Property Search Widget */}
       <section className='py-16 bg-white'>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { MarketInsightsGrid } from '@/components/MarketInsights/MarketInsightsGrid';
 import { fetchMarketInsights } from '@/lib/rss-fetcher';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Real Estate Market Insights | Dr. Janet Duffy',
@@ -35,39 +36,23 @@ export default async function MarketInsightsPage() {
       
       <div className='min-h-screen bg-gray-50'>
         {/* Hero Section */}
-        <div className='bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white py-16 lg:py-20'>
-          <div className='container'>
-            <div className='text-center max-w-4xl mx-auto'>
-              <div className='mb-4'>
-                <span className='inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wide'>
-                  Dr. Janet Duffy - Good To Know REALTOR®
-                </span>
-              </div>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg'>
-                Las Vegas Real Estate
-                <span className='block text-blue-100'>Good To Know Market Insights</span>
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl mx-auto'>
-                Stay ahead of the market with data-driven insights, trends, and analysis 
-                from Dr. Janet Duffy, your Premier Good To Know REALTOR®
-              </p>
-              <div className='mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center'>
-                <Link
-                  href='tel:702-222-1964'
-                  className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
-                >
-                  📞 Call (702) 222-1964
-                </Link>
-                <Link
-                  href='/contact'
-                  className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
-                >
-                  Get Market Analysis
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHero
+          title={'Las Vegas Real Estate\nGood To Know Market Insights'}
+          subtitle={'Stay ahead with data-driven insights, trends, and analysis from Dr. Janet Duffy, your Premier Good To Know REALTOR®'}
+        >
+          <Link
+            href='tel:702-222-1964'
+            className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+          >
+            📞 Call (702) 222-1964
+          </Link>
+          <Link
+            href='/contact'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+          >
+            Get Market Analysis
+          </Link>
+        </PageHero>
 
         {/* Market Insights Content */}
         <div className='container py-12 lg:py-16'>

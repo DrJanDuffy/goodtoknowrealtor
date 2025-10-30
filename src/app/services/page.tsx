@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.services.title,
@@ -65,18 +66,10 @@ export default function ServicesPage() {
       />
       <div className='min-h-screen bg-gray-50'>
         {/* Hero Section */}
-        <section className='bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white py-16 lg:py-20'>
-          <div className='container mx-auto px-4'>
-            <div className='text-center max-w-4xl mx-auto'>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                Comprehensive Real Estate Services in Las Vegas
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 leading-relaxed'>
-                Dr. Jan Duffy delivers exceptional real estate solutions with $127M+ in sales volume and 20+ years of Las Vegas market expertise
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Comprehensive Real Estate Services in Las Vegas'
+          subtitle='Dr. Jan Duffy delivers exceptional real estate solutions with $127M+ in sales volume and 20+ years of Las Vegas market expertise'
+        />
 
         {/* Services Overview */}
         <section className='py-16 bg-white'>

@@ -1,3 +1,4 @@
+import { PageHero } from '@/components/ui/PageHero';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
@@ -27,33 +28,25 @@ export default function SummerlinPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80')] bg-cover bg-center opacity-20"></div>
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Summerlin Real Estate
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Discover luxury living in Summerlin, Las Vegas&apos;s premier master-planned community
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/listings?area=summerlin" 
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                View Summerlin Listings
-              </a>
-              <a 
-                href="/contact" 
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors"
-              >
-                Get Free Consultation
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Summerlin Real Estate'
+        subtitle="Discover luxury living in Summerlin, Las Vegas's premier master-planned community"
+        gradientFromClassName='from-blue-900'
+        gradientToClassName='to-blue-800'
+      >
+        <a 
+          href='/listings?area=summerlin' 
+          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+        >
+          View Summerlin Listings
+        </a>
+        <a 
+          href='/contact' 
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+        >
+          Get Free Consultation
+        </a>
+      </PageHero>
 
       {/* Property Search */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">

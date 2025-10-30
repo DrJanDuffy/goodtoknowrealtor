@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { LuxuryListings } from '@/components/Home/LuxuryListings';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Luxury Real Estate Las Vegas | Dr. Jan Duffy - Premier Luxury Agent',
@@ -106,33 +107,25 @@ export default function LuxuryPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Luxury Real Estate in Las Vegas
-              </h1>
-              <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-8">
-                Discover exceptional luxury properties with Dr. Jan Duffy, Top 1% Las Vegas agent specializing in high-end homes, estates, and exclusive communities
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
-                >
-                  Schedule Private Consultation
-                </Link>
-                <Link
-                  href="tel:702-222-1964"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
-                >
-                  Call (702) 222-1964
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Luxury Real Estate in Las Vegas'
+          subtitle='Discover exceptional luxury properties with Dr. Jan Duffy, Top 1% Las Vegas agent specializing in high-end homes, estates, and exclusive communities'
+          gradientFromClassName='from-blue-900'
+          gradientToClassName='to-blue-800'
+        >
+          <Link
+            href='/contact'
+            className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors'
+          >
+            Schedule Private Consultation
+          </Link>
+          <Link
+            href='tel:702-222-1964'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors'
+          >
+            Call (702) 222-1964
+          </Link>
+        </PageHero>
 
         {/* Why Choose Dr. Jan Duffy for Luxury */}
         <section className="py-16 bg-white">

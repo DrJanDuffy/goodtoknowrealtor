@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { InvestmentListings } from '@/components/Home/InvestmentListings';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Real Estate Investment | Dr. Jan Duffy - Investment Expert',
@@ -143,33 +144,25 @@ export default function InvestingPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-green-900 to-emerald-800 text-white py-20">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Las Vegas Real Estate Investment
-              </h1>
-              <p className="text-xl lg:text-2xl text-green-100 leading-relaxed mb-8">
-                Build wealth through strategic real estate investments with Dr. Jan Duffy, Top 1% Las Vegas agent with proven investment expertise
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="bg-white text-green-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors"
-                >
-                  Schedule Investment Consultation
-                </Link>
-                <Link
-                  href="tel:702-222-1964"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-800 transition-colors"
-                >
-                  Call (702) 222-1964
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Las Vegas Real Estate Investment'
+          subtitle='Build wealth through strategic real estate investments with Dr. Jan Duffy, Top 1% Las Vegas agent with proven investment expertise'
+          gradientFromClassName='from-green-900'
+          gradientToClassName='to-emerald-800'
+        >
+          <Link
+            href='/contact'
+            className='bg-white text-green-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors'
+          >
+            Schedule Investment Consultation
+          </Link>
+          <Link
+            href='tel:702-222-1964'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-800 transition-colors'
+          >
+            Call (702) 222-1964
+          </Link>
+        </PageHero>
 
         {/* Why Invest in Las Vegas */}
         <section className="py-16 bg-white">

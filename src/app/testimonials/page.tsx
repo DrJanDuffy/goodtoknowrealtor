@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Client Testimonials | Dr. Janet Duffy Group',
@@ -98,18 +99,10 @@ export default function TestimonialsPage() {
       />
       <div className='min-h-screen bg-white'>
         {/* Hero Section */}
-        <section className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 lg:py-20'>
-          <div className='container mx-auto px-4'>
-            <div className='max-w-4xl mx-auto text-center'>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                What Our Clients Say
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 leading-relaxed'>
-                Real testimonials from satisfied clients who chose Dr. Janet Duffy Group for their Las Vegas real estate needs.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='What Our Clients Say'
+          subtitle='Real testimonials from satisfied clients who chose Dr. Janet Duffy Group for their Las Vegas real estate needs.'
+        />
 
         {/* Stats Section */}
         <section className='py-16 bg-gray-50'>

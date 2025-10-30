@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.contact.title,
@@ -28,20 +29,10 @@ export default function ContactPage() {
       />
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 px-4'>
-              Contact Dr. Janet Duffy
-            </h1>
-            <p className='text-lg sm:text-xl lg:text-2xl text-amber-100 leading-relaxed px-4'>
-              Ready to start your Las Vegas real estate journey? I&apos;m here to
-              help you achieve your property goals with personalized service and
-              expert guidance.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Contact Dr. Janet Duffy'
+        subtitle={"Ready to start your Las Vegas real estate journey? I'm here to help you achieve your property goals with personalized service and expert guidance."}
+      />
 
       {/* Contact Methods */}
       <section className='py-20'>

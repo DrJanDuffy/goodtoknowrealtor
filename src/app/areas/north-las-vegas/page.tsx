@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PageHero } from '@/components/ui/PageHero';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -16,33 +17,25 @@ export default function NorthLasVegasPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80')] bg-cover bg-center opacity-20"></div>
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              North Las Vegas Real Estate
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Discover affordable living and new construction in North Las Vegas
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/listings?area=north-las-vegas" 
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                View North Las Vegas Listings
-              </a>
-              <a 
-                href="/contact" 
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors"
-              >
-                Get Free Consultation
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='North Las Vegas Real Estate'
+        subtitle='Discover affordable living and new construction in North Las Vegas'
+        gradientFromClassName='from-blue-900'
+        gradientToClassName='to-blue-800'
+      >
+        <a 
+          href='/listings?area=north-las-vegas' 
+          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+        >
+          View North Las Vegas Listings
+        </a>
+        <a 
+          href='/contact' 
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+        >
+          Get Free Consultation
+        </a>
+      </PageHero>
 
       {/* About North Las Vegas */}
       <section className="py-20 bg-white">

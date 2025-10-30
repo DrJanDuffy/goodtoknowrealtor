@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = {
   title: 'Home Seller Guide | Dr. Janet Duffy - Premier Good To Know REALTOR®',
@@ -23,19 +24,12 @@ export default function SellerGuidePage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80')] bg-cover bg-center opacity-20"></div>
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Home Seller Guide
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Your complete guide to selling your home in Las Vegas
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Home Seller Guide'
+        subtitle='Your complete guide to selling your home in Las Vegas'
+        gradientFromClassName='from-blue-900'
+        gradientToClassName='to-blue-800'
+      />
 
       {/* Guide Content */}
       <section className="py-20 bg-white">

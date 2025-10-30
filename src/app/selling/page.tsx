@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
+import { PageHero } from '@/components/ui/PageHero';
 
 export default function SellingPage() {
   return (
@@ -15,19 +16,23 @@ export default function SellingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-              Sell Your Las Vegas Home for Maximum Value
-            </h1>
-            <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Expert marketing, strategic pricing, and proven negotiation skills
-              to help you achieve the best possible outcome in today&apos;s market.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Sell Your Las Vegas Home for Maximum Value'
+        subtitle={"Expert marketing, strategic pricing, and proven negotiation skills to help you achieve the best possible outcome in today's market."}
+      >
+        <Link
+          href='/home-value'
+          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+        >
+          Get Free Home Valuation
+        </Link>
+        <Link
+          href='/contact'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+        >
+          Schedule Consultation
+        </Link>
+      </PageHero>
 
       {/* Home Value Widget */}
       <section className='py-16 bg-white'>

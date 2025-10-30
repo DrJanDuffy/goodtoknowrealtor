@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
 import { HomebotHomeowner } from '@/components/Home/HomebotHomeowner';
+import { PageHero } from '@/components/ui/PageHero';
 
 export default function HomeValuePage() {
   const features = [
@@ -31,29 +32,22 @@ export default function HomeValuePage() {
   return (
     <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50'>
         {/* Hero Section */}
-        <section className='py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white'>
-          <div className='container mx-auto px-4'>
-            <div className='max-w-4xl mx-auto text-center'>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                Discover Your Home&apos;s True Value
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 mb-8'>
-                Get an instant, accurate valuation of your Las Vegas property with our advanced market analysis tool
-              </p>
-              <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-                <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
-                  <span className='font-semibold'>✓ Instant Results</span>
-                </div>
-                <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
-                  <span className='font-semibold'>✓ Market Data</span>
-                </div>
-                <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
-                  <span className='font-semibold'>✓ Expert Analysis</span>
-                </div>
-              </div>
+        <PageHero
+          title={"Discover Your Home's True Value"}
+          subtitle='Get an instant, accurate valuation of your Las Vegas property with our advanced market analysis tool'
+        >
+          <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+            <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
+              <span className='font-semibold'>✓ Instant Results</span>
+            </div>
+            <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
+              <span className='font-semibold'>✓ Market Data</span>
+            </div>
+            <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
+              <span className='font-semibold'>✓ Expert Analysis</span>
             </div>
           </div>
-        </section>
+        </PageHero>
 
         {/* Home Value Widget Section */}
         <section className='py-16 bg-white'>

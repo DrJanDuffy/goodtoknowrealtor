@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = {
   title: 'Market Reports | Dr. Janet Duffy',
@@ -37,18 +38,10 @@ export default function ReportsPage() {
   return (
     <div className='min-h-screen bg-gray-50'>
       {/* Hero Section */}
-      <div className='bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white py-16'>
-        <div className='container mx-auto px-4'>
-          <div className='text-center max-w-4xl mx-auto'>
-            <h1 className='text-4xl lg:text-5xl font-bold mb-6'>
-              Market Reports
-            </h1>
-            <p className='text-xl text-blue-100 leading-relaxed'>
-              Stay informed with the latest Las Vegas real estate market insights
-            </p>
-          </div>
-        </div>
-      </div>
+      <PageHero
+        title='Market Reports'
+        subtitle='Stay informed with the latest Las Vegas real estate market insights'
+      />
 
       {/* Reports Grid */}
       <div className='container mx-auto px-4 py-16'>

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.about.title,
@@ -28,32 +29,10 @@ export default function AboutPage() {
       />
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-            <div>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                About Dr. Janet Duffy
-              </h1>
-              <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-                Your trusted Las Vegas real estate expert with over 15 years of
-                experience helping clients achieve their property goals.
-              </p>
-            </div>
-            <div className='relative'>
-              <div className='relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl'>
-                <Image
-                  src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80'
-                  alt='Dr. Janet Duffy - Las Vegas Real Estate Expert'
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='About Dr. Janet Duffy'
+        subtitle='Your trusted Las Vegas real estate expert with over 15 years of experience helping clients achieve their property goals.'
+      />
 
       {/* About Section */}
       <section className='py-20 bg-white'>

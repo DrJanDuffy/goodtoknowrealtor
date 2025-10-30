@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Market Insights | Dr. Jan Duffy - Real Estate Expert',
@@ -28,18 +29,10 @@ export default function MarketInsightsFullPage() {
       
       <div className='min-h-screen bg-gray-50'>
         {/* Hero Section */}
-        <section className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-12'>
-          <div className='container mx-auto px-4'>
-            <div className='text-center max-w-4xl mx-auto'>
-              <h1 className='text-3xl lg:text-5xl font-bold mb-4'>
-                Las Vegas Real Estate Market Insights
-              </h1>
-              <p className='text-lg lg:text-xl text-blue-100 leading-relaxed'>
-                Comprehensive market analysis, trends, and data-driven insights from Dr. Jan Duffy, your Premier Good To Know REALTOR®
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Las Vegas Real Estate Market Insights'
+          subtitle='Comprehensive market analysis, trends, and data-driven insights from Dr. Jan Duffy, your Premier Good To Know REALTOR®'
+        />
 
         {/* Breadcrumbs */}
         <div className='bg-white border-b border-gray-200 py-4'>
