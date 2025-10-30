@@ -274,7 +274,7 @@ export default function BuyingPage() {
                 <li>• Market value estimates</li>
               </ul>
               <Link
-                href='/listings/search'
+                href='/listings'
                 className='btn btn-outline'
               >
                 Search Properties →
@@ -366,7 +366,7 @@ export default function BuyingPage() {
                     $650K+
                   </span>
                   <Link
-                    href='/listings/search?neighborhood=summerlin'
+                    href='/listings?neighborhood=summerlin'
                     className='text-amber-600 font-semibold hover:text-amber-700 transition-colors'
                   >
                     View Properties
@@ -397,7 +397,7 @@ export default function BuyingPage() {
                     $485K+
                   </span>
                   <Link
-                    href='/listings/search?neighborhood=henderson'
+                    href='/listings?neighborhood=henderson'
                     className='text-amber-600 font-semibold hover:text-amber-700 transition-colors'
                   >
                     View Properties
@@ -428,7 +428,7 @@ export default function BuyingPage() {
                     $320K+
                   </span>
                   <Link
-                    href='/listings/search?neighborhood=north-las-vegas'
+                    href='/listings?neighborhood=north-las-vegas'
                     className='text-amber-600 font-semibold hover:text-amber-700 transition-colors'
                   >
                     View Properties

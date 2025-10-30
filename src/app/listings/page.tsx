@@ -104,7 +104,7 @@ export default function ListingsPage() {
         backgroundImageUrl='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1973&q=80'
       >
         <Link
-          href='/listings/search'
+          href='/listings'
           className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
         >
           Start Advanced Search
@@ -233,7 +233,7 @@ export default function ListingsPage() {
                   views, gourmet kitchen, and resort-style backyard.
                 </p>
                 <Link
-                  href='/listings/search'
+                  href='/listings'
                   className='btn btn-outline'
                 >
                   View Details
@@ -287,7 +287,7 @@ export default function ListingsPage() {
                   updated kitchen, and private backyard.
                 </p>
                 <Link
-                  href='/listings/search'
+                  href='/listings'
                   className='btn btn-outline'
                 >
                   View Details
@@ -341,7 +341,7 @@ export default function ListingsPage() {
                   area with strong rental potential.
                 </p>
                 <Link
-                  href='/listings/search'
+                  href='/listings'
                   className='btn btn-outline'
                 >
                   View Details
@@ -365,7 +365,7 @@ export default function ListingsPage() {
 
           <div className='text-center mt-12'>
             <Link
-              href='/listings/search'
+              href='/listings'
               className='btn btn-primary'
             >
               View All Properties
@@ -401,7 +401,7 @@ export default function ListingsPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Search */}
-            <Link href='/listings/search' className='group'>
+            <Link href='/listings' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
                   <span className='text-2xl'>🔍</span>

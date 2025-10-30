@@ -190,6 +190,12 @@ const nextConfig = {
           permanent: true,
         },
       ] : []),
+      // Legacy/invalid paths → current routes
+      {
+        source: '/listings/search',
+        destination: '/listings',
+        permanent: true,
+      },
     ];
   },
 
