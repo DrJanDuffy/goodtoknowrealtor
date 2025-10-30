@@ -49,7 +49,7 @@ export default function ReportsPage() {
           {reports.map((report, index) => (
             <div
               key={index}
-              className='bg-white rounded-lg shadow-sm border border-gray-100 p-6'
+              className='card p-6'
             >
               <div className='flex justify-between items-start mb-4'>
                 <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium'>
@@ -65,7 +65,7 @@ export default function ReportsPage() {
               </p>
               <Link
                 href='/contact'
-                className='text-blue-600 hover:text-blue-700 font-medium'
+                className='btn btn-outline'
               >
                 Request Full Report →
               </Link>
@@ -86,13 +86,13 @@ export default function ReportsPage() {
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Link
               href='/contact'
-              className='bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
+              className='btn btn-primary'
             >
               Request Custom Report
             </Link>
             <Link
               href='tel:702-222-1964'
-              className='border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors'
+              className='btn btn-outline'
             >
               (702) 222-1964
             </Link>

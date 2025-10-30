@@ -48,7 +48,7 @@ export default function ContactPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16'>
             {/* Phone */}
-            <div className='bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300'>
+            <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=48&h=48&q=80'
@@ -66,14 +66,14 @@ export default function ContactPage() {
               </p>
               <Link
                 href='tel:702-222-1964'
-                className='inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
+                className='btn btn-primary'
               >
                 (702) 222-1964
               </Link>
             </div>
 
             {/* Email */}
-            <div className='bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300'>
+            <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <span className='text-3xl'>✉️</span>
               </div>
@@ -85,14 +85,14 @@ export default function ContactPage() {
               </p>
               <Link
                 href='mailto:janet@goodtoknowrealtor.com'
-                className='inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
+                className='btn btn-primary'
               >
                 Send Email
               </Link>
             </div>
 
             {/* Text Message */}
-            <div className='bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300'>
+            <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <span className='text-3xl'>💬</span>
               </div>
@@ -104,7 +104,7 @@ export default function ContactPage() {
               </p>
               <Link
                 href='sms:702-222-1964'
-                className='inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
+                className='btn btn-primary'
               >
                 Send Text
               </Link>
@@ -126,7 +126,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className='bg-gray-50 rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <form className='space-y-6' role='form' aria-label='Contact form'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <div>
@@ -303,7 +303,7 @@ export default function ContactPage() {
 
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
             <div>
-              <div className='bg-white rounded-2xl p-8 shadow-lg'>
+              <div className='card p-8'>
                 <h3 className='text-2xl font-bold text-gray-900 mb-6'>
                   Office Location
                 </h3>
@@ -358,7 +358,7 @@ export default function ContactPage() {
                 <div className='mt-8'>
                   <Link
                     href='/about'
-                    className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                    className='btn btn-outline'
                   >
                     Learn More About My Services
                     <svg

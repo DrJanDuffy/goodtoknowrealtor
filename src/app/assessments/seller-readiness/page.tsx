@@ -96,7 +96,7 @@ export default function SellerReadinessPage() {
 
             {/* CTA */}
             <div className="space-y-4">
-              <div className="bg-white text-green-600 px-8 py-4 rounded-lg font-bold text-xl inline-block shadow-lg">
+              <div className="btn btn-primary inline-block">
                 Start the Seller Assessment
               </div>
               <div className="text-green-100 space-y-1">
