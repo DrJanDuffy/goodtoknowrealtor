@@ -113,7 +113,6 @@ function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
 
 export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label);
@@ -143,8 +142,8 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Desktop Navigation - Horizontal */}
-            <div className='hidden md:flex items-center space-x-6 flex-1 justify-center max-w-5xl' role='menubar' aria-label='Primary'>
+            {/* Horizontal Navigation - all breakpoints */}
+            <div className='flex items-center gap-4 sm:space-x-6 flex-1 justify-center max-w-5xl overflow-x-auto no-scrollbar' role='menubar' aria-label='Primary'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -156,13 +155,19 @@ export function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className='text-gray-700 hover:text-gray-900 font-semibold transition-colors duration-300 px-3 py-3 rounded-lg hover:bg-gray-50 whitespace-nowrap text-sm tracking-wide'
+                    className='text-gray-700 hover:text-gray-900 font-semibold transition-colors duration-300 px-2 sm:px-3 py-3 rounded-lg hover:bg-gray-50 whitespace-nowrap text-sm tracking-wide'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
                     data-track='menu_click'
                     data-label={item.label}
                     data-path={item.href}
-                    onClick={() => trackMenuClick(item.label, item.href)}
+                    onClick={(e) => {
+                      if (item.hasDropdown) {
+                        e.preventDefault();
+                        setActiveDropdown((prev) => (prev === item.label ? null : item.label));
+                      }
+                      trackMenuClick(item.label, item.href);
+                    }}
                   >
                     {item.label}
                   </Link>
@@ -192,8 +197,8 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Desktop CTA Button */}
-            <div className='hidden md:flex items-center ml-4'>
+            {/* CTA Button */}
+            <div className='flex items-center ml-2 sm:ml-4'>
               <Link
                 href='/contact'
                 className='bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm whitespace-nowrap tracking-wide'
@@ -201,85 +206,8 @@ export function Navigation() {
                 Contact Us
               </Link>
             </div>
-
-            {/* Mobile Menu Button */}
-            <div className='md:hidden flex items-center'>
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className='p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-colors'
-                aria-label='Toggle mobile menu'
-              >
-                <svg
-                  className='w-6 h-6'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  {isMobileMenuOpen ? (
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
-                  ) : (
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
-                  )}
-                </svg>
-              </button>
-            </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className='md:hidden bg-white border-t border-gray-200'
-            >
-              <div className='px-4 py-4 space-y-2'>
-                {menuItems.map((item, index) => (
-                  <div key={index}>
-                    <Link
-                      href={item.href}
-                      className='block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md font-medium'
-                      onClick={() => {
-                        trackMenuClick(item.label, item.href);
-                        setIsMobileMenuOpen(false);
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                    {item.hasDropdown && item.children && (
-                      <div className='ml-4 mt-1 space-y-1'>
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className='block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md'
-                            onClick={() => {
-                              trackMenuClick(child.label, child.href);
-                              setIsMobileMenuOpen(false);
-                            }}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <div className='pt-4 border-t border-gray-200'>
-                  <Link
-                    href='/contact'
-                    className='block w-full bg-gray-900 text-white px-4 py-3 rounded-lg font-semibold text-center hover:bg-gray-800 transition-colors tracking-wide'
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
       </nav>
     </>
