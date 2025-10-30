@@ -237,7 +237,7 @@ export default function TeamPage() {
                   </div>
                   
                   <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                    <div className="bg-white rounded-2xl shadow-lg p-8">
+                    <div className="card p-8">
                       <h3 className="text-3xl font-bold text-gray-900 mb-2">{member.name}</h3>
                       <div className="text-xl text-blue-600 mb-2">{member.title}</div>
                       <div className="text-lg text-gray-600 mb-4">{member.credentials} • {member.experience}</div>
@@ -270,13 +270,13 @@ export default function TeamPage() {
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Link
                           href={`tel:${member.contact.phone}`}
-                          className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
+                          className="btn btn-primary"
                         >
                           Call {member.contact.phone}
                         </Link>
                         <Link
                           href={`mailto:${member.contact.email}`}
-                          className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
+                          className="btn btn-outline"
                         >
                           Email {member.contact.email}
                         </Link>

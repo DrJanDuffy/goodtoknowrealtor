@@ -93,7 +93,7 @@ export default function AboutPage() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            <div className='bg-white rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>🎓</span>
               </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className='bg-white rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>🏆</span>
               </div>
@@ -125,7 +125,7 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className='bg-white rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'

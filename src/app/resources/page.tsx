@@ -226,7 +226,7 @@ export default function ResourcesPage() {
 
             <div className="space-y-12">
               {resourceCategories.map((category, index) => (
-                <div key={index} className="bg-gray-50 rounded-2xl p-8">
+                <div key={index} className="card p-8">
                   <div className="flex items-center mb-6">
                     <div className="text-4xl mr-4">{category.icon}</div>
                     <div>
@@ -240,7 +240,7 @@ export default function ResourcesPage() {
                       <Link
                         key={idx}
                         href={resource.href}
-                        className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                        className="card p-6"
                       >
                         <div className="flex items-center justify-between mb-3">
                           <span className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">
@@ -275,7 +275,7 @@ export default function ResourcesPage() {
                 <Link
                   key={index}
                   href={tool.href}
-                  className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 text-center"
+                  className="card p-8 text-center"
                 >
                   <div className="text-4xl mb-4">{tool.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{tool.title}</h3>
@@ -303,7 +303,7 @@ export default function ResourcesPage() {
                 <Link
                   key={index}
                   href={guide.href}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                  className="card overflow-hidden"
                 >
                   <div className="relative h-48">
                     <Image
@@ -360,7 +360,7 @@ export default function ResourcesPage() {
                 </ul>
                 <Link
                   href="/market-insights"
-                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="btn btn-primary"
                 >
                   View Market Insights →
                 </Link>

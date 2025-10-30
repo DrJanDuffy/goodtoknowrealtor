@@ -42,13 +42,13 @@ export default async function MarketInsightsPage() {
         >
           <Link
             href='tel:702-222-1964'
-            className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+            className='btn btn-primary'
           >
             📞 Call (702) 222-1964
           </Link>
           <Link
             href='/contact'
-            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+            className='btn btn-outline'
           >
             Get Market Analysis
           </Link>
@@ -72,7 +72,7 @@ export default async function MarketInsightsPage() {
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              <div className='text-center'>
+            <div className='text-center card p-6'>
                 <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                   <span className='text-2xl'>📈</span>
                 </div>
@@ -84,7 +84,7 @@ export default async function MarketInsightsPage() {
                 </p>
               </div>
 
-              <div className='text-center'>
+            <div className='text-center card p-6'>
                 <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                   <span className='text-2xl'>🏘️</span>
                 </div>
@@ -96,7 +96,7 @@ export default async function MarketInsightsPage() {
                 </p>
               </div>
 
-              <div className='text-center'>
+            <div className='text-center card p-6'>
                 <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                   <span className='text-2xl'>⏱️</span>
                 </div>

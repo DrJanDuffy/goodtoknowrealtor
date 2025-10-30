@@ -144,7 +144,7 @@ export default function TestimonialsPage() {
               
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className='bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105'>
+                  <div key={testimonial.id} className='card p-8 flex flex-col items-center text-center'>
                     <div className='relative w-16 h-16 rounded-full overflow-hidden mb-4'>
                       <Image
                         src={testimonial.image}
@@ -229,13 +229,13 @@ export default function TestimonialsPage() {
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
                 href='/contact'
-                className='bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors'
+                className='btn btn-primary'
               >
                 Get Started Today
               </Link>
               <Link
                 href='tel:702-222-1964'
-                className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors'
+                className='btn btn-outline'
               >
                 Call (702) 222-1964
               </Link>
