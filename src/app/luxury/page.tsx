@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { LuxuryListings } from '@/components/Home/LuxuryListings';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { SEO_CONFIG } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 
@@ -14,6 +15,8 @@ export const metadata: Metadata = generatePageMetadata({
   url: '/luxury',
   image: '/images/luxury-real-estate-og.jpg',
 });
+
+export const alternates = { canonical: `${SEO_CONFIG.siteUrl}/luxury` } as const;
 
 export default function LuxuryPage() {
   const breadcrumbs = generateBreadcrumbSchema([

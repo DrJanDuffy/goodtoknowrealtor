@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SEO_CONFIG } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import Image from 'next/image';
 
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
     title: 'Green Valley Real Estate | Dr. Janet Duffy',
     description: 'Find your dream home in Green Valley with Premier Good To Know REALTOR® Dr. Janet Duffy.',
     images: ['/images/green-valley-real-estate-og.jpg'],
+  },
+  alternates: {
+    canonical: `${SEO_CONFIG.siteUrl}/areas/green-valley`,
   },
 };
 

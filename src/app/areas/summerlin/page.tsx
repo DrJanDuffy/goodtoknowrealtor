@@ -1,4 +1,5 @@
 import { PageHero } from '@/components/ui/PageHero';
+import { SEO_CONFIG } from '@/lib/seo';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
     title: 'Summerlin Real Estate | Dr. Jan Duffy',
     description: 'Find your dream home in Summerlin, Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/summerlin-real-estate-og.jpg'],
+  },
+  alternates: {
+    canonical: `${SEO_CONFIG.siteUrl}/areas/summerlin`,
   },
 };
 

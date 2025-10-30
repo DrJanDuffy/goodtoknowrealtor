@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SEO_CONFIG } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import Image from 'next/image';
 import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
@@ -20,6 +21,9 @@ export const metadata: Metadata = {
     title: 'Henderson Real Estate | Dr. Jan Duffy',
     description: 'Find your dream home in Henderson, Nevada with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/henderson-real-estate-og.jpg'],
+  },
+  alternates: {
+    canonical: `${SEO_CONFIG.siteUrl}/areas/henderson`,
   },
 };
 

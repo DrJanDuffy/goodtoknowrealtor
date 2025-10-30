@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SEO_CONFIG } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
@@ -12,6 +13,8 @@ export const metadata: Metadata = generatePageMetadata({
   url: '/team',
   image: '/images/team-og.jpg',
 });
+
+export const alternates = { canonical: `${SEO_CONFIG.siteUrl}/team` } as const;
 
 export default function TeamPage() {
   const breadcrumbs = generateBreadcrumbSchema([

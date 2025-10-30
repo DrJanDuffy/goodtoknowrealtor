@@ -4,6 +4,12 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
 import { PageHero } from '@/components/ui/PageHero';
+import { SEO_CONFIG } from '@/lib/seo';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: { canonical: `${SEO_CONFIG.siteUrl}/selling` },
+};
 
 export default function SellingPage() {
   return (
