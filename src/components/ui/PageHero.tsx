@@ -6,6 +6,7 @@ export type PageHeroProps = {
   gradientFromClassName?: string;
   gradientToClassName?: string;
   children?: React.ReactNode; // CTA buttons or any extra content
+  backgroundImageUrl?: string; // optional background image for more visual context
 };
 
 export function PageHero({
@@ -14,10 +15,21 @@ export function PageHero({
   gradientFromClassName = 'from-blue-600',
   gradientToClassName = 'to-blue-800',
   children,
+  backgroundImageUrl,
 }: PageHeroProps) {
   return (
-    <section className={`py-16 lg:py-20 text-white bg-gradient-to-r ${gradientFromClassName} ${gradientToClassName}`}>
-      <div className='container'>
+    <section className={`relative py-16 lg:py-20 text-white bg-gradient-to-r ${gradientFromClassName} ${gradientToClassName}`}>
+      {backgroundImageUrl ? (
+        <div
+          className='absolute inset-0 opacity-20'
+          style={{
+            backgroundImage: `url(${backgroundImageUrl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+      ) : null}
+      <div className='container relative'>
         <div className='max-w-4xl mx-auto text-center'>
           <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
             {title}

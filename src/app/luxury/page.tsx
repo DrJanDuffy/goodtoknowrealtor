@@ -5,6 +5,7 @@ import { LuxuryListings } from '@/components/Home/LuxuryListings';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
+import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Luxury Real Estate Las Vegas | Dr. Jan Duffy - Premier Luxury Agent',
@@ -112,6 +113,7 @@ export default function LuxuryPage() {
           subtitle='Discover exceptional luxury properties with Dr. Jan Duffy, Top 1% Las Vegas agent specializing in high-end homes, estates, and exclusive communities'
           gradientFromClassName='from-blue-900'
           gradientToClassName='to-blue-800'
+          backgroundImageUrl='https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1973&q=80'
         >
           <Link
             href='/contact'
@@ -126,6 +128,7 @@ export default function LuxuryPage() {
             Call (702) 222-1964
           </Link>
         </PageHero>
+        <TrustBadges />
 
         {/* Why Choose Dr. Jan Duffy for Luxury */}
         <section className="py-16 bg-white">

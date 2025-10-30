@@ -21,7 +21,7 @@ export function MobileStickyCTA() {
               className='bg-white text-blue-600 p-3 rounded-lg hover:bg-blue-50 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center'
               aria-label='Call Dr. Janet Duffy'
             >
-              <span className='text-white text-lg'>📞</span>
+              <span className='text-blue-600 text-lg'>📞</span>
             </Link>
             <Link
               href='sms:702-222-1964'

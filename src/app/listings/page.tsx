@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 import { RealScoutListings } from '@/components/Home/RealScoutListings';
 import { PageHero } from '@/components/ui/PageHero';
+import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 import { generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
 
 // Declare RealScout custom elements
@@ -100,6 +101,7 @@ export default function ListingsPage() {
       <PageHero
         title='Las Vegas Property Listings'
         subtitle={'Discover exceptional homes in Las Vegas\'s most desirable neighborhoods. From luxury estates to first-time buyer homes, find your perfect property.'}
+        backgroundImageUrl='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1973&q=80'
       >
         <Link
           href='/listings/search'
@@ -114,6 +116,7 @@ export default function ListingsPage() {
           Get Help Finding Homes
         </Link>
       </PageHero>
+      <TrustBadges />
 
       {/* RealScout Advanced Search Section */}
       <section className='py-20 bg-gradient-to-br from-blue-50 to-indigo-50'>

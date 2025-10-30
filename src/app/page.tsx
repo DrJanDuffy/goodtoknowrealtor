@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { HeroSection } from '@/components/Home/HeroSection';
 import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
+import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 import { ContactCTA } from '@/components/Home/ContactCTA';
 import { RealScoutSimpleSearch } from '@/components/PropertySearch/RealScoutSimpleSearch';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
@@ -105,6 +106,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <HeroSection />
+      <TrustBadges />
 
       {/* Social Proof - Move testimonials up early */}
       <TestimonialsSection />
