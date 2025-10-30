@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
 import { PageHero } from '@/components/ui/PageHero';
+import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
 import { SEO_CONFIG } from '@/lib/seo';
 import { Metadata } from 'next';
 
@@ -32,12 +33,7 @@ export default function SellingPage() {
         >
           Get Free Home Valuation
         </Link>
-        <Link
-          href='/contact'
-          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
-        >
-          Schedule Consultation
-        </Link>
+        <ConsultationCTA variant='outline' source='selling-page-hero' showPhone={false} className='border-2 border-white text-white hover:bg-white hover:text-blue-800' />
       </PageHero>
 
       {/* Home Value Widget */}
@@ -466,27 +462,7 @@ export default function SellingPage() {
             Get a free home valuation and discover how much your Las Vegas home
             is worth in today&apos;s market.
           </p>
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-            <Link
-              href='tel:702-222-1964'
-              className='bg-white text-amber-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
-            >
-              <Image
-                src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
-                alt='Phone'
-                width={24}
-                height={24}
-                className='inline-block w-6 h-6 mr-2'
-              />{' '}
-              Call (702) 222-1964
-            </Link>
-            <Link
-              href='/selling/valuation'
-              className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-800 transition-colors duration-200'
-            >
-              Get Free Valuation
-            </Link>
-          </div>
+          <ConsultationCTA variant='white' source='selling-page-cta' />
         </div>
       </section>
     </div>

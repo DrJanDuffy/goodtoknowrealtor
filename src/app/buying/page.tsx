@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 import { PageHero } from '@/components/ui/PageHero';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
+import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
 
 export default function BuyingPage() {
   return (
@@ -450,27 +451,7 @@ export default function BuyingPage() {
             Let Dr. Jan Duffy guide you through the home buying process with
             personalized service and expert market knowledge.
           </p>
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-            <Link
-              href='tel:702-222-1964'
-              className='bg-white text-amber-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
-            >
-              <Image
-                src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
-                alt='Phone'
-                width={24}
-                height={24}
-                className='inline-block w-6 h-6 mr-2'
-              />{' '}
-              Call (702) 222-1964
-            </Link>
-            <Link
-              href='/contact'
-              className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-800 transition-colors duration-200'
-            >
-              Schedule Consultation
-            </Link>
-          </div>
+          <ConsultationCTA variant='white' source='buying-page-cta' />
         </div>
       </section>
     </div>

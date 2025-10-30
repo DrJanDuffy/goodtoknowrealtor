@@ -177,22 +177,23 @@ export function Navigation() {
                     <DropdownMenu
                       isOpen={activeDropdown === item.label}
                     >
-                      <div aria-label={`${item.label} submenu`} role='menu' className='py-2'>
+                      <ul aria-label={`${item.label} submenu`} className='py-2 list-none' role='menu'>
                         {item.children?.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className='block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300 whitespace-nowrap font-medium border-b border-gray-50 last:border-b-0'
-                            role='menuitem'
-                            data-track='menu_click'
-                            data-label={child.label}
-                            data-path={child.href}
-                            onClick={() => trackMenuClick(child.label, child.href)}
-                          >
-                            {child.label}
-                          </Link>
+                          <li key={child.href} role='none'>
+                            <Link
+                              href={child.href}
+                              className='block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300 whitespace-nowrap font-medium border-b border-gray-50 last:border-b-0'
+                              role='menuitem'
+                              data-track='menu_click'
+                              data-label={child.label}
+                              data-path={child.href}
+                              onClick={() => trackMenuClick(child.label, child.href)}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </DropdownMenu>
                   )}
                 </div>

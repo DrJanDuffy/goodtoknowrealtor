@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 import { RealScoutListings } from '@/components/Home/RealScoutListings';
 import { PageHero } from '@/components/ui/PageHero';
+import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
 import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 import { generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
 
@@ -109,12 +110,7 @@ export default function ListingsPage() {
         >
           Start Advanced Search
         </Link>
-        <Link
-          href='/contact'
-          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
-        >
-          Get Help Finding Homes
-        </Link>
+        <ConsultationCTA variant='outline' source='listings-page-hero' showPhone={false} className='border-2 border-white text-white hover:bg-white hover:text-blue-800' />
       </PageHero>
       <TrustBadges />
 
@@ -625,12 +621,7 @@ export default function ListingsPage() {
               />{' '}
               Call (702) 222-1964
             </Link>
-            <Link
-              href='/contact'
-              className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-800 transition-colors duration-200'
-            >
-              Request Custom Search
-            </Link>
+            <ConsultationCTA variant='outline' source='listings-page-cta' showPhone={false} className='border-2 border-white text-white hover:bg-white hover:text-amber-800' />
           </div>
         </div>
       </section>

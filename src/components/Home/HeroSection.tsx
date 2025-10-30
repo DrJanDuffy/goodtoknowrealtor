@@ -19,8 +19,8 @@ export function HeroSection() {
           </h1>
           
           {/* Problem/Solution Subheadline */}
-          <p className='text-xl lg:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed'>
-            Get the insider knowledge and negotiation power that helped <strong>500+ families</strong> buy their dream homes in Vegas - even in this competitive market
+          <p className='text-xl lg:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed font-medium'>
+            Deliver instant alerts on new listings that match your criteria
           </p>
           
           {/* Trust Indicators */}
@@ -48,7 +48,7 @@ export function HeroSection() {
           <div className='bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white mb-8 shadow-xl'>
             <h2 className='text-2xl font-bold mb-4'>Discover Your Vegas Home Readiness</h2>
             <p className='text-blue-100 mb-6 max-w-2xl mx-auto'>
-              Take our free 3-minute assessment to find out exactly what's holding you back and get a personalized action plan
+              Take our free 3-minute assessment to find out exactly what&apos;s holding you back and get a personalized action plan
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <Link
@@ -83,7 +83,7 @@ export function HeroSection() {
           </div>
           
           {/* Trust Statement */}
-          <p className='text-sm text-gray-500 mt-6'>
+          <p className='text-base text-gray-700 mt-6 font-medium'>
             Available 7 days a week • Free consultation • No obligation • Licensed REALTOR®
           </p>
         </div>

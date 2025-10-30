@@ -132,7 +132,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor='firstName'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       First Name *
                     </label>
@@ -150,7 +150,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor='lastName'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       Last Name *
                     </label>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor='email'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       Email Address *
                     </label>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor='phone'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       Phone Number
                     </label>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                       aria-describedby='phone-help'
                       className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-h-[44px] text-base'
                     />
-                    <div id='phone-help' className='text-sm text-gray-500 mt-1'>Optional - Include for faster response</div>
+                    <div id='phone-help' className='text-sm text-gray-600 mt-1'>Optional - Include for faster response</div>
                   </div>
                 </div>
 
