@@ -50,7 +50,7 @@ picture img {
 }
 
 html {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans, system-ui, sans-serif);
   line-height: 1.7; /* improve readability */
   font-size: clamp(16px, 1.6vw, 18px);
   scroll-behavior: smooth;
@@ -84,6 +84,7 @@ body {
 .content-flow h2,
 .content-flow h3,
 .content-flow h4 {
+  font-family: var(--font-serif, Georgia, serif);
   line-height: 1.2;
   letter-spacing: -0.01em;
   margin-bottom: 0.75rem;

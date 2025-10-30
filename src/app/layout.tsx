@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@/app/globals.css';
+import { Inter, Lora } from 'next/font/google';
 
 import { Navigation } from '@/components/Globals/Navigation/Navigation';
 import { Footer } from '@/components/Globals/Footer/Footer';
@@ -72,13 +73,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' });
+  const lora = Lora({ subsets: ['latin'], display: 'swap', variable: '--font-serif' });
   const realEstateAgentSchema = generateRealEstateAgentSchema();
   const localBusinessSchema = generateLocalBusinessSchema();
   const webSiteSchema = generateWebSiteSchema();
   const siteNavigationSchema = generateSiteNavigationElementSchema();
 
   return (
-    <html lang='en' className='h-full'>
+    <html lang='en' className={`h-full ${inter.variable} ${lora.variable}`}>
       <head>
         <script
           src='https://em.realscout.com/widgets/realscout-web-components.umd.js'
@@ -197,7 +200,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="h-full flex flex-col" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+      <body className="h-full flex flex-col">
         {/* Google Tag Manager (noscript) */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <noscript>
