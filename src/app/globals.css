@@ -51,20 +51,51 @@ picture img {
 
 html {
   font-family: system-ui, sans-serif;
-  line-height: 1.6;
+  line-height: 1.7; /* improve readability */
   /* Prevent horizontal scroll */
   overflow-x: hidden;
 }
 
 body {
   background-color: #ffffff;
-  color: #1f2937;
+  color: #111827; /* darker for contrast */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   /* Prevent horizontal scroll */
   overflow-x: hidden;
 }
+
+/* Readability defaults for long-form content */
+.content-flow {
+  --max-ch: 72ch;
+}
+.content-flow p,
+.content-flow ul,
+.content-flow ol,
+.content-flow blockquote,
+.content-flow figure {
+  max-width: var(--max-ch);
+}
+.content-flow p { margin-bottom: 1rem; }
+.content-flow h1,
+.content-flow h2,
+.content-flow h3,
+.content-flow h4 {
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+.content-flow h1 { font-size: clamp(2rem, 3.5vw, 3rem); }
+.content-flow h2 { font-size: clamp(1.5rem, 2.8vw, 2.25rem); }
+.content-flow h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); }
+
+/* Improve link affordance */
+a { text-decoration-skip-ink: auto; }
+a:hover { text-decoration: underline; }
+
+/* Better list spacing */
+ul li + li, ol li + li { margin-top: 0.35rem; }
 
 /* Mobile-first responsive design improvements */
 @media (max-width: 640px) {
