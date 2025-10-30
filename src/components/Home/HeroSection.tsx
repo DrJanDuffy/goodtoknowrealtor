@@ -5,37 +5,37 @@ import { RealScoutSimpleSearch } from '@/components/PropertySearch/RealScoutSimp
 
 export function HeroSection() {
   return (
-    <section className='bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 lg:py-20'>
+    <section className='bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50 py-16 lg:py-20'>
       <div className='container mx-auto px-4'>
         <div className='max-w-5xl mx-auto text-center'>
           {/* Credibility Badge */}
-          <div className='inline-block bg-blue-100 text-blue-800 px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-sm'>
-            Top 1% Las Vegas Real Estate Team
+          <div className='inline-block bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-900 px-8 py-3 rounded-full text-sm font-bold mb-8 shadow-lg border border-amber-200'>
+            Premier Luxury Real Estate Specialist
           </div>
           
           {/* Emotional Hook Headline */}
           <h1 className='text-4xl lg:text-6xl font-bold mb-6 text-gray-900 leading-tight'>
-            Tired of Missing Out on Las Vegas Homes?
+            Exceptional Luxury Homes in Las Vegas
           </h1>
           
           {/* Problem/Solution Subheadline */}
           <p className='text-xl lg:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed font-medium'>
-            Deliver instant alerts on new listings that match your criteria
+            Discover prestigious properties in Summerlin, Henderson, Lake Las Vegas, and exclusive gated communities. Expert guidance for discerning buyers and sellers.
           </p>
           
           {/* Trust Indicators */}
           <div className='flex flex-wrap justify-center items-center gap-6 text-sm text-gray-600 mb-12'>
-            <div className='flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full shadow-sm'>
-              <span className='font-medium'>500+ Happy Families</span>
+            <div className='flex items-center gap-2 bg-white/90 px-5 py-3 rounded-full shadow-md border border-gray-100'>
+              <span className='font-semibold'>$127M+ Luxury Sales</span>
             </div>
-            <div className='flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full shadow-sm'>
-              <span className='font-medium'>$127M+ Sales Volume</span>
+            <div className='flex items-center gap-2 bg-white/90 px-5 py-3 rounded-full shadow-md border border-gray-100'>
+              <span className='font-semibold'>Premium Properties</span>
             </div>
-            <div className='flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full shadow-sm'>
-              <span className='font-medium'>20+ Years Experience</span>
+            <div className='flex items-center gap-2 bg-white/90 px-5 py-3 rounded-full shadow-md border border-gray-100'>
+              <span className='font-semibold'>White-Glove Service</span>
             </div>
-            <div className='flex items-center gap-2 bg-white/80 px-4 py-2 rounded-full shadow-sm'>
-              <span className='font-medium'>98% Client Satisfaction</span>
+            <div className='flex items-center gap-2 bg-white/90 px-5 py-3 rounded-full shadow-md border border-gray-100'>
+              <span className='font-semibold'>Exclusive Communities</span>
             </div>
           </div>
 
@@ -45,25 +45,29 @@ export function HeroSection() {
           </div>
 
           {/* Primary Value Proposition */}
-          <div className='bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white mb-8 shadow-xl'>
-            <h2 className='text-2xl font-bold mb-4'>Discover Your Vegas Home Readiness</h2>
-            <p className='text-blue-100 mb-6 max-w-2xl mx-auto'>
-              Take our free 3-minute assessment to find out exactly what&apos;s holding you back and get a personalized action plan
+          <div className='bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 rounded-2xl p-10 text-white mb-8 shadow-2xl border border-amber-400'>
+            <h2 className='text-3xl lg:text-4xl font-bold mb-4'>Luxury―Real Estate Specialized Service</h2>
+            <p className='text-white text-lg lg:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-medium'>
+              Discreet marketing, white-glove concierge services, and exclusive access to Las Vegas&apos;s most prestigious properties. Experience the difference of working with a premier luxury specialist.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center mb-6'>
                 <Link
-                  href='/assessments/buyer-readiness'
-                  className='bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md'
+                  href='/luxury'
+                  className='bg-white text-amber-900 px-10 py-5 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors shadow-xl border-2 border-white'
                 >
-                  Am I Ready to Buy?
+                  Browse Luxury Properties
                 </Link>
                 <Link
-                  href='/assessments/seller-readiness'
-                  className='bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-md'
+                  href='/contact'
+                  className='bg-amber-900 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-amber-800 transition-colors shadow-xl border-2 border-amber-800'
                 >
-                  Am I Ready to Sell?
+                  Schedule Private Consultation
                 </Link>
             </div>
+            {/* Trust Statement inside CTA box */}
+            <p className='text-white/95 text-base lg:text-lg mt-4 font-semibold'>
+              Concierge Service • Private Showings • Confidential Transactions • Licensed REALTOR®
+            </p>
           </div>
           
           {/* Direct Contact CTAs */}
@@ -82,10 +86,6 @@ export function HeroSection() {
             </a>
           </div>
           
-          {/* Trust Statement */}
-          <p className='text-base text-gray-700 mt-6 font-medium'>
-            Available 7 days a week • Free consultation • No obligation • Licensed REALTOR®
-          </p>
         </div>
       </div>
     </section>
