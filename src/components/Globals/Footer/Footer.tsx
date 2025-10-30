@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
+import { ConsultationModal } from '@/components/ui/ConsultationModal';
 
 export function Footer() {
+  const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
   return (
     <footer className='bg-gray-50 text-gray-900' role='contentinfo' aria-label='Site footer'>
       <div className='container mx-auto px-4'>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackMenuClick } from '@/lib/analytics';
+import { ConsultationModal } from '@/components/ui/ConsultationModal';
 
 // Define menu structure matching IS Luxury's sophisticated navigation
 const menuItems = [
@@ -113,6 +114,7 @@ function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
 
 export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label);
@@ -197,19 +199,34 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <div className='flex items-center ml-2 sm:ml-4'>
-              <Link
-                href='/contact'
-                className='bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm whitespace-nowrap tracking-wide'
+            {/* CTA Buttons */}
+            <div className='flex items-center gap-2 sm:gap-3 ml-2 sm:ml-4'>
+              <button
+                onClick={() => setIsConsultModalOpen(true)}
+                className='bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-xs sm:text-sm whitespace-nowrap tracking-wide'
+                aria-label="Schedule Consultation"
               >
-                Contact Us
+                Schedule Consultation
+              </button>
+              <Link
+                href='tel:702-222-1964'
+                className='hidden sm:flex items-center justify-center w-10 h-10 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors'
+                aria-label="Call (702) 222-1964"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
               </Link>
             </div>
           </div>
         </div>
 
       </nav>
+      <ConsultationModal
+        isOpen={isConsultModalOpen}
+        onClose={() => setIsConsultModalOpen(false)}
+        source="header"
+      />
     </>
   );
 }

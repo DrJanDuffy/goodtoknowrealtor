@@ -12,6 +12,10 @@ import { ScreenReaderAnnouncementsProvider } from '@/components/ui/ScreenReaderA
 import { WebVitalsMonitor } from '@/components/WebVitalsMonitor';
 import { SEO_CONFIG, generateRealEstateAgentSchema, generateLocalBusinessSchema, generateWebSiteSchema, generateSiteNavigationElementSchema } from '@/lib/seo';
 
+// Font loaders must be called at module scope
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' });
+const lora = Lora({ subsets: ['latin'], display: 'swap', variable: '--font-serif' });
+
 export const metadata: Metadata = {
   metadataBase: new URL(SEO_CONFIG.siteUrl),
   title: {
@@ -73,8 +77,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' });
-  const lora = Lora({ subsets: ['latin'], display: 'swap', variable: '--font-serif' });
   const realEstateAgentSchema = generateRealEstateAgentSchema();
   const localBusinessSchema = generateLocalBusinessSchema();
   const webSiteSchema = generateWebSiteSchema();
