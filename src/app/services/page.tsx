@@ -119,7 +119,7 @@ export default function ServicesPage() {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
               {services.map((service, index) => (
-                <div key={index} className='bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300'>
+                <div key={index} className='card p-8'>
                   <div className='flex items-start mb-6'>
                     <div className='text-4xl mr-4'>{service.icon}</div>
                     <div>
@@ -136,7 +136,7 @@ export default function ServicesPage() {
                   </p>
                   <Link
                     href={service.href}
-                    className='inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
+                    className='btn btn-primary'
                   >
                     Learn More →
                   </Link>
@@ -159,7 +159,7 @@ export default function ServicesPage() {
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              <div className='bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>First-Time Buyer Programs</h3>
                 <p className='text-gray-600 mb-4'>
                   Comprehensive guidance for first-time home buyers including down payment assistance programs, first-time buyer incentives, and step-by-step process education.
@@ -171,7 +171,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Luxury Property Marketing</h3>
                 <p className='text-gray-600 mb-4'>
                   Discreet marketing strategies for high-end properties including luxury staging, professional photography, and targeted marketing to qualified buyers.
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Investment Analysis</h3>
                 <p className='text-gray-600 mb-4'>
                   Detailed ROI analysis, market trend evaluation, and portfolio building strategies for real estate investors.
@@ -195,7 +195,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Relocation Services</h3>
                 <p className='text-gray-600 mb-4'>
                   Complete relocation assistance for families and individuals moving to Las Vegas, including neighborhood research and school district information.
@@ -207,7 +207,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Divorce Real Estate</h3>
                 <p className='text-gray-600 mb-4'>
                   Sensitive handling of real estate transactions during divorce proceedings, ensuring fair market value and smooth transitions.
@@ -219,7 +219,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Estate Planning</h3>
                 <p className='text-gray-600 mb-4'>
                   Assistance with real estate aspects of estate planning, including property transfers and inheritance considerations.

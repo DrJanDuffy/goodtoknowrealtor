@@ -123,7 +123,7 @@ export default function CommunitiesPage() {
                   <Link
                     key={community.id}
                     href={community.href}
-                    className='group block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1'
+                    className='group block card overflow-hidden hover:-translate-y-1'
                   >
                     <div className='relative h-48'>
                       <Image

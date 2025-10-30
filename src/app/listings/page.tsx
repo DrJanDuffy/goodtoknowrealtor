@@ -147,7 +147,7 @@ export default function ListingsPage() {
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                   <Link
                     href='/areas/summerlin'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
                     <div className='text-2xl mb-2'>🏔️</div>
                     <div className='font-semibold text-gray-900'>Summerlin</div>
@@ -155,7 +155,7 @@ export default function ListingsPage() {
                   </Link>
                   <Link
                     href='/areas/henderson'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
                     <div className='text-2xl mb-2'>🏘️</div>
                     <div className='font-semibold text-gray-900'>Henderson</div>
@@ -163,7 +163,7 @@ export default function ListingsPage() {
                   </Link>
                   <Link
                     href='/areas/north-las-vegas'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
                     <div className='text-2xl mb-2'>🏠</div>
                     <div className='font-semibold text-gray-900'>North Las Vegas</div>
@@ -171,7 +171,7 @@ export default function ListingsPage() {
                   </Link>
                   <Link
                     href='/areas/downtown'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
                     <div className='text-2xl mb-2'>🏙️</div>
                     <div className='font-semibold text-gray-900'>Downtown</div>
@@ -201,7 +201,7 @@ export default function ListingsPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Featured Property 1 */}
-            <div className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+            <div className='card overflow-hidden'>
               <div className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80'
@@ -234,7 +234,7 @@ export default function ListingsPage() {
                 </p>
                 <Link
                   href='/listings/search'
-                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                  className='btn btn-outline'
                 >
                   View Details
                   <svg
@@ -255,7 +255,7 @@ export default function ListingsPage() {
             </div>
 
             {/* Featured Property 2 */}
-            <div className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+            <div className='card overflow-hidden'>
               <div className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80'
@@ -288,7 +288,7 @@ export default function ListingsPage() {
                 </p>
                 <Link
                   href='/listings/search'
-                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                  className='btn btn-outline'
                 >
                   View Details
                   <svg
@@ -309,7 +309,7 @@ export default function ListingsPage() {
             </div>
 
             {/* Featured Property 3 */}
-            <div className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+            <div className='card overflow-hidden'>
               <div className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
@@ -342,7 +342,7 @@ export default function ListingsPage() {
                 </p>
                 <Link
                   href='/listings/search'
-                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                  className='btn btn-outline'
                 >
                   View Details
                   <svg
@@ -366,7 +366,7 @@ export default function ListingsPage() {
           <div className='text-center mt-12'>
             <Link
               href='/listings/search'
-              className='inline-flex items-center bg-amber-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-700 transition-colors duration-200 shadow-lg'
+              className='btn btn-primary'
             >
               View All Properties
               <svg

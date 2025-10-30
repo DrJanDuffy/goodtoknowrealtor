@@ -170,8 +170,8 @@ export default function LuxuryPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {luxuryAreas.map((area, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                {luxuryAreas.map((area, index) => (
+                <div key={index} className="card overflow-hidden">
                   <div className="relative h-48">
                     <Image
                       src={area.image}
@@ -196,7 +196,7 @@ export default function LuxuryPage() {
                     </ul>
                     <Link
                       href={`/areas/${area.name.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                      className="btn btn-primary"
                     >
                       Explore {area.name}
                     </Link>

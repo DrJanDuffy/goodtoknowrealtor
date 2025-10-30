@@ -52,7 +52,7 @@ export default function SellingPage() {
                 Find out what your Las Vegas home is worth in today's market
               </p>
             </div>
-            <div className='bg-gray-50 rounded-2xl p-8'>
+            <div className='card p-8'>
               <HomeValueWidget />
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function SellingPage() {
         <div className='container'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Tips For Sellers */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>💡</span>
               </div>
@@ -165,14 +165,14 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/selling/tips'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Home Value Report */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
@@ -197,7 +197,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/selling/valuation'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Get Your Report
  →
@@ -205,7 +205,7 @@ export default function SellingPage() {
             </div>
 
             {/* Market Activity */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>📈</span>
               </div>
@@ -224,7 +224,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/selling/market'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 View Market Data
  →
@@ -232,7 +232,7 @@ export default function SellingPage() {
             </div>
 
             {/* Professional Photography */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>📸</span>
               </div>
@@ -251,7 +251,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/contact'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Schedule Photography
  →
@@ -259,7 +259,7 @@ export default function SellingPage() {
             </div>
 
             {/* Staging Services */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>🏡</span>
               </div>
@@ -278,14 +278,14 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/contact'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Marketing Strategy */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>📢</span>
               </div>
@@ -304,7 +304,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/contact'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Get Started
  →

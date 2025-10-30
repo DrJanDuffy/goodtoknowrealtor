@@ -46,7 +46,7 @@ export default function BuyingPage() {
                 Use our advanced search tool to find your perfect home
               </p>
             </div>
-            <div className='bg-gray-50 rounded-2xl p-8'>
+            <div className='card p-8'>
               <RealScoutSearch />
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function BuyingPage() {
         <div className='container'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Tips For Buyers */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>💡</span>
               </div>
@@ -159,14 +159,14 @@ export default function BuyingPage() {
               </ul>
               <Link
                 href='/buying/tips'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Finance Information */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
@@ -191,14 +191,14 @@ export default function BuyingPage() {
               </ul>
               <Link
                 href='/buying/finance'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Real Estate Updates */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
@@ -223,14 +223,14 @@ export default function BuyingPage() {
               </ul>
               <Link
                 href='/buying/updates'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Planning Guide */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>📋</span>
               </div>
@@ -249,14 +249,14 @@ export default function BuyingPage() {
               </ul>
               <Link
                 href='/buying/guide'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Property Search */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <span className='text-2xl'>🔍</span>
               </div>
@@ -275,14 +275,14 @@ export default function BuyingPage() {
               </ul>
               <Link
                 href='/listings/search'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Search Properties →
               </Link>
             </div>
 
             {/* First-Time Buyers */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
@@ -320,7 +320,7 @@ export default function BuyingPage() {
                 </Link>
                 <Link
                   href='/contact'
-                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                  className='btn btn-outline'
                 >
                   Get Started →
                 </Link>

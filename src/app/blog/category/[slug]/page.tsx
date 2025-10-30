@@ -275,7 +275,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             {posts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts.map((post) => (
-                  <article key={post.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <article key={post.id} className="card overflow-hidden">
                     <div className="relative h-48">
                       <Image
                         src={post.image}
@@ -298,7 +298,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                       </p>
                       <Link
                         href={post.slug ? `/blog/${post.slug}` : '/blog'}
-                        className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                        className="btn btn-outline"
                       >
                         Read More
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
