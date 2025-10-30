@@ -42,7 +42,8 @@ const mockPosts = {
       excerpt: 'Complete step-by-step guide for first-time home buyers in Las Vegas. From pre-approval to closing day.',
       image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       date: '2025-01-15',
-      readTime: '8 min read'
+      readTime: '8 min read',
+      slug: 'first-time-home-buyer-guide-las-vegas-2025'
     },
     {
       id: '2',
@@ -140,7 +141,8 @@ const mockPosts = {
       excerpt: 'Latest sales data, price trends, and market insights for Las Vegas real estate.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       date: '2025-01-18',
-      readTime: '6 min read'
+      readTime: '6 min read',
+      slug: 'las-vegas-real-estate-market-trends-2025'
     },
     {
       id: '13',
@@ -161,6 +163,18 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const posts = mockPosts[category.slug as keyof typeof mockPosts] || [];
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${category.name} Articles`,
+    numberOfItems: posts.length,
+    itemListElement: posts.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.title,
+      url: p.slug ? `https://www.goodtoknowrealtor.com/blog/${p.slug}` : `https://www.goodtoknowrealtor.com/blog`
+    }))
+  } as const;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -170,6 +184,12 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           <Breadcrumbs />
         </div>
       </div>
+
+      {/* JSON-LD ItemList for category posts */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
 
       {/* Category Hero */}
       <section className={`bg-gradient-to-r ${getCategoryColorClass(category.color)} text-white py-16 lg:py-20`}>
@@ -182,6 +202,44 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             <p className="text-xl lg:text-2xl text-white/90 leading-relaxed">
               {category.description}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Intro copy for SEO uniqueness */}
+      <section className="py-8 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-gray-700 space-y-4 text-base">
+            {category.slug === 'buyer-advice' && (
+              <p>
+                Planning to buy in Las Vegas? Explore practical tips, financing guidance, and neighborhood insights tailored to local buyers. When you’re ready, start your search on the <Link href="/listings" className="text-blue-600 hover:text-blue-700 font-semibold">MLS listings</Link>, review our <Link href="/buyer-guide" className="text-blue-600 hover:text-blue-700 font-semibold">Buyer Guide</Link>, or set alerts for <Link href="/areas/summerlin" className="text-blue-600 hover:text-blue-700 font-semibold">Summerlin</Link> and <Link href="/areas/henderson" className="text-blue-600 hover:text-blue-700 font-semibold">Henderson</Link>.
+              </p>
+            )}
+            {category.slug === 'seller-advice' && (
+              <p>
+                Sellers in the Valley face unique seasonality and staging considerations. Use these articles to time your sale and prepare your home—then request a free <Link href="/home-value" className="text-blue-600 hover:text-blue-700 font-semibold">home value</Link> or see why clients choose us on <Link href="/why-list-with-us" className="text-blue-600 hover:text-blue-700 font-semibold">Why List With Us</Link>.
+              </p>
+            )}
+            {category.slug === 'market-updates' && (
+              <p>
+                Our monthly reports cover pricing, inventory, and days‑on‑market trends across Las Vegas, Summerlin, and Henderson. For deep dives, visit <Link href="/market-insights/full" className="text-blue-600 hover:text-blue-700 font-semibold">Full Market Insights</Link> or subscribe on the <Link href="/market-insights" className="text-blue-600 hover:text-blue-700 font-semibold">Market Insights</Link> page.
+              </p>
+            )}
+            {category.slug === 'finance' && (
+              <p>
+                From loan programs to Nevada’s tax advantages, these posts help you translate numbers into buying power. Pair this with our <Link href="/assessments/buyer-readiness" className="text-blue-600 hover:text-blue-700 font-semibold">Buyer Readiness Assessment</Link> and <Link href="/mortgage-calculator" className="text-blue-600 hover:text-blue-700 font-semibold">Mortgage Calculator</Link>.
+              </p>
+            )}
+            {category.slug === 'home-improvement' && (
+              <p>
+                Small projects can yield big returns in the desert climate. Learn which upgrades matter before you list—then compare value on the <Link href="/home-value" className="text-blue-600 hover:text-blue-700 font-semibold">Home Value</Link> tool.
+              </p>
+            )}
+            {category.slug === 'lifestyle' && (
+              <p>
+                Get the local perspective—schools, parks, dining, and daily life—so you can choose the right neighborhood. Start exploring <Link href="/communities" className="text-blue-600 hover:text-blue-700 font-semibold">Communities</Link> and set alerts in your favorite areas.
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -235,7 +293,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                         {post.excerpt}
                       </p>
                       <Link
-                        href={`/blog/${post.id}`}
+                        href={post.slug ? `/blog/${post.slug}` : '/blog'}
                         className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
                       >
                         Read More
