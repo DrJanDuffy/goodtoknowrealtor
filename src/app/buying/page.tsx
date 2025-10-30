@@ -18,20 +18,17 @@ export default function BuyingPage() {
 
       {/* Hero Section */}
       <PageHero
-        title='Buying Your Dream Home in Las Vegas'
-        subtitle='Expert guidance from pre-approval to closing. Dr. Jan Duffy helps you navigate the Las Vegas real estate market with confidence.'
+        title='Buy Your Luxury Las Vegas Home with Expert Guidance'
+        subtitle='Exclusive access to premier properties, off-market opportunities, and personalized service from Top 1% agent Dr. Jan Duffy. Navigate today&apos;s competitive market with confidence.'
+        gradientFromClassName='from-amber-600'
+        gradientToClassName='to-yellow-600'
       >
+        <ConsultationCTA variant='primary' source='buying-page-hero' showPhone={false} className='bg-white text-amber-900 hover:bg-amber-50 border-2 border-white' />
         <Link
-          href='/listings'
-          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+          href='/luxury'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-900 transition-colors duration-200'
         >
-          Start Your Home Search
-        </Link>
-        <Link
-          href='/buyer-guide'
-          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
-        >
-          View Buyer Guide
+          Browse Luxury Properties
         </Link>
       </PageHero>
 
@@ -41,10 +38,10 @@ export default function BuyingPage() {
           <div className='max-w-4xl mx-auto'>
             <div className='text-center mb-12'>
               <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
-                Search Las Vegas Properties
+                Discover Exclusive Luxury Properties
               </h2>
               <p className='text-xl text-gray-600'>
-                Use our advanced search tool to find your perfect home
+                Access premier listings including off-market opportunities not available to the public. Schedule a consultation for personalized property recommendations.
               </p>
             </div>
             <div className='card p-8'>
@@ -452,6 +449,65 @@ export default function BuyingPage() {
             personalized service and expert market knowledge.
           </p>
           <ConsultationCTA variant='white' source='buying-page-cta' />
+        </div>
+      </section>
+
+      {/* Exclusive Access Section - Current Market Value */}
+      <section className='py-16 bg-white'>
+        <div className='container'>
+          <div className='max-w-4xl mx-auto'>
+            <div className='card p-8 bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200'>
+              <div className='text-center mb-8'>
+                <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+                  Exclusive Access to Off-Market Properties
+                </h2>
+                <p className='text-lg text-gray-700'>
+                  In today&apos;s competitive market, the best properties often sell before hitting public listings. As a Top 1% agent, I provide exclusive access to:
+                </p>
+              </div>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mb-8'>
+                <div className='flex items-start gap-4'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center text-xl font-bold'>
+                    ✓
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-2'>Pre-Market Listings</h3>
+                    <p className='text-gray-600'>First access to properties before they&apos;re publicly listed</p>
+                  </div>
+                </div>
+                <div className='flex items-start gap-4'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center text-xl font-bold'>
+                    ✓
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-2'>Off-Market Opportunities</h3>
+                    <p className='text-gray-600'>Exclusive properties available only through our network</p>
+                  </div>
+                </div>
+                <div className='flex items-start gap-4'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center text-xl font-bold'>
+                    ✓
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-2'>Private Showings</h3>
+                    <p className='text-gray-600'>Personalized property tours at your convenience</p>
+                  </div>
+                </div>
+                <div className='flex items-start gap-4'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center text-xl font-bold'>
+                    ✓
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-gray-900 mb-2'>Competitive Advantage</h3>
+                    <p className='text-gray-600'>Strategic positioning in multiple-offer situations</p>
+                  </div>
+                </div>
+              </div>
+              <div className='text-center'>
+                <ConsultationCTA variant='primary' source='buying-exclusive-access' showPhone={true} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

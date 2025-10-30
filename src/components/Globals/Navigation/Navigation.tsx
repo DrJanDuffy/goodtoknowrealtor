@@ -137,7 +137,7 @@ export function Navigation() {
                   <div className='flex items-center justify-center w-8 h-8 bg-blue-600 rounded text-white text-sm font-bold'>
                     BHHS
                   </div>
-                  <div className='text-lg font-bold text-blue-600'>
+                  <div className='text-lg font-bold text-amber-600'>
                     Dr. Jan Duffy
                   </div>
                 </div>

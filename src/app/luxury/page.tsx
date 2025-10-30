@@ -114,19 +114,19 @@ export default function LuxuryPage() {
         <PageHero
           title='Luxury Real Estate in Las Vegas'
           subtitle='Discover exceptional luxury properties with Dr. Jan Duffy, Top 1% Las Vegas agent specializing in high-end homes, estates, and exclusive communities'
-          gradientFromClassName='from-blue-900'
-          gradientToClassName='to-blue-800'
+          gradientFromClassName='from-amber-900'
+          gradientToClassName='to-amber-800'
           backgroundImageUrl='https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1973&q=80'
         >
           <Link
             href='/contact'
-            className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors'
+            className='bg-white text-amber-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-amber-50 transition-colors'
           >
             Schedule Private Consultation
           </Link>
           <Link
             href='tel:702-222-1964'
-            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-amber-900 transition-colors'
           >
             Call (702) 222-1964
           </Link>
@@ -147,7 +147,7 @@ export default function LuxuryPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {luxuryFeatures.map((feature, index) => (
-                <div key={index} className="text-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
+                <div key={index} className="text-center bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6">
                   <div className="text-4xl mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
@@ -189,7 +189,7 @@ export default function LuxuryPage() {
                     <ul className="space-y-2 mb-6">
                       {area.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600">
-                          <span className="text-blue-600 mr-2">•</span>
+                          <span className="text-amber-600 mr-2">•</span>
                           {feature}
                         </li>
                       ))}
@@ -220,7 +220,7 @@ export default function LuxuryPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Custom Estates</h3>
                 <p className="text-gray-600 mb-4">
                   One-of-a-kind custom homes designed by renowned architects, featuring premium finishes, smart home technology, and resort-style amenities.
@@ -344,24 +344,24 @@ export default function LuxuryPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-blue-600 text-white">
+        <section className="py-16 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 text-white">
           <div className="container text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
               Ready to Experience Luxury Real Estate Excellence?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white/95 mb-8 max-w-3xl mx-auto font-medium">
               Contact Dr. Jan Duffy today for personalized luxury real estate services in Las Vegas. With $127M+ in sales volume and 20+ years of experience, we deliver exceptional results for discerning clients.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+                className="bg-white text-amber-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-amber-50 transition-colors"
               >
                 Schedule Private Consultation
               </Link>
               <Link
                 href="tel:702-222-1964"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-amber-900 transition-colors"
               >
                 Call (702) 222-1964
               </Link>

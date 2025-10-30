@@ -24,16 +24,18 @@ export default function SellingPage() {
 
       {/* Hero Section */}
       <PageHero
-        title='Sell Your Las Vegas Home for Maximum Value'
-        subtitle={"Expert marketing, strategic pricing, and proven negotiation skills to help you achieve the best possible outcome in today's market."}
+        title='Sell Your Luxury Las Vegas Home for Maximum Value'
+        subtitle={'Discreet marketing, luxury staging expertise, and strategic negotiation to maximize your property&apos;s value in today&apos;s market. White-glove service from $127M+ sales expert.'}
+        gradientFromClassName='from-amber-600'
+        gradientToClassName='to-yellow-600'
       >
+        <ConsultationCTA variant='primary' source='selling-page-hero' showPhone={false} className='bg-white text-amber-900 hover:bg-amber-50 border-2 border-white' />
         <Link
           href='/home-value'
-          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-900 transition-colors duration-200'
         >
-          Get Free Home Valuation
+          Get Luxury Home Valuation
         </Link>
-        <ConsultationCTA variant='outline' source='selling-page-hero' showPhone={false} className='border-2 border-white text-white hover:bg-white hover:text-blue-800' />
       </PageHero>
 
       {/* Home Value Widget */}
@@ -42,10 +44,10 @@ export default function SellingPage() {
           <div className='max-w-4xl mx-auto'>
             <div className='text-center mb-12'>
               <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
-                Get Your Home's Current Value
+                Get Your Home&apos;s Current Value
               </h2>
               <p className='text-xl text-gray-600'>
-                Find out what your Las Vegas home is worth in today's market
+                Find out what your Las Vegas home is worth in today&apos;s market
               </p>
             </div>
             <div className='card p-8'>
@@ -452,15 +454,63 @@ export default function SellingPage() {
         </div>
       </section>
 
+      {/* Luxury Marketing Services Section */}
+      <section className='py-16 bg-white'>
+        <div className='container'>
+          <div className='max-w-4xl mx-auto'>
+            <div className='text-center mb-12'>
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+                Luxury Marketing & Exclusive Services
+              </h2>
+              <p className='text-xl text-gray-700 font-medium'>
+                Premium marketing strategies tailored for high-end properties in today&apos;s competitive market
+              </p>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
+              <div className='card p-8 bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200'>
+                <div className='w-16 h-16 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl mb-6'>
+                  🔒
+                </div>
+                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Discreet Marketing</h3>
+                <p className='text-gray-700 mb-4'>
+                  Confidential listing strategies for high-profile properties. Private showings and targeted marketing to qualified luxury buyers.
+                </p>
+                <ul className='space-y-2 text-gray-600 mb-6'>
+                  <li>• Private, invitation-only showings</li>
+                  <li>• Confidential transaction handling</li>
+                  <li>• Exclusive buyer network access</li>
+                </ul>
+              </div>
+              <div className='card p-8 bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200'>
+                <div className='w-16 h-16 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl mb-6'>
+                  💎
+                </div>
+                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Luxury Staging</h3>
+                <p className='text-gray-700 mb-4'>
+                  Professional staging with high-end furnishings to showcase your property&apos;s potential and maximize buyer appeal.
+                </p>
+                <ul className='space-y-2 text-gray-600 mb-6'>
+                  <li>• Designer staging consultation</li>
+                  <li>• Premium furniture placement</li>
+                  <li>• Virtual staging options</li>
+                </ul>
+              </div>
+            </div>
+            <div className='text-center'>
+              <ConsultationCTA variant='primary' source='selling-luxury-marketing' showPhone={true} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className='py-20 bg-gradient-to-r from-amber-600 to-yellow-600 text-white'>
         <div className='container text-center'>
           <h2 className='text-3xl lg:text-4xl font-bold mb-6'>
-            Ready to Sell Your Home?
+            Maximize Your Home&apos;s Value with Luxury Marketing
           </h2>
-          <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
-            Get a free home valuation and discover how much your Las Vegas home
-            is worth in today&apos;s market.
+          <p className='text-xl text-white/95 mb-8 max-w-3xl mx-auto font-medium'>
+            Schedule a private consultation to discuss discreet marketing strategies, luxury staging, and strategic pricing to maximize your property&apos;s value in today&apos;s market.
           </p>
           <ConsultationCTA variant='white' source='selling-page-cta' />
         </div>

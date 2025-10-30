@@ -100,26 +100,28 @@ export default function ListingsPage() {
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
       <PageHero
-        title='Las Vegas Property Listings'
-        subtitle={'Discover exceptional homes in Las Vegas\'s most desirable neighborhoods. From luxury estates to first-time buyer homes, find your perfect property.'}
+        title='Luxury Las Vegas Property Listings'
+        subtitle={'Discover premier homes in Las Vegas\'s most prestigious neighborhoods. From luxury estates to exclusive gated communities, access exceptional properties with expert guidance.'}
         backgroundImageUrl='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1973&q=80'
+        gradientFromClassName='from-amber-900'
+        gradientToClassName='to-amber-800'
       >
+        <ConsultationCTA variant='primary' source='listings-page-hero' showPhone={false} className='bg-white text-amber-900 hover:bg-amber-50 border-2 border-white' />
         <Link
           href='/listings'
-          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-900 transition-colors duration-200'
         >
-          Start Advanced Search
+          Browse All Listings
         </Link>
-        <ConsultationCTA variant='outline' source='listings-page-hero' showPhone={false} className='border-2 border-white text-white hover:bg-white hover:text-blue-800' />
       </PageHero>
       <TrustBadges />
 
       {/* RealScout Advanced Search Section */}
-      <section className='py-20 bg-gradient-to-br from-blue-50 to-indigo-50'>
+      <section className='py-20 bg-gradient-to-br from-amber-50 to-yellow-50'>
         <div className='container'>
           <div className='max-w-5xl mx-auto'>
             <div className='text-center mb-12'>
-              <div className='inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
+              <div className='inline-flex items-center bg-amber-100 text-amber-900 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
                 🔍 Advanced Property Search
               </div>
               <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
