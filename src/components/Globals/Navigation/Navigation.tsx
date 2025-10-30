@@ -144,7 +144,7 @@ export function Navigation() {
             </div>
 
             {/* Desktop Navigation - Horizontal */}
-            <div className='hidden md:flex items-center space-x-6 flex-1 justify-center max-w-5xl'>
+            <div className='hidden md:flex items-center space-x-6 flex-1 justify-center max-w-5xl' role='menubar' aria-label='Primary'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -159,6 +159,9 @@ export function Navigation() {
                     className='text-gray-700 hover:text-gray-900 font-semibold transition-colors duration-300 px-3 py-3 rounded-lg hover:bg-gray-50 whitespace-nowrap text-sm tracking-wide'
                     role='menuitem'
                     aria-haspopup={item.hasDropdown}
+                    data-track='menu_click'
+                    data-label={item.label}
+                    data-path={item.href}
                     onClick={() => trackMenuClick(item.label, item.href)}
                   >
                     {item.label}
@@ -167,13 +170,16 @@ export function Navigation() {
                     <DropdownMenu
                       isOpen={activeDropdown === item.label}
                     >
-                      <div aria-label={`${item.label} submenu`} className='py-2'>
+                      <div aria-label={`${item.label} submenu`} role='menu' className='py-2'>
                         {item.children?.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             className='block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300 whitespace-nowrap font-medium border-b border-gray-50 last:border-b-0'
                             role='menuitem'
+                            data-track='menu_click'
+                            data-label={child.label}
+                            data-path={child.href}
                             onClick={() => trackMenuClick(child.label, child.href)}
                           >
                             {child.label}
