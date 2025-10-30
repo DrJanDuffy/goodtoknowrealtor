@@ -52,6 +52,8 @@ picture img {
 html {
   font-family: system-ui, sans-serif;
   line-height: 1.7; /* improve readability */
+  font-size: clamp(16px, 1.6vw, 18px);
+  scroll-behavior: smooth;
   /* Prevent horizontal scroll */
   overflow-x: hidden;
 }
@@ -90,12 +92,25 @@ body {
 .content-flow h2 { font-size: clamp(1.5rem, 2.8vw, 2.25rem); }
 .content-flow h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); }
 
+/* Section spacing rhythm */
+section { padding-top: 2rem; padding-bottom: 2rem; }
+@media (min-width: 1024px) { section { padding-top: 3rem; padding-bottom: 3rem; } }
+
 /* Improve link affordance */
-a { text-decoration-skip-ink: auto; }
+a { text-decoration-skip-ink: auto; text-underline-offset: 2px; }
 a:hover { text-decoration: underline; }
+
+/* Lead paragraph */
+.lead { font-size: clamp(1.125rem, 2vw, 1.25rem); line-height: 1.7; color: #374151; }
 
 /* Better list spacing */
 ul li + li, ol li + li { margin-top: 0.35rem; }
+
+/* Image polish */
+img, picture, video, canvas { border-radius: 0.5rem; }
+
+/* Anchor offset for sticky header */
+:where(h1, h2, h3, h4)[id] { scroll-margin-top: 90px; }
 
 /* Mobile-first responsive design improvements */
 @media (max-width: 640px) {
@@ -417,6 +432,16 @@ textarea,
     0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
+/* Card hover utility for engagement */
+.card {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(0,0,0,0.08); }
 
 .bg-white {
   background-color: #ffffff;
