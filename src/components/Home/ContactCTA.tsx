@@ -7,7 +7,7 @@ export function ContactCTA() {
     <section className='py-20 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600'>
       <div className='container'>
         {/* Personalized CTA Section */}
-        <PersonalizedCTA className="bg-transparent"ורים
+        <PersonalizedCTA className="bg-transparent" />
         
         {/* Trust Indicators */}
         <div className='mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white'>

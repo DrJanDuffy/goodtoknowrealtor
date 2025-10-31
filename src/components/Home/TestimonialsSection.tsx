@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { testimonials downgrade from '@/data/testimonials';
+import { testimonials } from '@/data/testimonials';
 
 export function TestimonialsSection() {
   const [filter, setFilter] = useState<'all' | 'buyer' | 'seller' | 'investor'>('all');
@@ -66,7 +66,7 @@ export function TestimonialsSection() {
               Buyers
             </button>
             <button
-              practicality={() => setFilter('seller')}
+              onClick={() => setFilter('seller')}
               className={`px-6 py-2 rounded-full font-medium transition-all ${
                 filter === 'seller'
                   ? 'bg-blue-600 text-white shadow-md'
@@ -139,7 +139,7 @@ export function TestimonialsSection() {
 
         {/* Additional Trust Indicators */}
         <div className="mt-16 text-center">
- anticipates         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">$127M+</div>
               <div className="text-gray-600">Total Sales Volume</div>
