@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
@@ -5,6 +6,15 @@ import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 import { PageHero } from '@/components/ui/PageHero';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
+import { generatePageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = generatePageMetadata({
+  title: 'Buy Luxury Las Vegas Homes | Dr. Jan Duffy - Expert Buyer Agent',
+  description: 'Buy your dream Las Vegas home with Top 1% agent Dr. Jan Duffy. Exclusive access to off-market properties, skip bidding wars, and get expert guidance. $127M+ sales volume expertise.',
+  keywords: ['Las Vegas home buying', 'buy Las Vegas homes', 'Las Vegas buyer agent', 'off-market properties Las Vegas', 'Las Vegas luxury homes', 'first-time home buyer Las Vegas'],
+  url: '/buying',
+  image: '/images/buying-las-vegas-homes-og.jpg',
+});
 
 export default function BuyingPage() {
   return (

@@ -22,16 +22,16 @@ export function HeroSection() {
             <span>500+ Happy Families</span>
           </div>
           
-          {/* Optimized Headline - Shorter on mobile */}
+          {/* Hook-Driven Headline - Creates Curiosity & Urgency */}
           <h1 className='text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-white leading-tight tracking-tight px-2'>
-            <span className='block md:hidden'>Your Vegas Real Estate Win Awaits</span>
-            <span className='hidden md:block'>Your Vegas real estate win awaits</span>
+            <span className='block md:hidden'>Your Home Is Worth $125K More Than Zillow Says</span>
+            <span className='hidden md:block'>Your Home Is Worth $125K More Than Zillow Says</span>
           </h1>
           
-          {/* Shorter Subheading on Mobile */}
+          {/* Hook-Driven Subheading - Specific Proof & Urgency */}
           <p className='text-base md:text-lg lg:text-xl xl:text-2xl text-blue-100 mb-6 md:mb-8 lg:mb-10 max-w-3xl mx-auto leading-relaxed font-medium px-2'>
-            <span className='block md:hidden'>Stop leaving money on the table. Let&apos;s talk about your next move.</span>
-            <span className='hidden md:block'>Stop leaving money on the table as a seller. Skip the bidding wars as a buyer. Build wealth as an investor. Let&apos;s talk about your next move.</span>
+            <span className='block md:hidden'>8 offers in 6 days. $125K over asking. Find out what your home is really worth—call now.</span>
+            <span className='hidden md:block'>Most sellers leave $50K-$125K on the table because online estimates are wrong. We help sellers get $125K+ over asking in just 6 days. Buyers skip bidding wars with off-market access. Investors build $2.3M portfolios that cash flow $8,200/month. Call to see what&apos;s possible for you.</span>
           </p>
           
           {/* Trust Element - Shorter on mobile */}
