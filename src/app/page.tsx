@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { HeroSection } from '@/components/Home/HeroSection';
+import { HeroTestimonialCarousel } from '@/components/Home/HeroTestimonialCarousel';
 import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
 import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 import { ContactCTA } from '@/components/Home/ContactCTA';
@@ -106,9 +107,13 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <HeroSection />
+      
+      {/* Hero Testimonial Carousel - Section 2 (right after hero) */}
+      <HeroTestimonialCarousel />
+      
       <TrustBadges />
 
-      {/* Social Proof - Move testimonials up early */}
+      {/* Full Testimonials Section - Section 3 */}
       <TestimonialsSection />
 
       {/* Home Value & Tracking Widgets */}

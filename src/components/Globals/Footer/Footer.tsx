@@ -54,24 +54,8 @@ export function Footer() {
                 <ul className='space-y-2'>
                   <li>
                     <Link
-                      href='/about'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
-                    >
-                      About Dr. Duffy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href='/contact'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
-                    >
-                      Contact
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href='/buying'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Buying
                     </Link>
@@ -79,7 +63,7 @@ export function Footer() {
                   <li>
                     <Link
                       href='/selling'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Selling
                     </Link>
@@ -87,43 +71,79 @@ export function Footer() {
                   <li>
                     <Link
                       href='/luxury'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Luxury Properties
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/services'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/about'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/contact'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Contact
                     </Link>
                   </li>
                 </ul>
               </div>
               <div>
-                <ul className='space-y-2'>
+                <p className='font-semibold text-gray-900 mb-3'>Resources</p>
+                <ul className='space-y-2 mb-6'>
+                  <li>
+                    <Link
+                      href='/press'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Press & Media
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/vendors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Preferred Vendors
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       href='/investing'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Investment Properties
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href='/listings'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
-                    >
-                      Current Listings
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href='/blog'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Market Insights
                     </Link>
                   </li>
+                </ul>
+                <p className='font-semibold text-gray-900 mb-3'>Legal</p>
+                <ul className='space-y-2'>
                   <li>
                     <Link
                       href='/privacy-policy'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Privacy Policy
                     </Link>
@@ -131,7 +151,7 @@ export function Footer() {
                   <li>
                     <Link
                       href='/terms-of-use'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Terms of Use
                     </Link>

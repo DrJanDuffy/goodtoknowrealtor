@@ -5,86 +5,64 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackMenuClick } from '@/lib/analytics';
-import { ConsultationModal } from '@/components/ui/ConsultationModal';
+// ConsultationModal removed - using direct Call/Text CTAs instead
 
-// Define menu structure matching IS Luxury's sophisticated navigation
+// Simplified navigation structure - 5 items max to reduce decision paralysis
 const menuItems = [
   {
-    label: 'Our Luxury Listings',
+    label: 'Luxury Listings',
     href: '/listings',
     hasDropdown: true,
     children: [
       { label: 'Active Listings', href: '/listings' },
-      { label: 'High Rise / Condos', href: '/luxury/condos' },
-      { label: 'Land For Sale', href: '/luxury/land' },
-      { label: 'Commercial Properties', href: '/luxury/commercial' },
+      { label: 'Luxury Communities', href: '/luxury/communities' },
       { label: 'Investment Properties', href: '/luxury/investment' },
-      { label: 'Rental Properties', href: '/luxury/rentals' },
-      { label: 'Virtual Tours', href: '/luxury/virtual-tours' },
-      { label: 'Luxury Developments', href: '/luxury/developments' },
       { label: 'Recent Sales', href: '/sold-listings' },
     ],
   },
   {
-    label: 'Buy a Home',
+    label: 'Buy',
     href: '/buying',
     hasDropdown: true,
     children: [
+      { label: 'Buy a Home', href: '/buying' },
       { label: 'Neighborhood Guides', href: '/communities' },
-      { label: 'MLS Search', href: '/listings' },
-      { label: 'Luxury Communities', href: '/luxury/communities' },
       { label: 'First-Time Buyers', href: '/buyer-guide' },
+      { label: 'Off-Market Properties', href: '/exclusive/off-market' },
     ],
   },
   {
-    label: 'Sell a Home',
+    label: 'Sell',
     href: '/selling',
     hasDropdown: true,
     children: [
-      { label: 'Sell My Luxury House', href: '/selling/luxury' },
+      { label: 'Sell a Home', href: '/selling' },
       { label: 'Home Value Estimate', href: '/home-value' },
-      { label: 'Why List With Dr. Duffy', href: '/why-list-with-us' },
-      { label: 'Cash Offer Program', href: '/cash-offer' },
+      { label: 'Luxury Marketing', href: '/selling/luxury' },
+      { label: 'Why List With Us', href: '/why-list-with-us' },
     ],
   },
   {
-    label: 'Exclusive Access',
-    href: '/exclusive',
+    label: 'Services',
+    href: '/services',
     hasDropdown: true,
     children: [
-      { label: 'Off-Market Properties', href: '/exclusive/off-market' },
-      { label: 'Pre-Market Listings', href: '/exclusive/pre-market' },
+      { label: 'Exclusive Access', href: '/exclusive' },
       { label: 'Private Showings', href: '/exclusive/showings' },
       { label: 'VIP Client Services', href: '/exclusive/vip' },
+      { label: 'Estate Management', href: '/services/estate-management' },
     ],
   },
   {
-    label: 'About Us',
+    label: 'About',
     href: '/about',
     hasDropdown: true,
     children: [
       { label: 'Dr. Jan Duffy', href: '/about' },
-      { label: 'Our Team', href: '/about/team' },
       { label: 'Testimonials', href: '/testimonials' },
-      { label: 'Our Partners', href: '/about/partners' },
-      { label: 'Luxury Estate Management', href: '/services/estate-management' },
       { label: 'Market Insights', href: '/blog' },
+      { label: 'Contact', href: '/contact' },
     ],
-  },
-  {
-    label: 'Press & Media',
-    href: '/press',
-    hasDropdown: true,
-    children: [
-      { label: 'Recent Press', href: '/press/recent' },
-      { label: 'Media Kit', href: '/press/media-kit' },
-      { label: 'Speaking Engagements', href: '/press/speaking' },
-    ],
-  },
-  {
-    label: 'Preferred Vendors',
-    href: '/vendors',
-    hasDropdown: false,
   },
 ];
 
@@ -114,13 +92,22 @@ function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
 
 export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label);
   };
 
   const handleMouseLeave = () => {
+    setActiveDropdown(null);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
     setActiveDropdown(null);
   };
 
@@ -144,8 +131,8 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Horizontal Navigation - all breakpoints */}
-            <div className='flex items-center gap-4 sm:space-x-6 flex-1 justify-center max-w-5xl overflow-x-auto no-scrollbar' role='menubar' aria-label='Primary'>
+            {/* Desktop Navigation */}
+            <div className='hidden lg:flex items-center gap-4 flex-1 justify-center max-w-5xl' role='navigation' aria-label='Primary'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
@@ -158,7 +145,6 @@ export function Navigation() {
                   <Link
                     href={item.href}
                     className='text-gray-700 hover:text-gray-900 font-semibold transition-colors duration-300 px-2 sm:px-3 py-3 rounded-lg hover:bg-gray-50 whitespace-nowrap text-sm tracking-wide'
-                    role='menuitem'
                     aria-haspopup={item.hasDropdown}
                     data-track='menu_click'
                     data-label={item.label}
@@ -187,7 +173,10 @@ export function Navigation() {
                               data-track='menu_click'
                               data-label={child.label}
                               data-path={child.href}
-                              onClick={() => trackMenuClick(child.label, child.href)}
+                              onClick={() => {
+                                trackMenuClick(child.label, child.href);
+                                closeMobileMenu();
+                              }}
                             >
                               {child.label}
                             </Link>
@@ -200,34 +189,132 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className='flex items-center gap-2 sm:gap-3 ml-2 sm:ml-4'>
-              <button
-                onClick={() => setIsConsultModalOpen(true)}
-                className='bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-xs sm:text-sm whitespace-nowrap tracking-wide'
-                aria-label="Schedule Consultation"
-              >
-                Schedule Consultation
-              </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className='lg:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors'
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+
+            {/* CTA Buttons - Call (Primary) and Text (Secondary) - Desktop Only */}
+            <div className='hidden lg:flex items-center gap-2 sm:gap-3 ml-2 sm:ml-4'>
               <Link
                 href='tel:702-222-1964'
-                className='hidden sm:flex items-center justify-center w-10 h-10 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors'
+                className='flex items-center justify-center gap-2 bg-amber-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors text-xs sm:text-sm whitespace-nowrap tracking-wide shadow-md hover:shadow-lg'
                 aria-label="Call (702) 222-1964"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
+                <span className='hidden sm:inline'>Call</span>
+              </Link>
+              <Link
+                href='sms:702-222-1964'
+                className='flex items-center justify-center gap-2 bg-white text-gray-900 px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-xs sm:text-sm whitespace-nowrap tracking-wide border-2 border-gray-300 shadow-md hover:shadow-lg'
+                aria-label="Send Text to (702) 222-1964"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span className='hidden sm:inline'>Text</span>
               </Link>
             </div>
           </div>
         </div>
 
       </nav>
-      <ConsultationModal
-        isOpen={isConsultModalOpen}
-        onClose={() => setIsConsultModalOpen(false)}
-        source="header"
-      />
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className='fixed inset-0 bg-black/50 z-40 lg:hidden'
+            onClick={closeMobileMenu}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Menu Panel */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+            className='fixed top-20 right-0 bottom-0 w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto'
+          >
+            <div className='p-6'>
+              {/* Mobile CTA Buttons */}
+              <div className='flex flex-col gap-3 mb-6 pb-6 border-b border-gray-200'>
+                <Link
+                  href='tel:702-222-1964'
+                  onClick={closeMobileMenu}
+                  className='flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-amber-700 transition-colors shadow-md'
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  Call (702) 222-1964
+                </Link>
+                <Link
+                  href='sms:702-222-1964'
+                  onClick={closeMobileMenu}
+                  className='flex items-center justify-center gap-2 bg-white text-gray-900 px-6 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors border-2 border-gray-300 shadow-md'
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  Send Text
+                </Link>
+              </div>
+
+              {/* Mobile Menu Items */}
+              <nav className='space-y-1' role='navigation' aria-label='Mobile navigation'>
+                {menuItems.map((item, index) => (
+                  <div key={index} className='mb-2'>
+                    <Link
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className='block px-4 py-3 text-gray-900 font-semibold hover:bg-gray-50 rounded-lg transition-colors'
+                    >
+                      {item.label}
+                    </Link>
+                    {item.hasDropdown && item.children && (
+                      <div className='ml-4 mt-1 space-y-1'>
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={closeMobileMenu}
+                            className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors'
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
