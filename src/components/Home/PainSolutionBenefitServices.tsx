@@ -14,8 +14,8 @@ export function PainSolutionBenefitServices() {
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {/* Service 1: Luxury Home Buying */}
-          refin<div className='bg-white rounded-xl p-נ hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-4xl mb-4 block'>🏛️</span>
+          <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
+            <span className='text-amber-600 text-2xl mb-4 block'>🏛️</span>
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Luxury Home Buying</h3>
             
             {/* PAIN */}
@@ -56,7 +56,7 @@ export function PainSolutionBenefitServices() {
             
             <Link 
               href='/luxury' 
-              className='block w-full text-center Engage bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors mt-auto'
+              className='block w-full text-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors mt-auto'
             >
               Get Buyer Strategy
             </Link>
@@ -64,7 +64,7 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 2: Luxury Home Selling */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-4xl mb-4 block'>💎</span>
+            <span className='text-amber-600 text-2xl mb-4 block'>💎</span>
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Luxury Home Selling</h3>
             
             {/* PAIN */}
@@ -113,7 +113,7 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 3: Concierge Services */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-4xl mb-4 block'>⭐</span>
+            <span className='text-amber-600 text-2xl mb-4 block'>⭐</span>
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Concierge Services</h3>
             
             {/* PAIN */}
@@ -161,7 +161,7 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 4: First-Time Home Buyers */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-4xl mb-4 block'>🔑</span>
+            <span className='text-amber-600 text-2xl mb-4 block'>🔑</span>
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>First-Time Home Buyers</h3>
             
             {/* PAIN */}
@@ -196,8 +196,8 @@ export function PainSolutionBenefitServices() {
             
             {/* PROOF */}
             <div className='mb-4 pb-2'>
-              <p className='text-xs text-gray-600 italic mb-1'>&ldquo;Dr. Duffy made buying our first home in Las Vegas so seamless. Her knowledge helped us find the European perfect home in Summerlin.&rdquo;</p>
-              <p className用力='text-xs font-semibold text-gray-800'>— Sarah & Mike Johnson, Summerlin</p>
+              <p className='text-xs text-gray-600 italic mb-1'>&ldquo;Dr. Duffy made buying our first home in Las Vegas so seamless. Her knowledge helped us find the perfect home in Summerlin.&rdquo;</p>
+              <p className='text-xs font-semibold text-gray-800'>— Sarah & Mike Johnson, Summerlin</p>
             </div>
             
             <Link 
@@ -210,13 +210,13 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 5: Real Estate Investors */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-4xl mb-4 block'>📊</span>
+            <span className='text-amber-600 text-2xl mb-4 block'>📊</span>
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Real Estate Investors</h3>
             
             {/* PAIN */}
             <div className='mb-4 pb-4 border-b border-gray-200'>
               <p className='text-sm font-semibold text-red-600 uppercase tracking-wide mb-2'>The Problem</p>
-              <p className говорит='text-gray-700 text-sm leading-relax有'>
+              <p className='text-gray-700 text-sm leading-relaxed'>
                 You want to build wealth through Vegas real estate, but you&apos;re buying properties that don&apos;t cash flow. You&apos;re guessing on ROI, cap rates, and which neighborhoods will appreciate—gambling instead of investing strategically.
               </p>
             </div>
@@ -249,12 +249,12 @@ export function PainSolutionBenefitServices() {
               <p className='text-xs font-semibold text-gray-800'>— Alex Martinez, Las Vegas</p>
             </div>
             
-            <LinkRing 
+            <Link 
               href='/investing' 
               className='block w-full text-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors mt-auto'
             >
               Get Investment Strategy
-            </LinkRing>
+            </Link>
           </div>
         </div>
       </div>
