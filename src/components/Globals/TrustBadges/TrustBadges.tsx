@@ -11,58 +11,58 @@ interface TrustBadge {
 const trustBadges: TrustBadge[] = [
   {
     id: '1',
-    title: 'Top 1% Las Vegas Agent',
-    description: 'Ranked among the highest performing agents',
+    title: 'Top 1% Luxury Agent',
+    description: 'Premier luxury real estate specialist with exclusive market access',
     icon: '🏆',
     verification: 'Verified by Berkshire Hathaway'
   },
   {
     id: '2',
-    title: '15+ Years Experience',
-    description: 'Expert knowledge of Las Vegas market',
+    title: '20+ Years Experience',
+    description: 'Expert knowledge of luxury Las Vegas market and exclusive communities',
     icon: '⭐',
     verification: 'Licensed REALTOR®'
   },
   {
     id: '3',
-    title: '500+ Happy Families',
-    description: 'Successfully helped families find homes',
-    icon: '👨‍👩‍👧‍👦',
-    verification: 'Client testimonials available'
-  },
-  {
-    id: '4',
-    title: '$127M+ Sales Volume',
-    description: 'Proven track record of successful sales',
+    title: '$127M+ Luxury Sales',
+    description: 'Proven track record in high-end properties and exclusive listings',
     icon: '💰',
     verification: 'MLS verified statistics'
   },
   {
+    id: '4',
+    title: 'White-Glove Service',
+    description: 'Discreet, personalized concierge service for discerning clients',
+    icon: '✨',
+    verification: 'Client testimonials available'
+  },
+  {
     id: '5',
     title: 'Berkshire Hathaway',
-    description: 'Premier Properties affiliation',
+    description: 'Premier Properties - Luxury Real Estate Network',
     icon: '🏢',
     verification: 'Official franchise member'
   },
   {
     id: '6',
-    title: '22 Days Avg. Sale Time',
-    description: 'Faster than market average',
-    icon: '⚡',
-    verification: 'MLS market data'
+    title: 'Exclusive Access',
+    description: 'Off-market properties and pre-market listings',
+    icon: '🔑',
+    verification: 'Network verified'
   }
 ];
 
 export function TrustBadges() {
   return (
-    <div className='bg-gray-50 py-12'>
+    <div className='bg-gradient-to-br from-amber-50 to-yellow-50 py-12'>
       <div className='container mx-auto px-4'>
         <div className='text-center mb-8'>
           <h2 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4'>
-            Why Choose Dr. Jan Duffy?
+            Why Choose Dr. Jan Duffy for Luxury Real Estate?
           </h2>
-          <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-            Trusted by hundreds of Las Vegas families with a proven track record of success
+          <p className='text-lg text-gray-700 font-medium max-w-3xl mx-auto'>
+            Premier luxury specialist trusted by discerning clients. Exclusive access, white-glove service, and proven expertise in Las Vegas&apos;s most prestigious properties.
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export function TrustBadges() {
             >
               <div className='flex items-start space-x-4'>
                 <div className='flex-shrink-0'>
-                  <div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl'>
+                  <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl'>
                     {badge.icon}
                   </div>
                 </div>
@@ -82,11 +82,11 @@ export function TrustBadges() {
                   <h3 className='text-lg font-semibold text-gray-900 mb-2'>
                     {badge.title}
                   </h3>
-                  <p className='text-gray-600 mb-2'>
+                  <p className='text-gray-700 mb-2 font-medium'>
                     {badge.description}
                   </p>
                   {badge.verification && (
-                    <p className='text-sm text-blue-600 font-medium'>
+                    <p className='text-sm text-amber-700 font-semibold'>
                       ✓ {badge.verification}
                     </p>
                   )}
