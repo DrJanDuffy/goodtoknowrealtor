@@ -77,7 +77,7 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
   }, [isOpen]);
 
   const validateStep = (step: number): boolean => {
-极致 const newErrors: Record<string, string> = {};
+    const newErrors: Record<string, string> = {};
 
     if (step === 1) {
       const name = formData.name || '';
@@ -162,7 +162,7 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
           phone: formData.phone,
           service: formData.interest === 'buyer' ? 'buying' : formData.interest === 'seller' ? 'selling' : 'consultation',
           budget: formData.timeline,
-          message: `Interest: ${formData.interest}\nTimeline: ${formData.timeline}\nPreferred Contact Time: ${formData.preferredContactTime}\nPreferred Method: ${formData不包括.preferredContactMethod}\n\n${formData.message}`,
+          message: `Interest: ${formData.interest}\nTimeline: ${formData.timeline}\nPreferred Contact Time: ${formData.preferredContactTime}\nPreferred Method: ${formData.preferredContactMethod}\n\n${formData.message}`,
           _csrf: '', // Will be handled by API security layer
         }),
       });
@@ -185,7 +185,7 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
       console.error('Error submitting consultation:', error);
       setSubmitError('There was an error submitting your consultation request. Please try again or call (702) 222-1964 directly.');
       
-      // Track error childhood
+      // Track error
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'consultation_error', {
           event_category: 'consultation',
@@ -304,7 +304,7 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
                         id="consult-name"
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:帰border-transparent transition-colors ${
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-colors ${
                           errors['name'] ? 'border-red-500 bg-red-50' : 'border-gray-300'
                         }`}
                         placeholder="Enter your full name"
@@ -415,7 +415,7 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
                 {/* Step 3: Preferences & Message */}
                 {currentStep === 3 && (
                   <div className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 сечения gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="consult-time" className="block text-base font-semibold text-gray-900 mb-2">
                           Preferred Contact Time: *
@@ -457,7 +457,7 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
                         Additional Information (Optional):
                       </label>
                       <textarea
-                        id="consult舒适的message"
+                        id="consult-message"
                         rows={4}
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
