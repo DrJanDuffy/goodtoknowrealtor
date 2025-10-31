@@ -1,9 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { trackMenuClick } from '@/lib/analytics';
 // ConsultationModal removed - using direct Call/Text CTAs instead
 
@@ -73,20 +71,11 @@ interface DropdownMenuProps {
 }
 
 function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
+  if (!isOpen) return null;
   return (
-    <AnimatePresence mode="wait">
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-          className='absolute top-full left-0 mt-3 w-80 bg-white rounded-lg shadow-2xl border border-gray-100 transition-all duration-300 opacity-100 visible translate-y-0 z-50'
-        >
-          {children}
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div className='absolute top-full left-0 mt-3 w-80 bg-white rounded-lg shadow-2xl border border-gray-100 z-50 transition-all duration-300 opacity-100 visible translate-y-0'>
+      {children}
+    </div>
   );
 }
 
@@ -163,13 +152,12 @@ export function Navigation() {
                     <DropdownMenu
                       isOpen={activeDropdown === item.label}
                     >
-                      <ul aria-label={`${item.label} submenu`} className='py-2 list-none' role='menu'>
+                      <ul aria-label={`${item.label} submenu`} className='py-2 list-none'>
                         {item.children?.map((child) => (
-                          <li key={child.href} role='none'>
+                          <li key={child.href}>
                             <Link
                               href={child.href}
                               className='block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300 whitespace-nowrap font-medium border-b border-gray-50 last:border-b-0'
-                              role='menuitem'
                               data-track='menu_click'
                               data-label={child.label}
                               data-path={child.href}
@@ -194,7 +182,7 @@ export function Navigation() {
               onClick={toggleMobileMenu}
               className='lg:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors'
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMobileMenuOpen}
+              aria-expanded={isMobileMenuOpen ? 'true' : 'false'}
             >
               {isMobileMenuOpen ? (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,28 +224,19 @@ export function Navigation() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className='fixed inset-0 bg-black/50 z-40 lg:hidden'
-            onClick={closeMobileMenu}
-          />
-        )}
-      </AnimatePresence>
+      {isMobileMenuOpen && (
+        <div
+          className='fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300'
+          onClick={closeMobileMenu}
+          aria-hidden='true'
+        />
+      )}
 
       {/* Mobile Menu Panel */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className='fixed top-20 right-0 bottom-0 w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto'
-          >
+      {isMobileMenuOpen && (
+        <div
+          className='fixed top-20 right-0 bottom-0 w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto transition-transform duration-300'
+        >
             <div className='p-6'>
               {/* Mobile CTA Buttons */}
               <div className='flex flex-col gap-3 mb-6 pb-6 border-b border-gray-200'>
@@ -312,9 +291,8 @@ export function Navigation() {
                 ))}
               </nav>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   );
 }

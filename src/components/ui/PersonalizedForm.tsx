@@ -24,7 +24,7 @@ interface FormField {
 
 // Field definitions for each persona
 const getPersonaFields = (persona: PersonaType): FormField[] => {
-  const baseFields = [
+  const baseFields: FormField[] = [
     {
       name: 'name',
       label: 'Full Name',

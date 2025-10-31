@@ -1,36 +1,4 @@
-My hero section is too text-heavy and has competing CTAs. Here's what's currently there:
-
-CURRENT HERO CONTENT:
-- Headline: "Exceptional Luxury Homes in Las Vegas"
-- Subheading: "Discover prestigious properties in Summerlin, Henderson, Lake Las Vegas, and exclusive gated communities. Expert guidance for discerning buyers and sellers."
-- 4 Value Badges: "$127M+ Luxury Sales" | "Premium Properties" | "White-Glove Service" | "Exclusive Communities"
-- Search Widget (RealScout)
-- 2 CTA Buttons: "Browse Luxury Properties" and "Schedule Private Consultation"
-- 2 Secondary Buttons: Call (702) 222-1964 and Send Text
-
-PROBLEMS:
-- Too many competing elements
-- Subheading is generic real estate language
-- 4 badges dilute message
-- No clear primary action
-
-GOAL: Create a benefit-focused hero that speaks to three personas:
-
-PERSONA 1 - SELLERS: "Stop leaving money on the table"
-PERSONA 2 - BUYERS: "Find your home without the bidding war stress"
-PERSONA 3 - INVESTORS: "Build wealth through Vegas real estate"
-
-Please provide:
-1. A single powerful headline (max 40 characters) that works for all personas
-2. A subheading that clarifies the benefit (not features)
-3. ONE primary CTA button (color: green, text: "Call (702) 222-1964")
-4. ONE secondary CTA button (color: white, text: "Send Text Message")
-5. Recommended background visual (should evoke Las Vegas luxury/success)
-6. Trust element placement: "20+ Years | $127M+ Sales | 500+ Happy Families"
-7. Where to place the search widget (or if it should be removed from hero)
-8. Mobile version of hero (shorter, stacked buttons)
-
-Brand voice: Confident Las Vegas expert, genuine, not pushy. Current tone: "Dear [Name], ... Sincerely, Dr. Duffy" but for website should be warmer.'use client';
+'use client';
 
 interface TrustBadge {
   id: string;

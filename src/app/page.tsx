@@ -4,6 +4,7 @@ import { HeroSection } from '@/components/Home/HeroSection';
 import { HeroTestimonialCarousel } from '@/components/Home/HeroTestimonialCarousel';
 import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
 import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
+import { TransformationSection } from '@/components/Home/TransformationSection';
 import { ContactCTA } from '@/components/Home/ContactCTA';
 import { RealScoutSimpleSearch } from '@/components/PropertySearch/RealScoutSimpleSearch';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
@@ -115,6 +116,9 @@ export default function HomePage() {
 
       {/* Full Testimonials Section - Section 3 */}
       <TestimonialsSection />
+
+      {/* Transformation Section - The Real Difference */}
+      <TransformationSection />
 
       {/* Home Value & Tracking Widgets */}
       <section className='py-16 bg-white'>
