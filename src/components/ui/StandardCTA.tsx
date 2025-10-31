@@ -34,17 +34,17 @@ export function StandardCTA({
   const sizeClasses = {
     sm: {
       button: 'px-6 py-2.5 text-sm rounded-lg',
-      icon: 'w-4 h-4',
+      icon: 'w-3 h-3',
       gap: 'gap-2'
     },
     md: {
       button: 'px-8 py-3.5 text-base rounded-xl',
-      icon: 'w-5 h-5',
+      icon: 'w-4 h-4',
       gap: 'gap-3'
     },
     lg: {
       button: 'px-10 py-4 text-lg rounded-xl',
-      icon: 'w-6 h-6',
+      icon: 'w-5 h-5',
       gap: 'gap-3'
     }
   };
