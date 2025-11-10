@@ -1,5 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 60" width="24" height="24" preserveAspectRatio="xMidYMid meet"><path fill="#f8f9fa" d="M0 0h300v60H0z"/><text x="150" y="35" fill="#333" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">
-    Berkshire Hathaway HomeServices
-  </text><text x="150" y="50" fill="#666" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">
-    Real Estate Services
-  </text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" preserveAspectRatio="xMidYMid meet">
+  <!-- Background -->
+  <rect width="300" height="80" fill="transparent"/>
+
+  <!-- BHHS Icon -->
+  <g transform="translate(10, 10)">
+    <rect width="60" height="60" rx="4" fill="#003B5C"/>
+    <text x="30" y="42" fill="white" font-family="Georgia, serif" font-size="24" font-weight="bold" text-anchor="middle">BHHS</text>
+  </g>
+
+  <!-- Berkshire Hathaway HomeServices Text -->
+  <text x="80" y="35" fill="#003B5C" font-family="Georgia, serif" font-size="16" font-weight="bold">
+    Berkshire Hathaway
+  </text>
+  <text x="80" y="52" fill="#003B5C" font-family="Georgia, serif" font-size="16" font-weight="bold">
+    HomeServices
+  </text>
+  <text x="80" y="65" fill="#666" font-family="Arial, sans-serif" font-size="9" letter-spacing="1">
+    REAL ESTATE SERVICES
+  </text>
+</svg>

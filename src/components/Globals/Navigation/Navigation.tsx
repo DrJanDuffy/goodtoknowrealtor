@@ -73,7 +73,7 @@ interface DropdownMenuProps {
 function DropdownMenu({ children, isOpen }: DropdownMenuProps) {
   if (!isOpen) return null;
   return (
-    <div className='absolute top-full left-0 mt-3 w-80 bg-white rounded-lg shadow-2xl border border-gray-100 z-50 transition-all duration-300 opacity-100 visible translate-y-0'>
+    <div className='absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-200 z-50 transition-all duration-300 opacity-100 visible translate-y-0 before:content-[""] before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-white'>
       {children}
     </div>
   );
@@ -104,29 +104,38 @@ export function Navigation() {
   return (
     <>
       {/* Main Navigation */}
-      <nav id="navigation" className='bg-white shadow-lg sticky top-0 z-50 border-b border-gray-200' role='navigation' aria-label='Main navigation'>
-        <div className='container mx-auto px-6'>
-          <div className='flex items-center justify-between h-20 w-full'>
+      <nav id="navigation" className='bg-white shadow-md sticky top-0 z-50 border-b border-gray-100' role='navigation' aria-label='Main navigation'>
+        <div className='container mx-auto px-4 lg:px-8'>
+          <div className='flex items-center justify-between h-24 w-full'>
             {/* Logo */}
             <div className='flex items-center'>
-              <Link href='/' className='flex items-center hover:opacity-80 transition-opacity'>
-                <div className='flex items-center space-x-3'>
-                  <div className='flex items-center justify-center w-8 h-8 bg-blue-600 rounded text-white text-sm font-bold'>
-                    BHHS
-                  </div>
-                  <div className='text-lg font-bold text-amber-600'>
-                    Dr. Jan Duffy
+              <Link href='/' className='flex items-center hover:opacity-90 transition-all duration-300'>
+                <div className='flex items-center gap-4'>
+                  {/* BHHS Logo */}
+                  <img
+                    src='/images/bhhs/logo.svg'
+                    alt='Berkshire Hathaway HomeServices'
+                    className='h-12 w-auto'
+                  />
+                  {/* Agent Name */}
+                  <div className='hidden sm:flex flex-col border-l-2 border-gray-300 pl-4'>
+                    <span className='text-xl font-serif font-semibold text-gray-900 tracking-tight leading-tight'>
+                      Dr. Jan Duffy
+                    </span>
+                    <span className='text-xs text-gray-600 tracking-wide uppercase'>
+                      Luxury Real Estate
+                    </span>
                   </div>
                 </div>
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className='hidden lg:flex items-center gap-4 flex-1 justify-center max-w-5xl' role='navigation' aria-label='Primary'>
+            <div className='hidden lg:flex items-center gap-1 flex-1 justify-center max-w-4xl' role='navigation' aria-label='Primary'>
               {menuItems.map((item, index) => (
                 <div
                   key={index}
-                  className='relative'
+                  className='relative group'
                   onMouseEnter={() =>
                     item.hasDropdown && handleMouseEnter(item.label)
                   }
@@ -134,7 +143,7 @@ export function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className='text-gray-700 hover:text-gray-900 font-semibold transition-colors duration-300 px-2 sm:px-3 py-3 rounded-lg hover:bg-gray-50 whitespace-nowrap text-sm tracking-wide'
+                    className='relative text-gray-800 hover:text-blue-700 font-medium transition-all duration-300 px-4 py-2 whitespace-nowrap text-sm tracking-wide uppercase after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-blue-700 after:transition-all after:duration-300 hover:after:w-3/4'
                     aria-haspopup={item.hasDropdown}
                     data-track='menu_click'
                     data-label={item.label}
@@ -153,12 +162,12 @@ export function Navigation() {
                     <DropdownMenu
                       isOpen={activeDropdown === item.label}
                     >
-                      <ul aria-label={`${item.label} submenu`} className='py-2 list-none'>
-                        {item.children?.map((child) => (
+                      <ul aria-label={`${item.label} submenu`} className='py-3 list-none'>
+                        {item.children?.map((child, idx) => (
                           <li key={child.href}>
                             <Link
                               href={child.href}
-                              className='block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-300 whitespace-nowrap font-medium border-b border-gray-50 last:border-b-0'
+                              className='group block px-6 py-3.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-all duration-200 whitespace-nowrap font-medium border-b border-gray-100 last:border-b-0 first:rounded-t-xl last:rounded-b-xl relative overflow-hidden before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-700 before:transform before:scale-y-0 before:transition-transform before:duration-200 hover:before:scale-y-100'
                               data-track='menu_click'
                               data-label={child.label}
                               data-path={child.href}
@@ -167,7 +176,7 @@ export function Navigation() {
                                 closeMobileMenu();
                               }}
                             >
-                              {child.label}
+                              <span className='relative z-10'>{child.label}</span>
                             </Link>
                           </li>
                         ))}
@@ -197,33 +206,26 @@ export function Navigation() {
             </button>
 
             {/* CTA Buttons - Schedule Consultation, Call (Primary), and Text (Secondary) - Desktop Only */}
-            <div className='hidden lg:flex items-center gap-2 sm:gap-3 ml-2 sm:ml-4'>
+            <div className='hidden lg:flex items-center gap-3 ml-4'>
               <button
                 onClick={() => setIsConsultModalOpen(true)}
-                className='flex items-center justify-center gap-2 bg-blue-600 text-white px-4 sm:px-5 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-xs sm:text-sm whitespace-nowrap tracking-wide shadow-md hover:shadow-lg'
+                className='flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 text-sm whitespace-nowrap tracking-wide shadow-lg hover:shadow-xl hover:scale-105 transform'
                 aria-label="Schedule Consultation"
               >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
                 Schedule Consultation
               </button>
               <Link
                 href='tel:702-222-1964'
-                className='flex items-center justify-center gap-2 bg-amber-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors text-xs sm:text-sm whitespace-nowrap tracking-wide shadow-md hover:shadow-lg'
+                className='flex items-center justify-center gap-2 bg-white text-blue-700 px-5 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 text-sm whitespace-nowrap tracking-wide border-2 border-blue-600 shadow-md hover:shadow-lg hover:scale-105 transform'
                 aria-label="Call (702) 222-1964"
               >
-                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span className='hidden sm:inline'>Call</span>
-              </Link>
-              <Link
-                href='sms:702-222-1964'
-                className='flex items-center justify-center gap-2 bg-white text-gray-900 px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-xs sm:text-sm whitespace-nowrap tracking-wide border-2 border-gray-300 shadow-md hover:shadow-lg'
-                aria-label="Send Text to (702) 222-1964"
-              >
-                <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                <span className='hidden sm:inline'>Text</span>
+                <span>(702) 222-1964</span>
               </Link>
             </div>
           </div>
@@ -243,7 +245,7 @@ export function Navigation() {
       {/* Mobile Menu Panel */}
       {isMobileMenuOpen && (
         <div
-          className='fixed top-20 right-0 bottom-0 w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto transition-transform duration-300'
+          className='fixed top-24 right-0 bottom-0 w-80 bg-white shadow-2xl z-50 lg:hidden overflow-y-auto transition-transform duration-300 border-l border-gray-200'
         >
             <div className='p-6'>
               {/* Mobile CTA Buttons */}
@@ -253,51 +255,44 @@ export function Navigation() {
                     setIsConsultModalOpen(true);
                     closeMobileMenu();
                   }}
-                  className='flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md'
+                  className='flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg'
                 >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
                   Schedule Consultation
                 </button>
                 <Link
                   href='tel:702-222-1964'
                   onClick={closeMobileMenu}
-                  className='flex items-center justify-center gap-2 bg-amber-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-amber-700 transition-colors shadow-md'
+                  className='flex items-center justify-center gap-2 bg-white text-blue-700 px-6 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 border-2 border-blue-600 shadow-md'
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   Call (702) 222-1964
                 </Link>
-                <Link
-                  href='sms:702-222-1964'
-                  onClick={closeMobileMenu}
-                  className='flex items-center justify-center gap-2 bg-white text-gray-900 px-6 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors border-2 border-gray-300 shadow-md'
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                  Send Text
-                </Link>
               </div>
 
               {/* Mobile Menu Items */}
-              <nav className='space-y-1' role='navigation' aria-label='Mobile navigation'>
+              <nav className='space-y-2' role='navigation' aria-label='Mobile navigation'>
                 {menuItems.map((item, index) => (
-                  <div key={index} className='mb-2'>
+                  <div key={index}>
                     <Link
                       href={item.href}
                       onClick={closeMobileMenu}
-                      className='block px-4 py-3 text-gray-900 font-semibold hover:bg-gray-50 rounded-lg transition-colors'
+                      className='block px-4 py-3 text-gray-900 font-semibold hover:bg-blue-50 hover:text-blue-900 rounded-lg transition-all duration-200 uppercase text-sm tracking-wide'
                     >
                       {item.label}
                     </Link>
                     {item.hasDropdown && item.children && (
-                      <div className='ml-4 mt-1 space-y-1'>
+                      <div className='ml-2 mt-1 space-y-1 pl-4 border-l-2 border-gray-200'>
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
                             onClick={closeMobileMenu}
-                            className='block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors'
+                            className='block px-4 py-2.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-900 rounded-lg transition-all duration-200 font-medium'
                           >
                             {child.label}
                           </Link>
