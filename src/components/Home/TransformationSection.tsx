@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 interface PersonaCard {
   id: string;
@@ -29,7 +30,7 @@ interface PersonaCard {
     text: string;
     link: string;
   };
-  icon: string;
+  icon: IconSymbolKey;
 }
 
 const personas: PersonaCard[] = [
@@ -56,7 +57,7 @@ const personas: PersonaCard[] = [
       { partiallyHighlighted: '22 days', full: 'average time to close (vs. industry 35-45 days)' }
     ],
     cta: {
-      text: 'See Off-Market Properties →',
+      text: 'See Off-Market Properties',
       link: '/exclusive'
     },
     icon: '🏠'
@@ -84,7 +85,7 @@ const personas: PersonaCard[] = [
       { partiallyHighlighted: '73%', full: 'receive multiple offers within first week' }
     ],
     cta: {
-      text: 'Get Free Market Analysis →',
+      text: 'Get Free Market Analysis',
       link: '/home-value'
     },
     icon: '💰'
@@ -112,7 +113,7 @@ const personas: PersonaCard[] = [
       { partiallyHighlighted: '$1.5M-$3M', full: 'average portfolio built over 2-3 years' }
     ],
     cta: {
-      text: 'Discuss Investment Strategy →',
+      text: 'Discuss Investment Strategy',
       link: '/investing'
     },
     icon: '📈'
@@ -148,7 +149,7 @@ export function TransformationSection() {
             >
               {/* Icon & Headline */}
               <div className='text-center mb-6'>
-                <div className='text-5xl mb-4'>{persona.icon}</div>
+                <IconSymbol symbol={persona.icon} className='mx-auto mb-4 h-12 w-12 text-amber-600' ariaLabel={`${persona.persona} icon`} />
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   {persona.headline}
                 </h3>
@@ -189,7 +190,7 @@ export function TransformationSection() {
                     <p className='text-sm text-gray-600'>{persona.client.location}</p>
                     <div className='flex text-amber-400 mt-1'>
                       {[...Array(persona.client.rating)].map((_, i) => (
-                        <span key={i} className='text-sm'>★</span>
+                        <IconSymbol key={i} symbol='⭐' className='h-4 w-4 text-amber-400' />
                       ))}
                     </div>
                   </div>
@@ -199,9 +200,10 @@ export function TransformationSection() {
                 </blockquote>
                 <Link
                   href='/testimonials'
-                  className='text-xs text-blue-600 hover:text-blue-800 font-semibold mt-2 inline-block'
+                  className='text-xs text-blue-600 hover:text-blue-800 font-semibold mt-2 inline-flex items-center gap-1'
                 >
-                  Read full story →
+                  <span>Read full story</span>
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
                 </Link>
               </div>
 
@@ -209,7 +211,7 @@ export function TransformationSection() {
               <div className='mb-6 space-y-2'>
                 {persona.stats.map((stat, index) => (
                   <div key={index} className='flex items-start gap-2 text-sm'>
-                    <span className='text-green-600 font-bold'>✓</span>
+                    <IconSymbol symbol='✓' className='h-4 w-4 text-green-600 mt-0.5' ariaLabel='Validated stat' />
                     <span className='text-gray-700'>
                       <span className='font-bold text-gray-900'>{stat.partiallyHighlighted}</span>{' '}
                       {stat.full}
@@ -221,9 +223,10 @@ export function TransformationSection() {
               {/* CTA Button */}
               <Link
                 href={persona.cta.link}
-                className='block w-full bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors text-center shadow-md hover:shadow-lg'
+                className='inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl'
               >
-                {persona.cta.text}
+                <span>{persona.cta.text}</span>
+                <IconSymbol symbol='→' className='h-4 w-4 text-white' ariaLabel='Arrow right' />
               </Link>
             </div>
           ))}

@@ -7,6 +7,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
 import { generatePageMetadata } from '@/lib/seo';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Buy Luxury Las Vegas Homes | Dr. Jan Duffy - Expert Buyer Agent',
@@ -150,7 +151,7 @@ export default function BuyingPage() {
             {/* Tips For Buyers */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>💡</span>
+                <IconSymbol symbol='💡' className='h-6 w-6 text-amber-600' ariaLabel='Tip' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Tips For Buyers
@@ -240,7 +241,7 @@ export default function BuyingPage() {
             {/* Planning Guide */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>📋</span>
+                <IconSymbol symbol='📋' className='h-6 w-6 text-blue-600' ariaLabel='Checklist' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Lifestyle & Planning Guide
@@ -266,7 +267,7 @@ export default function BuyingPage() {
             {/* Property Search */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>🔍</span>
+                <IconSymbol symbol='🔍' className='h-6 w-6 text-emerald-600' ariaLabel='Search' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Property Search
@@ -318,13 +319,17 @@ export default function BuyingPage() {
                   href='/buyer-guide'
                   className='block text-amber-600 font-semibold hover:text-amber-700 transition-colors text-sm'
                 >
-                  📖 Complete Buyer Guide →
+                  <IconSymbol symbol='📘' className='h-4 w-4 text-blue-600 mr-2' ariaLabel='Guide' />
+                  <span>Complete Buyer Guide</span>
+                  <IconSymbol symbol='→' className='h-3 w-3 ml-2 text-blue-600' ariaLabel='Arrow right' />
                 </Link>
                 <Link
                   href='/first-time-buyer-challenges'
                   className='block text-amber-600 font-semibold hover:text-amber-700 transition-colors text-sm'
                 >
-                  ⚠️ Common Challenges & Solutions →
+                  <IconSymbol symbol='⚠️' className='h-4 w-4 text-amber-500 mr-2' ariaLabel='Warning' />
+                  <span>Common Challenges & Solutions</span>
+                  <IconSymbol symbol='→' className='h-3 w-3 ml-2 text-amber-500' ariaLabel='Arrow right' />
                 </Link>
                 <Link
                   href='/contact'
@@ -374,7 +379,7 @@ export default function BuyingPage() {
                     $650K+
                   </span>
                   <Link
-                    href='/listings?neighborhood=summerlin'
+                    href='/areas/summerlin'
                     className='text-amber-600 font-semibold hover:text-amber-700 transition-colors'
                   >
                     View Properties
@@ -405,7 +410,7 @@ export default function BuyingPage() {
                     $485K+
                   </span>
                   <Link
-                    href='/listings?neighborhood=henderson'
+                    href='/areas/henderson'
                     className='text-amber-600 font-semibold hover:text-amber-700 transition-colors'
                   >
                     View Properties
@@ -436,7 +441,7 @@ export default function BuyingPage() {
                     $320K+
                   </span>
                   <Link
-                    href='/listings?neighborhood=north-las-vegas'
+                    href='/areas/north-las-vegas'
                     className='text-amber-600 font-semibold hover:text-amber-700 transition-colors'
                   >
                     View Properties

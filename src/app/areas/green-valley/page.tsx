@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { SEO_CONFIG } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import Image from 'next/image';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
   title: 'Green Valley Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
@@ -28,7 +29,7 @@ export default function GreenValleyPage() {
         gradientToClassName='to-blue-800'
       >
         <a 
-          href='/listings?area=green-valley' 
+          href='/listings#advanced-search' 
           className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
         >
           View Green Valley Listings
@@ -57,27 +58,19 @@ export default function GreenValleyPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Championship golf courses and country club living</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Upscale shopping at Green Valley Ranch and District</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Top-rated schools and family-friendly amenities</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Luxury homes with mountain and golf course views</span>
                 </li>
               </ul>

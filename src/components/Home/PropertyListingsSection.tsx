@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 // Declare RealScout custom elements
 declare global {
@@ -61,7 +62,8 @@ export function PropertyListingsSection() {
       <div className='container mx-auto px-4'>
         <div className='text-center mb-12'>
           <div className='inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
-            🔍 Advanced Property Search
+            <IconSymbol symbol='🔍' className='mr-2 h-4 w-4 text-blue-700' ariaLabel='Search icon' />
+            Advanced Property Search
           </div>
           <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
             HOME LISTINGS
@@ -133,9 +135,7 @@ export function PropertyListingsSection() {
             className='inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
           >
             See More Properties
-            <svg className='w-5 h-5 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24' width="24" height="24">
-              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-            </svg>
+            <IconSymbol symbol='→' className='h-4 w-4 ml-2' ariaLabel='Arrow right' />
           </Link>
         </div>
       </div>

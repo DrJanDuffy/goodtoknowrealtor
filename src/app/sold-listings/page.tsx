@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Sold Listings | Dr. Jan Duffy - Recent Sales Success Stories',
@@ -330,25 +331,25 @@ export default function SoldListingsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">📊</div>
+                <IconSymbol symbol='📊' className='text-4xl mb-4 text-blue-600' ariaLabel='Market data icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Strategic Pricing</h3>
                 <p className="text-gray-600">Data-driven pricing that maximizes value while ensuring competitive positioning</p>
               </div>
               
               <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">🎯</div>
+                <IconSymbol symbol='🎯' className='text-4xl mb-4 text-blue-600' ariaLabel='Results icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Targeted Marketing</h3>
                 <p className="text-gray-600">Multi-channel marketing that reaches the right buyers at the right time</p>
               </div>
               
               <div className="text-center bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">🤝</div>
+                <IconSymbol symbol='🤝' className='text-4xl mb-4 text-blue-600' ariaLabel='Partnership icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Negotiation</h3>
                 <p className="text-gray-600">Skilled negotiation that protects your interests and maximizes profit</p>
               </div>
               
               <div className="text-center bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">⚡</div>
+                <IconSymbol symbol='⚡' className='text-4xl mb-4 text-blue-600' ariaLabel='Speed icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Market Timing</h3>
                 <p className="text-gray-600">Optimal timing strategies that capitalize on market conditions</p>
               </div>

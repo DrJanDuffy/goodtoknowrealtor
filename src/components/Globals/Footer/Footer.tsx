@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ConsultationModal } from '@/components/ui/ConsultationModal';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export function Footer() {
   const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
@@ -217,9 +218,18 @@ export function Footer() {
               </Link>
             </div>
             <div className='mt-6 flex items-center justify-center space-x-6 text-sm text-blue-100'>
-              <span>✓ Free Consultation</span>
-              <span>✓ No Obligation</span>
-              <span>✓ Expert Guidance</span>
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='Free consultation' />
+                Free Consultation
+              </span>
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='No obligation' />
+                No Obligation
+              </span>
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='Expert guidance' />
+                Expert Guidance
+              </span>
             </div>
           </div>
         </div>

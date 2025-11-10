@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { testimonials } from '@/data/testimonials';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export function TestimonialsSection() {
   const [filter, setFilter] = useState<'all' | 'buyer' | 'seller' | 'investor'>('all');
@@ -124,7 +125,7 @@ export function TestimonialsSection() {
               <div className="mt-4 pt-4 border-t border-gray-200 flex items-center justify-between">
                 <div className="flex text-amber-400">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-lg">★</span>
+                    <IconSymbol key={i} symbol='⭐' className='h-4 w-4 text-amber-400' ariaLabel='Rating star' />
                   ))}
                 </div>
                 {testimonial.dollarAmount && (

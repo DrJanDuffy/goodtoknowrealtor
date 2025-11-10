@@ -3,6 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import { useScreenReaderAnnouncements } from '@/hooks/useScreenReaderAnnouncements';
+import { useFullscreen } from '@/hooks/useFullscreen';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export interface VirtualTour {
   id: string;
@@ -99,7 +104,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
                   className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-4 transition-all"
                   aria-label="Play virtual tour video"
                 >
-                  <span className="text-white text-2xl">🎥</span>
+                  <IconSymbol symbol='🎥' className='text-white text-2xl' ariaLabel='Play icon' />
                 </button>
               </div>
             )}
@@ -112,7 +117,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
             {/* 360° Tour Placeholder */}
             <div className="w-full h-full flex items-center justify-center">
               <div className="text-center text-white">
-                <div className="text-3xl mb-4">🌐</div>
+                <IconSymbol symbol='🌐' className='text-3xl mb-4 text-blue-200' ariaLabel='360 icon' />
                 <h3 className="text-xl font-semibold mb-2">360° Virtual Tour</h3>
                 <p className="text-gray-300 mb-4">{tour.title}</p>
                 <button
@@ -161,7 +166,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
             {/* Matterport Tour Placeholder */}
             <div className="w-full h-full flex items-center justify-center">
               <div className="text-center text-white">
-                <div className="text-3xl mb-4">🏠</div>
+                <IconSymbol symbol='🏠' className='text-3xl mb-4 text-purple-200' ariaLabel='Home icon' />
                 <h3 className="text-xl font-semibold mb-2">Matterport 3D Tour</h3>
                 <p className="text-gray-300 mb-4">{tour.title}</p>
                 <button
@@ -298,15 +303,15 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
       <div className="p-4 border-t border-gray-200 bg-gray-50">
         <div className="flex flex-col sm:flex-row gap-3">
           <button className="btn btn-primary flex-1">
-            <span className="mr-2">📅</span>
+            <IconSymbol symbol='📅' className='mr-2 h-4 w-4' ariaLabel='Calendar icon' />
             Schedule In-Person Tour
           </button>
           <button className="btn btn-secondary flex-1">
-            <span className="mr-2">💬</span>
+            <IconSymbol symbol='💬' className='mr-2 h-4 w-4' ariaLabel='Chat icon' />
             Ask Questions
           </button>
           <button className="btn btn-secondary flex-1">
-            <span className="mr-2">❤️</span>
+            <IconSymbol symbol='❤️' className='mr-2 h-4 w-4' ariaLabel='Favorites icon' />
             Save to Favorites
           </button>
         </div>
@@ -322,7 +327,7 @@ export function VirtualTour({ tour, className = '' }: VirtualTourProps) {
       {/* Accessibility Information */}
       <div className="p-4 border-t border-gray-200 bg-blue-50">
         <div className="flex items-start gap-3">
-          <div className="text-blue-600 mt-0.5">ℹ️</div>
+          <IconSymbol symbol='ℹ️' className='text-blue-600 mt-0.5 h-5 w-5' ariaLabel='Info icon' />
           <div className="text-sm text-blue-800">
             <p className="font-medium mb-1">Virtual Tour Accessibility</p>
             <ul className="space-y-1 text-xs">
@@ -357,7 +362,7 @@ export function VirtualTourGallery({ tours, propertyTitle, className = '' }: Vir
   if (tours.length === 0) {
     return (
       <div className={`bg-gray-50 rounded-lg p-6 text-center ${className}`}>
-        <div className="text-2xl mb-2">🏠</div>
+        <IconSymbol symbol='🏠' className='text-2xl mb-2 text-blue-600' ariaLabel='Home icon' />
         <p className="text-gray-600">Virtual tours coming soon for this property</p>
       </div>
     );
@@ -369,10 +374,11 @@ export function VirtualTourGallery({ tours, propertyTitle, className = '' }: Vir
         <div className="space-y-4">
           <button
             onClick={() => setSelectedTour(null)}
-            className="btn btn-secondary"
+            className="btn btn-secondary inline-flex items-center gap-2"
             aria-label="Back to virtual tour gallery"
           >
-            ← Back to Tours
+            <IconSymbol symbol='←' className='h-4 w-4' ariaLabel='Back arrow' />
+            Back to Tours
           </button>
           <VirtualTour tour={selectedTour} />
         </div>

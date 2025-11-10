@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export function PainSolutionBenefitServices() {
   return (
@@ -15,7 +16,7 @@ export function PainSolutionBenefitServices() {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
           {/* Service 1: Luxury Home Buying */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-2xl mb-4 block'>🏛️</span>
+            <IconSymbol symbol='🏛️' className='text-amber-600 mb-4 h-10 w-10' ariaLabel='Luxury home buying' />
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Luxury Home Buying</h3>
             
             {/* PAIN */}
@@ -34,15 +35,15 @@ export function PainSolutionBenefitServices() {
               </p>
               <ul className='space-y-2 text-gray-700 text-sm'>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Off-market property access</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>First offer accepted (often under asking)</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>$50K+ savings vs. competitive bidding</span>
                 </li>
               </ul>
@@ -64,7 +65,7 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 2: Luxury Home Selling */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-2xl mb-4 block'>💎</span>
+            <IconSymbol symbol='💎' className='text-amber-600 mb-4 h-10 w-10' ariaLabel='Luxury selling' />
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Luxury Home Selling</h3>
             
             {/* PAIN */}
@@ -83,15 +84,15 @@ export function PainSolutionBenefitServices() {
               </p>
               <ul className='space-y-2 text-gray-700 text-sm'>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Discreet marketing to qualified buyers</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>8+ offers in 6 days (average)</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>$50K-$125K over asking price</span>
                 </li>
               </ul>
@@ -113,7 +114,7 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 3: Concierge Services */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-2xl mb-4 block'>⭐</span>
+            <IconSymbol symbol='⭐' className='text-amber-600 mb-4 h-10 w-10' ariaLabel='Concierge services' />
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Concierge Services</h3>
             
             {/* PAIN */}
@@ -132,15 +133,15 @@ export function PainSolutionBenefitServices() {
               </p>
               <ul className='space-y-2 text-gray-700 text-sm'>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Private showings (no public open houses)</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Confidential transactions & NDAs</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Property management & vendor coordination</span>
                 </li>
               </ul>
@@ -161,7 +162,7 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 4: First-Time Home Buyers */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-2xl mb-4 block'>🔑</span>
+            <IconSymbol symbol='🔑' className='text-amber-600 mb-4 h-10 w-10' ariaLabel='First-time buyers' />
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>First-Time Home Buyers</h3>
             
             {/* PAIN */}
@@ -180,15 +181,15 @@ export function PainSolutionBenefitServices() {
               </p>
               <ul className='space-y-2 text-gray-700 text-sm'>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Down payment assistance programs</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Step-by-step guidance (pre-approval to closing)</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>First home found in 30-60 strict days</span>
                 </li>
               </ul>
@@ -210,7 +211,7 @@ export function PainSolutionBenefitServices() {
 
           {/* Service 5: Real Estate Investors */}
           <div className='bg-white rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 border border-amber-100 flex flex-col'>
-            <span className='text-amber-600 text-2xl mb-4 block'>📊</span>
+            <IconSymbol symbol='📊' className='text-amber-600 mb-4 h-10 w-10' ariaLabel='Investor services' />
             <h3 className='text-2xl font-bold text-gray-900 mb-3'>Real Estate Investors</h3>
             
             {/* PAIN */}
@@ -229,15 +230,15 @@ export function PainSolutionBenefitServices() {
               </p>
               <ul className='space-y-2 text-gray-700 text-sm'>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>ROI & cap rate analysis before you buy</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Off-market investment deals</span>
                 </li>
                 <li className='flex items-start'>
-                  <span className='text-amber-600 mr-2'>✓</span>
+                  <IconSymbol symbol='✓' className='text-amber-600 mr-2 h-4 w-4 mt-0.5' ariaLabel='Included' />
                   <span>Portfolio growth strategies</span>
                 </li>
               </ul>

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { SEO_CONFIG } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import Image from 'next/image';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
   title: 'North Las Vegas Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
@@ -28,7 +29,7 @@ export default function NorthLasVegasPage() {
         gradientToClassName='to-blue-800'
       >
         <a 
-          href='/listings?area=north-las-vegas' 
+          href='/listings#advanced-search' 
           className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
         >
           View North Las Vegas Listings
@@ -57,19 +58,19 @@ export default function NorthLasVegasPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Benefit' />
                   <span className="text-gray-700">New construction communities and master-planned developments</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Benefit' />
                   <span className="text-gray-700">Affordable housing options for first-time buyers</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Benefit' />
                   <span className="text-gray-700">Close proximity to Las Vegas Strip and entertainment</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Benefit' />
                   <span className="text-gray-700">Growing job market and business opportunities</span>
                 </li>
               </ul>

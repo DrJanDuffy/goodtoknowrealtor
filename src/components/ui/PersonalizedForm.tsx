@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { PersonaType } from './PersonalizedCTA';
 import { trackEvent } from '@/lib/analytics';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface PersonalizedFormProps {
   persona: PersonaType;
@@ -378,7 +379,7 @@ export function PersonalizedForm({ persona, onBack, onSuccess }: PersonalizedFor
     return (
       <div id="personalized-form" className="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-2xl mx-auto">
         <div className="text-center py-8">
-          <div className="text-6xl mb-4">✅</div>
+          <IconSymbol symbol='✅' className='text-6xl mb-4 text-green-600' ariaLabel='Success icon' />
           <h3 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h3>
           <p className="text-lg text-gray-700 mb-6">
             We've received your information and will contact you within 24 hours.

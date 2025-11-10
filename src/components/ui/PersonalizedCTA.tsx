@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { PersonalizedForm } from './PersonalizedForm';
 import { trackEvent } from '@/lib/analytics';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export type PersonaType = 'seller' | 'buyer' | 'investor' | 'exploring';
 
 interface PersonaOption {
   id: PersonaType;
-  icon: string;
+  icon: IconSymbolKey;
   headline: string;
   description: string;
   buttonText: string;
@@ -148,9 +149,11 @@ export function PersonalizedCTA({ onPersonaSelect, className = '' }: Personalize
               aria-label={`Select ${persona.headline}`}
             >
               {/* Icon */}
-              <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                {persona.icon}
-              </div>
+              <IconSymbol
+                symbol={persona.icon}
+                className="mb-4 h-12 w-12 text-amber-600 transform group-hover:scale-110 transition-transform duration-300"
+                ariaLabel={`${persona.headline} icon`}
+              />
 
               {/* Headline */}
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-opacity-90">
@@ -170,15 +173,8 @@ export function PersonalizedCTA({ onPersonaSelect, className = '' }: Personalize
                 group-hover:shadow-lg transition-shadow duration-300
                 transform group-hover:scale-105
               `}>
-                {persona.buttonText}
-                <svg 
-                  className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <span>{persona.buttonText}</span>
+                <IconSymbol symbol='→' className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" ariaLabel='Arrow right' />
               </div>
 
               {/* Trust Text */}
@@ -201,22 +197,20 @@ export function PersonalizedCTA({ onPersonaSelect, className = '' }: Personalize
         <div className="text-center mt-12">
           <div className="flex items-center justify-center space-x-6 text-sm text-gray-600 mb-4 flex-wrap">
             <span className="flex items-center">
-              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+              <IconSymbol symbol='✓' className="h-4 w-4 text-green-500 mr-2" ariaLabel='Free consultation' />
               Free Consultation
             </span>
             <span className="flex items-center">
-              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 水墨 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+              <IconSymbol symbol='✓' className="h-4 w-4 text-green-500 mr-2" ariaLabel='No obligations' />
               No Obligations
             </span>
             <span className="flex items-center">
-              <svg className="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+              <IconSymbol symbol='✓' className="h-4 w-4 text-green-500 mr-2" ariaLabel='Expert guidance' />
               Expert Guidance
+            </span>
+            <span className="flex items-center">
+              <IconSymbol symbol='✓' className="h-4 w-4 text-green-500 mr-2" ariaLabel='Confidential' />
+              Confidential Support
             </span>
           </div>
           <p className="text-xs text-gray-500">

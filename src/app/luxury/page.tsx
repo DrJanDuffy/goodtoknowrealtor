@@ -7,6 +7,7 @@ import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { SEO_CONFIG } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Luxury Real Estate Las Vegas | Dr. Jan Duffy - Premier Luxury Agent',
@@ -309,7 +310,11 @@ export default function LuxuryPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-gray-50 rounded-xl p-6">
                 <div className="flex items-center mb-4">
-                  <div className="text-yellow-400 text-xl">★★★★★</div>
+                  <div className="text-yellow-400 text-xl">
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4 text-yellow-400' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className="text-gray-700 mb-4 italic">
                   "Dr. Duffy's expertise in luxury properties is unmatched. She sold our Summerlin estate for $50K above asking price in just 12 days."
@@ -320,7 +325,11 @@ export default function LuxuryPage() {
 
               <div className="bg-gray-50 rounded-xl p-6">
                 <div className="flex items-center mb-4">
-                  <div className="text-yellow-400 text-xl">★★★★★</div>
+                  <div className="text-yellow-400 text-xl">
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4 text-yellow-400' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className="text-gray-700 mb-4 italic">
                   "Dr. Duffy found us the perfect luxury condo with Strip views. Her attention to detail and market knowledge made all the difference."
@@ -331,7 +340,11 @@ export default function LuxuryPage() {
 
               <div className="bg-gray-50 rounded-xl p-6">
                 <div className="flex items-center mb-4">
-                  <div className="text-yellow-400 text-xl">★★★★★</div>
+                  <div className="text-yellow-400 text-xl">
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4 text-yellow-400' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className="text-gray-700 mb-4 italic">
                   "Dr. Duffy helped us build a portfolio of luxury investment properties. Her market insights and negotiation skills are incredible."

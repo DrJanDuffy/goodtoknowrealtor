@@ -1,10 +1,12 @@
 'use client';
 
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
+
 interface TrustBadge {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon: IconSymbolKey;
   verification?: string;
 }
 
@@ -74,8 +76,8 @@ export function TrustBadges() {
             >
               <div className='flex items-start space-x-4'>
                 <div className='flex-shrink-0'>
-                  <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl'>
-                    {badge.icon}
+                  <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center'>
+                    <IconSymbol symbol={badge.icon} className='h-6 w-6 text-amber-700' ariaLabel={badge.title} />
                   </div>
                 </div>
                 <div className='flex-1'>
@@ -86,8 +88,9 @@ export function TrustBadges() {
                     {badge.description}
                   </p>
                   {badge.verification && (
-                    <p className='text-sm text-amber-700 font-semibold'>
-                      ✓ {badge.verification}
+                    <p className='text-sm text-amber-700 font-semibold flex items-center gap-2'>
+                      <IconSymbol symbol='✓' className='h-4 w-4' ariaLabel='Verified' />
+                      {badge.verification}
                     </p>
                   )}
                 </div>
@@ -100,22 +103,22 @@ export function TrustBadges() {
         <div className='mt-12 text-center'>
           <div className='flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600'>
             <div className='flex items-center space-x-2'>
-              <span className='text-green-600 text-lg'>✓</span>
+              <IconSymbol symbol='✓' className='h-4 w-4 text-green-600' ariaLabel='Secured' />
               <span>SSL Secured</span>
             </div>
             
             <div className='flex items-center space-x-2'>
-              <span className='text-green-600 text-lg'>✓</span>
+              <IconSymbol symbol='✓' className='h-4 w-4 text-green-600' ariaLabel='Licensed' />
               <span>Licensed & Insured</span>
             </div>
             
             <div className='flex items-center space-x-2'>
-              <span className='text-green-600 text-lg'>✓</span>
+              <IconSymbol symbol='✓' className='h-4 w-4 text-green-600' ariaLabel='Protected' />
               <span>Privacy Protected</span>
             </div>
             
             <div className='flex items-center space-x-2'>
-              <span className='text-green-600 text-lg'>✓</span>
+              <IconSymbol symbol='✓' className='h-4 w-4 text-green-600' ariaLabel='Support' />
               <span>24/7 Support</span>
             </div>
           </div>

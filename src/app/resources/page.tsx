@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Real Estate Resources | Dr. Jan Duffy - Expert Guides',
@@ -19,7 +20,12 @@ export default function ResourcesPage() {
     { name: 'Resources', url: '/resources' },
   ]);
 
-  const resourceCategories = [
+  const resourceCategories: Array<{
+    title: string;
+    description: string;
+    icon: IconSymbolKey;
+    resources: Array<{ title: string; description: string; href: string; type: string }>;
+  }> = [
     {
       title: 'Buyer Resources',
       description: 'Everything you need to know about buying a home in Las Vegas',
@@ -115,7 +121,7 @@ export default function ResourcesPage() {
     },
   ];
 
-  const tools = [
+  const tools: Array<{ title: string; description: string; href: string; icon: IconSymbolKey }> = [
     {
       title: 'Home Value Calculator',
       description: 'Get instant home valuation and track equity growth',
@@ -228,7 +234,7 @@ export default function ResourcesPage() {
               {resourceCategories.map((category, index) => (
                 <div key={index} className="card p-8">
                   <div className="flex items-center mb-6">
-                    <div className="text-4xl mr-4">{category.icon}</div>
+                    <IconSymbol symbol={category.icon} className="h-10 w-10 mr-4 text-blue-600" ariaLabel={category.title} />
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{category.title}</h3>
                       <p className="text-gray-600">{category.description}</p>
@@ -243,9 +249,7 @@ export default function ResourcesPage() {
                         className="card p-6"
                       >
                         <div className="flex items-center justify-between mb-3">
-                          <span className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">
-                            {resource.type}
-                          </span>
+                          <span className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">{resource.type}</span>
                         </div>
                         <h4 className="text-lg font-semibold text-gray-900 mb-2">{resource.title}</h4>
                         <p className="text-sm text-gray-600">{resource.description}</p>
@@ -342,19 +346,19 @@ export default function ResourcesPage() {
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">📊</span>
+                    <IconSymbol symbol='📊' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Market data' />
                     <span className="text-gray-700">Monthly market reports and analysis</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">📈</span>
+                    <IconSymbol symbol='📈' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Growth' />
                     <span className="text-gray-700">Price trends and neighborhood insights</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">🎯</span>
+                    <IconSymbol symbol='🎯' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Target' />
                     <span className="text-gray-700">Investment opportunities and timing</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">⚡</span>
+                    <IconSymbol symbol='⚡' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Lightning' />
                     <span className="text-gray-700">Market predictions and forecasts</span>
                   </li>
                 </ul>

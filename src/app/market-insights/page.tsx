@@ -1,9 +1,12 @@
+'use client';
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { MarketInsightsGrid } from '@/components/MarketInsights/MarketInsightsGrid';
 import { fetchMarketInsights } from '@/lib/rss-fetcher';
-import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { generatePageMetadata, generateBreadcrumbSchema, PAGE_SEO } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Real Estate Market Insights | Dr. Janet Duffy',
@@ -44,7 +47,10 @@ export default async function MarketInsightsPage() {
             href='tel:702-222-1964'
             className='btn btn-primary'
           >
-            📞 Call (702) 222-1964
+            <span className='inline-flex items-center gap-2'>
+              <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+              Call (702) 222-1964
+            </span>
           </Link>
           <Link
             href='/contact'
@@ -74,7 +80,7 @@ export default async function MarketInsightsPage() {
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             <div className='text-center card p-6'>
                 <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                  <span className='text-2xl'>📈</span>
+                  <IconSymbol symbol='📈' className='text-2xl text-blue-600' ariaLabel='Trend icon' />
                 </div>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>
                   Price Trends
@@ -86,7 +92,7 @@ export default async function MarketInsightsPage() {
 
             <div className='text-center card p-6'>
                 <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                  <span className='text-2xl'>🏘️</span>
+                  <IconSymbol symbol='🏘️' className='text-2xl text-blue-600' ariaLabel='Neighborhood icon' />
                 </div>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>
                   Inventory Levels
@@ -98,7 +104,7 @@ export default async function MarketInsightsPage() {
 
             <div className='text-center card p-6'>
                 <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                  <span className='text-2xl'>⏱️</span>
+                  <IconSymbol symbol='⏱️' className='text-2xl text-blue-600' ariaLabel='Timing icon' />
                 </div>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>
                   Market Timing
@@ -124,9 +130,10 @@ export default async function MarketInsightsPage() {
             <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
               <Link
                 href='tel:702-222-1964'
-                className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+                className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg flex items-center justify-center gap-2'
               >
-                📞 Call (702) 222-1964
+                <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+                Call (702) 222-1964
               </Link>
               <Link
                 href='/contact'

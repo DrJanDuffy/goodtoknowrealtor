@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export interface AlertPreferences {
   id?: string;
@@ -173,7 +174,10 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
         className={`btn btn-primary ${className}`}
         aria-label="Create property alerts subscription"
       >
-        📧 Create Property Alerts
+        <span className='inline-flex items-center gap-2'>
+          <IconSymbol symbol='📧' className='h-5 w-5' ariaLabel='Email icon' />
+          Create Property Alerts
+        </span>
       </button>
 
       {/* Modal */}

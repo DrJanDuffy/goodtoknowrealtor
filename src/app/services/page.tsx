@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.services.title,
@@ -17,7 +18,13 @@ export default function ServicesPage() {
     { name: 'Real Estate Services', url: '/services' },
   ]);
 
-  const services = [
+  const services: Array<{
+    title: string;
+    description: string;
+    href: string;
+    icon: IconSymbolKey;
+    details: string;
+  }> = [
     {
       title: 'Buying a Home',
       description: 'Expert guidance through the entire home buying process in Las Vegas.',
@@ -121,7 +128,7 @@ export default function ServicesPage() {
               {services.map((service, index) => (
                 <div key={index} className='card p-8'>
                   <div className='flex items-start mb-6'>
-                    <div className='text-4xl mr-4'>{service.icon}</div>
+                    <IconSymbol symbol={service.icon} className='h-10 w-10 mr-4 text-blue-600' ariaLabel={service.title} />
                     <div>
                       <h3 className='text-2xl font-bold text-gray-900 mb-3'>
                         {service.title}
@@ -136,9 +143,10 @@ export default function ServicesPage() {
                   </p>
                   <Link
                     href={service.href}
-                    className='btn btn-primary'
+                    className='inline-flex items-center gap-2'
                   >
-                    Learn More →
+                    <span>Learn More</span>
+                    <IconSymbol symbol='→' className='h-4 w-4' ariaLabel='Arrow right' />
                   </Link>
                 </div>
               ))}
@@ -305,7 +313,11 @@ export default function ServicesPage() {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
               <div className='bg-gray-50 rounded-xl p-6'>
                 <div className='flex items-center mb-4'>
-                  <div className='text-yellow-400 text-xl'>★★★★★</div>
+                  <div className='flex text-yellow-400 text-xl'>
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className='text-gray-700 mb-4 italic'>
                   "Dr. Duffy's expertise in luxury properties is unmatched. She sold our Summerlin estate for $50K above asking price in just 12 days."
@@ -316,7 +328,11 @@ export default function ServicesPage() {
 
               <div className='bg-gray-50 rounded-xl p-6'>
                 <div className='flex items-center mb-4'>
-                  <div className='text-yellow-400 text-xl'>★★★★★</div>
+                  <div className='flex text-yellow-400 text-xl'>
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className='text-gray-700 mb-4 italic'>
                   "As first-time buyers, we were nervous about the process. Dr. Duffy guided us through every step and found us the perfect home."
@@ -327,7 +343,11 @@ export default function ServicesPage() {
 
               <div className='bg-gray-50 rounded-xl p-6'>
                 <div className='flex items-center mb-4'>
-                  <div className='text-yellow-400 text-xl'>★★★★★</div>
+                  <div className='flex text-yellow-400 text-xl'>
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className='text-gray-700 mb-4 italic'>
                   "Dr. Duffy helped us build a portfolio of 5 investment properties. Her market knowledge and negotiation skills are incredible."

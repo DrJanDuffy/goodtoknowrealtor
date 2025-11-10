@@ -3,6 +3,7 @@ import { SEO_CONFIG } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import Image from 'next/image';
 import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 // Declare RealScout custom elements
 declare global {
@@ -38,7 +39,7 @@ export default function HendersonPage() {
         gradientToClassName='to-blue-800'
       >
         <a 
-          href='/listings?area=henderson' 
+          href='/listings#advanced-search' 
           className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
         >
           View Henderson Listings
@@ -87,19 +88,19 @@ export default function HendersonPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Top-rated schools and family-friendly neighborhoods</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Beautiful parks and recreational facilities</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Growing business district and job opportunities</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Diverse housing options from starter homes to luxury estates</span>
                 </li>
               </ul>

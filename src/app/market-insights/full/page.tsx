@@ -1,6 +1,12 @@
-import { Metadata } from 'next';
-import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+'use client';
+
+import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
+import { MarketInsightsSection } from '@/components/MarketInsights/MarketInsightsSection';
+import { MarketVisualizations } from '@/components/MarketData/MarketVisualizations';
+import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { Metadata } from 'next';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Market Insights | Dr. Jan Duffy - Real Estate Expert',
@@ -131,7 +137,7 @@ export default function MarketInsightsFullPage() {
               <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
                 <div className='text-center'>
                   <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                    <span className='text-blue-600 text-2xl'>📊</span>
+                    <IconSymbol symbol='📊' className='text-blue-600 text-2xl' ariaLabel='Market data icon' />
                   </div>
                   <h3 className='text-lg font-semibold text-gray-900 mb-2'>Data-Driven Insights</h3>
                   <p className='text-gray-600'>
@@ -141,7 +147,7 @@ export default function MarketInsightsFullPage() {
                 
                 <div className='text-center'>
                   <div className='w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                    <span className='text-green-600 text-2xl'>🏆</span>
+                    <IconSymbol symbol='🏆' className='text-green-600 text-2xl' ariaLabel='Awards icon' />
                   </div>
                   <h3 className='text-lg font-semibold text-gray-900 mb-2'>Top 1% Agent</h3>
                   <p className='text-gray-600'>
@@ -151,7 +157,7 @@ export default function MarketInsightsFullPage() {
                 
                 <div className='text-center'>
                   <div className='w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                    <span className='text-purple-600 text-2xl'>🎯</span>
+                    <IconSymbol symbol='🎯' className='text-purple-600 text-2xl' ariaLabel='Target icon' />
                   </div>
                   <h3 className='text-lg font-semibold text-gray-900 mb-2'>Local Expertise</h3>
                   <p className='text-gray-600'>

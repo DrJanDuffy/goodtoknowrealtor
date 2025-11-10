@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Meet Our Team | Dr. Jan Duffy - Top 1% Las Vegas Real Estate Team',
@@ -326,19 +327,19 @@ export default function TeamPage() {
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">👥</span>
+                    <IconSymbol symbol='👥' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Teamwork icon' />
                     <span className="text-gray-700">Collaborative team approach with specialized expertise</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">🎯</span>
+                    <IconSymbol symbol='🎯' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Results icon' />
                     <span className="text-gray-700">Dedicated specialists for different property types</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">⚡</span>
+                    <IconSymbol symbol='⚡' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Fast response icon' />
                     <span className="text-gray-700">Faster response times with multiple team members</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">🛡️</span>
+                    <IconSymbol symbol='🛡️' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Protection icon' />
                     <span className="text-gray-700">Backup support ensures continuity of service</span>
                   </li>
                 </ul>

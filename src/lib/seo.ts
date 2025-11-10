@@ -46,7 +46,8 @@ export const SEO_CONFIG = {
     youtube: 'https://www.youtube.com/channel/UCrBKUuQDrkCNFjy4wF5ZWXw'
   },
   images: {
-    default: '/images/dr-janet-duffy-og.jpg',
+    default:
+      '/api/og?title=Las%20Vegas%20Luxury%20Real%20Estate&subtitle=Data-backed%20strategy%20from%20Dr.%20Janet%20Duffy&badge=Summerlin%20%E2%80%A2%20Henderson%20%E2%80%A2%20Strip%20Corridor&highlight=Top%201%25%20Las%20Vegas%20REALTOR%C2%AE&highlight=%24127M%2B%20Sales%20Volume',
     logo: '/images/bhhs/logo.svg',
     agent: '/images/dr-janet-duffy-profile.jpg'
   }

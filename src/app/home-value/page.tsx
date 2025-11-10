@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
 import { HomebotHomeowner } from '@/components/Home/HomebotHomeowner';
 import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export default function HomeValuePage() {
   const features = [
@@ -38,13 +39,22 @@ export default function HomeValuePage() {
         >
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
-              <span className='font-semibold'>✓ Instant Results</span>
+              <span className='font-semibold inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='Check icon' />
+                Instant Results
+              </span>
             </div>
             <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
-              <span className='font-semibold'>✓ Market Data</span>
+              <span className='font-semibold inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='Check icon' />
+                Market Data
+              </span>
             </div>
             <div className='bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3'>
-              <span className='font-semibold'>✓ Expert Analysis</span>
+              <span className='font-semibold inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='Check icon' />
+                Expert Analysis
+              </span>
             </div>
           </div>
         </PageHero>
@@ -98,7 +108,7 @@ export default function HomeValuePage() {
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
                 {features.map((feature, index) => (
                   <div key={index} className='bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow'>
-                    <div className='text-4xl mb-4'>{feature.icon}</div>
+                    <IconSymbol symbol={feature.icon as IconSymbolKey} className='mx-auto mb-4 h-10 w-10 text-blue-600' ariaLabel={`${feature.title} icon`} />
                     <h3 className='text-xl font-bold text-gray-900 mb-3'>{feature.title}</h3>
                     <p className='text-gray-600'>{feature.description}</p>
                   </div>
@@ -122,13 +132,19 @@ export default function HomeValuePage() {
                 href='/contact'
                 className='bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-md'
               >
-                Get Free Consultation
+                <span className='inline-flex items-center gap-2'>
+                  Get Free Consultation
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
               <Link
                 href='/selling'
                 className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors'
               >
-                Learn About Selling
+                <span className='inline-flex items-center gap-2'>
+                  Learn About Selling
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
           </div>

@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { buyerReadinessQuestions, calculateScore, getResultsData, generateInsights } from '@/lib/assessment-data';
-import { storeLead, sendLeadNotification } from '@/lib/lead-storage';
-import { AssessmentQuestion } from '@/lib/assessment-data';
+import { buyerReadinessQuestions } from '@/lib/assessment-data';
+import type { AssessmentQuestion } from '@/lib/assessment-data';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface QuizQuestionProps {
   question: AssessmentQuestion;
@@ -152,15 +152,15 @@ export function QuizQuestion({
         <div className="text-center text-gray-500 text-sm">
           <div className="flex items-center justify-center space-x-4">
             <span className="flex items-center">
-              <span className="text-gray-500 text-lg">🔒</span>
+              <IconSymbol symbol='🔒' className='text-gray-500 h-4 w-4 mr-2' ariaLabel='Secure' />
               Secure & Private
             </span>
             <span className="flex items-center">
-              <span className="text-gray-500 text-lg">⚡</span>
+              <IconSymbol symbol='⚡' className='text-gray-500 h-4 w-4 mr-2' ariaLabel='Fast' />
               Instant Results
             </span>
             <span className="flex items-center">
-              <span className="text-gray-500 text-lg">ℹ️</span>
+              <IconSymbol symbol='ℹ️' className='text-gray-500 h-4 w-4 mr-2' ariaLabel='Information' />
               Free Assessment
             </span>
           </div>

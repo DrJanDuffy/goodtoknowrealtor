@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
@@ -7,6 +9,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
 import { SEO_CONFIG } from '@/lib/seo';
 import { Metadata } from 'next';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
   alternates: { canonical: `${SEO_CONFIG.siteUrl}/selling` },
@@ -146,7 +149,7 @@ export default function SellingPage() {
             {/* Tips For Sellers */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>💡</span>
+                <IconSymbol symbol='💡' className='text-2xl text-amber-600' ariaLabel='Tip icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Tips For Sellers
@@ -205,7 +208,7 @@ export default function SellingPage() {
             {/* Market Activity */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>📈</span>
+                <IconSymbol symbol='📈' className='text-2xl text-emerald-600' ariaLabel='Growth icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Market Activity
@@ -232,7 +235,7 @@ export default function SellingPage() {
             {/* Professional Photography */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>📸</span>
+                <IconSymbol symbol='📸' className='text-2xl text-blue-600' ariaLabel='Photography icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Professional Photography
@@ -259,7 +262,7 @@ export default function SellingPage() {
             {/* Staging Services */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>🏡</span>
+                <IconSymbol symbol='🏡' className='text-2xl text-amber-600' ariaLabel='Home icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Staging Services
@@ -285,7 +288,7 @@ export default function SellingPage() {
             {/* Marketing Strategy */}
             <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>📢</span>
+                <IconSymbol symbol='📢' className='text-2xl text-rose-500' ariaLabel='Marketing icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Marketing Strategy
@@ -378,8 +381,8 @@ export default function SellingPage() {
             <div className='bg-white rounded-2xl p-8 shadow-lg'>
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className='text-lg'>★</span>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='text-lg text-yellow-400' ariaLabel='Star rating' />
                   ))}
                 </div>
               </div>
@@ -404,8 +407,8 @@ export default function SellingPage() {
             <div className='bg-white rounded-2xl p-8 shadow-lg'>
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className='text-lg'>★</span>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='text-lg text-yellow-400' ariaLabel='Star rating' />
                   ))}
                 </div>
               </div>
@@ -430,8 +433,8 @@ export default function SellingPage() {
             <div className='bg-white rounded-2xl p-8 shadow-lg'>
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className='text-lg'>★</span>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='text-lg text-yellow-400' ariaLabel='Star rating' />
                   ))}
                 </div>
               </div>

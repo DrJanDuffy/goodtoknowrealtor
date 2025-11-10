@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { buyerReadinessQuestions, calculateScore, getResultsData, generateInsights } from '@/lib/assessment-data';
+import { buyerReadinessQuestions, calculateScore, getResultsData, generateInsights, AssessmentInsight } from '@/lib/assessment-data';
 import { storeLead, sendLeadNotification } from '@/lib/lead-storage';
 import { QuizQuestion } from './QuizQuestion';
 import { BuyerReadinessResults } from './BuyerReadinessResults';
@@ -47,7 +47,7 @@ export function BuyerReadinessQuiz() {
           score,
           results: {
             level: resultsData.level,
-            insights,
+            insights: insights.map(insight => insight.text),
             nextStep: resultsData.nextStepDescription
           },
           ipAddress: '', // Would get from request in production

@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', '/api/og/', '/api/og'],
         disallow: [
           '/api/',
           '/_next/',
@@ -25,13 +25,13 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Googlebot',
-        allow: '/',
+        allow: ['/', '/api/og/', '/api/og'],
         disallow: ['/api/', '/_next/', '/admin/', '/private/'],
         crawlDelay: 0,
       },
       {
         userAgent: 'Bingbot',
-        allow: '/',
+        allow: ['/', '/api/og/', '/api/og'],
         disallow: ['/api/', '/_next/', '/admin/', '/private/'],
         crawlDelay: 1,
       },

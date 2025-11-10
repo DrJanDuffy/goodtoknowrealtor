@@ -8,5 +8,11 @@
       "path": "/api/blog/sync",
       "schedule": "0 */6 * * *"
     }
-  ]
+  ],
+  "functions": {
+    "src/app/api/**/route.ts": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 60
+    }
+  }
 }

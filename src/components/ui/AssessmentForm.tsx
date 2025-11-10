@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { AssessmentQuestion } from '@/lib/assessment-data';
+import { ICONS_BY_ASSESSMENT_TYPE } from '@/lib/assessment-data';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface AssessmentFormProps {
   type: 'buyer' | 'seller' | 'investor';
@@ -222,14 +225,20 @@ export function AssessmentForm({ type }: AssessmentFormProps) {
   if (isCompleted) {
     return (
       <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-        <div className="text-4xl mb-4">🎉</div>
+        <IconSymbol symbol='🎉' className='text-4xl mb-4 text-green-600' ariaLabel='Celebration icon' />
         <h3 className="text-xl font-bold text-green-800 mb-2">Assessment Complete!</h3>
         <p className="text-green-700 mb-4">
           Thank you for completing the assessment. Dr. Jan Duffy will review your responses and provide personalized recommendations.
         </p>
         <div className="space-y-2 text-sm text-green-600">
-          <p>📞 Call (702) 222-1964 for immediate assistance</p>
-          <p>📧 Check your email for your personalized report</p>
+          <p className='flex items-center justify-center gap-2'>
+            <IconSymbol symbol='📞' className='h-4 w-4' ariaLabel='Phone icon' />
+            Call (702) 222-1964 for immediate assistance
+          </p>
+          <p className='flex items-center justify-center gap-2'>
+            <IconSymbol symbol='📧' className='h-4 w-4' ariaLabel='Email icon' />
+            Check your email for your personalized report
+          </p>
         </div>
         <button
           onClick={() => {

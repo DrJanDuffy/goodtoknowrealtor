@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { SimpleSearch } from '@/components/PropertySearch/SimpleSearch';
 import { SummerlinListings } from '@/components/Home/SummerlinListings';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 // Declare RealScout custom elements
 declare global {
@@ -39,7 +40,7 @@ export default function SummerlinPage() {
         gradientToClassName='to-blue-800'
       >
         <a 
-          href='/listings?area=summerlin' 
+          href='/listings#advanced-search' 
           className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
         >
           View Summerlin Listings
@@ -87,19 +88,19 @@ export default function SummerlinPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Included' />
                   <span className="text-gray-700">Master-planned community with 22,000+ acres</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Included' />
                   <span className="text-gray-700">Top-rated schools and family-friendly amenities</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Included' />
                   <span className="text-gray-700">Golf courses, parks, and recreational facilities</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-green-500 mr-3 text-xl">✓</span>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Included' />
                   <span className="text-gray-700">Luxury homes with mountain and city views</span>
                 </li>
               </ul>

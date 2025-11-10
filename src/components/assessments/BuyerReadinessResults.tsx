@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
+import type { AssessmentInsight } from '@/lib/assessment-data';
 
 interface BuyerReadinessResultsProps {
   score: number;
@@ -9,7 +11,7 @@ interface BuyerReadinessResultsProps {
     color: string;
     title: string;
     message: string;
-    emoji: string;
+    icon: string;
     nextStepTitle: string;
     nextStepDescription: string;
     ctaText: string;
@@ -17,7 +19,7 @@ interface BuyerReadinessResultsProps {
     ctaPhone: boolean;
     urgent?: boolean;
   };
-  insights: string[];
+  insights: AssessmentInsight[];
   answers: Record<string, string>;
 }
 
@@ -45,7 +47,7 @@ export function BuyerReadinessResults({
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="text-2xl mb-4">{resultsData.emoji}</div>
+            <IconSymbol symbol={resultsData.icon as IconSymbolKey} className='h-12 w-12 mx-auto mb-4 text-blue-600' ariaLabel='Readiness level icon' />
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               {resultsData.title}
             </h1>
@@ -87,10 +89,8 @@ export function BuyerReadinessResults({
             <div className="space-y-4">
               {insights.map((insight, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 text-sm font-bold">{index + 1}</span>
-                  </div>
-                  <p className="text-gray-700 text-lg">{insight}</p>
+                  <IconSymbol symbol={insight.icon as IconSymbolKey} className="text-blue-600 h-5 w-5 mt-1" ariaLabel='Insight icon' />
+                  <p className="text-gray-700 text-lg">{insight.text}</p>
                 </div>
               ))}
             </div>
@@ -115,7 +115,10 @@ export function BuyerReadinessResults({
                       : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700'
                   }`}
                 >
-                  📞 {resultsData.ctaText}
+                  <span className="inline-flex items-center justify-center gap-2">
+                    <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+                    {resultsData.ctaText}
+                  </span>
                 </Link>
               ) : (
                 <Link
@@ -138,26 +141,44 @@ export function BuyerReadinessResults({
           {/* Additional Resources */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">📖 Buyer Guide</h3>
+              <div className='flex items-center gap-2 mb-3'>
+                <IconSymbol symbol='📘' className='h-5 w-5 text-blue-600' ariaLabel='Guide icon' />
+                <h3 className="text-lg font-bold text-gray-900">Buyer Guide</h3>
+              </div>
               <p className="text-gray-600 mb-4">Complete step-by-step guide to buying in Las Vegas</p>
               <Link href="/buyer-guide" className="text-blue-600 font-semibold hover:text-blue-700">
-                Read Guide →
+                <span className='inline-flex items-center gap-1'>
+                  Read Guide
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">🏠 Home Value</h3>
+              <div className='flex items-center gap-2 mb-3'>
+                <IconSymbol symbol='🏠' className='h-5 w-5 text-blue-600' ariaLabel='Home value icon' />
+                <h3 className="text-lg font-bold text-gray-900">Home Value</h3>
+              </div>
               <p className="text-gray-600 mb-4">Get instant valuation of any Las Vegas property</p>
               <Link href="/home-value" className="text-blue-600 font-semibold hover:text-blue-700">
-                Check Value →
+                <span className='inline-flex items-center gap-1'>
+                  Check Value
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">🗺️ Neighborhoods</h3>
+              <div className='flex items-center gap-2 mb-3'>
+                <IconSymbol symbol='🗺️' className='h-5 w-5 text-blue-600' ariaLabel='Neighborhood icon' />
+                <h3 className="text-lg font-bold text-gray-900">Neighborhoods</h3>
+              </div>
               <p className="text-gray-600 mb-4">Explore Las Vegas communities and find your perfect match</p>
               <Link href="/communities" className="text-blue-600 font-semibold hover:text-blue-700">
-                Explore Areas →
+                <span className='inline-flex items-center gap-1'>
+                  Explore Areas
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
           </div>
@@ -173,13 +194,19 @@ export function BuyerReadinessResults({
                 href="tel:702-222-1964"
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
               >
-                📞 Call (702) 222-1964
+                <span className='inline-flex items-center gap-2'>
+                  <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+                  Call (702) 222-1964
+                </span>
               </Link>
               <Link
                 href="/contact"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition-colors"
               >
-                Schedule Consultation
+                <span className='inline-flex items-center gap-2'>
+                  Schedule Consultation
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
           </div>

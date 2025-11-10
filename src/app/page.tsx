@@ -12,6 +12,7 @@ import { HomebotHomeowner } from '@/components/Home/HomebotHomeowner';
 import { HomebotBuyers } from '@/components/Home/HomebotBuyers';
 import { RealScoutListings } from '@/components/Home/RealScoutListings';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema, generateFAQSchema, generateReviewSchema, generateServiceSchema } from '@/lib/seo';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.home.title,
@@ -184,7 +185,7 @@ export default function HomePage() {
             <div className='bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300'>
               <div className='text-center'>
                 <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                  <span className='text-amber-600 text-2xl'>🏠</span>
+                  <IconSymbol symbol='🏠' className='text-amber-600 text-2xl' ariaLabel='Home icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>Buyer Readiness Assessment</h3>
                 <p className='text-gray-600 mb-6'>
@@ -206,7 +207,7 @@ export default function HomePage() {
             <div className='bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300'>
               <div className='text-center'>
                 <div className='w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                  <span className='text-green-600 text-2xl'>💰</span>
+                  <IconSymbol symbol='💰' className='text-green-600 text-2xl' ariaLabel='Money icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>Seller Readiness Assessment</h3>
                 <p className='text-gray-600 mb-6'>
@@ -267,7 +268,7 @@ export default function HomePage() {
           </div>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto'>
             <div className='bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-amber-100'>
-              <span className='text-amber-600 text-4xl mb-6 block'>🏛️</span>
+              <IconSymbol symbol='🏛️' className='text-amber-600 text-4xl mb-6 block' ariaLabel='Luxury icon' />
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>Luxury Home Buying</h3>
               <p className='text-gray-600 mb-6'>
                 Exclusive access to prestigious properties in Summerlin, The Ridges, Lake Las Vegas, and gated communities.
@@ -277,7 +278,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className='bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-amber-100'>
-              <span className='text-amber-600 text-4xl mb-6 block'>💎</span>
+              <IconSymbol symbol='💎' className='text-amber-600 text-4xl mb-6 block' ariaLabel='Premium icon' />
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>Luxury Home Selling</h3>
               <p className='text-gray-600 mb-6'>
                 Discreet marketing, luxury staging, and strategic pricing to maximize value for high-end properties.
@@ -287,7 +288,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className='bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-amber-100'>
-              <span className='text-amber-600 text-4xl mb-6 block'>⭐</span>
+              <IconSymbol symbol='⭐' className='text-amber-600 text-4xl mb-6 block' ariaLabel='Featured icon' />
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>Concierge Services</h3>
               <p className='text-gray-600 mb-6'>
                 Private showings, confidential transactions, property management, and lifestyle concierge support.

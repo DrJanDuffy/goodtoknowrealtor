@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -247,7 +248,7 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
         <div className="p-6">
           {isSubmitted ? (
             <div className="text-center py-8">
-              <div className="text-6xl mb-4">✅</div>
+              <IconSymbol symbol='✅' className='text-6xl mb-4 text-green-600' ariaLabel='Success icon' />
               <h3 className="text-2xl font-bold text-green-800 mb-2">Thank You!</h3>
               <p className="text-gray-700 mb-6">
                 Dr. Jan Duffy will contact you within 24 hours to schedule your consultation.
@@ -255,16 +256,24 @@ export function ConsultationModal({ isOpen, onClose, source = 'header' }: Consul
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
                 <p className="text-amber-900 font-semibold mb-2">Next Steps:</p>
                 <ul className="text-left text-amber-800 space-y-1 text-sm">
-                  <li>✓ Check your email for confirmation</li>
-                  <li>✓ We'll call you at your preferred time</li>
-                  <li>✓ Prepare any questions you have</li>
+                  {[
+                    'Check your email for confirmation',
+                    "We'll call you at your preferred time",
+                    'Prepare any questions you have',
+                  ].map((item) => (
+                    <li key={item} className='flex items-start gap-2'>
+                      <IconSymbol symbol='✅' className='h-4 w-4 mt-0.5 text-amber-600' ariaLabel='Complete icon' />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="tel:702-222-1964"
-                  className="btn btn-primary"
+                  className="btn btn-primary inline-flex items-center justify-center gap-2"
                 >
+                  <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
                   Call (702) 222-1964
                 </a>
                 <button

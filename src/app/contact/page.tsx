@@ -1,8 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.contact.title,
@@ -75,7 +80,7 @@ export default function ContactPage() {
             {/* Email */}
             <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <span className='text-3xl'>✉️</span>
+                <IconSymbol symbol='📧' className='text-3xl text-blue-600' ariaLabel='Email icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Send an Email
@@ -94,7 +99,7 @@ export default function ContactPage() {
             {/* Text Message */}
             <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <span className='text-3xl'>💬</span>
+                <IconSymbol symbol='💬' className='text-3xl text-blue-600' ariaLabel='Chat icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Text Message
@@ -309,7 +314,7 @@ export default function ContactPage() {
                 </h3>
                 <div className='space-y-4'>
                   <div className='flex items-start'>
-                    <span className='text-amber-600 mr-4 mt-1'>📍</span>
+                    <IconSymbol symbol='📍' className='text-amber-600 mr-4 mt-1 h-5 w-5' ariaLabel='Location icon' />
                     <div>
                       <p className='font-semibold text-gray-900'>
                         Dr. Janet Duffy Real Estate
@@ -322,7 +327,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className='flex items-start'>
-                    <span className='text-amber-600 mr-4 mt-1'>🕒</span>
+                    <IconSymbol symbol='⏱️' className='text-amber-600 mr-4 mt-1 h-5 w-5' ariaLabel='Clock icon' />
                     <div>
                       <p className='font-semibold text-gray-900'>
                         Office Hours
@@ -408,7 +413,7 @@ export default function ContactPage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🏘️</span>
+                <IconSymbol symbol='🏘️' className='text-2xl text-blue-600' ariaLabel='Neighborhood icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 Summerlin
@@ -434,7 +439,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🏢</span>
+                <IconSymbol symbol='🏢' className='text-2xl text-blue-600' ariaLabel='Commercial icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 North Las Vegas
@@ -444,7 +449,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🌆</span>
+                <IconSymbol symbol='🏙️' className='text-2xl text-blue-600' ariaLabel='Downtown icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 Downtown Las Vegas
@@ -454,7 +459,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🏡</span>
+                <IconSymbol symbol='🏡' className='text-2xl text-blue-600' ariaLabel='Suburban icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 Southwest Valley
@@ -464,7 +469,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🌵</span>
+                <IconSymbol symbol='🌱' className='text-2xl text-blue-600' ariaLabel='Desert icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 All Las Vegas Valley
@@ -503,7 +508,10 @@ export default function ContactPage() {
               href='sms:702-222-1964'
               className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-800 transition-colors duration-200'
             >
-              💬 Send Text
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='💬' className='h-5 w-5' ariaLabel='Chat icon' />
+                Send Text
+              </span>
             </Link>
           </div>
         </div>
