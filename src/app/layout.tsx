@@ -27,17 +27,45 @@ export const metadata: Metadata = {
   authors: [{ name: SEO_CONFIG.author }],
   creator: SEO_CONFIG.author,
   publisher: SEO_CONFIG.siteName,
+  applicationName: 'Dr. Jan Duffy Real Estate',
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  category: 'Real Estate',
+  classification: 'Real Estate Services',
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.svg', sizes: '180x180', type: 'image/svg+xml' },
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/favicon.svg',
+        color: '#D97706',
+      },
+    ],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -51,6 +79,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: SEO_CONFIG.defaultTitle,
+        type: 'image/jpeg',
       },
     ],
   },
@@ -60,15 +89,35 @@ export const metadata: Metadata = {
     description: SEO_CONFIG.defaultDescription,
     images: [`${SEO_CONFIG.siteUrl}${SEO_CONFIG.images.default}`],
     creator: '@drjanduffy',
+    site: '@drjanduffy',
   },
   alternates: {
     canonical: SEO_CONFIG.siteUrl,
+    types: {
+      'application/rss+xml': `${SEO_CONFIG.siteUrl}/rss.xml`,
+    },
   },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION || 'your-google-verification-code',
+    yandex: process.env.YANDEX_VERIFICATION,
+    yahoo: process.env.YAHOO_VERIFICATION,
     other: {
       'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION || 'your-google-verification-code',
+      'msvalidate.01': process.env.BING_VERIFICATION,
     },
+  },
+  appleWebApp: {
+    capable: true,
+    title: 'Dr. Jan Duffy Real Estate',
+    statusBarStyle: 'black-translucent',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'format-detection': 'telephone=no',
+    'theme-color': '#D97706',
+    'color-scheme': 'light',
   },
 };
 

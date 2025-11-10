@@ -1,0 +1,27 @@
+{
+  "name": "Dr. Jan Duffy - Las Vegas Real Estate Expert",
+  "short_name": "Dr. Jan Duffy",
+  "description": "Top-performing Las Vegas real estate agent Dr. Jan Duffy delivers exceptional results with $127M+ in sales volume.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#D97706",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "categories": ["business", "real estate"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
