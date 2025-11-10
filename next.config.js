@@ -196,6 +196,21 @@ const nextConfig = {
         destination: '/listings',
         permanent: true,
       },
+      {
+        source: '/listings/search/:path*',
+        destination: '/listings',
+        permanent: true,
+      },
+      {
+        source: '/&',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/$',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
 
