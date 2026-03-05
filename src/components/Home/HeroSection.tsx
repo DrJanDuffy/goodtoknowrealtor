@@ -32,7 +32,7 @@ const HERO_TESTIMONIAL = {
 
 export function HeroSection() {
   return (
-    <section className='relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white'>
+    <section className='relative overflow-hidden bg-blue-900 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white'>
       {/* Background overlays */}
       <div className='pointer-events-none absolute inset-0 opacity-70 mix-blend-screen'>
         <div className='absolute -left-32 top-0 h-[480px] w-[480px] rounded-full bg-amber-500/40 blur-[160px]' />

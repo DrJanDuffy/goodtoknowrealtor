@@ -6,13 +6,7 @@ import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
 import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 import { TransformationSection } from '@/components/Home/TransformationSection';
 import { ContactCTA } from '@/components/Home/ContactCTA';
-import { RealScoutSimpleSearch } from '@/components/PropertySearch/RealScoutSimpleSearch';
-import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
-import { HomebotHomeowner } from '@/components/Home/HomebotHomeowner';
-import { HomebotBuyers } from '@/components/Home/HomebotBuyers';
-import { RealScoutListings } from '@/components/Home/RealScoutListings';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema, generateFAQSchema, generateReviewSchema, generateServiceSchema } from '@/lib/seo';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.home.title,
@@ -121,108 +115,49 @@ export default function HomePage() {
       {/* Transformation Section - The Real Difference */}
       <TransformationSection />
 
-      {/* Home Value & Tracking Widgets */}
-      <section className='py-16 bg-white'>
+      {/* Home Value & Tracking - teaser to dedicated page */}
+      <section className='py-12 bg-white'>
         <div className='container mx-auto px-4'>
-          <div className='max-w-6xl mx-auto'>
-            <div className='text-center mb-12'>
-              <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
-                Track Your Home's Value
-              </h2>
-              <p className='text-xl text-gray-600'>
-                Get instant valuations and ongoing equity tracking for your Las Vegas property
-              </p>
-            </div>
-            
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12'>
-              {/* Home Value Widget */}
-              <div className='bg-gray-50 rounded-2xl p-8'>
-                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Instant Home Valuation</h3>
-                <p className='text-gray-600 mb-6'>
-                  Get an immediate estimate of your home's current market value
-                </p>
-                <HomeValueWidget />
-              </div>
-              
-              {/* Homebot Homeowner */}
-              <div className='bg-gray-50 rounded-2xl p-8'>
-                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Monthly Equity Reports</h3>
-                <p className='text-gray-600 mb-6'>
-                  Track your home's equity growth with automated monthly updates
-                </p>
-                <HomebotHomeowner />
-              </div>
-            </div>
-            
-            {/* Homebot Buyers */}
-            <div className='bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8'>
-              <h3 className='text-2xl font-bold text-gray-900 mb-4 text-center'>Dream Home Tracker</h3>
-              <p className='text-gray-600 mb-6 text-center max-w-2xl mx-auto'>
-                For buyers: Track your favorite neighborhoods and get alerts when homes matching your criteria become available
-              </p>
-              <div className='max-w-md mx-auto'>
-                <HomebotBuyers />
-              </div>
-            </div>
+          <div className='max-w-2xl mx-auto text-center'>
+            <h2 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3'>
+              Track Your Home&apos;s Value
+            </h2>
+            <p className='text-lg text-gray-600 mb-6'>
+              Get instant valuations, equity tracking, and buyer alerts for Las Vegas properties.
+            </p>
+            <Link
+              href='/home-value'
+              className='inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors'
+            >
+              Get Home Value & Tools
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Assessment Lead Generation - High engagement */}
-      <section className='py-16 bg-gradient-to-br from-amber-50 to-yellow-50'>
+      {/* Assessment - teaser to dedicated pages */}
+      <section className='py-12 bg-gradient-to-br from-amber-50 to-yellow-50'>
         <div className='container mx-auto px-4'>
-          <div className='max-w-4xl mx-auto text-center mb-12'>
-            <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
-              Find Out If You're Ready
+          <div className='max-w-2xl mx-auto text-center'>
+            <h2 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3'>
+              Find Out If You&apos;re Ready
             </h2>
-            <p className='text-xl text-gray-600'>
-              Take our free 3-minute assessment to discover your readiness level for buying or selling in Las Vegas.
+            <p className='text-lg text-gray-600 mb-6'>
+              Free 3-minute buyer or seller readiness assessments—personalized next steps for Las Vegas.
             </p>
-          </div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto'>
-            {/* Buyer Assessment Card */}
-            <div className='bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300'>
-              <div className='text-center'>
-                <div className='w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                  <IconSymbol symbol='🏠' className='text-amber-600 text-2xl' ariaLabel='Home icon' />
-                </div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Buyer Readiness Assessment</h3>
-                <p className='text-gray-600 mb-6'>
-                  Discover your readiness to buy a home in Las Vegas. Get personalized insights on financing, market knowledge, and next steps.
-                </p>
-                <div className='inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
-                  Only 3 minutes
-                </div>
-                <Link
-                  href='/assessments/buyer-readiness'
-                  className='block bg-amber-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors shadow-md'
-                >
-                  Start Buyer Assessment
-                </Link>
-              </div>
-            </div>
-
-            {/* Seller Assessment Card */}
-            <div className='bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300'>
-              <div className='text-center'>
-                <div className='w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                  <IconSymbol symbol='💰' className='text-green-600 text-2xl' ariaLabel='Money icon' />
-                </div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Seller Readiness Assessment</h3>
-                <p className='text-gray-600 mb-6'>
-                  Find out if you're ready to sell your Las Vegas home. Get insights on market timing, preparation needs, and pricing strategy.
-                </p>
-                <div className='inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
-                  Only 3 minutes
-                </div>
-                <Link
-                  href='/assessments/seller-readiness'
-                  className='block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors shadow-md'
-                >
-                  Start Seller Assessment
-                </Link>
-              </div>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+              <Link
+                href='/assessments/buyer-readiness'
+                className='inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-6 py-3 font-semibold text-white shadow-md hover:bg-amber-700 transition-colors'
+              >
+                Buyer Assessment
+              </Link>
+              <Link
+                href='/assessments/seller-readiness'
+                className='inline-flex items-center justify-center gap-2 rounded-xl border-2 border-amber-600 px-6 py-3 font-semibold text-amber-700 hover:bg-amber-50 transition-colors'
+              >
+                Seller Assessment
+              </Link>
             </div>
           </div>
         </div>
@@ -252,51 +187,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Properties - Live MLS Data */}
-      <RealScoutListings />
-
-      {/* Services Overview - Luxury Focus */}
-      <section className='py-16 bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50'>
+      {/* Featured Listings - teaser to full search */}
+      <section className='py-12 bg-gray-50'>
         <div className='container mx-auto px-4'>
-          <div className='text-center mb-12'>
-            <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
+          <div className='max-w-2xl mx-auto text-center'>
+            <h2 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3'>
+              Explore Las Vegas Listings
+            </h2>
+            <p className='text-lg text-gray-600 mb-6'>
+              Search the full MLS for homes in Summerlin, Henderson, and every Las Vegas Valley neighborhood.
+            </p>
+            <Link
+              href='/listings'
+              className='inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors'
+            >
+              View All Listings
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services - compact links to dedicated pages */}
+      <section className='py-12 bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50'>
+        <div className='container mx-auto px-4'>
+          <div className='text-center mb-8'>
+            <h2 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-2'>
               Premier Luxury Services
             </h2>
-            <p className='text-xl text-gray-700 font-medium'>
-              White-glove concierge real estate services for discerning clients.
+            <p className='text-lg text-gray-700'>
+              White-glove concierge real estate for discerning clients.
             </p>
           </div>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto'>
-            <div className='bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-amber-100'>
-              <IconSymbol symbol='🏛️' className='text-amber-600 text-4xl mb-6 block' ariaLabel='Luxury icon' />
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>Luxury Home Buying</h3>
-              <p className='text-gray-600 mb-6'>
-                Exclusive access to prestigious properties in Summerlin, The Ridges, Lake Las Vegas, and gated communities.
-              </p>
-              <Link href='/luxury' className='text-amber-600 hover:text-amber-700 font-semibold'>
-                Explore Properties →
-              </Link>
-            </div>
-            <div className='bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-amber-100'>
-              <IconSymbol symbol='💎' className='text-amber-600 text-4xl mb-6 block' ariaLabel='Premium icon' />
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>Luxury Home Selling</h3>
-              <p className='text-gray-600 mb-6'>
-                Discreet marketing, luxury staging, and strategic pricing to maximize value for high-end properties.
-              </p>
-              <Link href='/luxury' className='text-amber-600 hover:text-amber-700 font-semibold'>
-                Learn More →
-              </Link>
-            </div>
-            <div className='bg-white rounded-xl p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-amber-100'>
-              <IconSymbol symbol='⭐' className='text-amber-600 text-4xl mb-6 block' ariaLabel='Featured icon' />
-              <h3 className='text-2xl font-bold text-gray-900 mb-4'>Concierge Services</h3>
-              <p className='text-gray-600 mb-6'>
-                Private showings, confidential transactions, property management, and lifestyle concierge support.
-              </p>
-              <Link href='/contact' className='text-amber-600 hover:text-amber-700 font-semibold'>
-                Schedule Consultation →
-              </Link>
-            </div>
+          <div className='flex flex-wrap justify-center gap-4'>
+            <Link href='/luxury' className='rounded-xl bg-white px-6 py-3 font-semibold text-amber-700 shadow-md border border-amber-100 hover:shadow-lg transition-shadow'>
+              Luxury Properties
+            </Link>
+            <Link href='/services' className='rounded-xl bg-white px-6 py-3 font-semibold text-amber-700 shadow-md border border-amber-100 hover:shadow-lg transition-shadow'>
+              All Services
+            </Link>
+            <Link href='/contact' className='rounded-xl bg-amber-600 px-6 py-3 font-semibold text-white shadow-md hover:bg-amber-700 transition-colors'>
+              Schedule Consultation
+            </Link>
           </div>
         </div>
       </section>

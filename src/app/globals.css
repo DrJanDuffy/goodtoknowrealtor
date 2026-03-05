@@ -6,17 +6,21 @@
   box-sizing: border-box;
 }
 
-/* SVG Optimization and FOUC Prevention */
+/* SVG Optimization and FOUC Prevention - scoped so Lucide/icons are visible by default */
 svg {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
   display: block;
   overflow: hidden;
   max-width: 100%;
   height: auto;
 }
 
-svg.loaded {
+/* Only hide SVGs that are explicitly inside a defer-reveal container (e.g. external SVG sprites) */
+.defer-svg-reveal svg {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.defer-svg-reveal svg.loaded {
   opacity: 1;
 }
 

@@ -1,10 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { headers } from 'next/headers';
+import { SEO_CONFIG } from '@/lib/seo';
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
-  const headersList = await headers();
-  const host = headersList.get('x-forwarded-host') || headersList.get('host') || 'localhost';
-  const baseUrl = `https://${host.split(':')[0]}`;
+  // Use canonical production URL so Google Search Console always sees the same sitemap
+  const baseUrl = SEO_CONFIG.siteUrl;
 
   return {
     rules: [
@@ -64,6 +63,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         allow: '/',
       },
     ],
+    host: baseUrl,
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

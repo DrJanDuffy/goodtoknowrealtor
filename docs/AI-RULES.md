@@ -26,6 +26,14 @@ When adding or changing rules, keep `.cursorrules` and `.cursor/rules/jan-duffy-
 
 Use the [NAP & GBP audit checklist](./NAP-GBP-AUDIT.md) each month so NAP, CTAs, and schema stay aligned with the Google Business Profile.
 
+## Google Search Console
+
+See [GOOGLE-SEARCH-CONSOLE.md](./GOOGLE-SEARCH-CONSOLE.md) for verification, sitemap submission, and ongoing GSC checks.
+
+## AI platforms (llms.txt, crawlers)
+
+See [AI-PLATFORMS.md](./AI-PLATFORMS.md) for llms.txt, robots.txt AI crawler rules, and how to keep the site ready for AI search and assistants.
+
 ## Best practices
 
 See [BEST-PRACTICES.md](./BEST-PRACTICES.md) for branding, NAP, schema, code, and content guidelines.
