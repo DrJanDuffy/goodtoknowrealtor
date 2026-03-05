@@ -1,45 +1,69 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { headers } from 'next/headers';
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const headersList = await headers();
+  const host = headersList.get('x-forwarded-host') || headersList.get('host') || 'localhost';
+  const baseUrl = `https://${host.split(':')[0]}`;
+
   return {
     rules: [
+      // Default: allow all crawlers
       {
         userAgent: '*',
-        allow: ['/', '/api/og/', '/api/og'],
-        disallow: [
-          '/api/',
-          '/_next/',
-          '/admin/',
-          '/private/',
-          '/test/',
-          '/staging/',
-          '/*.json$',
-          '/*.xml$',
-          '/search?*',
-          '/?*utm_*',
-          '/?*ref=*',
-          '/?*fbclid=*',
-          '/?*gclid=*',
-        ],
-        crawlDelay: 1,
+        allow: '/',
+      },
+      // ── AI Retrieval Bots (power AI search results) ──
+      {
+        userAgent: 'GPTBot',
+        allow: '/',
       },
       {
-        userAgent: 'Googlebot',
-        allow: ['/', '/api/og/', '/api/og'],
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
-        crawlDelay: 0,
+        userAgent: 'ChatGPT-User',
+        allow: '/',
       },
       {
-        userAgent: 'Bingbot',
-        allow: ['/', '/api/og/', '/api/og'],
-        disallow: ['/api/', '/_next/', '/admin/', '/private/'],
-        crawlDelay: 1,
+        userAgent: 'OAI-SearchBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'ClaudeBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Claude-Web',
+        allow: '/',
+      },
+      {
+        userAgent: 'PerplexityBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Applebot-Extended',
+        allow: '/',
+      },
+      {
+        userAgent: 'Bytespider',
+        allow: '/',
+      },
+      // ── AI Training Bots (maximizes visibility in AI models) ──
+      {
+        userAgent: 'Google-Extended',
+        allow: '/',
+      },
+      {
+        userAgent: 'CCBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'cohere-ai',
+        allow: '/',
+      },
+      {
+        userAgent: 'Meta-ExternalAgent',
+        allow: '/',
       },
     ],
-    sitemap: [
-      'https://www.goodtoknowrealtor.com/sitemap.xml',
-      'https://www.goodtoknowrealtor.com/sitemap-blog.xml',
-    ],
-    host: 'https://www.goodtoknowrealtor.com',
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }
