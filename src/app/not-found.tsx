@@ -37,7 +37,7 @@ export default function NotFound() {
         <div className='mt-12 bg-amber-50 border border-amber-200 rounded-lg p-6'>
           <h3 className='font-semibold text-amber-800 mb-2'>Need Help?</h3>
           <p className='text-amber-700 mb-4'>
-            Contact Dr. Janet Duffy for assistance with your real estate needs.
+            Contact Dr. Jan Duffy for assistance with your real estate needs.
           </p>
           <a
             href='tel:702-222-1964'

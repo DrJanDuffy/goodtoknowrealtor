@@ -19,7 +19,7 @@ export function TeamSection() {
   const teamMembers: TeamMember[] = [
     {
       id: '1',
-      name: 'Dr. Janet Duffy',
+      name: 'Dr. Jan Duffy',
       title: 'REALTOR®',
       phone: '(702) 222-1964',
       email: 'janet@goodtoknowrealtor.com',

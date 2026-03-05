@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use | Dr. Janet Duffy',
-  description: 'Terms of use for Dr. Janet Duffy Real Estate services.',
+  title: 'Terms of Use | Dr. Jan Duffy',
+  description: 'Terms of use for Dr. Jan Duffy Real Estate services.',
 };
 
 export default function TermsOfUsePage() {
@@ -30,13 +30,13 @@ export default function TermsOfUsePage() {
 
               <h2 className='text-2xl font-semibold text-gray-900 mb-4'>Disclaimer</h2>
               <p className='text-gray-600 mb-6'>
-                The materials on this website are provided on an &apos;as is&apos; basis. Dr. Janet Duffy makes 
+                The materials on this website are provided on an &apos;as is&apos; basis. Dr. Jan Duffy makes 
                 no warranties, expressed or implied, and hereby disclaims and negates all other warranties.
               </p>
 
               <h2 className='text-2xl font-semibold text-gray-900 mb-4'>Limitations</h2>
               <p className='text-gray-600 mb-6'>
-                In no event shall Dr. Janet Duffy or its suppliers be liable for any damages arising 
+                In no event shall Dr. Jan Duffy or its suppliers be liable for any damages arising 
                 out of the use or inability to use the materials on this website.
               </p>
 
@@ -45,7 +45,7 @@ export default function TermsOfUsePage() {
                 If you have any questions about these Terms of Use, please contact us:
               </p>
               <div className='bg-gray-50 p-4 rounded-lg'>
-                <p className='text-gray-700'>Dr. Janet Duffy</p>
+                <p className='text-gray-700'>Dr. Jan Duffy</p>
                 <p className='text-gray-700'>Phone: (702) 222-1964</p>
                 <p className='text-gray-700'>Email: info@drjanduffy.com</p>
               </div>

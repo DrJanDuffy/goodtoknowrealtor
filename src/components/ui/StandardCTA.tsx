@@ -130,7 +130,7 @@ export function StandardCTA({
     <Link
       href={`tel:${phoneNumber}`}
       className={primaryButtonClasses.trim().replace(/\s+/g, ' ')}
-      aria-label={`Call Dr. Janet Duffy at ${displayPhone}`}
+      aria-label={`Call Dr. Jan Duffy at ${displayPhone}`}
     >
       {showIcon && <PhoneIcon />}
       <span>Call {displayPhone}</span>
@@ -141,7 +141,7 @@ export function StandardCTA({
     <Link
       href={`sms:${phoneNumber}`}
       className={secondaryButtonClasses.trim().replace(/\s+/g, ' ')}
-      aria-label={`Text Dr. Janet Duffy at ${displayPhone}`}
+      aria-label={`Text Dr. Jan Duffy at ${displayPhone}`}
     >
       {showIcon && <TextIcon />}
       <span>Text {displayPhone}</span>

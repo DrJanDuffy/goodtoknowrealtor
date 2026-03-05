@@ -373,7 +373,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             Ready to Make Your Real Estate Move?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Dr. Janet Duffy has helped hundreds of families navigate the Las Vegas real estate market. 
+            Dr. Jan Duffy has helped hundreds of families navigate the Las Vegas real estate market. 
             Let her expertise guide your next decision.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

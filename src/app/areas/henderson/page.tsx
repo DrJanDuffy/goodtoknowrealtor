@@ -158,7 +158,7 @@ export default function HendersonPage() {
             Ready to Find Your Henderson Home?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
+            Let Dr. Jan Duffy, the Premier Good To Know REALTOR®, help you find 
             your perfect home in Henderson. With deep knowledge of the Nevada market 
             and 15+ years of experience, I&apos;ll guide you to the right neighborhood and property.
           </p>

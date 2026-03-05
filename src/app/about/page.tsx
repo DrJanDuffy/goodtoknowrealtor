@@ -16,7 +16,7 @@ export const metadata: Metadata = generatePageMetadata({
 export default function AboutPage() {
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: 'About Dr. Janet Duffy', url: '/about' },
+    { name: 'About Dr. Jan Duffy', url: '/about' },
   ]);
 
   return (
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
       <PageHero
-        title='About Dr. Janet Duffy'
+        title='About Dr. Jan Duffy'
         subtitle='Your trusted Las Vegas real estate expert with over 15 years of experience helping clients achieve their property goals.'
       />
 
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 A Passion for Real Estate Excellence
               </h2>
               <p className='text-xl text-gray-600 leading-relaxed'>
-                Dr. Janet Duffy brings unparalleled expertise and dedication to
+                Dr. Jan Duffy brings unparalleled expertise and dedication to
                 every real estate transaction, helping clients navigate the Las
                 Vegas market with confidence and success.
               </p>
@@ -53,7 +53,7 @@ export default function AboutPage() {
             <div className='prose prose-lg max-w-none mx-auto text-gray-700'>
               <p className='text-lg leading-relaxed mb-6'>
                 With over 15 years of experience in the Las Vegas real estate
-                market, Dr. Janet Duffy has built a reputation as one of the
+                market, Dr. Jan Duffy has built a reputation as one of the
                 area&apos;s most trusted and successful real estate professionals.
                 Her deep understanding of local market trends, neighborhood
                 dynamics, and investment opportunities has helped hundreds of
@@ -211,7 +211,7 @@ export default function AboutPage() {
               <div className='relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
                   src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80'
-                  alt='Dr. Janet Duffy working with clients'
+                  alt='Dr. Jan Duffy working with clients'
                   fill
                   style={{ objectFit: 'cover' }}
                 />

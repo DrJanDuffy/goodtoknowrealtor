@@ -5,10 +5,11 @@ import Image from 'next/image';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { PageHero } from '@/components/ui/PageHero';
+import { EXPERT_NEIGHBORHOODS, nameToSlug } from '@/data/neighborhoods';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Las Vegas Communities | Dr. Janet Duffy Group',
-  description: 'Explore Las Vegas communities with Dr. Janet Duffy Group. Find your perfect neighborhood in Summerlin, Henderson, North Las Vegas, and more.',
+  title: 'Las Vegas Communities | Dr. Jan Duffy Group',
+  description: 'Explore Las Vegas communities with Dr. Jan Duffy Group. Find your perfect neighborhood in Summerlin, Henderson, North Las Vegas, and more.',
   keywords: ['Las Vegas communities', 'Las Vegas neighborhoods', 'Summerlin', 'Henderson', 'North Las Vegas'],
   url: '/communities',
   image: '/images/las-vegas-communities-og.jpg',
@@ -173,6 +174,31 @@ export default function CommunitiesPage() {
           </div>
         </section>
 
+        {/* All expert neighborhoods (canonical list from src/data/neighborhoods.ts) */}
+        <section className='py-16 bg-white'>
+          <div className='container mx-auto px-4'>
+            <div className='max-w-6xl mx-auto'>
+              <h2 className='text-3xl font-bold text-gray-900 mb-4 text-center'>
+                All Las Vegas Valley Neighborhoods
+              </h2>
+              <p className='text-center text-gray-600 mb-10 max-w-2xl mx-auto'>
+                Dr. Jan Duffy has expert knowledge of these Las Vegas and Henderson communities. Browse by neighborhood for local market insights and listings.
+              </p>
+              <div className='flex flex-wrap justify-center gap-x-4 gap-y-2'>
+                {EXPERT_NEIGHBORHOODS.map((name) => (
+                  <Link
+                    key={name}
+                    href={`/areas/${nameToSlug(name)}`}
+                    className='text-blue-600 hover:text-blue-800 hover:underline font-medium'
+                  >
+                    {name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Market Overview */}
         <section className='py-16 bg-white'>
           <div className='container mx-auto px-4'>
@@ -209,7 +235,7 @@ export default function CommunitiesPage() {
               Ready to Find Your Perfect Community?
             </h2>
             <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>
-              Let Dr. Janet Duffy Group help you discover the Las Vegas neighborhood that&apos;s perfect for your lifestyle and budget.
+              Let Dr. Jan Duffy Group help you discover the Las Vegas neighborhood that&apos;s perfect for your lifestyle and budget.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link

@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Dr. Janet Duffy',
-  description: 'Privacy policy for Dr. Janet Duffy Real Estate services.',
+  title: 'Privacy Policy | Dr. Jan Duffy',
+  description: 'Privacy policy for Dr. Jan Duffy Real Estate services.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
                 If you have any questions about this Privacy Policy, please contact us at:
               </p>
               <div className='bg-gray-50 p-4 rounded-lg'>
-                <p className='text-gray-700'>Dr. Janet Duffy</p>
+                <p className='text-gray-700'>Dr. Jan Duffy</p>
                 <p className='text-gray-700'>Phone: (702) 222-1964</p>
                 <p className='text-gray-700'>Email: info@drjanduffy.com</p>
               </div>

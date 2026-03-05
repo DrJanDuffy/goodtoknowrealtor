@@ -1,5 +1,3 @@
-'use client';
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { MarketInsightsGrid } from '@/components/MarketInsights/MarketInsightsGrid';
@@ -9,9 +7,9 @@ import { PageHero } from '@/components/ui/PageHero';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Las Vegas Real Estate Market Insights | Dr. Janet Duffy',
-  description: 'Stay informed with the latest Las Vegas real estate market trends, data, and insights from Dr. Janet Duffy, Premier Good To Know REALTOR®.',
-  keywords: ['Las Vegas real estate market', 'Las Vegas market trends', 'real estate insights', 'market data', 'Dr. Janet Duffy'],
+  title: 'Las Vegas Real Estate Market Insights | Dr. Jan Duffy',
+  description: 'Stay informed with the latest Las Vegas real estate market trends, data, and insights from Dr. Jan Duffy, Premier Good To Know REALTOR®.',
+  keywords: ['Las Vegas real estate market', 'Las Vegas market trends', 'real estate insights', 'market data', 'Dr. Jan Duffy'],
   url: '/market-insights',
   image: '/images/las-vegas-market-insights-og.jpg',
 });
@@ -41,7 +39,7 @@ export default async function MarketInsightsPage() {
         {/* Hero Section */}
         <PageHero
           title={'Las Vegas Real Estate\nGood To Know Market Insights'}
-          subtitle={'Stay ahead with data-driven insights, trends, and analysis from Dr. Janet Duffy, your Premier Good To Know REALTOR®'}
+          subtitle={'Stay ahead with data-driven insights, trends, and analysis from Dr. Jan Duffy, your Premier Good To Know REALTOR®'}
         >
           <Link
             href='tel:702-222-1964'
@@ -121,10 +119,10 @@ export default async function MarketInsightsPage() {
         <div className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16'>
           <div className='container text-center'>
             <h2 className='text-3xl lg:text-4xl font-bold mb-6'>
-              Ready to Navigate the Las Vegas Market with Dr. Janet Duffy?
+              Ready to Navigate the Las Vegas Market with Dr. Jan Duffy?
             </h2>
             <p className='text-xl text-blue-100 mb-8 max-w-3xl mx-auto'>
-              Dr. Janet Duffy combines market insights with local expertise to help you 
+              Dr. Jan Duffy combines market insights with local expertise to help you 
               make confident real estate decisions. Get personalized market analysis for your specific needs.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>

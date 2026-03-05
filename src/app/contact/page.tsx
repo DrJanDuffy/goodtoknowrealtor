@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,7 +17,7 @@ export const metadata: Metadata = generatePageMetadata({
 export default function ContactPage() {
   const breadcrumbs = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
-    { name: 'Contact Dr. Janet Duffy', url: '/contact' },
+    { name: 'Contact Dr. Jan Duffy', url: '/contact' },
   ]);
 
   return (
@@ -35,7 +32,7 @@ export default function ContactPage() {
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
       <PageHero
-        title='Contact Dr. Janet Duffy'
+        title='Contact Dr. Jan Duffy'
         subtitle={"Ready to start your Las Vegas real estate journey? I'm here to help you achieve your property goals with personalized service and expert guidance."}
       />
 
@@ -57,7 +54,7 @@ export default function ContactPage() {
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=48&h=48&q=80'
-                  alt='Phone icon for direct contact with Dr. Janet Duffy'
+                  alt='Phone icon for direct contact with Dr. Jan Duffy'
                   width={48}
                   height={48}
                   className='w-12 h-12'
@@ -317,7 +314,7 @@ export default function ContactPage() {
                     <IconSymbol symbol='📍' className='text-amber-600 mr-4 mt-1 h-5 w-5' ariaLabel='Location icon' />
                     <div>
                       <p className='font-semibold text-gray-900'>
-                        Dr. Janet Duffy Real Estate
+                        Dr. Jan Duffy Real Estate
                       </p>
                       <p className='text-gray-600'>Las Vegas, Nevada</p>
                       <p className='text-gray-600'>
@@ -388,7 +385,7 @@ export default function ContactPage() {
               <div className='relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl'>
                 <Image
                   src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80'
-                  alt='Modern Las Vegas office building where Dr. Janet Duffy provides real estate services'
+                  alt='Modern Las Vegas office building where Dr. Jan Duffy provides real estate services'
                   fill
                   style={{ objectFit: 'cover' }}
                 />

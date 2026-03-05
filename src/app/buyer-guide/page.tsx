@@ -3,12 +3,12 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = {
-  title: 'First-Time Home Buyer Guide | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-  description: 'Complete guide for first-time home buyers in Las Vegas. Premier Good To Know REALTOR® Dr. Janet Duffy provides expert tips, financing options, and step-by-step guidance.',
-  keywords: 'first-time home buyer guide, Las Vegas home buying, home buyer tips, Dr. Janet Duffy',
+  title: 'First-Time Home Buyer Guide | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+  description: 'Complete guide for first-time home buyers in Las Vegas. Premier Good To Know REALTOR® Dr. Jan Duffy provides expert tips, financing options, and step-by-step guidance.',
+  keywords: 'first-time home buyer guide, Las Vegas home buying, home buyer tips, Dr. Jan Duffy',
   openGraph: {
-    title: 'First-Time Home Buyer Guide | Dr. Janet Duffy',
-    description: 'Complete guide for first-time home buyers in Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy.',
+    title: 'First-Time Home Buyer Guide | Dr. Jan Duffy',
+    description: 'Complete guide for first-time home buyers in Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/buyer-guide-og.jpg'],
   },
 };
@@ -154,7 +154,7 @@ export default function BuyerGuidePage() {
             Ready to Start Your Home Buying Journey?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, guide you through 
+            Let Dr. Jan Duffy, the Premier Good To Know REALTOR®, guide you through 
             your first home purchase. With 15+ years of experience helping first-time 
             buyers, I&apos;ll make the process smooth and stress-free.
           </p>

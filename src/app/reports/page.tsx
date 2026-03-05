@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Market Reports | Dr. Janet Duffy',
-  description: 'Latest Las Vegas real estate market reports and trends from Dr. Janet Duffy.',
+  title: 'Market Reports | Dr. Jan Duffy',
+  description: 'Latest Las Vegas real estate market reports and trends from Dr. Jan Duffy.',
 };
 
 export default function ReportsPage() {

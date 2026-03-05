@@ -27,8 +27,8 @@ export const blogCategories: BlogCategory[] = [
     assessmentType: 'buyer-readiness',
     featured: true,
     seo: {
-      title: 'Las Vegas Home Buyer Advice | Dr. Janet Duffy',
-      description: 'Expert home buying advice for Las Vegas. First-time buyer guides, financing tips, and neighborhood insights from Premier Good To Know REALTOR® Dr. Janet Duffy.',
+      title: 'Las Vegas Home Buyer Advice | Dr. Jan Duffy',
+      description: 'Expert home buying advice for Las Vegas. First-time buyer guides, financing tips, and neighborhood insights from Premier Good To Know REALTOR® Dr. Jan Duffy.',
       keywords: ['Las Vegas home buyer advice', 'first time home buyer Las Vegas', 'Vegas home buying tips', 'Las Vegas real estate buying guide']
     }
   },
@@ -42,7 +42,7 @@ export const blogCategories: BlogCategory[] = [
     assessmentType: 'seller-readiness',
     featured: true,
     seo: {
-      title: 'Las Vegas Home Seller Advice | Dr. Janet Duffy',
+      title: 'Las Vegas Home Seller Advice | Dr. Jan Duffy',
       description: 'Expert home selling advice for Las Vegas. Pricing strategies, staging tips, and market insights to maximize your home\'s value.',
       keywords: ['Las Vegas home seller advice', 'sell home Las Vegas', 'Vegas home selling tips', 'Las Vegas real estate selling']
     }
@@ -56,7 +56,7 @@ export const blogCategories: BlogCategory[] = [
     color: 'orange',
     featured: true,
     seo: {
-      title: 'Las Vegas Home Improvement Guide | Dr. Janet Duffy',
+      title: 'Las Vegas Home Improvement Guide | Dr. Jan Duffy',
       description: 'Home improvement tips for Las Vegas properties. Desert landscaping, pool maintenance, and ROI-focused renovations.',
       keywords: ['Las Vegas home improvement', 'desert landscaping', 'Vegas pool homes', 'home renovation Las Vegas']
     }
@@ -71,7 +71,7 @@ export const blogCategories: BlogCategory[] = [
     assessmentType: 'investment-roi',
     featured: true,
     seo: {
-      title: 'Las Vegas Real Estate Finance | Dr. Janet Duffy',
+      title: 'Las Vegas Real Estate Finance | Dr. Jan Duffy',
       description: 'Real estate financing in Las Vegas. Nevada tax advantages, gaming industry mortgages, and investment strategies.',
       keywords: ['Las Vegas real estate finance', 'Nevada no income tax', 'gaming industry mortgage', 'Vegas investment property']
     }
@@ -86,7 +86,7 @@ export const blogCategories: BlogCategory[] = [
     assessmentType: 'neighborhood-match',
     featured: true,
     seo: {
-      title: 'Las Vegas Lifestyle Guide | Dr. Janet Duffy',
+      title: 'Las Vegas Lifestyle Guide | Dr. Jan Duffy',
       description: 'Discover Las Vegas lifestyle beyond The Strip. Neighborhood guides, school districts, and local amenities.',
       keywords: ['Las Vegas lifestyle', 'Vegas neighborhoods', 'Las Vegas schools', 'Summerlin Henderson']
     }
@@ -100,7 +100,7 @@ export const blogCategories: BlogCategory[] = [
     color: 'indigo',
     featured: true,
     seo: {
-      title: 'Las Vegas Real Estate Market Updates | Dr. Janet Duffy',
+      title: 'Las Vegas Real Estate Market Updates | Dr. Jan Duffy',
       description: 'Latest Las Vegas real estate market updates. Sales data, trends, and neighborhood analysis.',
       keywords: ['Las Vegas real estate market', 'Vegas home prices', 'Las Vegas market trends', 'real estate Las Vegas']
     }

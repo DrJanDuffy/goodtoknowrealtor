@@ -330,7 +330,7 @@ export function getResultsData(score: number, answers: Record<string, string>) {
       message: 'You\'ve done your homework and are well-prepared to start your home search. Let\'s find your perfect Vegas home!',
       icon: '🎉',
       nextStepTitle: 'Your Next Step',
-      nextStepDescription: 'Schedule a one-on-one property tour with Dr. Janet Duffy. We\'ll show you homes that match your criteria.',
+      nextStepDescription: 'Schedule a one-on-one property tour with Dr. Jan Duffy. We\'ll show you homes that match your criteria.',
       ctaText: 'Schedule Property Tour',
       ctaLink: '/contact',
       ctaPhone: true,

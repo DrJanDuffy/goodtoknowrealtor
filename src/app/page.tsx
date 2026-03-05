@@ -327,7 +327,9 @@ export default function HomePage() {
           
           <div className='text-white/95 space-y-2 font-medium'>
             <div className='flex items-center justify-center'>
-              Call (702) 222-1964
+              <Link href='tel:702-222-1964' className='underline hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amber-600 rounded'>
+                Call (702) 222-1964
+              </Link>
             </div>
             <div className='flex items-center justify-center'>
               Concierge Service Available 7 Days

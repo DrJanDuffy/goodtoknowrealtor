@@ -4,12 +4,12 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
-  title: 'Las Vegas First-Time Buyer Challenges & Solutions | Dr. Janet Duffy',
-  description: 'Navigate Las Vegas housing affordability crisis with expert guidance. Dr. Janet Duffy helps first-time buyers overcome down payment, income gaps, and market challenges.',
-  keywords: 'Las Vegas first-time buyer challenges, housing affordability crisis, down payment assistance Nevada, Home Is Possible program, Dr. Janet Duffy',
+  title: 'Las Vegas First-Time Buyer Challenges & Solutions | Dr. Jan Duffy',
+  description: 'Navigate Las Vegas housing affordability crisis with expert guidance. Dr. Jan Duffy helps first-time buyers overcome down payment, income gaps, and market challenges.',
+  keywords: 'Las Vegas first-time buyer challenges, housing affordability crisis, down payment assistance Nevada, Home Is Possible program, Dr. Jan Duffy',
   openGraph: {
-    title: 'Las Vegas First-Time Buyer Challenges & Solutions | Dr. Janet Duffy',
-    description: 'Navigate Las Vegas housing affordability crisis with expert guidance. Dr. Janet Duffy helps first-time buyers overcome down payment, income gaps, and market challenges.',
+    title: 'Las Vegas First-Time Buyer Challenges & Solutions | Dr. Jan Duffy',
+    description: 'Navigate Las Vegas housing affordability crisis with expert guidance. Dr. Jan Duffy helps first-time buyers overcome down payment, income gaps, and market challenges.',
     images: ['/images/first-time-buyer-challenges-og.jpg'],
   },
 };

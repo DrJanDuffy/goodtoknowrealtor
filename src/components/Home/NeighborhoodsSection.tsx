@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+/** Full expert neighborhoods list: src/data/neighborhoods.ts (EXPERT_NEIGHBORHOODS). This section shows primary areas; /communities lists all. */
+
 interface Neighborhood {
   id: string;
   name: string;
@@ -20,7 +22,7 @@ export function NeighborhoodsSection() {
       name: 'Las Vegas',
       href: '/areas/las-vegas',
       image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      description: 'The heart of the Las Vegas Valley',
+      description: 'Homes for sale in Las Vegas',
       avgPrice: '$450,000',
       propertiesCount: 1250
     },
@@ -29,7 +31,7 @@ export function NeighborhoodsSection() {
       name: 'Summerlin',
       href: '/areas/summerlin',
       image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      description: 'Premier master-planned community',
+      description: 'Luxury homes in Summerlin',
       avgPrice: '$750,000',
       propertiesCount: 890
     },
@@ -38,7 +40,7 @@ export function NeighborhoodsSection() {
       name: 'Henderson',
       href: '/areas/henderson',
       image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      description: 'Family-friendly with great schools',
+      description: 'Homes for sale in Henderson',
       avgPrice: '$525,000',
       propertiesCount: 1100
     },
@@ -47,7 +49,7 @@ export function NeighborhoodsSection() {
       name: 'North Las Vegas',
       href: '/areas/north-las-vegas',
       image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      description: 'Growing community with new developments',
+      description: 'Homes for sale in North Las Vegas',
       avgPrice: '$350,000',
       propertiesCount: 750
     },
@@ -56,7 +58,7 @@ export function NeighborhoodsSection() {
       name: 'Downtown Las Vegas',
       href: '/areas/downtown',
       image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      description: 'Urban living in the city center',
+      description: 'Homes for sale in Downtown Las Vegas',
       avgPrice: '$400,000',
       propertiesCount: 450
     },
@@ -65,7 +67,7 @@ export function NeighborhoodsSection() {
       name: 'Green Valley',
       href: '/areas/green-valley',
       image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      description: 'Established neighborhood in Henderson',
+      description: 'Homes for sale in Green Valley',
       avgPrice: '$600,000',
       propertiesCount: 680
     }
@@ -122,8 +124,9 @@ export function NeighborhoodsSection() {
           <Link
             href='/communities'
             className='inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
+            aria-label='Explore all Las Vegas and Henderson communities'
           >
-            View All Communities →
+            Explore All Las Vegas Communities →
           </Link>
         </div>
       </div>

@@ -30,7 +30,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
             No Posts Found
           </h2>
           <p className='text-gray-600 text-lg'>
-            Check back soon for the latest real estate insights from Dr. Janet
+            Check back soon for the latest real estate insights from Dr. Jan
             Duffy.
           </p>
         </div>
@@ -127,7 +127,7 @@ export function BlogGrid({ posts }: BlogGridProps) {
           >
             Berkshire Hathaway HomeServices California Properties
           </a>{' '}
-          and curated by Dr. Janet Duffy for Las Vegas real estate insights.
+          and curated by Dr. Jan Duffy for Las Vegas real estate insights.
         </p>
       </div>
     </div>

@@ -5,9 +5,9 @@ import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Client Testimonials | Dr. Janet Duffy Group',
-  description: 'Read real testimonials from satisfied clients of Dr. Janet Duffy Group. See why we are the top choice for Las Vegas real estate.',
-  keywords: ['testimonials', 'client reviews', 'Las Vegas real estate', 'Dr. Janet Duffy'],
+  title: 'Client Testimonials | Dr. Jan Duffy Group',
+  description: 'Read real testimonials from satisfied clients of Dr. Jan Duffy Group. See why we are the top choice for Las Vegas real estate.',
+  keywords: ['testimonials', 'client reviews', 'Las Vegas real estate', 'Dr. Jan Duffy'],
   url: '/testimonials',
   image: '/images/testimonials-og.jpg',
 });
@@ -101,7 +101,7 @@ export default function TestimonialsPage() {
         {/* Hero Section */}
         <PageHero
           title='What Our Clients Say'
-          subtitle='Real testimonials from satisfied clients who chose Dr. Janet Duffy Group for their Las Vegas real estate needs.'
+          subtitle='Real testimonials from satisfied clients who chose Dr. Jan Duffy Group for their Las Vegas real estate needs.'
         />
 
         {/* Stats Section */}
@@ -224,7 +224,7 @@ export default function TestimonialsPage() {
               Ready to Become Our Next Success Story?
             </h2>
             <p className='text-xl text-blue-100 mb-8 max-w-2xl mx-auto'>
-              Join hundreds of satisfied clients who chose Dr. Janet Duffy Group for their Las Vegas real estate needs.
+              Join hundreds of satisfied clients who chose Dr. Jan Duffy Group for their Las Vegas real estate needs.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link

@@ -40,7 +40,7 @@ export function ReportsSection() {
             Las Vegas Market Intelligence
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Stay informed about the Las Vegas real estate market with Dr. Janet
+            Stay informed about the Las Vegas real estate market with Dr. Jan
             Duffy&apos;s expert analysis and insights
           </p>
         </div>

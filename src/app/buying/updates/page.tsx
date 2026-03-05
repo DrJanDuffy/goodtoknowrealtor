@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
 import { generateBreadcrumbSchema } from '@/lib/seo';
@@ -11,8 +8,8 @@ import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Las Vegas Real Estate Market Updates | Dr. Janet Duffy',
-  description: 'Stay informed with the latest Las Vegas real estate market trends, statistics, and opportunities. Expert insights from Dr. Janet Duffy.',
+  title: 'Las Vegas Real Estate Market Updates | Dr. Jan Duffy',
+  description: 'Stay informed with the latest Las Vegas real estate market trends, statistics, and opportunities. Expert insights from Dr. Jan Duffy.',
   keywords: ['Las Vegas real estate market', 'Vegas home prices', 'Las Vegas market trends', 'real estate Las Vegas updates'],
 };
 
@@ -141,7 +138,7 @@ export default function BuyingUpdatesPage() {
             </h1>
             <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
               Stay informed with the latest market trends, statistics, and opportunities 
-              from Dr. Janet Duffy, your Premier Good To Know REALTOR®
+              from Dr. Jan Duffy, your Premier Good To Know REALTOR®
             </p>
           </div>
         </div>
@@ -414,7 +411,7 @@ export default function BuyingUpdatesPage() {
           </h2>
           <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
             Stay ahead of the market with personalized updates and expert guidance 
-            from Dr. Janet Duffy, your Premier Good To Know REALTOR®
+            from Dr. Jan Duffy, your Premier Good To Know REALTOR®
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <Link

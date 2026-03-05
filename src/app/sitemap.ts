@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getPostsWithCache } from '@/lib/blog/cache';
 import { blogCategories } from '@/lib/blog-categories';
+import { NEIGHBORHOOD_SLUGS } from '@/data/neighborhoods';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.goodtoknowrealtor.com';
@@ -20,6 +21,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Generate blog category URLs
   const blogCategoryUrls = blogCategories.map(category => ({
     url: `${baseUrl}/blog/category/${category.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  // Neighborhood pages (expert areas from src/data/neighborhoods.ts)
+  const neighborhoodUrls = NEIGHBORHOOD_SLUGS.map(slug => ({
+    url: `${baseUrl}/areas/${slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
@@ -149,6 +158,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    ...neighborhoodUrls,
     {
       url: `${baseUrl}/communities`,
       lastModified: currentDate,

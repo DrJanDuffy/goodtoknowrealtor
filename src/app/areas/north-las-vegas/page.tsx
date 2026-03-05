@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
-  title: 'North Las Vegas Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-  description: 'Find your dream home in North Las Vegas, Nevada. Premier Good To Know REALTOR® Dr. Janet Duffy specializes in North Las Vegas homes, new construction, and investment properties.',
-  keywords: 'North Las Vegas real estate, North Las Vegas homes for sale, Nevada real estate, Dr. Janet Duffy',
+  title: 'North Las Vegas Real Estate | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+  description: 'Find your dream home in North Las Vegas, Nevada. Premier Good To Know REALTOR® Dr. Jan Duffy specializes in North Las Vegas homes, new construction, and investment properties.',
+  keywords: 'North Las Vegas real estate, North Las Vegas homes for sale, Nevada real estate, Dr. Jan Duffy',
   openGraph: {
-    title: 'North Las Vegas Real Estate | Dr. Janet Duffy',
-    description: 'Find your dream home in North Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy.',
+    title: 'North Las Vegas Real Estate | Dr. Jan Duffy',
+    description: 'Find your dream home in North Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/north-las-vegas-real-estate-og.jpg'],
   },
   alternates: {
@@ -128,7 +128,7 @@ export default function NorthLasVegasPage() {
             Ready to Find Your North Las Vegas Home?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
+            Let Dr. Jan Duffy, the Premier Good To Know REALTOR®, help you find 
             your perfect home in North Las Vegas. With expertise in new construction 
             and investment properties, I&apos;ll help you make the right choice.
           </p>

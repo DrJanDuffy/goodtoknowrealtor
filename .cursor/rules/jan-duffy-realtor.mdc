@@ -1,0 +1,50 @@
+---
+description: Dr. Jan Duffy persona, expert Las Vegas/Henderson neighborhoods (src/data/neighborhoods.ts), NAP/CTA 702-222-1964, Next.js/Tailwind/Vercel and schema/IDX/RealScout rules. Auto-applies in this project.
+globs: 
+alwaysApply: true
+---
+
+# Dr. Jan Duffy — Good To Know REALTOR®
+
+Apply in every Cursor chat/edit in this project. Covers persona, hyperlocal communities, code standards, and SEO/GBP.
+
+## Agent & branding
+
+- **Name:** Dr. Jan Duffy (NEVER "Janet")
+- **License:** S.0197614.LLC
+- **Brokerage:** Berkshire Hathaway HomeServices Nevada Properties
+- **Market:** Las Vegas / Henderson, NV
+- **Primary CTA:** Call/Text **702-222-1964** — use `tel:702-222-1964` and `sms:702-222-1964` in links. Verify number for this site only.
+- **NAP:** Must exactly match Google Business Profile on every page (visible text + JSON-LD). Audit monthly.
+
+## Tech stack (this project)
+
+- Next.js 15 App Router, TypeScript, Tailwind CSS, Vercel
+- RealScout (MLS/widgets), schema markup (RealEstateAgent, FAQPage, RealEstateListing where applicable)
+- Build: prefer `vercel build` over local npm build
+
+## Hyperlocal: expert neighborhoods
+
+Dr. Jan Duffy is an expert in these Las Vegas/Henderson neighborhoods. Use these exact names in copy, meta, and internal links. Canonical list: src/data/neighborhoods.ts.
+
+**Expert neighborhoods:** Aliante, Alta Mira, Anthem, Anthem Country Club, Anthem Highlands, Ardiente, Arlington Ranch, Artesia, Ascaya, Black Mountain Vistas, Burson Ranch, Cadence, Calico Ridge, Canyon Estates, Canyon Gate, Centennial Hills, Champion Village, Comstock Park, Coronado Ranch, Cottonwoods, Desert Greens, Desert Inn Country Club, Desert Shores, Desert Trails, Eldorado, Elkhorn Ranch, Elkhorn Springs, Foothills at Mac Donald Ranch, Green Valley, Green Valley Ranch, Green Valley South, Highlands Ranch, Hillsboro, Inspirada, Iron Mountain Ranch, Lake Las Vegas, Las Casitas, Las Vegas Country Club, Legacy, Lone Mountain, Lone Mountain West, Los Prados, Lynbrook, MacDonald Highlands, MacDonald Ranch, Madeira Canyon, McNeill, Mesa Verde, Mira Villa, Mission Hills, Monaco, Montecito, Mountain Falls, Mountains Edge, Mt. Charleston Golf Estates, Nevada Trails, North Shores, Painted Desert, Paradise Hills, Park Highlands, Peccole Ranch, Pleasant Valley, Providence, Queensridge, Rancho Circle, Rancho Las Palmas, Red Rock Country Club, Rhodes Ranch, Riverstone, Roma Hills, Scotch 80s, Seven Hills, Shadow Hills, Siena, Silver Springs, Silverado Ranch, Silverstone Ranch, Skye Canyon, Solera, South Shore, South Valley Ranch, Southern Highlands, Southern Terrace, Southfork, Southwest Ranch, Spanish Hill, Spanish Oaks, Spanish Trail, Spring Mountain Ranch, Spring Valley, Stallion Mountain, Summerlin, Summerlin Hills, Summerlin North, Summerlin South, Summerlin West, Sun City Aliante, Sun City Anthem, Sun City MacDonald Ranch, Sun City Summerlin, Sunridge at Mac Donald Ranch, The Bluffs, The Cliffs, The Lakes, The Mesa, The Pueblo, The Ridges, The Vineyards, The Vistas, The Willows, Tierra De Las Palmas, Town Center, Tuscany, Valley Vista, Whitney Ranch, Winery, Woodcrest.
+
+**Primary areas (have /areas/* pages):** Las Vegas, Summerlin, Henderson, North Las Vegas, Downtown Las Vegas, Green Valley.
+
+**Internal links:** Use localized anchor text (e.g. "Luxury homes in Summerlin", "Homes for sale in Green Valley"). Link to /areas/[slug], /communities, /listings, /listings/communities as appropriate.
+
+## Code & content standards
+
+- **Schema:** LocalBusiness/RealEstateAgent on all pages; openingHours, telephone, address, geo; FAQPage on FAQ sections; RealEstateListing on listing pages.
+- **SEO:** Localized title tags, meta descriptions, H1s; business type, services, primary service area; image alt text with location/service.
+- **GBP:** Business hours, map embed, "Call", "Directions", "View Google Reviews" where relevant; review schema for star ratings; FAQ from typical GBP questions.
+- **IDX/MLS:** Always display MLS disclaimer and listing attribution. Do not modify /components/idx/* without explicit approval.
+- **RealScout:** Load script once in root layout; use dangerouslySetInnerHTML for widgets. CSP: both em.realscout.com and www.realscout.com in script-src and connect-src.
+- **Before code changes:** Summarize task, assumptions, plan; wait for confirmation. Never delete files or refactor without explicit approval.
+
+## Never
+
+- Use "Janet" for Dr. Jan Duffy
+- Mismatch NAP or CTA phone with GBP
+- Omit MLS disclaimer or attribution on IDX
+- Proxy through Cloudflare (orange cloud) when using Vercel — use DNS only (gray cloud)

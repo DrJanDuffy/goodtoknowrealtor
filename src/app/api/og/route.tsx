@@ -21,7 +21,7 @@ export async function GET(request: Request) {
   );
 
   const subtitle = clampText(
-    searchParams.get('subtitle')?.trim() || 'Guiding buyers, sellers, and investors with data-backed strategy from Dr. Janet Duffy.',
+    searchParams.get('subtitle')?.trim() || 'Guiding buyers, sellers, and investors with data-backed strategy from Dr. Jan Duffy.',
     160,
   );
 
@@ -57,7 +57,7 @@ export async function GET(request: Request) {
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: 1 }}>Dr. Janet Duffy</div>
+          <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: 1 }}>Dr. Jan Duffy</div>
           <div
             style={{
               fontSize: 18,

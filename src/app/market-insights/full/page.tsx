@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
 import { MarketInsightsSection } from '@/components/MarketInsights/MarketInsightsSection';

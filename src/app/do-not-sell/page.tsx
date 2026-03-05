@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Do Not Sell My Personal Information | Dr. Janet Duffy',
+  title: 'Do Not Sell My Personal Information | Dr. Jan Duffy',
   description: 'Opt-out of the sale of personal information.',
 };
 
@@ -18,7 +18,7 @@ export default function DoNotSellPage() {
             <div className='prose prose-lg max-w-none'>
               <h2 className='text-2xl font-semibold text-gray-900 mb-4'>Your Privacy Rights</h2>
               <p className='text-gray-600 mb-6'>
-                Dr. Janet Duffy respects your privacy and does not sell personal information to third parties. 
+                Dr. Jan Duffy respects your privacy and does not sell personal information to third parties. 
                 We are committed to protecting your personal information and using it only for legitimate business purposes.
               </p>
 
@@ -53,7 +53,7 @@ export default function DoNotSellPage() {
                 please contact us:
               </p>
               <div className='bg-gray-50 p-4 rounded-lg'>
-                <p className='text-gray-700'>Dr. Janet Duffy</p>
+                <p className='text-gray-700'>Dr. Jan Duffy</p>
                 <p className='text-gray-700'>Phone: (702) 222-1964</p>
                 <p className='text-gray-700'>Email: info@drjanduffy.com</p>
               </div>

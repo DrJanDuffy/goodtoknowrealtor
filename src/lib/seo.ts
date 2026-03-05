@@ -47,7 +47,7 @@ export const SEO_CONFIG = {
   },
   images: {
     default:
-      '/api/og?title=Las%20Vegas%20Luxury%20Real%20Estate&subtitle=Data-backed%20strategy%20from%20Dr.%20Janet%20Duffy&badge=Summerlin%20%E2%80%A2%20Henderson%20%E2%80%A2%20Strip%20Corridor&highlight=Top%201%25%20Las%20Vegas%20REALTOR%C2%AE&highlight=%24127M%2B%20Sales%20Volume',
+      '/api/og?title=Las%20Vegas%20Luxury%20Real%20Estate&subtitle=Data-backed%20strategy%20from%20Dr.%20Jan%20Duffy&badge=Summerlin%20%E2%80%A2%20Henderson%20%E2%80%A2%20Strip%20Corridor&highlight=Top%201%25%20Las%20Vegas%20REALTOR%C2%AE&highlight=%24127M%2B%20Sales%20Volume',
     logo: '/images/bhhs/logo.svg',
     agent: '/images/dr-janet-duffy-profile.jpg'
   }
@@ -321,7 +321,7 @@ export function generateLocalBusinessSchema() {
     logo: `${SEO_CONFIG.siteUrl}${SEO_CONFIG.images.logo}`,
     employee: {
       '@type': 'RealEstateAgent',
-      name: 'Dr. Janet Duffy',
+      name: 'Dr. Jan Duffy',
       jobTitle: 'Top 1% Las Vegas Real Estate Agent',
       telephone: SEO_CONFIG.phone,
       email: SEO_CONFIG.email,
@@ -411,7 +411,7 @@ export function generateReviewSchema(reviews: Array<{
     '@type': 'Review',
     itemReviewed: {
       '@type': 'RealEstateAgent',
-      name: 'Dr. Janet Duffy',
+      name: 'Dr. Jan Duffy',
       description: 'Las Vegas Real Estate Agent',
     },
     author: {
@@ -428,7 +428,7 @@ export function generateReviewSchema(reviews: Array<{
     datePublished: review.datePublished,
     publisher: {
       '@type': 'Organization',
-      name: 'Dr. Janet Duffy Real Estate',
+      name: 'Dr. Jan Duffy Real Estate',
     },
     ...(review.location && { location: review.location }),
     ...(review.community && { community: review.community }),
@@ -469,7 +469,7 @@ export function generatePropertySchema(properties: Array<{
       availability: property.listingStatus === 'For Sale' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       seller: {
         '@type': 'RealEstateAgent',
-        name: 'Dr. Janet Duffy',
+        name: 'Dr. Jan Duffy',
         telephone: SEO_CONFIG.phone,
         email: SEO_CONFIG.email,
       },
@@ -543,7 +543,7 @@ export function generateVideoSchema(videos: Array<{
     embedUrl: video.embedUrl,
     publisher: {
       '@type': 'Organization',
-      name: 'Dr. Janet Duffy Real Estate',
+      name: 'Dr. Jan Duffy Real Estate',
       logo: {
         '@type': 'ImageObject',
         url: `${SEO_CONFIG.siteUrl}${SEO_CONFIG.images.logo}`,
@@ -551,7 +551,7 @@ export function generateVideoSchema(videos: Array<{
     },
     creator: {
       '@type': 'Person',
-      name: 'Dr. Janet Duffy',
+      name: 'Dr. Jan Duffy',
     },
   }));
 }
@@ -565,7 +565,7 @@ export function generateServiceSchema() {
     description: 'Comprehensive real estate services including buying, selling, luxury properties, and investment properties in Las Vegas.',
     provider: {
       '@type': 'RealEstateAgent',
-      name: 'Dr. Janet Duffy',
+      name: 'Dr. Jan Duffy',
       telephone: SEO_CONFIG.phone,
       email: SEO_CONFIG.email,
     },
@@ -643,48 +643,48 @@ export function generateServiceSchema() {
 // Page-specific SEO configurations
 export const PAGE_SEO = {
   home: {
-    title: 'Dr. Janet Duffy - Premier Good To Know REALTOR® | Las Vegas Real Estate Expert',
-    description: 'Premier Good To Know REALTOR® Dr. Janet Duffy provides expert Las Vegas real estate services. Buy, sell, or invest in Las Vegas properties with personalized guidance and local market expertise.',
-    keywords: ['Las Vegas real estate', 'Dr. Janet Duffy', 'Premier Good To Know REALTOR', 'Las Vegas realtor', 'Las Vegas homes for sale'],
+    title: 'Dr. Jan Duffy - Premier Good To Know REALTOR® | Las Vegas Real Estate Expert',
+    description: 'Premier Good To Know REALTOR® Dr. Jan Duffy provides expert Las Vegas real estate services. Buy, sell, or invest in Las Vegas properties with personalized guidance and local market expertise.',
+    keywords: ['Las Vegas real estate', 'Dr. Jan Duffy', 'Premier Good To Know REALTOR', 'Las Vegas realtor', 'Las Vegas homes for sale'],
   },
   about: {
-    title: 'About Dr. Janet Duffy - Premier Good To Know REALTOR® | Las Vegas Real Estate Expert',
-    description: 'Learn about Dr. Janet Duffy, Premier Good To Know REALTOR® with over 15 years of Las Vegas real estate experience. Expert guidance for buying and selling properties.',
-    keywords: ['Dr. Janet Duffy biography', 'Las Vegas real estate agent', 'Premier Good To Know REALTOR', 'Las Vegas realtor experience'],
+    title: 'About Dr. Jan Duffy - Premier Good To Know REALTOR® | Las Vegas Real Estate Expert',
+    description: 'Learn about Dr. Jan Duffy, Premier Good To Know REALTOR® with over 15 years of Las Vegas real estate experience. Expert guidance for buying and selling properties.',
+    keywords: ['Dr. Jan Duffy biography', 'Las Vegas real estate agent', 'Premier Good To Know REALTOR', 'Las Vegas realtor experience'],
   },
   contact: {
-    title: 'Contact Dr. Janet Duffy - Premier Good To Know REALTOR® | Las Vegas Real Estate',
-    description: 'Contact Premier Good To Know REALTOR® Dr. Janet Duffy for expert Las Vegas real estate services. Call (702) 222-1964 for personalized assistance.',
-    keywords: ['contact Dr. Janet Duffy', 'Las Vegas real estate contact', 'Premier Good To Know REALTOR contact', 'Las Vegas realtor phone'],
+    title: 'Contact Dr. Jan Duffy - Premier Good To Know REALTOR® | Las Vegas Real Estate',
+    description: 'Contact Premier Good To Know REALTOR® Dr. Jan Duffy for expert Las Vegas real estate services. Call (702) 222-1964 for personalized assistance.',
+    keywords: ['contact Dr. Jan Duffy', 'Las Vegas real estate contact', 'Premier Good To Know REALTOR contact', 'Las Vegas realtor phone'],
   },
   services: {
-    title: 'Real Estate Services | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-    description: 'Comprehensive Las Vegas real estate services by Premier Good To Know REALTOR® Dr. Janet Duffy. Buying, selling, luxury properties, and investment services.',
+    title: 'Real Estate Services | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+    description: 'Comprehensive Las Vegas real estate services by Premier Good To Know REALTOR® Dr. Jan Duffy. Buying, selling, luxury properties, and investment services.',
     keywords: ['Las Vegas real estate services', 'home buying Las Vegas', 'home selling Las Vegas', 'luxury real estate Las Vegas'],
   },
   buying: {
-    title: 'Buying a Home in Las Vegas | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-    description: 'Expert guidance for buying a home in Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy. First-time buyer assistance and market insights.',
+    title: 'Buying a Home in Las Vegas | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+    description: 'Expert guidance for buying a home in Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy. First-time buyer assistance and market insights.',
     keywords: ['buying home Las Vegas', 'first time home buyer Las Vegas', 'Las Vegas homes for sale', 'Las Vegas real estate buying'],
   },
   selling: {
-    title: 'Selling Your Home in Las Vegas | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-    description: 'Maximize your home\'s value when selling in Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy. Expert pricing and marketing strategies.',
+    title: 'Selling Your Home in Las Vegas | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+    description: 'Maximize your home\'s value when selling in Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy. Expert pricing and marketing strategies.',
     keywords: ['selling home Las Vegas', 'home value Las Vegas', 'Las Vegas home selling tips', 'Las Vegas real estate selling'],
   },
   luxury: {
-    title: 'Luxury Real Estate in Las Vegas | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-    description: 'Premium luxury real estate services in Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy. Summerlin, Henderson, and exclusive neighborhoods.',
+    title: 'Luxury Real Estate in Las Vegas | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+    description: 'Premium luxury real estate services in Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy. Summerlin, Henderson, and exclusive neighborhoods.',
     keywords: ['luxury homes Las Vegas', 'Summerlin luxury homes', 'Henderson luxury homes', 'Las Vegas luxury real estate'],
   },
   investing: {
-    title: 'Real Estate Investment in Las Vegas | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-    description: 'Strategic real estate investment opportunities in Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy. Rental properties and investment guidance.',
+    title: 'Real Estate Investment in Las Vegas | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+    description: 'Strategic real estate investment opportunities in Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy. Rental properties and investment guidance.',
     keywords: ['Las Vegas real estate investment', 'rental properties Las Vegas', 'investment properties Las Vegas', 'Las Vegas real estate investing'],
   },
   blog: {
-    title: 'Las Vegas Real Estate Blog | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-    description: 'Latest Las Vegas real estate insights, market trends, and expert advice from Premier Good To Know REALTOR® Dr. Janet Duffy.',
+    title: 'Las Vegas Real Estate Blog | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+    description: 'Latest Las Vegas real estate insights, market trends, and expert advice from Premier Good To Know REALTOR® Dr. Jan Duffy.',
     keywords: ['Las Vegas real estate blog', 'Las Vegas market trends', 'real estate news Las Vegas', 'Las Vegas property insights'],
   },
 };

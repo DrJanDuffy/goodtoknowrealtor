@@ -19,8 +19,8 @@ declare global {
 }
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Las Vegas Property Listings | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-  description: 'Browse exclusive Las Vegas property listings from Premier Good To Know REALTOR® Dr. Janet Duffy. Luxury homes, investment properties, and first-time buyer homes in Summerlin, Henderson, and more.',
+  title: 'Las Vegas Property Listings | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+  description: 'Browse exclusive Las Vegas property listings from Premier Good To Know REALTOR® Dr. Jan Duffy. Luxury homes, investment properties, and first-time buyer homes in Summerlin, Henderson, and more.',
   keywords: ['Las Vegas property listings', 'Las Vegas homes for sale', 'Summerlin homes', 'Henderson homes', 'Las Vegas real estate listings'],
   url: '/listings',
   image: '/images/las-vegas-listings-og.jpg',
@@ -602,7 +602,7 @@ export default function ListingsPage() {
             Can&apos;t Find What You&apos;re Looking For?
           </h2>
           <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
-            Let Dr. Janet Duffy help you find the perfect property. I have
+            Let Dr. Jan Duffy help you find the perfect property. I have
             access to exclusive listings and off-market opportunities.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>

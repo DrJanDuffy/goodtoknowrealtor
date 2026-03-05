@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
-  title: 'Green Valley Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-  description: 'Find your dream home in Green Valley, Henderson. Premier Good To Know REALTOR® Dr. Janet Duffy specializes in Green Valley luxury homes, golf course properties, and family communities.',
-  keywords: 'Green Valley real estate, Green Valley homes for sale, Henderson real estate, golf course homes, Dr. Janet Duffy',
+  title: 'Green Valley Real Estate | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+  description: 'Find your dream home in Green Valley, Henderson. Premier Good To Know REALTOR® Dr. Jan Duffy specializes in Green Valley luxury homes, golf course properties, and family communities.',
+  keywords: 'Green Valley real estate, Green Valley homes for sale, Henderson real estate, golf course homes, Dr. Jan Duffy',
   openGraph: {
-    title: 'Green Valley Real Estate | Dr. Janet Duffy',
-    description: 'Find your dream home in Green Valley with Premier Good To Know REALTOR® Dr. Janet Duffy.',
+    title: 'Green Valley Real Estate | Dr. Jan Duffy',
+    description: 'Find your dream home in Green Valley with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/green-valley-real-estate-og.jpg'],
   },
   alternates: {
@@ -128,7 +128,7 @@ export default function GreenValleyPage() {
             Ready to Find Your Green Valley Home?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
+            Let Dr. Jan Duffy, the Premier Good To Know REALTOR®, help you find 
             your perfect home in Green Valley. With expertise in luxury properties 
             and golf course communities, I&apos;ll help you discover the best of Henderson living.
           </p>

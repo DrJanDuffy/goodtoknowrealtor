@@ -1,3 +1,9 @@
+---
+description: Image format optimization - SVG/WebP decision tree, sizing, fallbacks, performance. Apply when working with images.
+globs: "**/*.svg,**/*.webp,**/*.png,**/*.jpg,**/*.jpeg"
+alwaysApply: false
+---
+
 # Image Format Optimization Rules for Cursor AI
 
 ## Core Image Format Decision Logic

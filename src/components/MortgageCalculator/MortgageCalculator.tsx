@@ -334,7 +334,7 @@ export function MortgageCalculator({ initialPrice = 500000, className = '' }: Mo
             </button>
             <button
               className="w-full btn btn-secondary"
-              aria-label="Contact Dr. Janet Duffy about financing options"
+              aria-label="Contact Dr. Jan Duffy about financing options"
             >
               Contact Agent
             </button>

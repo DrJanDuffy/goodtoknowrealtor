@@ -19,18 +19,18 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: 'Post Not Found | Dr. Janet Duffy',
+      title: 'Post Not Found | Dr. Jan Duffy',
     };
   }
 
-  const title = `${post.title} | Dr. Janet Duffy Real Estate Blog`;
+  const title = `${post.title} | Dr. Jan Duffy Real Estate Blog`;
   const description =
     post.excerpt ||
-    `Read ${post.title} by Premier Good To Know REALTOR® Dr. Janet Duffy, your trusted Las Vegas real estate expert.`;
+    `Read ${post.title} by Premier Good To Know REALTOR® Dr. Jan Duffy, your trusted Las Vegas real estate expert.`;
 
   const keywords = [
     'Las Vegas real estate',
-    'Dr. Janet Duffy',
+    'Dr. Jan Duffy',
     'Premier Good To Know REALTOR',
     'Las Vegas real estate blog',
     ...(post.categories || []),
@@ -186,7 +186,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Ready to Explore Las Vegas Real Estate?
             </h2>
             <p className='text-xl text-amber-100 mb-6 max-w-2xl mx-auto'>
-              Dr. Janet Duffy is here to help you navigate the Las Vegas real
+              Dr. Jan Duffy is here to help you navigate the Las Vegas real
               estate market with confidence and expertise.
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
@@ -224,7 +224,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               >
                 Berkshire Hathaway HomeServices California Properties Blog
               </a>{' '}
-              and is curated by Dr. Janet Duffy for Las Vegas real estate
+              and is curated by Dr. Jan Duffy for Las Vegas real estate
               insights.
             </p>
           </div>

@@ -47,7 +47,7 @@ export default async function BlogPage() {
           <div className='text-center max-w-4xl mx-auto'>
             <div className='mb-4'>
               <span className='inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wide'>
-                Dr. Janet Duffy Real Estate
+                Dr. Jan Duffy Real Estate
               </span>
             </div>
             <h1 className='text-3xl lg:text-5xl font-bold mb-4 text-white drop-shadow-lg'>
@@ -128,7 +128,7 @@ export default async function BlogPage() {
           <div>
             <div className='text-center mb-12'>
               <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
-                Dr. Janet Duffy&apos;s Good To Know Real Estate Blog
+                Dr. Jan Duffy&apos;s Good To Know Real Estate Blog
               </h2>
               <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
                 Expert insights, neighborhood guides, and valuable tips for Las Vegas real estate from your Premier Good To Know REALTOR®
@@ -201,7 +201,7 @@ export default async function BlogPage() {
               Ready to Make Your Real Estate Move?
             </h2>
             <p className='text-lg text-blue-100 mb-6 max-w-2xl mx-auto'>
-              Dr. Janet Duffy has helped hundreds of families find their dream
+              Dr. Jan Duffy has helped hundreds of families find their dream
               homes in Las Vegas. Let her expertise guide your next real estate
               decision.
             </p>

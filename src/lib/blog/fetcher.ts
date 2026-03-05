@@ -322,7 +322,7 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt:
         'Las Vegas real estate market shows strong performance in January 2025 with balanced conditions favoring both buyers and sellers.',
       date: '2025-01-15T10:00:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/summer-2025-homebuyer-trends',
       imageAlt: 'Summer 2025 Homebuyer Trends',
@@ -358,7 +358,7 @@ function generateSampleBlogPosts(): BlogPost[] {
         </ul>
         
         <h3>Step 3: Find the Right Real Estate Agent</h3>
-        <p>Working with an experienced agent like Dr. Janet Duffy can make all the difference. I specialize in helping first-time buyers navigate the complex Las Vegas market with confidence.</p>
+        <p>Working with an experienced agent like Dr. Jan Duffy can make all the difference. I specialize in helping first-time buyers navigate the complex Las Vegas market with confidence.</p>
         
         <h3>Las Vegas First-Time Buyer Programs</h3>
         <p>Nevada offers several programs to help first-time buyers:</p>
@@ -374,7 +374,7 @@ function generateSampleBlogPosts(): BlogPost[] {
       excerpt:
         'Complete guide for first-time home buyers in Las Vegas, covering everything from financial preparation to available assistance programs.',
       date: '2025-01-12T14:30:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/Is-it-better-to-rent-or-buy-',
       imageAlt: 'Is it Better to Rent or Buy?',
@@ -424,12 +424,12 @@ function generateSampleBlogPosts(): BlogPost[] {
         <h3>5. Professional Photography and Marketing</h3>
         <p>High-quality photos and comprehensive marketing are essential in today's digital market. I ensure your home is presented professionally across all platforms to reach the maximum number of qualified buyers.</p>
         
-        <p>Ready to sell your Las Vegas home for maximum value? Contact Dr. Janet Duffy at (702) 222-1964 for a free home valuation and selling strategy consultation.</p>
+        <p>Ready to sell your Las Vegas home for maximum value? Contact Dr. Jan Duffy at (702) 222-1964 for a free home valuation and selling strategy consultation.</p>
       `,
       excerpt:
         "Five essential tips for selling your Las Vegas home to achieve maximum value and a quick sale in today's competitive market.",
       date: '2025-01-10T09:15:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
       imageAlt: 'Should You Buy a Home During Market Changes?',
@@ -485,12 +485,12 @@ function generateSampleBlogPosts(): BlogPost[] {
           <li>Active community associations and events</li>
         </ul>
         
-        <p>Interested in making Summerlin your home? Contact Dr. Janet Duffy at (702) 222-1964 to explore available properties and learn more about this exceptional community.</p>
+        <p>Interested in making Summerlin your home? Contact Dr. Jan Duffy at (702) 222-1964 to explore available properties and learn more about this exceptional community.</p>
       `,
       excerpt:
         "Explore Summerlin, Las Vegas's premier master-planned community, featuring top-rated amenities, excellent schools, and diverse housing options.",
       date: '2025-01-08T16:45:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/best-places-to-buy-land-in-t',
       imageAlt: 'Best Places to Buy Land and Homes',
@@ -562,12 +562,12 @@ function generateSampleBlogPosts(): BlogPost[] {
               <li>Ongoing portfolio management support</li>
             </ul>
             
-            <p>Ready to explore Las Vegas real estate investment opportunities? Contact Dr. Janet Duffy at (702) 222-1964 for a personalized investment consultation.</p>
+            <p>Ready to explore Las Vegas real estate investment opportunities? Contact Dr. Jan Duffy at (702) 222-1964 for a personalized investment consultation.</p>
           `,
       excerpt:
         'Discover why Las Vegas is a prime market for real estate investment, featuring strong fundamentals, diverse opportunities, and growing potential.',
       date: '2025-01-05T11:20:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/are-short-term-rentals-still',
       imageAlt: 'Short-term Rental Investment Opportunities',
@@ -625,12 +625,12 @@ function generateSampleBlogPosts(): BlogPost[] {
             <h3>Your Success is Our Priority</h3>
             <p>At Berkshire Hathaway HomeServices California Properties, we measure our success by your satisfaction. Our team of experienced professionals is dedicated to helping you achieve your real estate goals with integrity, expertise, and personalized attention.</p>
             
-            <p>Ready to experience the Berkshire Hathaway difference? Contact Dr. Janet Duffy at (702) 222-1964 to discuss your real estate needs.</p>
+            <p>Ready to experience the Berkshire Hathaway difference? Contact Dr. Jan Duffy at (702) 222-1964 to discuss your real estate needs.</p>
           `,
       excerpt:
         'Learn why Berkshire Hathaway HomeServices California Properties is the premier choice for Las Vegas real estate services.',
       date: '2025-01-03T14:15:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/the-state-of-housing-invento',
       imageAlt: 'State of Housing Inventory',
@@ -704,12 +704,12 @@ function generateSampleBlogPosts(): BlogPost[] {
               <li>White-glove service throughout the process</li>
             </ul>
             
-            <p>Interested in Las Vegas luxury real estate? Contact Dr. Janet Duffy at (702) 222-1964 for a private consultation.</p>
+            <p>Interested in Las Vegas luxury real estate? Contact Dr. Jan Duffy at (702) 222-1964 for a private consultation.</p>
           `,
       excerpt:
         'Explore Las Vegas luxury real estate market featuring world-class amenities, exclusive neighborhoods, and exceptional investment potential.',
       date: '2025-01-01T10:30:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/lifestyle/how-to-buy-a-home-in-sprin',
       imageAlt: 'How to Buy a Home in Spring',
@@ -767,12 +767,12 @@ function generateSampleBlogPosts(): BlogPost[] {
               <li>Future market potential</li>
             </ul>
             
-            <p>Ready to navigate the Las Vegas market? Contact Dr. Janet Duffy at (702) 222-1964 for expert guidance on timing your home purchase.</p>
+            <p>Ready to navigate the Las Vegas market? Contact Dr. Jan Duffy at (702) 222-1964 for expert guidance on timing your home purchase.</p>
           `,
       excerpt:
         'Learn how to navigate different real estate market conditions and make informed decisions about when to buy your home.',
       date: '2024-12-28T16:20:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/should-you-buy-a-home-during',
       imageAlt: 'Should You Buy a Home During Market Changes?',
@@ -830,12 +830,12 @@ function generateSampleBlogPosts(): BlogPost[] {
               <li>Check for any pending violations</li>
             </ul>
             
-            <p>Need help understanding deed restrictions on a Las Vegas property? Contact Dr. Janet Duffy at (702) 222-1964 for expert guidance.</p>
+            <p>Need help understanding deed restrictions on a Las Vegas property? Contact Dr. Jan Duffy at (702) 222-1964 for expert guidance.</p>
           `,
       excerpt:
         'Learn about deed restrictions, their purpose, and what they mean for property ownership and use.',
       date: '2024-12-25T11:45:00Z',
-      author: 'Dr. Janet Duffy',
+      author: 'Dr. Jan Duffy',
       image:
         'https://www.bhhscp.com/content/dam/bhhs/web-images/good-to-know/general/what-are-deed-restrictions-9',
       imageAlt: 'What Are Deed Restrictions?',

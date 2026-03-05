@@ -27,7 +27,7 @@ export function MarketInsightsGrid({ insights, showTitle = true }: MarketInsight
             Latest Las Vegas Real Estate Market Insights
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-            Stay informed with the latest trends and data-driven insights from Dr. Janet Duffy, your Premier Good To Know REALTOR®
+            Stay informed with the latest trends and data-driven insights from Dr. Jan Duffy, your Premier Good To Know REALTOR®
           </p>
         </div>
       )}

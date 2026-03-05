@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
-  title: 'Downtown Las Vegas Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
-  description: 'Find your dream home in Downtown Las Vegas. Premier Good To Know REALTOR® Dr. Janet Duffy specializes in Downtown Las Vegas condos, lofts, and urban living properties.',
-  keywords: 'Downtown Las Vegas real estate, Downtown Las Vegas condos, Las Vegas urban living, Dr. Janet Duffy',
+  title: 'Downtown Las Vegas Real Estate | Dr. Jan Duffy - Premier Good To Know REALTOR®',
+  description: 'Find your dream home in Downtown Las Vegas. Premier Good To Know REALTOR® Dr. Jan Duffy specializes in Downtown Las Vegas condos, lofts, and urban living properties.',
+  keywords: 'Downtown Las Vegas real estate, Downtown Las Vegas condos, Las Vegas urban living, Dr. Jan Duffy',
   openGraph: {
-    title: 'Downtown Las Vegas Real Estate | Dr. Janet Duffy',
-    description: 'Find your dream home in Downtown Las Vegas with Premier Good To Know REALTOR® Dr. Janet Duffy.',
+    title: 'Downtown Las Vegas Real Estate | Dr. Jan Duffy',
+    description: 'Find your dream home in Downtown Las Vegas with Premier Good To Know REALTOR® Dr. Jan Duffy.',
     images: ['/images/downtown-las-vegas-real-estate-og.jpg'],
   },
   alternates: {
@@ -128,7 +128,7 @@ export default function DowntownPage() {
             Ready to Find Your Downtown Las Vegas Home?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let Dr. Janet Duffy, the Premier Good To Know REALTOR®, help you find 
+            Let Dr. Jan Duffy, the Premier Good To Know REALTOR®, help you find 
             your perfect urban home in Downtown Las Vegas. With expertise in luxury 
             condos and high-rise living, I&apos;ll help you discover the best the city has to offer.
           </p>

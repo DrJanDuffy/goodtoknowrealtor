@@ -82,7 +82,7 @@ export function getAssessmentStats() {
 
 // Email notification system (placeholder)
 export function sendLeadNotification(lead: AssessmentLead): void {
-  // In production, this would send email to Dr. Janet Duffy
+  // In production, this would send email to Dr. Jan Duffy
   console.log(`📧 LEAD ALERT: ${lead.contactInfo.name} scored ${lead.score}% on ${lead.assessmentType} assessment`);
   console.log(`📞 Contact: ${lead.contactInfo.email} ${lead.contactInfo.phone || ''}`);
   console.log(`🎯 Next Step: ${lead.results.nextStep}`);
