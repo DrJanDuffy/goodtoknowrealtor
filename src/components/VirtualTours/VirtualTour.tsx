@@ -1,12 +1,8 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { useScreenReaderAnnouncements } from '@/hooks/useScreenReaderAnnouncements';
-import { useFullscreen } from '@/hooks/useFullscreen';
+import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export interface VirtualTour {
