@@ -2,9 +2,13 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { HeroSection } from '@/components/Home/HeroSection';
 import { HeroTestimonialCarousel } from '@/components/Home/HeroTestimonialCarousel';
+import { WhyBerkshireSection } from '@/components/Home/WhyBerkshireSection';
+import { MarketSnapshotSection } from '@/components/Home/MarketSnapshotSection';
+import { NeighborhoodsSection } from '@/components/Home/NeighborhoodsSection';
 import { TestimonialsSection } from '@/components/Home/TestimonialsSection';
 import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
 import { TransformationSection } from '@/components/Home/TransformationSection';
+import { HomeFAQSection } from '@/components/Home/HomeFAQSection';
 import { ContactCTA } from '@/components/Home/ContactCTA';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema, generateFAQSchema, generateReviewSchema, generateServiceSchema } from '@/lib/seo';
 
@@ -101,21 +105,49 @@ export default function HomePage() {
         }}
       />
 
-      {/* Hero Section */}
+      {/* 1. Hero */}
       <HeroSection />
-      
-      {/* Hero Testimonial Carousel - Section 2 (right after hero) */}
       <HeroTestimonialCarousel />
-      
+
+      {/* 2. Why Choose Berkshire Hathaway HomeServices */}
+      <WhyBerkshireSection />
+
+      {/* 3. Market snapshot */}
+      <MarketSnapshotSection />
+
+      {/* 4. Featured Properties */}
+      <section className='py-12 bg-gray-50'>
+        <div className='container mx-auto px-4'>
+          <div className='max-w-2xl mx-auto text-center'>
+            <h2 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3'>
+              Featured Properties
+            </h2>
+            <p className='text-lg text-gray-600 mb-6'>
+              Discover exceptional homes in Las Vegas and Henderson.
+            </p>
+            <Link
+              href='/listings'
+              className='inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors'
+            >
+              View All Properties
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Neighborhoods We Serve */}
+      <NeighborhoodsSection />
+
+      {/* 6. Why Choose Us (6 benefits) */}
       <TrustBadges />
 
-      {/* Full Testimonials Section - Section 3 */}
+      {/* 7. Testimonials */}
       <TestimonialsSection />
 
-      {/* Transformation Section - The Real Difference */}
+      {/* 8. Transformation / persona stories */}
       <TransformationSection />
 
-      {/* Home Value & Tracking - teaser to dedicated page */}
+      {/* Home Value & Assessments teasers */}
       <section className='py-12 bg-white'>
         <div className='container mx-auto px-4'>
           <div className='max-w-2xl mx-auto text-center'>
@@ -134,8 +166,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Assessment - teaser to dedicated pages */}
       <section className='py-12 bg-gradient-to-br from-amber-50 to-yellow-50'>
         <div className='container mx-auto px-4'>
           <div className='max-w-2xl mx-auto text-center'>
@@ -163,7 +193,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Stats - Build credibility */}
+      {/* Quick Stats */}
       <section className='py-16 bg-white'>
         <div className='container mx-auto px-4'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center'>
@@ -187,27 +217,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Listings - teaser to full search */}
-      <section className='py-12 bg-gray-50'>
-        <div className='container mx-auto px-4'>
-          <div className='max-w-2xl mx-auto text-center'>
-            <h2 className='text-2xl lg:text-3xl font-bold text-gray-900 mb-3'>
-              Explore Las Vegas Listings
-            </h2>
-            <p className='text-lg text-gray-600 mb-6'>
-              Search the full MLS for homes in Summerlin, Henderson, and every Las Vegas Valley neighborhood.
-            </p>
-            <Link
-              href='/listings'
-              className='inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors'
-            >
-              View All Listings
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Services - compact links to dedicated pages */}
+      {/* Services */}
       <section className='py-12 bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-50'>
         <div className='container mx-auto px-4'>
           <div className='text-center mb-8'>
@@ -232,42 +242,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA Section - Luxury Focus */}
+      {/* FAQ */}
+      <HomeFAQSection />
+
+      {/* Final CTA - Realtor style */}
       <section className='py-16 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 text-white'>
         <div className='container mx-auto px-4 text-center'>
           <h2 className='text-3xl lg:text-5xl font-bold mb-4'>
-            Experience Premier Luxury Real Estate
+            Ready to Work with Berkshire Hathaway HomeServices?
           </h2>
           <p className='text-xl text-white/95 mb-8 font-medium'>
-            Schedule your private consultation to discover exclusive properties and personalized service.
+            Whether you&apos;re buying, selling, or investing in Las Vegas real estate, Dr. Jan Duffy is here to help.
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center mb-8'>
-                <Link
-                  href='/luxury'
-                  className='bg-white text-amber-900 px-10 py-5 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors shadow-xl'
-                >
-                  View Luxury Properties
-                </Link>
-                <Link
-                  href='/contact'
-                  className='bg-amber-900 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-amber-800 transition-colors shadow-xl border-2 border-amber-800'
-                >
-                  Schedule Private Consultation
-                </Link>
+            <Link
+              href='tel:702-222-1964'
+              className='bg-white text-amber-900 px-10 py-5 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors shadow-xl'
+            >
+              Call (702) 222-1964
+            </Link>
+            <Link
+              href='/contact'
+              className='bg-amber-900 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-amber-800 transition-colors shadow-xl border-2 border-amber-800'
+            >
+              Send a Message
+            </Link>
           </div>
-          
-          <div className='text-white/95 space-y-2 font-medium'>
-            <div className='flex items-center justify-center'>
-              <Link href='tel:702-222-1964' className='underline hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-amber-600 rounded'>
-                Call (702) 222-1964
-              </Link>
-            </div>
-            <div className='flex items-center justify-center'>
-              Concierge Service Available 7 Days
-            </div>
-            <div className='flex items-center justify-center'>
-              Confidential & Discreet Transactions
-            </div>
+          <p className='text-white/95 font-medium'>
+            Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada Properties
+          </p>
+          <div className='text-white/95 font-medium'>
+            Concierge service available 7 days • Confidential &amp; discreet transactions
           </div>
         </div>
       </section>

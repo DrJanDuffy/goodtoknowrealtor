@@ -78,8 +78,11 @@ export function NeighborhoodsSection() {
       <div className='container mx-auto px-4'>
         <div className='text-center mb-12'>
           <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
-            EXPLORE OUR NEIGHBORHOODS
+            Las Vegas Neighborhoods We Serve
           </h2>
+          <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
+            Berkshire Hathaway HomeServices Nevada Properties covers all of Southern Nevada
+          </p>
         </div>
 
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6'>
@@ -126,7 +129,7 @@ export function NeighborhoodsSection() {
             className='inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
             aria-label='Explore all Las Vegas and Henderson communities'
           >
-            Explore All Las Vegas Communities →
+            View All Neighborhoods →
           </Link>
         </div>
       </div>

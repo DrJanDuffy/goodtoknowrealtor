@@ -138,6 +138,19 @@ export function TestimonialsSection() {
           ))}
         </div>
 
+        {/* Read More Reviews on Google */}
+        <div className="mt-10 text-center">
+          <a
+            href="https://www.google.com/search?q=Dr+Jan+Duffy+Las+Vegas+realtor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-gray-800 shadow-md border border-gray-200 hover:bg-gray-50 transition-colors"
+          >
+            Read More Reviews on Google
+            <span aria-hidden>→</span>
+          </a>
+        </div>
+
         {/* Additional Trust Indicators */}
         <div className="mt-16 text-center">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
