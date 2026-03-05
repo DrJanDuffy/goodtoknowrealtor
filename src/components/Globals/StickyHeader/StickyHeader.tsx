@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export function StickyHeader() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +40,7 @@ export function StickyHeader() {
               href='tel:702-222-1964'
               className='flex items-center space-x-1 text-blue-600 hover:text-blue-700 transition-colors min-h-[44px] px-3'
             >
-              <span className='text-lg'>📞</span>
+              <IconSymbol symbol='📞' className='h-4 w-4' ariaLabel='Phone' />
               <span className='hidden sm:inline'>(702) 222-1964</span>
             </Link>
             

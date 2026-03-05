@@ -8,6 +8,7 @@ import { NeighborhoodMap } from '@/components/InteractiveMap/NeighborhoodMap';
 import { VirtualTourGallery } from '@/components/VirtualTours/VirtualTour';
 import { MarketVisualizations } from '@/components/MarketData/MarketVisualizations';
 import { EnhancedPropertyCard } from '@/components/PropertyCards/EnhancedPropertyCard';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 // Sample property data
 const sampleProperties = [
@@ -126,22 +127,22 @@ export default function InteractiveFeaturesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center bg-blue-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">⚡</div>
+                <IconSymbol symbol='⚡' className='mx-auto mb-4 h-10 w-10 text-blue-600' ariaLabel='Instant results icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Instant Results</h3>
                 <p className="text-gray-600">Get immediate feedback and results with our real-time interactive tools.</p>
               </div>
               <div className="text-center bg-green-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">🎯</div>
+                <IconSymbol symbol='🎯' className='mx-auto mb-4 h-10 w-10 text-green-600' ariaLabel='Precision search icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Precision Search</h3>
                 <p className="text-gray-600">Find exactly what you're looking for with advanced filtering and search capabilities.</p>
               </div>
               <div className="text-center bg-purple-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">📊</div>
+                <IconSymbol symbol='📊' className='mx-auto mb-4 h-10 w-10 text-purple-600' ariaLabel='Data driven icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Data-Driven</h3>
                 <p className="text-gray-600">Make informed decisions with comprehensive market data and analytics.</p>
               </div>
               <div className="text-center bg-orange-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">📱</div>
+                <IconSymbol symbol='📱' className='mx-auto mb-4 h-10 w-10 text-orange-500' ariaLabel='Mobile optimized icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Mobile Optimized</h3>
                 <p className="text-gray-600">Access all features seamlessly on any device, anywhere, anytime.</p>
               </div>
@@ -280,7 +281,7 @@ export default function InteractiveFeaturesPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-2xl mb-4">🔍</div>
+              <IconSymbol symbol='🔍' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Advanced search icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced Search</h3>
               <p className="text-gray-600 text-sm">
                 Real-time filtering with comprehensive criteria and instant results
@@ -288,7 +289,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-2xl mb-4">⚖️</div>
+              <IconSymbol symbol='⚖️' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Property comparison icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Property Comparison</h3>
               <p className="text-gray-600 text-sm">
                 Side-by-side comparison of up to 4 properties with detailed analysis
@@ -296,7 +297,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-2xl mb-4">🏠</div>
+              <IconSymbol symbol='🏠' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Virtual tours icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Virtual Tours</h3>
               <p className="text-gray-600 text-sm">
                 360° tours, video walkthroughs, and interactive property exploration
@@ -304,7 +305,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-2xl mb-4">💰</div>
+              <IconSymbol symbol='💰' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Mortgage tools icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Mortgage Tools</h3>
               <p className="text-gray-600 text-sm">
                 Calculate payments, explore financing options, and get pre-approved
@@ -312,7 +313,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-2xl mb-4">🗺️</div>
+              <IconSymbol symbol='🗺️' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Interactive maps icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Interactive Maps</h3>
               <p className="text-gray-600 text-sm">
                 Explore neighborhoods, amenities, and property locations
@@ -320,7 +321,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-2xl mb-4">📊</div>
+              <IconSymbol symbol='📊' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Market data icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Market Data</h3>
               <p className="text-gray-600 text-sm">
                 Real-time market trends, pricing analysis, and neighborhood insights
@@ -328,7 +329,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-2xl mb-4">📧</div>
+              <IconSymbol symbol='📧' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Smart alerts icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Smart Alerts</h3>
               <p className="text-gray-600 text-sm">
                 Personalized property alerts based on your specific criteria
@@ -336,7 +337,7 @@ export default function InteractiveFeaturesPage() {
             </div>
             
             <div className="text-center">
-              <div className="text-2xl mb-4">📅</div>
+              <IconSymbol symbol='📅' className='mx-auto mb-4 h-8 w-8 text-blue-600' ariaLabel='Quick actions icon' />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Quick Actions</h3>
               <p className="text-gray-600 text-sm">
                 Schedule showings, share properties, and connect with agents instantly

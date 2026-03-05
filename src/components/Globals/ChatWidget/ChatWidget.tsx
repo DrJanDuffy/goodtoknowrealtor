@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface ChatMessage {
   id: string;
@@ -91,7 +92,7 @@ export function ChatWidget() {
             className='bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center'
             aria-label='Open chat'
           >
-            <span className='text-white text-xl'>💬</span>
+            <IconSymbol symbol='💬' className='h-6 w-6 text-white' ariaLabel='Open chat' />
           </button>
         </div>
       )}
@@ -110,7 +111,7 @@ export function ChatWidget() {
               className='text-white hover:text-gray-200 transition-colors'
               aria-label='Close chat'
             >
-              <span className='text-white text-lg'>✕</span>
+              <IconSymbol symbol='✕' className='h-4 w-4 text-white' ariaLabel='Close chat' />
             </button>
           </div>
 
@@ -176,7 +177,7 @@ export function ChatWidget() {
                 onClick={() => handleSendMessage(currentMessage)}
                 className='bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors'
               >
-                <span className='text-gray-600 text-lg'>→</span>
+                <IconSymbol symbol='→' className='h-4 w-4' ariaLabel='Send message' />
               </button>
             </div>
           </div>

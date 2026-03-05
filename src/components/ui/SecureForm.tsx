@@ -158,7 +158,7 @@ export function SecureForm({ onSubmit, fields, submitText, className = '' }: Sec
       {/* Form Fields */}
       {fields.map(field => (
         <div key={field.name}>
-          <label htmlFor={field.name} className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor={field.name} className="block text-base font-semibold text-gray-900 mb-2">
             {field.label}
             {field.required && <span className="text-red-500 ml-1">*</span>}
           </label>
@@ -199,7 +199,7 @@ export function SecureForm({ onSubmit, fields, submitText, className = '' }: Sec
           
           {/* Character count */}
           {field.maxLength && (
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-sm text-gray-600">
               {(formData[field.name] || '').length} / {field.maxLength} characters
             </p>
           )}

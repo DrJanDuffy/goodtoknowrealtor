@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Client Testimonials | Dr. Janet Duffy Group',
@@ -98,18 +99,10 @@ export default function TestimonialsPage() {
       />
       <div className='min-h-screen bg-white'>
         {/* Hero Section */}
-        <section className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 lg:py-20'>
-          <div className='container mx-auto px-4'>
-            <div className='max-w-4xl mx-auto text-center'>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                What Our Clients Say
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 leading-relaxed'>
-                Real testimonials from satisfied clients who chose Dr. Janet Duffy Group for their Las Vegas real estate needs.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='What Our Clients Say'
+          subtitle='Real testimonials from satisfied clients who chose Dr. Janet Duffy Group for their Las Vegas real estate needs.'
+        />
 
         {/* Stats Section */}
         <section className='py-16 bg-gray-50'>
@@ -151,7 +144,7 @@ export default function TestimonialsPage() {
               
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                 {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className='bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105'>
+                  <div key={testimonial.id} className='card p-8 flex flex-col items-center text-center'>
                     <div className='relative w-16 h-16 rounded-full overflow-hidden mb-4'>
                       <Image
                         src={testimonial.image}
@@ -236,13 +229,13 @@ export default function TestimonialsPage() {
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
                 href='/contact'
-                className='bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors'
+                className='btn btn-primary'
               >
                 Get Started Today
               </Link>
               <Link
                 href='tel:702-222-1964'
-                className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors'
+                className='btn btn-outline'
               >
                 Call (702) 222-1964
               </Link>

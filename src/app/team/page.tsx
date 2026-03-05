@@ -1,8 +1,11 @@
 import { Metadata } from 'next';
+import { SEO_CONFIG } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Meet Our Team | Dr. Jan Duffy - Top 1% Las Vegas Real Estate Team',
@@ -11,6 +14,8 @@ export const metadata: Metadata = generatePageMetadata({
   url: '/team',
   image: '/images/team-og.jpg',
 });
+
+export const alternates = { canonical: `${SEO_CONFIG.siteUrl}/team` } as const;
 
 export default function TeamPage() {
   const breadcrumbs = generateBreadcrumbSchema([
@@ -162,33 +167,25 @@ export default function TeamPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-blue-900 to-indigo-800 text-white py-20">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Meet Our Expert Team
-              </h1>
-              <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-8">
-                Las Vegas's premier real estate team with $127M+ in sales volume and unmatched expertise
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
-                >
-                  Work With Our Team
-                </Link>
-                <Link
-                  href="tel:702-222-1964"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
-                >
-                  Call (702) 222-1964
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title="Meet Our Expert Team"
+          subtitle="Las Vegas's premier real estate team with $127M+ in sales volume and unmatched expertise"
+          gradientFromClassName='from-blue-900'
+          gradientToClassName='to-indigo-800'
+        >
+          <Link
+            href='/contact'
+            className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors'
+          >
+            Work With Our Team
+          </Link>
+          <Link
+            href='tel:702-222-1964'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors'
+          >
+            Call (702) 222-1964
+          </Link>
+        </PageHero>
 
         {/* Team Stats */}
         <section className="py-16 bg-white">
@@ -241,7 +238,7 @@ export default function TeamPage() {
                   </div>
                   
                   <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                    <div className="bg-white rounded-2xl shadow-lg p-8">
+                    <div className="card p-8">
                       <h3 className="text-3xl font-bold text-gray-900 mb-2">{member.name}</h3>
                       <div className="text-xl text-blue-600 mb-2">{member.title}</div>
                       <div className="text-lg text-gray-600 mb-4">{member.credentials} • {member.experience}</div>
@@ -274,13 +271,13 @@ export default function TeamPage() {
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Link
                           href={`tel:${member.contact.phone}`}
-                          className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
+                          className="btn btn-primary"
                         >
                           Call {member.contact.phone}
                         </Link>
                         <Link
                           href={`mailto:${member.contact.email}`}
-                          className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
+                          className="btn btn-outline"
                         >
                           Email {member.contact.email}
                         </Link>
@@ -330,19 +327,19 @@ export default function TeamPage() {
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">👥</span>
+                    <IconSymbol symbol='👥' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Teamwork icon' />
                     <span className="text-gray-700">Collaborative team approach with specialized expertise</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">🎯</span>
+                    <IconSymbol symbol='🎯' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Results icon' />
                     <span className="text-gray-700">Dedicated specialists for different property types</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">⚡</span>
+                    <IconSymbol symbol='⚡' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Fast response icon' />
                     <span className="text-gray-700">Faster response times with multiple team members</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">🛡️</span>
+                    <IconSymbol symbol='🛡️' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Protection icon' />
                     <span className="text-gray-700">Backup support ensures continuity of service</span>
                   </li>
                 </ul>

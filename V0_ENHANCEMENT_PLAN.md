@@ -530,6 +530,39 @@ src/
 
 This is a PROVEN system that has worked across multiple industries. Real estate is perfect for this because buyers WANT to know if they're ready.
 
+## V0 Prompts by Page Group (Copy to v0.dev)
+
+1) Global System
+- Keep `Navigation`, `Footer`, skip links, Mobile Sticky CTA. System-ui font, BHHS blues (#2563eb/#1d4ed8/#1e40af), high-contrast greys.
+- Buttons: primary blue on white; 44px touch targets. Maintain H1/H2 hierarchy and SEO metadata.
+
+2) Home (`src/app/page.tsx`)
+- Hero with headline, subcopy, primary CTA “Start Your Home Search”, secondary “Get Your Home Value”; trust badges; RealScout search; featured listings; neighborhoods grid; market insights; assessments CTAs; testimonials; contact CTA.
+
+3) Buying (`src/app/buying/page.tsx`)
+- Use new `PageHero` with title/subtitle and CTAs: “Start Your Home Search”, “View Buyer Guide”. Add RealScout search block, buyer journey steps, AssessmentCTA, service cards, neighborhoods grid, final CTA.
+
+4) Selling (`src/app/selling/page.tsx`)
+- Use `PageHero` with CTAs: “Get Free Home Valuation”, “Schedule Consultation”. Keep Home Value widget section, selling process steps, AssessmentCTA, services grid, market stats, success stories, final CTA.
+
+5) Home Value (`src/app/home-value/page.tsx`)
+- Use `PageHero` with chips: Instant Results, Market Data, Expert Analysis. Center Home Value widget, equity tracking (Homebot), features grid, final CTA.
+
+6) Blog (index, post, categories)
+- Index: 3-col grid with filter chips, pagination, Popular sidebar; Post: wide content, in-article SmartCTA, share buttons, related posts, breadcrumb.
+
+7) Market Insights (`/market-insights` + `/full`)
+- KPI stat bar, insights cards, subscribe CTA; full charts with annotations, glossary drawer, print/PDF.
+
+8) Luxury + Listings + Areas
+- Listings with sticky filters and `EnhancedPropertyCard`; Luxury hub with deep blue imagery; subpages with category hero, lifestyle highlights; each Area with why-live-here, schools/amenities tiles, featured listings, map, alerts CTA.
+
+9) Legal/Utility
+- Clean readable layout with anchored headings for Privacy/Terms; focused form for Do Not Sell; friendly 404.
+
+Notes
+- New shared component: `src/components/ui/PageHero.tsx` now available for consistent hero sections and CTAs.
+
 ### To-dos
 
 - [x] Update sitemap.ts to include all missing pages with proper priorities

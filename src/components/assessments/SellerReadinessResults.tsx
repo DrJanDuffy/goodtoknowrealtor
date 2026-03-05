@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 interface SellerReadinessResultsProps {
   score: number;
@@ -22,7 +23,7 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
   const getResultsData = () => {
     if (score >= 71) {
       return {
-        emoji: '🎉',
+        icon: '🎉',
         title: 'You\'re Ready to Sell!',
         message: 'Congratulations! You have excellent preparation and market knowledge. You\'re in a strong position to maximize your home\'s value.',
         nextStepTitle: 'Ready to List Your Home',
@@ -34,7 +35,7 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
       };
     } else if (score >= 41) {
       return {
-        emoji: '📈',
+        icon: '📈',
         title: 'You\'re Getting There!',
         message: 'You have a good foundation but there are some areas to improve before listing. With the right preparation, you can maximize your profit.',
         nextStepTitle: 'Let\'s Prepare Your Home for Sale',
@@ -46,7 +47,7 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
       };
     } else {
       return {
-        emoji: '🏠',
+        icon: '🏠',
         title: 'Let\'s Build Your Foundation',
         message: 'You have strong motivation to sell, but there are several areas that need attention first. Don\'t worry - we can help you get ready.',
         nextStepTitle: 'Create Your Selling Strategy',
@@ -90,7 +91,7 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="text-2xl mb-4">{resultsData.emoji}</div>
+            <IconSymbol symbol={resultsData.icon as IconSymbolKey} className='h-12 w-12 mx-auto mb-4 text-green-600' ariaLabel='Readiness icon' />
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               {resultsData.title}
             </h1>
@@ -166,7 +167,10 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
                 href="tel:702-222-1964"
                 className="flex-1 text-center px-8 py-4 rounded-lg font-bold text-lg border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-colors duration-200"
               >
-                📞 Call (702) 222-1964
+                <span className='inline-flex items-center gap-2'>
+                  <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+                  Call (702) 222-1964
+                </span>
               </Link>
             </div>
           </div>
@@ -174,26 +178,44 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
           {/* Additional Resources */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">📖 Seller Guide</h3>
+              <div className='flex items-center gap-2 mb-3'>
+                <IconSymbol symbol='📘' className='h-5 w-5 text-green-600' ariaLabel='Guide icon' />
+                <h3 className="text-lg font-bold text-gray-900">Seller Guide</h3>
+              </div>
               <p className="text-gray-600 mb-4">Complete step-by-step guide to selling in Las Vegas</p>
               <Link href="/seller-guide" className="text-green-600 font-semibold hover:text-green-700">
-                Read Guide →
+                <span className='inline-flex items-center gap-1'>
+                  Read Guide
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">🏠 Home Value</h3>
+              <div className='flex items-center gap-2 mb-3'>
+                <IconSymbol symbol='🏠' className='h-5 w-5 text-green-600' ariaLabel='Home value icon' />
+                <h3 className="text-lg font-bold text-gray-900">Home Value</h3>
+              </div>
               <p className="text-gray-600 mb-4">Get instant valuation of your Las Vegas property</p>
               <Link href="/home-value" className="text-green-600 font-semibold hover:text-green-700">
-                Check Value →
+                <span className='inline-flex items-center gap-1'>
+                  Check Value
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-3">📊 Market Report</h3>
+              <div className='flex items-center gap-2 mb-3'>
+                <IconSymbol symbol='📊' className='h-5 w-5 text-green-600' ariaLabel='Market report icon' />
+                <h3 className="text-lg font-bold text-gray-900">Market Report</h3>
+              </div>
               <p className="text-gray-600 mb-4">Latest Las Vegas real estate market insights</p>
               <Link href="/market-insights" className="text-green-600 font-semibold hover:text-green-700">
-                View Report →
+                <span className='inline-flex items-center gap-1'>
+                  View Report
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
           </div>
@@ -209,13 +231,19 @@ export function SellerReadinessResults({ score }: SellerReadinessResultsProps) {
                 href="tel:702-222-1964"
                 className="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 transition-colors"
               >
-                📞 Call (702) 222-1964
+                <span className='inline-flex items-center gap-2'>
+                  <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+                  Call (702) 222-1964
+                </span>
               </Link>
               <Link
                 href="/contact"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-green-600 transition-colors"
               >
-                Schedule Consultation
+                <span className='inline-flex items-center gap-2'>
+                  Schedule Consultation
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
             </div>
           </div>

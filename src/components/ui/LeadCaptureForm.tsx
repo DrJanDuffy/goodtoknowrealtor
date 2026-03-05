@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface LeadCaptureFormProps {
   title?: string;
@@ -72,14 +73,20 @@ export function LeadCaptureForm({
   if (isSubmitted) {
     return (
       <div className={`bg-green-50 border border-green-200 rounded-xl p-8 text-center ${className}`}>
-        <div className="text-4xl mb-4">✅</div>
+        <IconSymbol symbol='✅' className='text-4xl mb-4 text-green-600' ariaLabel='Success icon' />
         <h3 className="text-xl font-bold text-green-800 mb-2">Thank You!</h3>
         <p className="text-green-700 mb-4">
           Dr. Jan Duffy will contact you within 24 hours to discuss your real estate needs.
         </p>
-        <div className="text-sm text-green-600">
-          <p>📞 Call (702) 222-1964 for immediate assistance</p>
-          <p>📧 Check your email for confirmation</p>
+        <div className="text-sm text-green-600 space-y-1">
+          <p className='flex items-center justify-center gap-2'>
+            <IconSymbol symbol='📞' className='h-4 w-4' ariaLabel='Phone icon' />
+            Call (702) 222-1964 for immediate assistance
+          </p>
+          <p className='flex items-center justify-center gap-2'>
+            <IconSymbol symbol='📧' className='h-4 w-4' ariaLabel='Email icon' />
+            Check your email for confirmation
+          </p>
         </div>
       </div>
     );

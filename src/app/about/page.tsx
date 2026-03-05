@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.about.title,
@@ -28,32 +30,10 @@ export default function AboutPage() {
       />
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
-            <div>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                About Dr. Janet Duffy
-              </h1>
-              <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-                Your trusted Las Vegas real estate expert with over 15 years of
-                experience helping clients achieve their property goals.
-              </p>
-            </div>
-            <div className='relative'>
-              <div className='relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl'>
-                <Image
-                  src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80'
-                  alt='Dr. Janet Duffy - Las Vegas Real Estate Expert'
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='About Dr. Janet Duffy'
+        subtitle='Your trusted Las Vegas real estate expert with over 15 years of experience helping clients achieve their property goals.'
+      />
 
       {/* About Section */}
       <section className='py-20 bg-white'>
@@ -114,9 +94,9 @@ export default function AboutPage() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            <div className='bg-white rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>🎓</span>
+                <IconSymbol symbol='🎓' className='h-8 w-8 text-amber-600' ariaLabel='Education icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Education & Certifications
@@ -130,9 +110,9 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className='bg-white rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>🏆</span>
+                <IconSymbol symbol='🏆' className='h-8 w-8 text-amber-600' ariaLabel='Awards icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Recognition & Awards
@@ -146,15 +126,9 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className='bg-white rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <Image
-                  src='https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
-                  alt='Target'
-                  width={32}
-                  height={32}
-                  className='w-8 h-8'
-                />
+                <IconSymbol symbol='🎯' className='h-8 w-8 text-amber-600' ariaLabel='Specializations icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Specializations
@@ -261,14 +235,8 @@ export default function AboutPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             <div className='text-center'>
-              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6'>
-                <Image
-                  src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
-                  alt='Home'
-                  width={32}
-                  height={32}
-                  className='w-8 h-8'
-                />
+              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center mx-auto mb-6'>
+                <IconSymbol symbol='🏠' className='h-10 w-10 text-white' ariaLabel='Habitat for Humanity' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-4'>
                 Habitat for Humanity
@@ -280,8 +248,8 @@ export default function AboutPage() {
             </div>
 
             <div className='text-center'>
-              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6'>
-                🎓
+              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center mx-auto mb-6'>
+                <IconSymbol symbol='🎓' className='h-10 w-10 text-white' ariaLabel='Education Foundation' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-4'>
                 Education Foundation
@@ -292,8 +260,8 @@ export default function AboutPage() {
             </div>
 
             <div className='text-center'>
-              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6'>
-                🌱
+              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center mx-auto mb-6'>
+                <IconSymbol symbol='🌱' className='h-10 w-10 text-white' ariaLabel='Environmental initiatives' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-4'>
                 Environmental Initiatives
@@ -304,8 +272,8 @@ export default function AboutPage() {
             </div>
 
             <div className='text-center'>
-              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6'>
-                🤝
+              <div className='w-20 h-20 bg-amber-600 text-white rounded-full flex items-center justify-center mx-auto mb-6'>
+                <IconSymbol symbol='🤝' className='h-10 w-10 text-white' ariaLabel='Local business network' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-4'>
                 Local Business Network

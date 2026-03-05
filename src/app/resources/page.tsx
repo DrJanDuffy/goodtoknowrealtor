@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Real Estate Resources | Dr. Jan Duffy - Expert Guides',
@@ -18,7 +20,12 @@ export default function ResourcesPage() {
     { name: 'Resources', url: '/resources' },
   ]);
 
-  const resourceCategories = [
+  const resourceCategories: Array<{
+    title: string;
+    description: string;
+    icon: IconSymbolKey;
+    resources: Array<{ title: string; description: string; href: string; type: string }>;
+  }> = [
     {
       title: 'Buyer Resources',
       description: 'Everything you need to know about buying a home in Las Vegas',
@@ -114,7 +121,7 @@ export default function ResourcesPage() {
     },
   ];
 
-  const tools = [
+  const tools: Array<{ title: string; description: string; href: string; icon: IconSymbolKey }> = [
     {
       title: 'Home Value Calculator',
       description: 'Get instant home valuation and track equity growth',
@@ -191,33 +198,25 @@ export default function ResourcesPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-blue-900 to-indigo-800 text-white py-20">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Las Vegas Real Estate Resources
-              </h1>
-              <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed mb-8">
-                Comprehensive guides, tools, and insights to help you navigate the Las Vegas real estate market with confidence
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
-                >
-                  Get Expert Consultation
-                </Link>
-                <Link
-                  href="tel:702-222-1964"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors"
-                >
-                  Call (702) 222-1964
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Las Vegas Real Estate Resources'
+          subtitle='Comprehensive guides, tools, and insights to help you navigate the Las Vegas real estate market with confidence'
+          gradientFromClassName='from-blue-900'
+          gradientToClassName='to-indigo-800'
+        >
+          <Link
+            href='/contact'
+            className='bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors'
+          >
+            Get Expert Consultation
+          </Link>
+          <Link
+            href='tel:702-222-1964'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-800 transition-colors'
+          >
+            Call (702) 222-1964
+          </Link>
+        </PageHero>
 
         {/* Resource Categories */}
         <section className="py-16 bg-white">
@@ -233,9 +232,9 @@ export default function ResourcesPage() {
 
             <div className="space-y-12">
               {resourceCategories.map((category, index) => (
-                <div key={index} className="bg-gray-50 rounded-2xl p-8">
+                <div key={index} className="card p-8">
                   <div className="flex items-center mb-6">
-                    <div className="text-4xl mr-4">{category.icon}</div>
+                    <IconSymbol symbol={category.icon} className="h-10 w-10 mr-4 text-blue-600" ariaLabel={category.title} />
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{category.title}</h3>
                       <p className="text-gray-600">{category.description}</p>
@@ -247,12 +246,10 @@ export default function ResourcesPage() {
                       <Link
                         key={idx}
                         href={resource.href}
-                        className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                        className="card p-6"
                       >
                         <div className="flex items-center justify-between mb-3">
-                          <span className="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">
-                            {resource.type}
-                          </span>
+                          <span className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">{resource.type}</span>
                         </div>
                         <h4 className="text-lg font-semibold text-gray-900 mb-2">{resource.title}</h4>
                         <p className="text-sm text-gray-600">{resource.description}</p>
@@ -282,7 +279,7 @@ export default function ResourcesPage() {
                 <Link
                   key={index}
                   href={tool.href}
-                  className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 text-center"
+                  className="card p-8 text-center"
                 >
                   <div className="text-4xl mb-4">{tool.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{tool.title}</h3>
@@ -310,7 +307,7 @@ export default function ResourcesPage() {
                 <Link
                   key={index}
                   href={guide.href}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                  className="card overflow-hidden"
                 >
                   <div className="relative h-48">
                     <Image
@@ -349,25 +346,25 @@ export default function ResourcesPage() {
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">📊</span>
+                    <IconSymbol symbol='📊' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Market data' />
                     <span className="text-gray-700">Monthly market reports and analysis</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">📈</span>
+                    <IconSymbol symbol='📈' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Growth' />
                     <span className="text-gray-700">Price trends and neighborhood insights</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">🎯</span>
+                    <IconSymbol symbol='🎯' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Target' />
                     <span className="text-gray-700">Investment opportunities and timing</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="text-blue-500 mr-3 text-xl">⚡</span>
+                    <IconSymbol symbol='⚡' className="text-blue-500 mr-3 h-5 w-5" ariaLabel='Lightning' />
                     <span className="text-gray-700">Market predictions and forecasts</span>
                   </li>
                 </ul>
                 <Link
                   href="/market-insights"
-                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="btn btn-primary"
                 >
                   View Market Insights →
                 </Link>

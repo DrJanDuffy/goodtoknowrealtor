@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export interface AlertPreferences {
   id?: string;
@@ -173,7 +174,10 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
         className={`btn btn-primary ${className}`}
         aria-label="Create property alerts subscription"
       >
-        📧 Create Property Alerts
+        <span className='inline-flex items-center gap-2'>
+          <IconSymbol symbol='📧' className='h-5 w-5' ariaLabel='Email icon' />
+          Create Property Alerts
+        </span>
       </button>
 
       {/* Modal */}
@@ -202,7 +206,7 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="alert-name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="alert-name" className="block text-base font-semibold text-gray-900 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -214,13 +218,13 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       aria-describedby="alert-name-help"
                     />
-                    <div id="alert-name-help" className="text-xs text-gray-500 mt-1">
+                    <div id="alert-name-help" className="text-sm text-gray-600 mt-1">
                       Your full name for personalized alerts
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="alert-email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="alert-email" className="block text-base font-semibold text-gray-900 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -232,13 +236,13 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       aria-describedby="alert-email-help"
                     />
-                    <div id="alert-email-help" className="text-xs text-gray-500 mt-1">
+                    <div id="alert-email-help" className="text-sm text-gray-600 mt-1">
                       Where to send your property alerts
                     </div>
                   </div>
 
                   <div className="md:col-span-2">
-                    <label htmlFor="alert-phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="alert-phone" className="block text-base font-semibold text-gray-900 mb-2">
                       Phone Number (Optional)
                     </label>
                     <input
@@ -249,7 +253,7 @@ export function PropertyAlerts({ className = '' }: PropertyAlertsProps) {
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       aria-describedby="alert-phone-help"
                     />
-                    <div id="alert-phone-help" className="text-xs text-gray-500 mt-1">
+                    <div id="alert-phone-help" className="text-sm text-gray-600 mt-1">
                       For urgent property notifications
                     </div>
                   </div>

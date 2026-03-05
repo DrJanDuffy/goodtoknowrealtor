@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useScreenReaderAnnouncements } from '@/components/ui/ScreenReaderAnnouncements';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export interface MapMarker {
   id: string;
@@ -120,7 +121,7 @@ export function NeighborhoodMap({
     ? displayMarkers 
     : displayMarkers.filter(marker => marker.type === filterType);
 
-  const filterOptions = [
+  const filterOptions: Array<{ value: string; label: string; icon: IconSymbolKey }> = [
     { value: 'all', label: 'All', icon: '📍' },
     { value: 'property', label: 'Properties', icon: '🏠' },
     { value: 'school', label: 'Schools', icon: '🎓' },
@@ -162,13 +163,18 @@ export function NeighborhoodMap({
     }).format(amount);
   };
 
-  const getMarkerIcon = (type: string) => {
+  const getMarkerIcon = (type: string): IconSymbolKey => {
     switch (type) {
-      case 'property': return '🏠';
-      case 'school': return '🎓';
-      case 'amenity': return '⭐';
-      case 'transportation': return '🚌';
-      default: return '📍';
+      case 'property':
+        return '🏠';
+      case 'school':
+        return '🎓';
+      case 'amenity':
+        return '⭐';
+      case 'transportation':
+        return '🚌';
+      default:
+        return '📍';
     }
   };
 
@@ -185,7 +191,10 @@ export function NeighborhoodMap({
   if (mapError) {
     return (
       <div className={`bg-red-50 border border-red-200 rounded-lg p-6 text-center ${className}`}>
-        <div className="text-red-600 mb-2">⚠️ Map Error</div>
+        <div className="flex items-center justify-center gap-2 text-red-600 mb-2">
+          <IconSymbol symbol="⚠️" className="h-6 w-6" ariaLabel="Warning" />
+          <span>Map Error</span>
+        </div>
         <p className="text-red-700 mb-4">{mapError}</p>
         <button
           onClick={() => {
@@ -224,7 +233,7 @@ export function NeighborhoodMap({
                 aria-pressed={filterType === option.value ? 'true' : 'false'}
                 aria-label={`Filter by ${option.label}`}
               >
-                <span className="mr-1" aria-hidden="true">{option.icon}</span>
+                <IconSymbol symbol={option.icon} className="mr-1 h-4 w-4" ariaLabel={option.label} />
                 {option.label}
               </button>
             ))}
@@ -261,7 +270,7 @@ export function NeighborhoodMap({
               {/* Map Markers */}
               <div className="relative z-10">
                 <div className="text-center mb-8">
-                  <div className="text-3xl mb-2">🗺️</div>
+                  <IconSymbol symbol="🗺️" className="mx-auto mb-2 h-10 w-10 text-blue-700" ariaLabel="Map" />
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Las Vegas Neighborhood Map</h3>
                   <p className="text-gray-600">
                     Interactive map showing {filteredMarkers.length} locations
@@ -282,7 +291,7 @@ export function NeighborhoodMap({
                     onClick={() => handleMarkerClick(marker)}
                     aria-label={`${marker.title} - Click for details`}
                   >
-                    <span className="text-lg" aria-hidden="true">{getMarkerIcon(marker.type)}</span>
+                    <IconSymbol symbol={getMarkerIcon(marker.type)} className="h-5 w-5" ariaLabel={marker.type} />
                   </button>
                 ))}
               </div>
@@ -293,15 +302,15 @@ export function NeighborhoodMap({
               <h4 className="text-sm font-semibold text-gray-900 mb-2">Legend</h4>
               <div className="space-y-1 text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">🏠</span>
+                  <IconSymbol symbol="🏠" className="h-4 w-4" ariaLabel="Property" />
                   <span className="text-gray-700">Properties</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">🎓</span>
+                  <IconSymbol symbol="🎓" className="h-4 w-4" ariaLabel="School" />
                   <span className="text-gray-700">Schools</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">⭐</span>
+                  <IconSymbol symbol="⭐" className="h-4 w-4" ariaLabel="Amenity" />
                   <span className="text-gray-700">Amenities</span>
                 </div>
               </div>

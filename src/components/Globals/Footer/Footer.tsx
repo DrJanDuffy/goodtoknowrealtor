@@ -1,7 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
+import { ConsultationModal } from '@/components/ui/ConsultationModal';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export function Footer() {
+  const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
   return (
     <footer className='bg-gray-50 text-gray-900' role='contentinfo' aria-label='Site footer'>
       <div className='container mx-auto px-4'>
@@ -49,24 +55,8 @@ export function Footer() {
                 <ul className='space-y-2'>
                   <li>
                     <Link
-                      href='/about'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
-                    >
-                      About Dr. Duffy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href='/contact'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
-                    >
-                      Contact
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href='/buying'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Buying
                     </Link>
@@ -74,7 +64,7 @@ export function Footer() {
                   <li>
                     <Link
                       href='/selling'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Selling
                     </Link>
@@ -82,43 +72,79 @@ export function Footer() {
                   <li>
                     <Link
                       href='/luxury'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Luxury Properties
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/services'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/about'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/contact'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Contact
                     </Link>
                   </li>
                 </ul>
               </div>
               <div>
-                <ul className='space-y-2'>
+                <p className='font-semibold text-gray-900 mb-3'>Resources</p>
+                <ul className='space-y-2 mb-6'>
+                  <li>
+                    <Link
+                      href='/press'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Press & Media
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/vendors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
+                    >
+                      Preferred Vendors
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       href='/investing'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Investment Properties
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href='/listings'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
-                    >
-                      Current Listings
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href='/blog'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Market Insights
                     </Link>
                   </li>
+                </ul>
+                <p className='font-semibold text-gray-900 mb-3'>Legal</p>
+                <ul className='space-y-2'>
                   <li>
                     <Link
                       href='/privacy-policy'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Privacy Policy
                     </Link>
@@ -126,7 +152,7 @@ export function Footer() {
                   <li>
                     <Link
                       href='/terms-of-use'
-                      className='text-gray-600 hover:text-blue-600 transition-colors'
+                      className='text-gray-600 hover:text-amber-600 transition-colors'
                     >
                       Terms of Use
                     </Link>
@@ -167,13 +193,54 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Consultation CTA Block */}
+        <div className='border-t border-gray-200 py-8'>
+          <div className='bg-blue-600 rounded-2xl p-8 text-center text-white'>
+            <h3 className='text-2xl lg:text-3xl font-bold mb-4'>
+              Ready to Start Your Real Estate Journey?
+            </h3>
+            <p className='text-blue-100 mb-6 max-w-2xl mx-auto'>
+              Schedule a free consultation with Dr. Jan Duffy, Las Vegas&apos;s Top 1% real estate agent. 
+              Get expert guidance tailored to your goals.
+            </p>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+              <button
+                onClick={() => setIsConsultModalOpen(true)}
+                className='btn btn-primary bg-white text-blue-600 hover:bg-gray-100'
+              >
+                Schedule Your Free Consultation
+              </button>
+              <Link
+                href='tel:702-222-1964'
+                className='btn btn-outline border-2 border-white text-white hover:bg-white hover:text-blue-600'
+              >
+                Call (702) 222-1964
+              </Link>
+            </div>
+            <div className='mt-6 flex items-center justify-center space-x-6 text-sm text-blue-100'>
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='Free consultation' />
+                Free Consultation
+              </span>
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='No obligation' />
+                No Obligation
+              </span>
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='✓' className='h-4 w-4 text-white' ariaLabel='Expert guidance' />
+                Expert Guidance
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Footer Bottom */}
         <div className='border-t border-gray-200 py-6'>
           <div className='text-center'>
-            <p className='text-gray-600 text-sm mb-2'>
+            <p className='text-gray-700 text-base mb-2 font-medium'>
               © 2025 BHH Affiliates, LLC.
             </p>
-            <p className='text-gray-600 text-sm mb-4'>
+            <p className='text-gray-700 text-base mb-4 leading-relaxed max-w-4xl mx-auto'>
               Real Estate Brokerage Services are offered through the network
               member franchisees of BHH Affiliates, LLC. Most franchisees are
               independently owned and operated. Berkshire Hathaway HomeServices
@@ -181,7 +248,7 @@ export function Footer() {
               marks of Columbia Insurance Company, a Berkshire Hathaway
               affiliate.
             </p>
-            <p className='text-gray-600 text-sm flex items-center justify-center'>
+            <p className='text-gray-700 text-base flex items-center justify-center font-medium'>
               Equal Housing Opportunity
             </p>
           </div>
@@ -190,15 +257,15 @@ export function Footer() {
         {/* Company Info */}
         <div className='border-t border-gray-200 py-4'>
           <div className='text-center'>
-            <p className='text-gray-600 text-sm mb-2'>
+            <p className='text-gray-700 text-base mb-2 leading-relaxed max-w-4xl mx-auto'>
               BHH Affiliates, LLC is a Delaware limited liability company. Its
               principal office is located at 18500 Von Karman Ave, Suite 400,
               Irvine, California 92612 USA.
             </p>
-            <p className='text-gray-600 text-sm'>
+            <p className='text-gray-700 text-base'>
               <Link
                 href='/do-not-sell'
-                className='text-blue-600 hover:text-blue-800 transition-colors'
+                className='text-blue-600 hover:text-blue-800 transition-colors font-medium'
               >
                 Do Not Sell My Personal Information
               </Link>
@@ -223,6 +290,11 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <ConsultationModal
+        isOpen={isConsultModalOpen}
+        onClose={() => setIsConsultModalOpen(false)}
+        source="footer"
+      />
     </footer>
   );
 }

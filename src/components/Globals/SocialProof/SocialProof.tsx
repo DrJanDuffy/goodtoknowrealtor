@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface SocialProofItem {
   id: string;
@@ -77,17 +78,17 @@ export function SocialProof() {
           <div className='flex-shrink-0'>
             {currentItem.type === 'sale' && (
               <div className='w-8 h-8 bg-green-100 rounded-full flex items-center justify-center'>
-                <span className='text-green-600 text-sm'>🏠</span>
+                <IconSymbol symbol='🏠' className='h-4 w-4 text-green-600' ariaLabel='Recent sale' />
               </div>
             )}
             {currentItem.type === 'client' && (
               <div className='w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center'>
-                <span className='text-blue-600 text-sm'>👥</span>
+                <IconSymbol symbol='👥' className='h-4 w-4 text-blue-600' ariaLabel='New client' />
               </div>
             )}
             {currentItem.type === 'review' && (
               <div className='w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center'>
-                <span className='text-yellow-600 text-sm'>⭐</span>
+                <IconSymbol symbol='⭐' className='h-4 w-4 text-yellow-600' ariaLabel='New review' />
               </div>
             )}
           </div>
@@ -119,9 +120,10 @@ export function SocialProof() {
         <div className='mt-3 pt-3 border-t border-gray-100'>
           <Link
             href='/listings'
-            className='text-xs text-blue-600 hover:text-blue-700 font-medium'
+            className='text-xs text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-1'
           >
-            View active listings →
+            <span>View active listings</span>
+            <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
           </Link>
         </div>
       </div>

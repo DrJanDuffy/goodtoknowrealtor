@@ -1,4 +1,10 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
+import { PageHero } from '@/components/ui/PageHero';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
@@ -345,7 +351,7 @@ export default function BuyingUpdatesPage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='bg-gray-50 rounded-2xl p-8 text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <span className='text-2xl'>📊</span>
+                <IconSymbol symbol='📊' className='text-2xl text-blue-600' ariaLabel='Market trends icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-4'>
                 Market Reports
@@ -363,7 +369,7 @@ export default function BuyingUpdatesPage() {
 
             <div className='bg-gray-50 rounded-2xl p-8 text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <span className='text-2xl'>📝</span>
+                <IconSymbol symbol='📋' className='text-2xl text-blue-600' ariaLabel='Checklist icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-4'>
                 Blog & Insights
@@ -381,7 +387,7 @@ export default function BuyingUpdatesPage() {
 
             <div className='bg-gray-50 rounded-2xl p-8 text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <span className='text-2xl'>🏘️</span>
+                <IconSymbol symbol='🏘️' className='text-2xl text-blue-600' ariaLabel='Neighborhood icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-4'>
                 Property Search

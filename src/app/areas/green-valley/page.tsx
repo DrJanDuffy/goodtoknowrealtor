@@ -1,5 +1,8 @@
 import { Metadata } from 'next';
+import { SEO_CONFIG } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
 import Image from 'next/image';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
   title: 'Green Valley Real Estate | Dr. Janet Duffy - Premier Good To Know REALTOR®',
@@ -10,39 +13,34 @@ export const metadata: Metadata = {
     description: 'Find your dream home in Green Valley with Premier Good To Know REALTOR® Dr. Janet Duffy.',
     images: ['/images/green-valley-real-estate-og.jpg'],
   },
+  alternates: {
+    canonical: `${SEO_CONFIG.siteUrl}/areas/green-valley`,
+  },
 };
 
 export default function GreenValleyPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80')] bg-cover bg-center opacity-20"></div>
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Green Valley Real Estate
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Discover luxury living in Green Valley, Henderson&apos;s premier master-planned community
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/listings?area=green-valley" 
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                View Green Valley Listings
-              </a>
-              <a 
-                href="/contact" 
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors"
-              >
-                Get Free Consultation
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Green Valley Real Estate'
+        subtitle={"Discover luxury living in Green Valley, Henderson's premier master-planned community"}
+        gradientFromClassName='from-blue-900'
+        gradientToClassName='to-blue-800'
+      >
+        <a 
+          href='/listings#advanced-search' 
+          className='bg-white text-blue-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg'
+        >
+          View Green Valley Listings
+        </a>
+        <a 
+          href='/contact' 
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-800 transition-colors duration-200'
+        >
+          Get Free Consultation
+        </a>
+      </PageHero>
 
       {/* About Green Valley */}
       <section className="py-20 bg-white">
@@ -60,27 +58,19 @@ export default function GreenValleyPage() {
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Championship golf courses and country club living</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Upscale shopping at Green Valley Ranch and District</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Top-rated schools and family-friendly amenities</span>
                 </li>
                 <li className="flex items-center">
-                  <svg className="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+                  <IconSymbol symbol='✓' className="text-green-500 mr-3 h-5 w-5" ariaLabel='Highlight' />
                   <span className="text-gray-700">Luxury homes with mountain and golf course views</span>
                 </li>
               </ul>

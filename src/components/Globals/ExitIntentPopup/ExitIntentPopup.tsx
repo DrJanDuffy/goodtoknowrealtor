@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 interface ExitIntentPopupProps {
   onClose: () => void;
@@ -97,15 +98,15 @@ export function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
           aria-label="Close popup"
         >
-          ✕
+          <IconSymbol symbol='✕' className='h-5 w-5' ariaLabel='Close' />
         </button>
 
         {/* Header */}
         <div className="text-center mb-6">
-          <div className="text-4xl mb-4">🏠</div>
+          <IconSymbol symbol='🏠' className='mx-auto mb-4 h-12 w-12 text-blue-600' ariaLabel='Home icon' />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
             Wait! Don't Miss Out on Your Dream Home
           </h2>
@@ -188,9 +189,18 @@ export function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
         {/* Trust Indicators */}
         <div className="mt-6 text-center">
           <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
-            <span>✓ Free Consultation</span>
-            <span>✓ No Obligation</span>
-            <span>✓ Expert Guidance</span>
+            <span className='inline-flex items-center gap-2'>
+              <IconSymbol symbol='✓' className='h-4 w-4 text-green-600' ariaLabel='Free consultation' />
+              Free Consultation
+            </span>
+            <span className='inline-flex items-center gap-2'>
+              <IconSymbol symbol='✓' className='h-4 w-4 text-green-600' ariaLabel='No obligation' />
+              No Obligation
+            </span>
+            <span className='inline-flex items-center gap-2'>
+              <IconSymbol symbol='✓' className='h-4 w-4 text-green-600' ariaLabel='Expert guidance' />
+              Expert Guidance
+            </span>
           </div>
           <p className="text-xs text-gray-400 mt-2">
             Dr. Jan Duffy • Top 1% Las Vegas Agent • $127M+ Sales Volume

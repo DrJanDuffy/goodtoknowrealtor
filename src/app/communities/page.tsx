@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
+import { SEO_CONFIG } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { PageHero } from '@/components/ui/PageHero';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Communities | Dr. Janet Duffy Group',
@@ -11,6 +13,10 @@ export const metadata: Metadata = generatePageMetadata({
   url: '/communities',
   image: '/images/las-vegas-communities-og.jpg',
 });
+
+export const revalidate = 86400;
+
+export const alternates = { canonical: `${SEO_CONFIG.siteUrl}/communities` } as const;
 
 export default function CommunitiesPage() {
   const breadcrumbs = generateBreadcrumbSchema([
@@ -99,18 +105,10 @@ export default function CommunitiesPage() {
         </div>
 
         {/* Hero Section */}
-        <section className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 lg:py-20'>
-          <div className='container mx-auto px-4'>
-            <div className='max-w-4xl mx-auto text-center'>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                Las Vegas Communities
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 leading-relaxed'>
-                Discover the perfect Las Vegas neighborhood for your lifestyle. From luxury Summerlin to family-friendly Henderson.
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Las Vegas Communities'
+          subtitle='Discover the perfect Las Vegas neighborhood for your lifestyle. From luxury Summerlin to family-friendly Henderson.'
+        />
 
         {/* Communities Grid */}
         <section className='py-16 bg-gray-50'>
@@ -125,7 +123,7 @@ export default function CommunitiesPage() {
                   <Link
                     key={community.id}
                     href={community.href}
-                    className='group block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1'
+                    className='group block card overflow-hidden hover:-translate-y-1'
                   >
                     <div className='relative h-48'>
                       <Image

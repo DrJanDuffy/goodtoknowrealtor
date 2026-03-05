@@ -2,11 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 interface SmartCTAProps {
   location: 'hero' | 'sidebar' | 'footer' | 'inline';
   variant?: 'primary' | 'secondary' | 'urgent';
   className?: string;
+}
+
+interface CTAConfig {
+  text: string;
+  href: string;
+  icon: IconSymbolKey;
 }
 
 const ctaVariants = {
@@ -15,7 +22,7 @@ const ctaVariants = {
   urgent: 'bg-red-600 hover:bg-red-700 text-white animate-pulse'
 };
 
-const ctaContent = {
+const ctaContent: Record<SmartCTAProps['location'], Record<string, CTAConfig>> = {
   hero: {
     default: {
       text: 'Get Started Today',
@@ -158,7 +165,7 @@ export function SmartCTA({ location, variant = 'primary', className = '' }: Smar
         ${className}
       `}
     >
-      <span className='mr-2'>{currentCTA.icon}</span>
+      <IconSymbol symbol={currentCTA.icon} className='mr-2 h-4 w-4' ariaLabel={currentCTA.text} />
       <span>{currentCTA.text}</span>
     </Link>
   );

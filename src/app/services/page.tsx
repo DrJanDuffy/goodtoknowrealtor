@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.services.title,
@@ -16,7 +18,13 @@ export default function ServicesPage() {
     { name: 'Real Estate Services', url: '/services' },
   ]);
 
-  const services = [
+  const services: Array<{
+    title: string;
+    description: string;
+    href: string;
+    icon: IconSymbolKey;
+    details: string;
+  }> = [
     {
       title: 'Buying a Home',
       description: 'Expert guidance through the entire home buying process in Las Vegas.',
@@ -65,18 +73,10 @@ export default function ServicesPage() {
       />
       <div className='min-h-screen bg-gray-50'>
         {/* Hero Section */}
-        <section className='bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white py-16 lg:py-20'>
-          <div className='container mx-auto px-4'>
-            <div className='text-center max-w-4xl mx-auto'>
-              <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-                Comprehensive Real Estate Services in Las Vegas
-              </h1>
-              <p className='text-xl lg:text-2xl text-blue-100 leading-relaxed'>
-                Dr. Jan Duffy delivers exceptional real estate solutions with $127M+ in sales volume and 20+ years of Las Vegas market expertise
-              </p>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Comprehensive Real Estate Services in Las Vegas'
+          subtitle='Dr. Jan Duffy delivers exceptional real estate solutions with $127M+ in sales volume and 20+ years of Las Vegas market expertise'
+        />
 
         {/* Services Overview */}
         <section className='py-16 bg-white'>
@@ -126,9 +126,9 @@ export default function ServicesPage() {
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
               {services.map((service, index) => (
-                <div key={index} className='bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300'>
+                <div key={index} className='card p-8'>
                   <div className='flex items-start mb-6'>
-                    <div className='text-4xl mr-4'>{service.icon}</div>
+                    <IconSymbol symbol={service.icon} className='h-10 w-10 mr-4 text-blue-600' ariaLabel={service.title} />
                     <div>
                       <h3 className='text-2xl font-bold text-gray-900 mb-3'>
                         {service.title}
@@ -143,9 +143,10 @@ export default function ServicesPage() {
                   </p>
                   <Link
                     href={service.href}
-                    className='inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors'
+                    className='inline-flex items-center gap-2'
                   >
-                    Learn More →
+                    <span>Learn More</span>
+                    <IconSymbol symbol='→' className='h-4 w-4' ariaLabel='Arrow right' />
                   </Link>
                 </div>
               ))}
@@ -166,7 +167,7 @@ export default function ServicesPage() {
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-              <div className='bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>First-Time Buyer Programs</h3>
                 <p className='text-gray-600 mb-4'>
                   Comprehensive guidance for first-time home buyers including down payment assistance programs, first-time buyer incentives, and step-by-step process education.
@@ -178,7 +179,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Luxury Property Marketing</h3>
                 <p className='text-gray-600 mb-4'>
                   Discreet marketing strategies for high-end properties including luxury staging, professional photography, and targeted marketing to qualified buyers.
@@ -190,7 +191,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Investment Analysis</h3>
                 <p className='text-gray-600 mb-4'>
                   Detailed ROI analysis, market trend evaluation, and portfolio building strategies for real estate investors.
@@ -202,7 +203,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Relocation Services</h3>
                 <p className='text-gray-600 mb-4'>
                   Complete relocation assistance for families and individuals moving to Las Vegas, including neighborhood research and school district information.
@@ -214,7 +215,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Divorce Real Estate</h3>
                 <p className='text-gray-600 mb-4'>
                   Sensitive handling of real estate transactions during divorce proceedings, ensuring fair market value and smooth transitions.
@@ -226,7 +227,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className='bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6'>
+              <div className='card p-6'>
                 <h3 className='text-xl font-bold text-gray-900 mb-4'>Estate Planning</h3>
                 <p className='text-gray-600 mb-4'>
                   Assistance with real estate aspects of estate planning, including property transfers and inheritance considerations.
@@ -312,7 +313,11 @@ export default function ServicesPage() {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
               <div className='bg-gray-50 rounded-xl p-6'>
                 <div className='flex items-center mb-4'>
-                  <div className='text-yellow-400 text-xl'>★★★★★</div>
+                  <div className='flex text-yellow-400 text-xl'>
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className='text-gray-700 mb-4 italic'>
                   "Dr. Duffy's expertise in luxury properties is unmatched. She sold our Summerlin estate for $50K above asking price in just 12 days."
@@ -323,7 +328,11 @@ export default function ServicesPage() {
 
               <div className='bg-gray-50 rounded-xl p-6'>
                 <div className='flex items-center mb-4'>
-                  <div className='text-yellow-400 text-xl'>★★★★★</div>
+                  <div className='flex text-yellow-400 text-xl'>
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className='text-gray-700 mb-4 italic'>
                   "As first-time buyers, we were nervous about the process. Dr. Duffy guided us through every step and found us the perfect home."
@@ -334,7 +343,11 @@ export default function ServicesPage() {
 
               <div className='bg-gray-50 rounded-xl p-6'>
                 <div className='flex items-center mb-4'>
-                  <div className='text-yellow-400 text-xl'>★★★★★</div>
+                  <div className='flex text-yellow-400 text-xl'>
+                    {[...Array(5)].map((_, i) => (
+                      <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                    ))}
+                  </div>
                 </div>
                 <p className='text-gray-700 mb-4 italic'>
                   "Dr. Duffy helped us build a portfolio of 5 investment properties. Her market knowledge and negotiation skills are incredible."

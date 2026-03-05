@@ -289,6 +289,11 @@ export function calculateScore(answers: Record<string, string>): number {
   return Math.round((totalPoints / maxPoints) * 100);
 }
 
+export interface AssessmentInsight {
+  icon: string;
+  text: string;
+}
+
 // Results interpretation
 export function getResultsData(score: number, answers: Record<string, string>) {
   if (score >= 0 && score <= 40) {
@@ -297,7 +302,7 @@ export function getResultsData(score: number, answers: Record<string, string>) {
       color: 'red',
       title: 'Building Your Foundation',
       message: 'You have strong motivation, but there are some key areas to address before you\'re ready to buy.',
-      emoji: '🏗️',
+      icon: '🏗️',
       nextStepTitle: 'Your Next Step',
       nextStepDescription: 'Download our comprehensive First-Time Buyer Guide and join our weekly email series to build your readiness.',
       ctaText: 'Get Your Free Guide',
@@ -310,7 +315,7 @@ export function getResultsData(score: number, answers: Record<string, string>) {
       color: 'yellow',
       title: 'You\'re On the Right Track',
       message: 'You\'ve made good progress and have a solid foundation. With some focused effort, you\'ll be ready soon.',
-      emoji: '🎯',
+      icon: '🎯',
       nextStepTitle: 'Your Next Step',
       nextStepDescription: 'Join our monthly First-Time Buyer Workshop to address your remaining questions and get personalized guidance.',
       ctaText: 'Reserve Your Workshop Spot',
@@ -323,7 +328,7 @@ export function getResultsData(score: number, answers: Record<string, string>) {
       color: 'green',
       title: 'Congratulations - You\'re Ready!',
       message: 'You\'ve done your homework and are well-prepared to start your home search. Let\'s find your perfect Vegas home!',
-      emoji: '🎉',
+      icon: '🎉',
       nextStepTitle: 'Your Next Step',
       nextStepDescription: 'Schedule a one-on-one property tour with Dr. Janet Duffy. We\'ll show you homes that match your criteria.',
       ctaText: 'Schedule Property Tour',
@@ -335,53 +340,53 @@ export function getResultsData(score: number, answers: Record<string, string>) {
 }
 
 // Generate personalized insights based on answers
-export function generateInsights(answers: Record<string, string>, score: number): string[] {
-  const insights: string[] = [];
+export function generateInsights(answers: Record<string, string>, score: number): AssessmentInsight[] {
+  const insights: AssessmentInsight[] = [];
 
   // Credit score insight
   const creditScore = answers['credit-score'];
   if (creditScore === '700-plus') {
-    insights.push('✅ Excellent credit score - you\'ll qualify for the best mortgage rates');
+    insights.push({ icon: '✅', text: 'Excellent credit score - you\'ll qualify for the best mortgage rates' });
   } else if (creditScore === '660-699' || creditScore === '620-659') {
-    insights.push('⚠️ Good credit, but improving to 700+ could save you thousands in interest');
+    insights.push({ icon: '⚠️', text: 'Good credit, but improving to 700+ could save you thousands in interest' });
   } else if (creditScore === 'unknown') {
-    insights.push('❗ Check your credit score ASAP - it\'s crucial for mortgage approval');
+    insights.push({ icon: '❗', text: 'Check your credit score ASAP - it\'s crucial for mortgage approval' });
   } else {
-    insights.push('❗ Credit score needs work - we can connect you with credit repair resources');
+    insights.push({ icon: '❗', text: 'Credit score needs work - we can connect you with credit repair resources' });
   }
 
   // Down payment insight
   const downPayment = answers['down-payment'];
   if (downPayment === '60k-plus' || downPayment === '30k-60k') {
-    insights.push('✅ Strong down payment savings - you have excellent buying power');
+    insights.push({ icon: '✅', text: 'Strong down payment savings - you have excellent buying power' });
   } else if (downPayment === '15k-30k') {
-    insights.push('💡 You\'re on track! Nevada has programs to help with down payment assistance');
+    insights.push({ icon: '💡', text: 'You\'re on track! Nevada has programs to help with down payment assistance' });
   } else {
-    insights.push('💰 Focus on saving - we can show you down payment assistance programs');
+    insights.push({ icon: '💰', text: 'Focus on saving - we can show you down payment assistance programs' });
   }
 
   // Market knowledge insight
   const marketKnowledge = answers['market-knowledge'];
   if (marketKnowledge === 'very-familiar') {
-    insights.push('✅ Great market knowledge - you understand Vegas real estate trends');
+    insights.push({ icon: '✅', text: 'Great market knowledge - you understand Vegas real estate trends' });
   } else if (marketKnowledge === 'not-familiar') {
-    insights.push('📚 Market knowledge gap - understanding trends helps you make better offers');
+    insights.push({ icon: '📚', text: 'Market knowledge gap - understanding trends helps you make better offers' });
   }
 
   // Neighborhood insight
   const neighborhoodResearch = answers['neighborhood-research'];
   if (neighborhoodResearch === 'yes-specific') {
-    insights.push('✅ You know where you want to live - that focus will speed up your search');
+    insights.push({ icon: '✅', text: 'You know where you want to live - that focus will speed up your search' });
   } else if (neighborhoodResearch === 'need-guidance') {
-    insights.push('🗺️ Take our Neighborhood Match Quiz to find your perfect Vegas community');
+    insights.push({ icon: '🗺️', text: 'Take our Neighborhood Match Quiz to find your perfect Vegas community' });
   }
 
   // Pre-approval insight
   const preApproval = answers['pre-approval'];
   if (preApproval === 'yes') {
-    insights.push('✅ Pre-approved and ready - sellers will take your offers seriously');
+    insights.push({ icon: '✅', text: 'Pre-approved and ready - sellers will take your offers seriously' });
   } else {
-    insights.push('🎯 Getting pre-approved is your #1 priority - it shows you\'re serious');
+    insights.push({ icon: '🎯', text: 'Getting pre-approved is your #1 priority - it shows you\'re serious' });
   }
 
   // Return top 3 insights

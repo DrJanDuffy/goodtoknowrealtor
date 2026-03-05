@@ -177,7 +177,40 @@ const nextConfig = {
           destination: 'https://www.goodtoknowrealtor.com/:path*',
           permanent: true,
         },
+        // Force non-www to www (HTTPS)
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'goodtoknowrealtor.com',
+            },
+          ],
+          destination: 'https://www.goodtoknowrealtor.com/:path*',
+          permanent: true,
+        },
       ] : []),
+      // Legacy/invalid paths → current routes
+      {
+        source: '/listings/search',
+        destination: '/listings',
+        permanent: true,
+      },
+      {
+        source: '/listings/search/:path*',
+        destination: '/listings',
+        permanent: true,
+      },
+      {
+        source: '/&',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/$',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
 

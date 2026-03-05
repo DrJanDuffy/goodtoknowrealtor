@@ -1,8 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { AssessmentCTA } from '@/components/blog/AssessmentCTA';
 import { HomeValueWidget } from '@/components/Home/HomeValueWidget';
+import { PageHero } from '@/components/ui/PageHero';
+import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
+import { SEO_CONFIG } from '@/lib/seo';
+import { Metadata } from 'next';
+import { IconSymbol } from '@/components/ui/IconSymbol';
+
+export const metadata: Metadata = {
+  alternates: { canonical: `${SEO_CONFIG.siteUrl}/selling` },
+};
 
 export default function SellingPage() {
   return (
@@ -15,19 +26,20 @@ export default function SellingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-              Sell Your Las Vegas Home for Maximum Value
-            </h1>
-            <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Expert marketing, strategic pricing, and proven negotiation skills
-              to help you achieve the best possible outcome in today&apos;s market.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Sell Your Luxury Las Vegas Home for Maximum Value'
+        subtitle={'Discreet marketing, luxury staging expertise, and strategic negotiation to maximize your property&apos;s value in today&apos;s market. White-glove service from $127M+ sales expert.'}
+        gradientFromClassName='from-amber-600'
+        gradientToClassName='to-yellow-600'
+      >
+        <ConsultationCTA variant='primary' source='selling-page-hero' showPhone={false} className='bg-white text-amber-900 hover:bg-amber-50 border-2 border-white' />
+        <Link
+          href='/home-value'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-900 transition-colors duration-200'
+        >
+          Get Luxury Home Valuation
+        </Link>
+      </PageHero>
 
       {/* Home Value Widget */}
       <section className='py-16 bg-white'>
@@ -35,13 +47,13 @@ export default function SellingPage() {
           <div className='max-w-4xl mx-auto'>
             <div className='text-center mb-12'>
               <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
-                Get Your Home's Current Value
+                Get Your Home&apos;s Current Value
               </h2>
               <p className='text-xl text-gray-600'>
-                Find out what your Las Vegas home is worth in today's market
+                Find out what your Las Vegas home is worth in today&apos;s market
               </p>
             </div>
-            <div className='bg-gray-50 rounded-2xl p-8'>
+            <div className='card p-8'>
               <HomeValueWidget />
             </div>
           </div>
@@ -135,9 +147,9 @@ export default function SellingPage() {
         <div className='container'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Tips For Sellers */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>💡</span>
+                <IconSymbol symbol='💡' className='text-2xl text-amber-600' ariaLabel='Tip icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Tips For Sellers
@@ -154,14 +166,14 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/selling/tips'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Home Value Report */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
@@ -186,7 +198,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/selling/valuation'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Get Your Report
  →
@@ -194,9 +206,9 @@ export default function SellingPage() {
             </div>
 
             {/* Market Activity */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>📈</span>
+                <IconSymbol symbol='📈' className='text-2xl text-emerald-600' ariaLabel='Growth icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Market Activity
@@ -213,7 +225,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/selling/market'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 View Market Data
  →
@@ -221,9 +233,9 @@ export default function SellingPage() {
             </div>
 
             {/* Professional Photography */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>📸</span>
+                <IconSymbol symbol='📸' className='text-2xl text-blue-600' ariaLabel='Photography icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Professional Photography
@@ -240,7 +252,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/contact'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Schedule Photography
  →
@@ -248,9 +260,9 @@ export default function SellingPage() {
             </div>
 
             {/* Staging Services */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>🏡</span>
+                <IconSymbol symbol='🏡' className='text-2xl text-amber-600' ariaLabel='Home icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Staging Services
@@ -267,16 +279,16 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/contact'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Learn More →
               </Link>
             </div>
 
             {/* Marketing Strategy */}
-            <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300'>
+            <div className='card p-8'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6'>
-                <span className='text-2xl'>📢</span>
+                <IconSymbol symbol='📢' className='text-2xl text-rose-500' ariaLabel='Marketing icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Marketing Strategy
@@ -293,7 +305,7 @@ export default function SellingPage() {
               </ul>
               <Link
                 href='/contact'
-                className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                className='btn btn-outline'
               >
                 Get Started
  →
@@ -369,8 +381,8 @@ export default function SellingPage() {
             <div className='bg-white rounded-2xl p-8 shadow-lg'>
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className='text-lg'>★</span>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='text-lg text-yellow-400' ariaLabel='Star rating' />
                   ))}
                 </div>
               </div>
@@ -395,8 +407,8 @@ export default function SellingPage() {
             <div className='bg-white rounded-2xl p-8 shadow-lg'>
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className='text-lg'>★</span>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='text-lg text-yellow-400' ariaLabel='Star rating' />
                   ))}
                 </div>
               </div>
@@ -421,8 +433,8 @@ export default function SellingPage() {
             <div className='bg-white rounded-2xl p-8 shadow-lg'>
               <div className='flex items-center mb-4'>
                 <div className='flex text-amber-400'>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className='text-lg'>★</span>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='text-lg text-yellow-400' ariaLabel='Star rating' />
                   ))}
                 </div>
               </div>
@@ -445,37 +457,65 @@ export default function SellingPage() {
         </div>
       </section>
 
+      {/* Luxury Marketing Services Section */}
+      <section className='py-16 bg-white'>
+        <div className='container'>
+          <div className='max-w-4xl mx-auto'>
+            <div className='text-center mb-12'>
+              <h2 className='text-3xl lg:text-4xl font-bold text-gray-900 mb-4'>
+                Luxury Marketing & Exclusive Services
+              </h2>
+              <p className='text-xl text-gray-700 font-medium'>
+                Premium marketing strategies tailored for high-end properties in today&apos;s competitive market
+              </p>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
+              <div className='card p-8 bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200'>
+                <div className='w-16 h-16 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl mb-6'>
+                  🔒
+                </div>
+                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Discreet Marketing</h3>
+                <p className='text-gray-700 mb-4'>
+                  Confidential listing strategies for high-profile properties. Private showings and targeted marketing to qualified luxury buyers.
+                </p>
+                <ul className='space-y-2 text-gray-600 mb-6'>
+                  <li>• Private, invitation-only showings</li>
+                  <li>• Confidential transaction handling</li>
+                  <li>• Exclusive buyer network access</li>
+                </ul>
+              </div>
+              <div className='card p-8 bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200'>
+                <div className='w-16 h-16 bg-amber-600 text-white rounded-full flex items-center justify-center text-2xl mb-6'>
+                  💎
+                </div>
+                <h3 className='text-2xl font-bold text-gray-900 mb-4'>Luxury Staging</h3>
+                <p className='text-gray-700 mb-4'>
+                  Professional staging with high-end furnishings to showcase your property&apos;s potential and maximize buyer appeal.
+                </p>
+                <ul className='space-y-2 text-gray-600 mb-6'>
+                  <li>• Designer staging consultation</li>
+                  <li>• Premium furniture placement</li>
+                  <li>• Virtual staging options</li>
+                </ul>
+              </div>
+            </div>
+            <div className='text-center'>
+              <ConsultationCTA variant='primary' source='selling-luxury-marketing' showPhone={true} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className='py-20 bg-gradient-to-r from-amber-600 to-yellow-600 text-white'>
         <div className='container text-center'>
           <h2 className='text-3xl lg:text-4xl font-bold mb-6'>
-            Ready to Sell Your Home?
+            Maximize Your Home&apos;s Value with Luxury Marketing
           </h2>
-          <p className='text-xl text-amber-100 mb-8 max-w-3xl mx-auto'>
-            Get a free home valuation and discover how much your Las Vegas home
-            is worth in today&apos;s market.
+          <p className='text-xl text-white/95 mb-8 max-w-3xl mx-auto font-medium'>
+            Schedule a private consultation to discuss discreet marketing strategies, luxury staging, and strategic pricing to maximize your property&apos;s value in today&apos;s market.
           </p>
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-            <Link
-              href='tel:702-222-1964'
-              className='bg-white text-amber-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-50 transition-colors duration-200 shadow-lg'
-            >
-              <Image
-                src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=24&h=24&q=80'
-                alt='Phone'
-                width={24}
-                height={24}
-                className='inline-block w-6 h-6 mr-2'
-              />{' '}
-              Call (702) 222-1964
-            </Link>
-            <Link
-              href='/selling/valuation'
-              className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-800 transition-colors duration-200'
-            >
-              Get Free Valuation
-            </Link>
-          </div>
+          <ConsultationCTA variant='white' source='selling-page-cta' />
         </div>
       </section>
     </div>

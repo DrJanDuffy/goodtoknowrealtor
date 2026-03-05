@@ -75,19 +75,19 @@ export default function BuyerReadinessAssessmentPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+              <div className="text-center card p-6">
                 <div className="text-4xl mb-4">📊</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Readiness Score</h3>
                 <p className="text-gray-600">Get a comprehensive score based on your financial readiness, timeline, and preferences</p>
               </div>
               
-              <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+              <div className="text-center card p-6">
                 <div className="text-4xl mb-4">🎯</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Personalized Recommendations</h3>
                 <p className="text-gray-600">Receive specific advice tailored to your situation and goals</p>
               </div>
               
-              <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+              <div className="text-center card p-6">
                 <div className="text-4xl mb-4">📋</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Action Plan</h3>
                 <p className="text-gray-600">Get a step-by-step plan to prepare for your home purchase</p>
@@ -108,13 +108,13 @@ export default function BuyerReadinessAssessmentPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:702-222-1964"
-                className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+                className="btn btn-primary"
               >
                 Call (702) 222-1964
               </a>
               <a
                 href="mailto:jan@goodtoknowrealtor.com"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-colors"
+                className="btn btn-outline"
               >
                 Email Dr. Jan Duffy
               </a>

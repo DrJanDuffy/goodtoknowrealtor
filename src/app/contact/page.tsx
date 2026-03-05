@@ -1,7 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PAGE_SEO, generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: PAGE_SEO.contact.title,
@@ -28,20 +34,10 @@ export default function ContactPage() {
       />
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 px-4'>
-              Contact Dr. Janet Duffy
-            </h1>
-            <p className='text-lg sm:text-xl lg:text-2xl text-amber-100 leading-relaxed px-4'>
-              Ready to start your Las Vegas real estate journey? I&apos;m here to
-              help you achieve your property goals with personalized service and
-              expert guidance.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Contact Dr. Janet Duffy'
+        subtitle={"Ready to start your Las Vegas real estate journey? I'm here to help you achieve your property goals with personalized service and expert guidance."}
+      />
 
       {/* Contact Methods */}
       <section className='py-20'>
@@ -57,7 +53,7 @@ export default function ContactPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16'>
             {/* Phone */}
-            <div className='bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300'>
+            <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
                 <Image
                   src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=48&h=48&q=80'
@@ -75,16 +71,16 @@ export default function ContactPage() {
               </p>
               <Link
                 href='tel:702-222-1964'
-                className='inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
+                className='btn btn-primary'
               >
                 (702) 222-1964
               </Link>
             </div>
 
             {/* Email */}
-            <div className='bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300'>
+            <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <span className='text-3xl'>✉️</span>
+                <IconSymbol symbol='📧' className='text-3xl text-blue-600' ariaLabel='Email icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Send an Email
@@ -94,16 +90,16 @@ export default function ContactPage() {
               </p>
               <Link
                 href='mailto:janet@goodtoknowrealtor.com'
-                className='inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
+                className='btn btn-primary'
               >
                 Send Email
               </Link>
             </div>
 
             {/* Text Message */}
-            <div className='bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow duration-300'>
+            <div className='card p-8 text-center'>
               <div className='w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <span className='text-3xl'>💬</span>
+                <IconSymbol symbol='💬' className='text-3xl text-blue-600' ariaLabel='Chat icon' />
               </div>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 Text Message
@@ -113,7 +109,7 @@ export default function ContactPage() {
               </p>
               <Link
                 href='sms:702-222-1964'
-                className='inline-flex items-center bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200'
+                className='btn btn-primary'
               >
                 Send Text
               </Link>
@@ -135,13 +131,13 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className='bg-gray-50 rounded-2xl p-8 shadow-lg'>
+            <div className='card p-8'>
               <form className='space-y-6' role='form' aria-label='Contact form'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <div>
                     <label
                       htmlFor='firstName'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       First Name *
                     </label>
@@ -159,7 +155,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor='lastName'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       Last Name *
                     </label>
@@ -180,7 +176,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor='email'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       Email Address *
                     </label>
@@ -198,7 +194,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor='phone'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-base font-semibold text-gray-900 mb-2'
                     >
                       Phone Number
                     </label>
@@ -209,7 +205,7 @@ export default function ContactPage() {
                       aria-describedby='phone-help'
                       className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-h-[44px] text-base'
                     />
-                    <div id='phone-help' className='text-sm text-gray-500 mt-1'>Optional - Include for faster response</div>
+                    <div id='phone-help' className='text-sm text-gray-600 mt-1'>Optional - Include for faster response</div>
                   </div>
                 </div>
 
@@ -312,13 +308,13 @@ export default function ContactPage() {
 
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
             <div>
-              <div className='bg-white rounded-2xl p-8 shadow-lg'>
+              <div className='card p-8'>
                 <h3 className='text-2xl font-bold text-gray-900 mb-6'>
                   Office Location
                 </h3>
                 <div className='space-y-4'>
                   <div className='flex items-start'>
-                    <span className='text-amber-600 mr-4 mt-1'>📍</span>
+                    <IconSymbol symbol='📍' className='text-amber-600 mr-4 mt-1 h-5 w-5' ariaLabel='Location icon' />
                     <div>
                       <p className='font-semibold text-gray-900'>
                         Dr. Janet Duffy Real Estate
@@ -331,7 +327,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className='flex items-start'>
-                    <span className='text-amber-600 mr-4 mt-1'>🕒</span>
+                    <IconSymbol symbol='⏱️' className='text-amber-600 mr-4 mt-1 h-5 w-5' ariaLabel='Clock icon' />
                     <div>
                       <p className='font-semibold text-gray-900'>
                         Office Hours
@@ -367,7 +363,7 @@ export default function ContactPage() {
                 <div className='mt-8'>
                   <Link
                     href='/about'
-                    className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                    className='btn btn-outline'
                   >
                     Learn More About My Services
                     <svg
@@ -417,7 +413,7 @@ export default function ContactPage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🏘️</span>
+                <IconSymbol symbol='🏘️' className='text-2xl text-blue-600' ariaLabel='Neighborhood icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 Summerlin
@@ -443,7 +439,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🏢</span>
+                <IconSymbol symbol='🏢' className='text-2xl text-blue-600' ariaLabel='Commercial icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 North Las Vegas
@@ -453,7 +449,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🌆</span>
+                <IconSymbol symbol='🏙️' className='text-2xl text-blue-600' ariaLabel='Downtown icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 Downtown Las Vegas
@@ -463,7 +459,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🏡</span>
+                <IconSymbol symbol='🏡' className='text-2xl text-blue-600' ariaLabel='Suburban icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 Southwest Valley
@@ -473,7 +469,7 @@ export default function ContactPage() {
 
             <div className='text-center'>
               <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4'>
-                <span className='text-2xl'>🌵</span>
+                <IconSymbol symbol='🌱' className='text-2xl text-blue-600' ariaLabel='Desert icon' />
               </div>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 All Las Vegas Valley
@@ -512,7 +508,10 @@ export default function ContactPage() {
               href='sms:702-222-1964'
               className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-800 transition-colors duration-200'
             >
-              💬 Send Text
+              <span className='inline-flex items-center gap-2'>
+                <IconSymbol symbol='💬' className='h-5 w-5' ariaLabel='Chat icon' />
+                Send Text
+              </span>
             </Link>
           </div>
         </div>

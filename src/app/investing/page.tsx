@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { InvestmentListings } from '@/components/Home/InvestmentListings';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { PageHero } from '@/components/ui/PageHero';
+import { IconSymbol, type IconSymbolKey } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Las Vegas Real Estate Investment | Dr. Jan Duffy - Investment Expert',
@@ -143,33 +145,31 @@ export default function InvestingPage() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-green-900 to-emerald-800 text-white py-20">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container relative">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Las Vegas Real Estate Investment
-              </h1>
-              <p className="text-xl lg:text-2xl text-green-100 leading-relaxed mb-8">
-                Build wealth through strategic real estate investments with Dr. Jan Duffy, Top 1% Las Vegas agent with proven investment expertise
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="bg-white text-green-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors"
-                >
-                  Schedule Investment Consultation
-                </Link>
-                <Link
-                  href="tel:702-222-1964"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-800 transition-colors"
-                >
-                  Call (702) 222-1964
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PageHero
+          title='Las Vegas Real Estate Investment'
+          subtitle='Build wealth through strategic real estate investments with Dr. Jan Duffy, Top 1% Las Vegas agent with proven investment expertise'
+          gradientFromClassName='from-green-900'
+          gradientToClassName='to-emerald-800'
+        >
+          <Link
+            href='/contact'
+            className='bg-white text-green-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors'
+          >
+            <span className='inline-flex items-center gap-2'>
+              Schedule Investment Consultation
+              <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+            </span>
+          </Link>
+          <Link
+            href='tel:702-222-1964'
+            className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-800 transition-colors'
+          >
+            <span className='inline-flex items-center gap-2'>
+              <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+              Call (702) 222-1964
+            </span>
+          </Link>
+        </PageHero>
 
         {/* Why Invest in Las Vegas */}
         <section className="py-16 bg-white">
@@ -185,25 +185,25 @@ export default function InvestingPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">💰</div>
+                <IconSymbol symbol='💰' className='mx-auto mb-4 h-10 w-10 text-green-600' ariaLabel='No state income tax icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">No State Income Tax</h3>
                 <p className="text-gray-600">Keep more of your rental income with Nevada's tax-friendly environment</p>
               </div>
               
               <div className="text-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">📈</div>
+                <IconSymbol symbol='📈' className='mx-auto mb-4 h-10 w-10 text-blue-600' ariaLabel='Population growth icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Population Growth</h3>
                 <p className="text-gray-600">Consistent population growth driving rental demand and property appreciation</p>
               </div>
               
               <div className="text-center bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">🏙️</div>
+                <IconSymbol symbol='🏢' className='mx-auto mb-4 h-10 w-10 text-purple-600' ariaLabel='Diverse economy icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Diverse Economy</h3>
                 <p className="text-gray-600">Tourism, tech, healthcare, and entertainment create stable economic foundation</p>
               </div>
               
               <div className="text-center bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6">
-                <div className="text-4xl mb-4">🏠</div>
+                <IconSymbol symbol='🏠' className='mx-auto mb-4 h-10 w-10 text-amber-600' ariaLabel='Strong rental market icon' />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Strong Rental Market</h3>
                 <p className="text-gray-600">High rental demand with competitive yields and low vacancy rates</p>
               </div>
@@ -227,7 +227,7 @@ export default function InvestingPage() {
               {investmentTypes.map((type, index) => (
                 <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="p-6">
-                    <div className="text-4xl mb-4">{type.icon}</div>
+                    <IconSymbol symbol={type.icon as IconSymbolKey} className='h-10 w-10 mb-4 text-green-600' ariaLabel={`${type.title} icon`} />
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
                     <p className="text-gray-600 mb-4">{type.description}</p>
                     
@@ -245,8 +245,8 @@ export default function InvestingPage() {
                     <ul className="space-y-2 mb-6">
                       {type.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-600">
-                          <span className="text-green-600 mr-2">•</span>
-                          {feature}
+                          <IconSymbol symbol='✓' className='text-green-600 mr-2 h-4 w-4' ariaLabel='Feature included' />
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -255,7 +255,10 @@ export default function InvestingPage() {
                       href="/contact"
                       className="inline-flex items-center bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors w-full justify-center"
                     >
-                      Learn More
+                      <span className='inline-flex items-center gap-2'>
+                        Learn More
+                        <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                      </span>
                     </Link>
                   </div>
                 </div>
@@ -301,7 +304,10 @@ export default function InvestingPage() {
                     href={`/areas/${area.name.toLowerCase().replace(/\s+/g, '-')}`}
                     className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                   >
-                    Explore {area.name}
+                    <span className='inline-flex items-center gap-2'>
+                      Explore {area.name}
+                      <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                    </span>
                   </Link>
                 </div>
               ))}
@@ -324,7 +330,7 @@ export default function InvestingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {investmentBenefits.map((benefit, index) => (
                 <div key={index} className="text-center bg-white rounded-xl p-6 shadow-lg">
-                  <div className="text-4xl mb-4">{benefit.icon}</div>
+                  <IconSymbol symbol={benefit.icon as IconSymbolKey} className='mx-auto mb-4 h-10 w-10 text-green-600' ariaLabel={`${benefit.title} icon`} />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
                 </div>
@@ -418,8 +424,10 @@ export default function InvestingPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-gray-50 rounded-xl p-6">
-                <div className="flex items-center mb-4">
-                  <div className="text-yellow-400 text-xl">★★★★★</div>
+                <div className="flex items-center mb-4 text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                  ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
                   "Dr. Duffy helped us build a portfolio of 5 rental properties. Her market knowledge and investment strategy are incredible."
@@ -429,8 +437,10 @@ export default function InvestingPage() {
               </div>
 
               <div className="bg-gray-50 rounded-xl p-6">
-                <div className="flex items-center mb-4">
-                  <div className="text-yellow-400 text-xl">★★★★★</div>
+                <div className="flex items-center mb-4 text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                  ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
                   "Dr. Duffy's fix & flip guidance helped us achieve 25% ROI on our first project. Her contractor network is invaluable."
@@ -440,8 +450,10 @@ export default function InvestingPage() {
               </div>
 
               <div className="bg-gray-50 rounded-xl p-6">
-                <div className="flex items-center mb-4">
-                  <div className="text-yellow-400 text-xl">★★★★★</div>
+                <div className="flex items-center mb-4 text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <IconSymbol key={i} symbol='⭐' className='h-4 w-4' ariaLabel='Star rating' />
+                  ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
                   "Dr. Duffy found us the perfect commercial property. Her due diligence process saved us from a bad investment."
@@ -467,13 +479,19 @@ export default function InvestingPage() {
                 href="/contact"
                 className="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
               >
-                Schedule Investment Consultation
+                <span className='inline-flex items-center gap-2'>
+                  Schedule Investment Consultation
+                  <IconSymbol symbol='→' className='h-3 w-3' ariaLabel='Arrow right' />
+                </span>
               </Link>
               <Link
                 href="tel:702-222-1964"
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-colors"
               >
-                Call (702) 222-1964
+                <span className='inline-flex items-center gap-2'>
+                  <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+                  Call (702) 222-1964
+                </span>
               </Link>
             </div>
           </div>

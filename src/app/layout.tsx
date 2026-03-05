@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@/app/globals.css';
+import { Inter, Lora } from 'next/font/google';
 
 import { Navigation } from '@/components/Globals/Navigation/Navigation';
 import { Footer } from '@/components/Globals/Footer/Footer';
@@ -10,6 +11,10 @@ import { MobileStickyCTA } from '@/components/ui/MobileStickyCTA';
 import { ScreenReaderAnnouncementsProvider } from '@/components/ui/ScreenReaderAnnouncements';
 import { WebVitalsMonitor } from '@/components/WebVitalsMonitor';
 import { SEO_CONFIG, generateRealEstateAgentSchema, generateLocalBusinessSchema, generateWebSiteSchema, generateSiteNavigationElementSchema } from '@/lib/seo';
+
+// Font loaders must be called at module scope
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' });
+const lora = Lora({ subsets: ['latin'], display: 'swap', variable: '--font-serif' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SEO_CONFIG.siteUrl),
@@ -78,7 +83,7 @@ export default function RootLayout({
   const siteNavigationSchema = generateSiteNavigationElementSchema();
 
   return (
-    <html lang='en' className='h-full'>
+    <html lang='en' className={`h-full ${inter.variable} ${lora.variable}`}>
       <head>
         <script
           src='https://em.realscout.com/widgets/realscout-web-components.umd.js'
@@ -197,7 +202,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="h-full flex flex-col" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+      <body className="h-full flex flex-col">
         {/* Google Tag Manager (noscript) */}
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <noscript>
@@ -224,7 +229,7 @@ export default function RootLayout({
             Skip to navigation
           </a>
         <Navigation />
-        <main id="main-content" className='flex-1'>{children}</main>
+        <main id="main-content" className='flex-1 content-flow'>{children}</main>
         <Footer />
         <MobileStickyCTA />
         <WebVitalsMonitor />

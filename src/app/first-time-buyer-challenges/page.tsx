@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = {
   title: 'Las Vegas First-Time Buyer Challenges & Solutions | Dr. Janet Duffy',
@@ -60,7 +61,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 1 - Affordability Crisis */}
               <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🔴</span>
+                  <IconSymbol symbol='⚠️' className='text-red-500 mr-3 h-6 w-6' ariaLabel='Risk icon' />
                   <h3 className="text-xl font-bold text-gray-900">1. The Affordability Crisis</h3>
                 </div>
                 <div className="space-y-3">
@@ -79,7 +80,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 2 - Down Payment */}
               <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-lg mr-3">💰</span>
+                  <IconSymbol symbol='💰' className='text-green-500 mr-3 h-5 w-5' ariaLabel='Finance icon' />
                   <h3 className="text-xl font-bold text-gray-900">2. Down Payment Mountain</h3>
                 </div>
                 <div className="space-y-3">
@@ -97,7 +98,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 3 - Cash Buyers */}
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🏃</span>
+                  <IconSymbol symbol='⚡' className='text-orange-500 mr-3 h-6 w-6' ariaLabel='Fast paced icon' />
                   <h3 className="text-xl font-bold text-gray-900">3. Competing with Cash Buyers</h3>
                 </div>
                 <div className="space-y-3">
@@ -113,7 +114,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 4 - Rising Costs */}
               <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-lg mr-3">📈</span>
+                  <IconSymbol symbol='📈' className='text-blue-500 mr-3 h-5 w-5' ariaLabel='Growth icon' />
                   <h3 className="text-xl font-bold text-gray-900">4. Rising Faster Than Wages</h3>
                 </div>
                 <div className="space-y-3">
@@ -130,7 +131,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 5 - Interest Rates */}
               <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-lg mr-3">📊</span>
+                  <IconSymbol symbol='📊' className='text-purple-500 mr-3 h-5 w-5' ariaLabel='Data icon' />
                   <h3 className="text-xl font-bold text-gray-900">5. Interest Rate Squeeze</h3>
                 </div>
                 <div className="space-y-3">
@@ -149,7 +150,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 6 - California Competition */}
               <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-lg mr-3">🌴</span>
+                  <IconSymbol symbol='🏝️' className='text-teal-500 mr-3 h-5 w-5' ariaLabel='Lifestyle icon' />
                   <h3 className="text-xl font-bold text-gray-900">6. California Competition</h3>
                 </div>
                 <div className="space-y-3">
@@ -165,7 +166,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 7 - Limited Inventory */}
               <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-lg mr-3">🏠</span>
+                  <IconSymbol symbol='🏠' className='text-amber-600 mr-3 h-5 w-5' ariaLabel='Home icon' />
                   <h3 className="text-xl font-bold text-gray-900">7. Limited Starter Home Inventory</h3>
                 </div>
                 <div className="space-y-3">
@@ -181,7 +182,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 8 - Credit Requirements */}
               <div className="bg-pink-50 border-l-4 border-pink-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">📋</span>
+                  <IconSymbol symbol='📋' className='text-blue-500 mr-3 h-6 w-6' ariaLabel='Checklist icon' />
                   <h3 className="text-xl font-bold text-gray-900">8. Credit Score Requirements</h3>
                 </div>
                 <div className="space-y-3">
@@ -199,7 +200,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 9 - Program Confusion */}
               <div className="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">🤔</span>
+                  <IconSymbol symbol='💭' className='text-indigo-500 mr-3 h-6 w-6' ariaLabel='Thought icon' />
                   <h3 className="text-xl font-bold text-gray-900">9. Program Confusion</h3>
                 </div>
                 <div className="space-y-3">
@@ -215,7 +216,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Challenge 10 - Market Timing */}
               <div className="bg-gray-50 border-l-4 border-gray-500 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">⏰</span>
+                  <IconSymbol symbol='⏱️' className='text-rose-500 mr-3 h-6 w-6' ariaLabel='Time icon' />
                   <h3 className="text-xl font-bold text-gray-900">10. Market Timing Anxiety</h3>
                 </div>
                 <div className="space-y-3">
@@ -249,7 +250,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Down Payment Help */}
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <div className="flex items-center mb-6">
-                  <span className="text-lg mr-4">💰</span>
+                  <IconSymbol symbol='💰' className='text-green-500 mr-4 h-5 w-5' ariaLabel='Money icon' />
                   <h3 className="text-2xl font-bold text-gray-900">Down Payment Assistance</h3>
                 </div>
                 <div className="space-y-4">
@@ -274,7 +275,7 @@ export default function FirstTimeBuyerChallengesPage() {
               {/* Monthly Payment Relief */}
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <div className="flex items-center mb-6">
-                  <span className="text-lg mr-4">📊</span>
+                  <IconSymbol symbol='📊' className='text-purple-500 mr-4 h-5 w-5' ariaLabel='Data icon' />
                   <h3 className="text-2xl font-bold text-gray-900">Monthly Payment Relief</h3>
                 </div>
                 <div className="space-y-4">
@@ -374,7 +375,7 @@ export default function FirstTimeBuyerChallengesPage() {
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8">
               <div className="text-left space-y-4">
                 <div className="flex items-center mb-4">
-                  <span className="text-lg mr-4">🏠</span>
+                  <IconSymbol symbol='🏠' className='text-amber-600 mr-4 h-5 w-5' ariaLabel='Home icon' />
                   <h3 className="text-2xl font-bold">Rhodes Ranch Success</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -421,10 +422,11 @@ export default function FirstTimeBuyerChallengesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="tel:702-222-1964"
-              className="bg-white text-red-800 px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors duration-200 shadow-lg"
+              href='tel:702-222-1964'
+              className='bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2'
             >
-              📞 Call (702) 222-1964
+              <IconSymbol symbol='📞' className='h-5 w-5' ariaLabel='Phone icon' />
+              Call (702) 222-1964
             </Link>
             <Link
               href="/contact"
@@ -434,7 +436,7 @@ export default function FirstTimeBuyerChallengesPage() {
             </Link>
           </div>
           <p className="text-red-100 mt-6 text-lg font-semibold">
-            Your advocate through every hurdle, Dr. Jan 🏠
+            Your advocate through every hurdle, Dr. Jan <IconSymbol symbol='🏠' className='inline h-5 w-5 text-amber-600 align-middle' ariaLabel='Home icon' />
           </p>
         </div>
       </section>

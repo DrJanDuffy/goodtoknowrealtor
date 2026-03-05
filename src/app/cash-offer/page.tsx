@@ -1,6 +1,10 @@
+'use client';
+
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { generatePageMetadata, generateBreadcrumbSchema } from '@/lib/seo';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Cash Offer Program | Dr. Jan Duffy - Las Vegas Real Estate Expert',
@@ -54,7 +58,7 @@ export default function CashOfferPage() {
               <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
                 <div className='text-center bg-white rounded-xl p-8 shadow-lg'>
                   <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                    <span className='text-blue-600 text-2xl'>⚡</span>
+                    <IconSymbol symbol='⚡' className='text-blue-600 text-2xl' ariaLabel='Fast icon' />
                   </div>
                   <h3 className='text-xl font-semibold text-gray-900 mb-4'>Lightning Fast Closing</h3>
                   <p className='text-gray-600 leading-relaxed'>
@@ -64,7 +68,7 @@ export default function CashOfferPage() {
                 
                 <div className='text-center bg-white rounded-xl p-8 shadow-lg'>
                   <div className='w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                    <span className='text-green-600 text-2xl'>🔧</span>
+                    <IconSymbol symbol='🔧' className='text-green-600 text-2xl' ariaLabel='Tools icon' />
                   </div>
                   <h3 className='text-xl font-semibold text-gray-900 mb-4'>No Repairs Required</h3>
                   <p className='text-gray-600 leading-relaxed'>
@@ -74,7 +78,7 @@ export default function CashOfferPage() {
                 
                 <div className='text-center bg-white rounded-xl p-8 shadow-lg'>
                   <div className='w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                    <span className='text-purple-600 text-2xl'>💰</span>
+                    <IconSymbol symbol='💰' className='text-purple-600 text-2xl' ariaLabel='Money icon' />
                   </div>
                   <h3 className='text-xl font-semibold text-gray-900 mb-4'>Competitive Market Pricing</h3>
                   <p className='text-gray-600 leading-relaxed'>
@@ -301,7 +305,11 @@ export default function CashOfferPage() {
               <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                 <div className='bg-white rounded-xl p-8 shadow-lg'>
                   <div className='flex items-center mb-4'>
-                    <div className='text-yellow-400 text-xl'>★★★★★</div>
+                    <div className='text-yellow-400 text-xl'>
+                      {[...Array(5)].map((_, i) => (
+                        <IconSymbol key={i} symbol='⭐' className='h-4 w-4 text-yellow-400' ariaLabel='Star rating' />
+                      ))}
+                    </div>
                   </div>
                   <p className='text-gray-700 mb-6 italic leading-relaxed'>
                     "Dr. Duffy's cash offer program saved us during our divorce. We got a fair price and closed in 10 days. No stress, no repairs, no hassles."
@@ -312,7 +320,11 @@ export default function CashOfferPage() {
                 
                 <div className='bg-white rounded-xl p-8 shadow-lg'>
                   <div className='flex items-center mb-4'>
-                    <div className='text-yellow-400 text-xl'>★★★★★</div>
+                    <div className='text-yellow-400 text-xl'>
+                      {[...Array(5)].map((_, i) => (
+                        <IconSymbol key={i} symbol='⭐' className='h-4 w-4 text-yellow-400' ariaLabel='Star rating' />
+                      ))}
+                    </div>
                   </div>
                   <p className='text-gray-700 mb-6 italic leading-relaxed'>
                     "Facing foreclosure, Dr. Duffy's cash offer gave us a fresh start. We got market value and avoided the stress of a traditional sale."

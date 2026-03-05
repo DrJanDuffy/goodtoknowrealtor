@@ -3,6 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { RealScoutSearch } from '@/components/PropertySearch/RealScoutSearch';
 import { RealScoutListings } from '@/components/Home/RealScoutListings';
+import { PageHero } from '@/components/ui/PageHero';
+import { ConsultationCTA } from '@/components/ui/ConsultationCTA';
+import { TrustBadges } from '@/components/Globals/TrustBadges/TrustBadges';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 import { generatePageMetadata, generateBreadcrumbSchema, generatePropertySchema } from '@/lib/seo';
 
 // Declare RealScout custom elements
@@ -96,28 +100,31 @@ export default function ListingsPage() {
       ))}
       <div className='min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50'>
       {/* Hero Section */}
-      <section className='bg-gradient-to-r from-amber-600 to-yellow-600 text-white py-16 lg:py-20'>
-        <div className='container'>
-          <div className='max-w-4xl mx-auto text-center'>
-            <h1 className='text-4xl lg:text-6xl font-bold mb-6'>
-              Las Vegas Property Listings
-            </h1>
-            <p className='text-xl lg:text-2xl text-amber-100 leading-relaxed'>
-              Discover exceptional homes in Las Vegas&apos;s most desirable
-              neighborhoods. From luxury estates to first-time buyer homes, find
-              your perfect property.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title='Luxury Las Vegas Property Listings'
+        subtitle={'Discover premier homes in Las Vegas\'s most prestigious neighborhoods. From luxury estates to exclusive gated communities, access exceptional properties with expert guidance.'}
+        backgroundImageUrl='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1973&q=80'
+        gradientFromClassName='from-amber-900'
+        gradientToClassName='to-amber-800'
+      >
+        <ConsultationCTA variant='primary' source='listings-page-hero' showPhone={false} className='bg-white text-amber-900 hover:bg-amber-50 border-2 border-white' />
+        <Link
+          href='/listings'
+          className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-900 transition-colors duration-200'
+        >
+          Browse All Listings
+        </Link>
+      </PageHero>
+      <TrustBadges />
 
       {/* RealScout Advanced Search Section */}
-      <section className='py-20 bg-gradient-to-br from-blue-50 to-indigo-50'>
+      <section id='advanced-search' className='py-20 bg-gradient-to-br from-amber-50 to-yellow-50'>
         <div className='container'>
           <div className='max-w-5xl mx-auto'>
             <div className='text-center mb-12'>
-              <div className='inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
-                🔍 Advanced Property Search
+              <div className='inline-flex items-center bg-amber-100 text-amber-900 px-4 py-2 rounded-full text-sm font-semibold mb-6'>
+                <IconSymbol symbol='🔍' className='mr-2 h-4 w-4 text-amber-700' ariaLabel='Search icon' />
+                Advanced Property Search
               </div>
               <h2 className='text-3xl lg:text-5xl font-bold text-gray-900 mb-4'>
                 Find Your Dream Home
@@ -140,33 +147,33 @@ export default function ListingsPage() {
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                   <Link
                     href='/areas/summerlin'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
-                    <div className='text-2xl mb-2'>🏔️</div>
+                    <IconSymbol symbol='🏔️' className='mx-auto mb-2 h-8 w-8 text-amber-700' ariaLabel='Mountain icon' />
                     <div className='font-semibold text-gray-900'>Summerlin</div>
                     <div className='text-sm text-gray-600'>Luxury Homes</div>
                   </Link>
                   <Link
                     href='/areas/henderson'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
-                    <div className='text-2xl mb-2'>🏘️</div>
+                    <IconSymbol symbol='🏘️' className='mx-auto mb-2 h-8 w-8 text-amber-700' ariaLabel='Community icon' />
                     <div className='font-semibold text-gray-900'>Henderson</div>
                     <div className='text-sm text-gray-600'>Family Homes</div>
                   </Link>
                   <Link
                     href='/areas/north-las-vegas'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
-                    <div className='text-2xl mb-2'>🏠</div>
+                    <IconSymbol symbol='🏠' className='mx-auto mb-2 h-8 w-8 text-amber-700' ariaLabel='Home icon' />
                     <div className='font-semibold text-gray-900'>North Las Vegas</div>
                     <div className='text-sm text-gray-600'>New Construction</div>
                   </Link>
                   <Link
                     href='/areas/downtown'
-                    className='bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-4 rounded-xl text-center transition-all duration-300 hover:shadow-md'
+                    className='card p-4 text-center'
                   >
-                    <div className='text-2xl mb-2'>🏙️</div>
+                    <IconSymbol symbol='🏙️' className='mx-auto mb-2 h-8 w-8 text-amber-700' ariaLabel='City skyline icon' />
                     <div className='font-semibold text-gray-900'>Downtown</div>
                     <div className='text-sm text-gray-600'>Urban Living</div>
                   </Link>
@@ -194,7 +201,7 @@ export default function ListingsPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Featured Property 1 */}
-            <div className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+            <div className='card overflow-hidden'>
               <div className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80'
@@ -226,8 +233,8 @@ export default function ListingsPage() {
                   views, gourmet kitchen, and resort-style backyard.
                 </p>
                 <Link
-                  href='/listings/search'
-                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                  href='/listings'
+                  className='btn btn-outline'
                 >
                   View Details
                   <svg
@@ -248,7 +255,7 @@ export default function ListingsPage() {
             </div>
 
             {/* Featured Property 2 */}
-            <div className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+            <div className='card overflow-hidden'>
               <div className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80'
@@ -280,8 +287,8 @@ export default function ListingsPage() {
                   updated kitchen, and private backyard.
                 </p>
                 <Link
-                  href='/listings/search'
-                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                  href='/listings'
+                  className='btn btn-outline'
                 >
                   View Details
                   <svg
@@ -302,7 +309,7 @@ export default function ListingsPage() {
             </div>
 
             {/* Featured Property 3 */}
-            <div className='bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+            <div className='card overflow-hidden'>
               <div className='relative h-64'>
                 <Image
                   src='https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
@@ -334,8 +341,8 @@ export default function ListingsPage() {
                   area with strong rental potential.
                 </p>
                 <Link
-                  href='/listings/search'
-                  className='inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors'
+                  href='/listings'
+                  className='btn btn-outline'
                 >
                   View Details
                   <svg
@@ -358,8 +365,8 @@ export default function ListingsPage() {
 
           <div className='text-center mt-12'>
             <Link
-              href='/listings/search'
-              className='inline-flex items-center bg-amber-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-700 transition-colors duration-200 shadow-lg'
+              href='/listings'
+              className='btn btn-primary'
             >
               View All Properties
               <svg
@@ -394,10 +401,10 @@ export default function ListingsPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Search */}
-            <Link href='/listings/search' className='group'>
+            <Link href='/listings' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
-                  <span className='text-2xl'>🔍</span>
+                  <IconSymbol symbol='🔍' className='h-8 w-8 text-amber-700' ariaLabel='Search icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   Search Properties
@@ -429,7 +436,7 @@ export default function ListingsPage() {
             <Link href='/listings/featured' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
-                  <span className='text-2xl'>⭐</span>
+                  <IconSymbol symbol='⭐' className='h-8 w-8 text-amber-700' ariaLabel='Featured star icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   Featured Properties
@@ -461,7 +468,7 @@ export default function ListingsPage() {
             <Link href='/listings/luxury' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
-                  <span className='text-2xl'>👑</span>
+                  <IconSymbol symbol='👑' className='h-8 w-8 text-amber-700' ariaLabel='Crown icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   Luxury Collection
@@ -493,13 +500,7 @@ export default function ListingsPage() {
             <Link href='/listings/open-houses' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
-                  <Image
-                    src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80'
-                    alt='Home'
-                    width={32}
-                    height={32}
-                    className='w-8 h-8'
-                  />
+                  <IconSymbol symbol='🏠' className='h-8 w-8 text-amber-700' ariaLabel='Home icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   Open Houses
@@ -531,7 +532,7 @@ export default function ListingsPage() {
             <Link href='/listings/lease' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
-                  <span className='text-2xl'>🔑</span>
+                  <IconSymbol symbol='🔑' className='h-8 w-8 text-amber-700' ariaLabel='Key icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   For Lease
@@ -563,7 +564,7 @@ export default function ListingsPage() {
             <Link href='/listings/communities' className='group'>
               <div className='bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 group-hover:bg-amber-50'>
                 <div className='w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-200 transition-colors'>
-                  <span className='text-2xl'>🏘️</span>
+                  <IconSymbol symbol='🏘️' className='h-8 w-8 text-amber-700' ariaLabel='Community icon' />
                 </div>
                 <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                   Our Communities
@@ -618,12 +619,7 @@ export default function ListingsPage() {
               />{' '}
               Call (702) 222-1964
             </Link>
-            <Link
-              href='/contact'
-              className='border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-amber-800 transition-colors duration-200'
-            >
-              Request Custom Search
-            </Link>
+            <ConsultationCTA variant='outline' source='listings-page-cta' showPhone={false} className='border-2 border-white text-white hover:bg-white hover:text-amber-800' />
           </div>
         </div>
       </section>
